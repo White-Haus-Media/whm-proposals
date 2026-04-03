@@ -62,7 +62,7 @@ nav .w{display:flex;justify-content:space-between;align-items:center}
 .ghost:hover{color:var(--t1)}
 
 /* ── BRAND PROMISE STRIP ── */
-.promise{padding:48px 0;border-top:1px solid var(--bd);border-bottom:1px solid var(--bd);background:var(--b)}
+.promise{padding:48px 0;border-top:1px solid rgba(155,122,40,.12);border-bottom:none;background:var(--cream)}
 .promise .w{text-align:center}
 .promise-label{font-size:14px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--g);margin-bottom:28px}
 .promise-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:32px}
@@ -83,6 +83,58 @@ nav .w{display:flex;justify-content:space-between;align-items:center}
 /* ── SECTIONS ── */
 .sec{padding:clamp(56px,10vw,88px) 0;position:relative;background:var(--b)}
 .sec-alt{padding:clamp(56px,10vw,88px) 0;position:relative;background:var(--b2)}
+.sec-cream{padding:clamp(56px,10vw,88px) 0;position:relative;background:var(--cream);color:#080808}
+.sec-cream .ey{color:#9B7A28}
+.sec-cream .gl{color:#9B7A28}
+.sec-cream .sh{color:#080808}
+.sec-cream .sp{color:rgba(8,8,8,.55)}
+.sec-cream .svc{border-color:rgba(155,122,40,.12);background:rgba(155,122,40,.04)}
+.sec-cream .svc:hover{border-color:rgba(155,122,40,.25)}
+.sec-cream .svc h3{color:#080808}
+.sec-cream .svc p{color:rgba(8,8,8,.55)}
+.sec-cream .svc-divider{background:#9B7A28}
+.sec-cream .proc{border-color:rgba(155,122,40,.12)}
+.sec-cream .proc h4{color:#080808}
+.sec-cream .proc p{color:rgba(8,8,8,.55)}
+.sec-cream .card{border-color:rgba(155,122,40,.12);background:rgba(155,122,40,.04)}
+.sec-cream .card:hover{border-color:rgba(155,122,40,.25)}
+.sec-cream .card h3{color:#080808}
+.sec-cream .card p{color:rgba(8,8,8,.55)}
+.sec-cream .card-ico{background:rgba(155,122,40,.08);border:1px solid rgba(155,122,40,.15)}
+.sec-cream .card-ico svg{stroke:#9B7A28}
+.sec-cream .acc-i{border-color:rgba(155,122,40,.12)}
+.sec-cream .acc-h:hover{background:rgba(155,122,40,.04)}
+.sec-cream .acc-h h4{color:#080808}
+.sec-cream .acc-t{color:#9B7A28}
+.sec-cream .acc-bd p{color:rgba(8,8,8,.55)}
+.sec-cream .promise-label{color:#9B7A28}
+.sec-cream .promise-ico{border-color:rgba(155,122,40,.2);background:rgba(155,122,40,.06)}
+.sec-cream .promise-ico svg{stroke:#9B7A28}
+.sec-cream .promise-grid p{color:rgba(8,8,8,.55)}
+.sec-cream .promise-grid h4{color:#080808}
+
+/* Verticals tabs */
+.vert-tabs{display:flex;gap:8px;margin-bottom:40px;overflow-x:auto;-webkit-overflow-scrolling:touch;scrollbar-width:none;padding-bottom:4px}
+.vert-tabs::-webkit-scrollbar{display:none}
+.vert-tab{padding:10px 20px;border:1px solid rgba(155,122,40,.15);border-radius:100px;font-size:13px;font-weight:600;color:rgba(8,8,8,.45);background:transparent;cursor:pointer;white-space:nowrap;transition:all .3s}
+.vert-tab:hover{border-color:rgba(155,122,40,.35);color:rgba(8,8,8,.7)}
+.vert-tab.active{background:#9B7A28;color:#F4EFE6;border-color:#9B7A28}
+.vert-panel{display:none;animation:vertFade .4s ease}
+.vert-panel.active{display:grid;grid-template-columns:1fr 1fr;gap:24px}
+@keyframes vertFade{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
+.vert-card{padding:24px;border:1px solid rgba(155,122,40,.12);border-radius:var(--r);background:rgba(155,122,40,.04)}
+.vert-card h4{font-size:15px;font-weight:700;color:#080808;margin-bottom:6px}
+.vert-card p{font-size:13px;color:rgba(8,8,8,.55);line-height:1.6}
+/* Verticals accordion (mobile) */
+.vert-acc{display:none}
+.vert-acc-item{border:1px solid rgba(155,122,40,.12);border-radius:var(--r);margin-bottom:8px;overflow:hidden}
+.vert-acc-btn{width:100%;padding:16px 20px;background:transparent;border:none;font-family:var(--font);font-size:14px;font-weight:700;color:#080808;text-align:left;cursor:pointer;display:flex;justify-content:space-between;align-items:center}
+.vert-acc-btn span{font-size:18px;color:#9B7A28;transition:transform .3s}
+.vert-acc-item.open .vert-acc-btn span{transform:rotate(45deg)}
+.vert-acc-body{max-height:0;overflow:hidden;transition:max-height .4s ease}
+.vert-acc-item.open .vert-acc-body{max-height:600px}
+.vert-acc-inner{padding:0 20px 20px;display:flex;flex-direction:column;gap:12px}
+.vert-acc-inner .vert-card{border:none;padding:12px 0;background:transparent}
 .ey{font-size:11px;letter-spacing:.25em;text-transform:uppercase;color:var(--g);font-weight:600;margin-bottom:12px}
 .sh{font-size:clamp(26px,4vw,40px);font-weight:800;line-height:1.1;letter-spacing:-.03em;margin-bottom:14px}
 .gl{color:var(--g)}
@@ -100,7 +152,9 @@ nav .w{display:flex;justify-content:space-between;align-items:center}
 .svc-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
 .svc{padding:28px;border:1px solid var(--bd);border-radius:var(--r);background:rgba(198,164,76,.015);transition:border-color .3s}
 .svc:hover{border-color:rgba(198,164,76,.15)}
-.svc-n{font-size:28px;font-weight:800;color:var(--g);opacity:.4;margin-bottom:12px}
+.svc-n{margin-bottom:14px;line-height:0}
+.svc-n svg{width:30px;height:30px}
+.sec-cream .svc-n svg{stroke:#9B7A28}
 .svc h3{font-size:16px;font-weight:700;margin-bottom:6px}
 .svc p{font-size:13px;color:var(--t2);line-height:1.6}
 .svc-divider{width:60px;height:1px;background:var(--g);margin:56px auto;opacity:.3}
@@ -109,7 +163,8 @@ nav .w{display:flex;justify-content:space-between;align-items:center}
 .proc-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:0}
 .proc{padding:28px;border-right:1px solid var(--bd);text-align:center}
 .proc:last-child{border-right:none}
-.proc-n{font-size:20px;font-weight:400;color:var(--g);opacity:.6;margin-bottom:8px}
+.proc-n{margin-bottom:10px;line-height:0}
+.proc-n svg{width:28px;height:28px}
 .proc h4{font-size:14px;font-weight:700;margin-bottom:6px}
 .proc p{font-size:12px;color:var(--t2);line-height:1.6}
 
@@ -250,28 +305,36 @@ footer{border-top:1px solid var(--bd);padding:48px 0;background:var(--b)}
 }
 @media(max-width:640px){
   body{font-size:14px}
-  .w{padding:0 16px}
+  .w{padding:0 20px}
   .nav-links{display:none}
   .mob-tog{display:block}
   .nav-links.open{display:flex;flex-direction:column;position:fixed;inset:0;background:rgba(8,8,8,.98);justify-content:center;align-items:center;gap:32px;z-index:200;padding:20px}
   .nav-links.open a{font-size:18px}
-  .hero .w{padding-top:80px;padding-bottom:40px}
   .hero .w{padding-top:100px;padding-bottom:60px}
   .hero h1{font-size:28px}
   .hero-p{font-size:15px}
   .hero-cta{flex-direction:column;align-items:stretch}
   .hero-cta .pill{text-align:center}
+  .sec-cream{padding:clamp(40px,8vw,72px) 0}
+  .sec-cream .ey,.sec-cream .sh,.sec-cream .sp{padding:0}
   .sh{font-size:24px}
+  .ey{margin-bottom:10px}
+  .sp{margin-bottom:32px}
   .promise-grid{grid-template-columns:1fr 1fr;gap:20px}
   .svc-grid{grid-template-columns:1fr}
   .proc-grid{grid-template-columns:1fr}
   .proc{border-right:none!important;border-bottom:1px solid var(--bd)!important}
   .proc:last-child{border-bottom:none!important}
+  .sec-cream .proc{border-bottom-color:rgba(155,122,40,.12)!important}
+  .sec-cream .proc:last-child{border-bottom:none!important}
   .tf{grid-template-columns:1fr}
   .folio-grid{grid-template-columns:1fr}
   .test-grid{grid-template-columns:1fr}
   .alt-contact{grid-template-columns:1fr}
   .audit-inner{grid-template-columns:1fr}
+  .vert-tabs-wrap{display:none}
+  .vert-acc{display:block}
+  .vert-panel.active{grid-template-columns:1fr}
   .roi-sg{grid-template-columns:1fr}
   .roi-results{grid-template-columns:1fr}
   .fab{bottom:80px;right:12px;padding:10px 16px;font-size:11px}
@@ -317,7 +380,7 @@ footer{border-top:1px solid var(--bd);padding:48px 0;background:var(--b)}
 </section>
 
 <!-- BRAND PROMISE — replaces "worked with brands" -->
-<section class="promise">
+<section class="promise sec-cream" style="padding:48px 0;border-top:1px solid rgba(155,122,40,.12);border-bottom:none">
 <div class="w">
   <div class="promise-label rv">We don't guess. We learn your business first.</div>
   <div class="promise-grid">
@@ -347,7 +410,7 @@ footer{border-top:1px solid var(--bd);padding:48px 0;background:var(--b)}
 
 
 <!-- THE GAP -->
-<section class="sec" id="why">
+<section class="sec-cream" id="why">
 <div class="w">
   <div class="rv">
     <div class="ey">The Problem</div>
@@ -375,8 +438,8 @@ footer{border-top:1px solid var(--bd);padding:48px 0;background:var(--b)}
 </div>
 </section>
 
-<!-- SERVICES -->
-<section class="sec-alt" id="services">
+<!-- SERVICES — BUILD (cream) -->
+<section class="sec-cream" id="services">
 <div class="w">
   <div class="rv">
     <div class="ey">What We Build</div>
@@ -384,24 +447,27 @@ footer{border-top:1px solid var(--bd);padding:48px 0;background:var(--b)}
     <p class="sp">No 47-page proposals. No six-month timelines. Just focused work that moves the needle.</p>
   </div>
   <div class="svc-grid">
-    <div class="svc rv d1"><div class="svc-n">01</div><h3>Website Refresh</h3><p>We take your existing site and make it faster, mobile-friendly, and built to convert. Done in a week.</p></div>
-    <div class="svc rv d2"><div class="svc-n">02</div><h3>Full Custom Build</h3><p>Complete visual overhaul, brand-aligned design, and a site that tells your story the way it deserves.</p></div>
-    <div class="svc rv d3"><div class="svc-n">03</div><h3>Brand Identity</h3><p>Logo, color system, typography, and a style guide that keeps everything consistent across every platform.</p></div>
-    <div class="svc rv d4"><div class="svc-n">04</div><h3>Site Care & Hosting</h3><p>Hosting, maintenance, security updates, backups, and monthly reporting so your site never falls behind.</p></div>
+    <div class="svc rv d1"><div class="svc-n"><svg viewBox="0 0 24 24" fill="none" stroke="#9B7A28" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M23 4v6h-6"/><path d="M1 20v-6h6"/><path d="M3.51 9a9 9 0 0114.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0020.49 15"/></svg></div><h3>Website Refresh</h3><p>We take your existing site and make it faster, mobile-friendly, and built to convert. Done in a week.</p></div>
+    <div class="svc rv d2"><div class="svc-n"><svg viewBox="0 0 24 24" fill="none" stroke="#9B7A28" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg></div><h3>Full Custom Build</h3><p>Complete visual overhaul, brand-aligned design, and a site that tells your story the way it deserves.</p></div>
+    <div class="svc rv d3"><div class="svc-n"><svg viewBox="0 0 24 24" fill="none" stroke="#9B7A28" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="13.5" cy="6.5" r="2.5"/><circle cx="19" cy="17" r="2"/><circle cx="6" cy="12" r="3"/><path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10 10-4.5 10-10S17.5 2 12 2"/></svg></div><h3>Brand Identity</h3><p>Logo, color system, typography, and a style guide that keeps everything consistent across every platform.</p></div>
+    <div class="svc rv d4"><div class="svc-n"><svg viewBox="0 0 24 24" fill="none" stroke="#9B7A28" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div><h3>Site Care & Hosting</h3><p>Hosting, maintenance, security updates, backups, and monthly reporting so your site never falls behind.</p></div>
   </div>
+</div>
+</section>
 
-  <div class="svc-divider"></div>
-
+<!-- SERVICES — GROW (black) -->
+<section class="sec" id="growth">
+<div class="w">
   <div class="rv">
     <div class="ey">How We Grow It</div>
     <h2 class="sh">Your site is live. <span class="gl">Now let's fill it.</span></h2>
     <p class="sp">A great website is the foundation. These services turn it into a growth engine that brings customers to your door every month.</p>
   </div>
   <div class="svc-grid">
-    <div class="svc rv d1"><div class="svc-n">05</div><h3>Google & Meta Ads</h3><p>Targeted ad campaigns on Google Search and Facebook/Instagram — set up, managed, and optimized monthly so you stop wasting money and start getting leads.</p></div>
-    <div class="svc rv d2"><div class="svc-n">06</div><h3>Email Marketing</h3><p>Automated welcome sequences, follow-ups, promotions, and newsletters that keep your business top-of-mind and bring past customers back.</p></div>
-    <div class="svc rv d3"><div class="svc-n">07</div><h3>Social Media Management</h3><p>Content creation, posting schedules, and community engagement across your platforms — so your brand shows up consistently without eating your time.</p></div>
-    <div class="svc rv d4"><div class="svc-n">08</div><h3>Local SEO & Google Business</h3><p>Google Business Profile optimization, local citations, review strategy, and content that gets you ranking in the map pack where your customers are searching.</p></div>
+    <div class="svc rv d1"><div class="svc-n"><svg viewBox="0 0 24 24" fill="none" stroke="#C6A44C" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg></div><h3>Google & Meta Ads</h3><p>Professionally managed campaigns on Google and Meta — strategically placed so the right customers find you when they're ready to buy.</p></div>
+    <div class="svc rv d2"><div class="svc-n"><svg viewBox="0 0 24 24" fill="none" stroke="#C6A44C" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></div><h3>Email Marketing</h3><p>Automated welcome sequences, follow-ups, promotions, and newsletters that keep your business top-of-mind and bring past customers back.</p></div>
+    <div class="svc rv d3"><div class="svc-n"><svg viewBox="0 0 24 24" fill="none" stroke="#C6A44C" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg></div><h3>Social Media Management</h3><p>Content creation, posting schedules, and community engagement across your platforms — so your brand stays consistent and your audience keeps growing.</p></div>
+    <div class="svc rv d4"><div class="svc-n"><svg viewBox="0 0 24 24" fill="none" stroke="#C6A44C" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg></div><h3>Local SEO & Google Business</h3><p>Google Business Profile optimization, local citations, review strategy, and content that gets you ranking in the map pack where your customers are searching.</p></div>
   </div>
 </div>
 </section>
@@ -466,6 +532,108 @@ footer{border-top:1px solid var(--bd);padding:48px 0;background:var(--b)}
 </div>
 </section>
 
+<!-- VERTICALS -->
+<section class="sec-cream" id="verticals">
+<div class="w">
+  <div class="rv">
+    <div class="ey">Who We Build For</div>
+    <h2 class="sh">Every industry has a story. <span class="gl">We know how to tell yours.</span></h2>
+    <p class="sp">We design for businesses where trust, credibility, and first impressions drive revenue.</p>
+  </div>
+
+  <!-- Desktop: tabs -->
+  <div class="vert-tabs-wrap">
+    <div class="vert-tabs">
+      <button class="vert-tab active" data-vert="solo">Self-Employed Professionals</button>
+      <button class="vert-tab" data-vert="pro">Professional Services</button>
+      <button class="vert-tab" data-vert="retail">Retail & Hospitality</button>
+      <button class="vert-tab" data-vert="trade">Home & Trade Services</button>
+      <button class="vert-tab" data-vert="community">Community & Education</button>
+    </div>
+
+    <div class="vert-panel active" data-vert="solo">
+      <div class="vert-card"><h4>Consultants & Coaches</h4><p>Position yourself as the authority. A polished site converts referrals into paying clients before the first call.</p></div>
+      <div class="vert-card"><h4>Photographers & Creatives</h4><p>Your portfolio deserves a home that loads fast, looks stunning, and makes booking seamless.</p></div>
+      <div class="vert-card"><h4>Real Estate Agents</h4><p>Listings change, but your brand stays. A site that builds trust and captures leads around the clock.</p></div>
+      <div class="vert-card"><h4>Personal Trainers & Wellness</h4><p>Online booking, class schedules, and a brand that matches the transformation you deliver.</p></div>
+    </div>
+    <div class="vert-panel" data-vert="pro">
+      <div class="vert-card"><h4>Law Firms</h4><p>Clients research before they call. A credible, clear website turns searches into consultations.</p></div>
+      <div class="vert-card"><h4>Financial Advisors</h4><p>Trust is everything. A professional site signals competence before the first meeting.</p></div>
+      <div class="vert-card"><h4>Healthcare Practices</h4><p>Patient-first design with online scheduling, provider bios, and HIPAA-conscious contact forms.</p></div>
+      <div class="vert-card"><h4>Accounting & Tax</h4><p>Seasonal traffic spikes demand a site that converts. Clear services, easy contact, instant credibility.</p></div>
+    </div>
+    <div class="vert-panel" data-vert="retail">
+      <div class="vert-card"><h4>Restaurants & Cafes</h4><p>Menus, hours, reservations, and online ordering — all in one place that looks as good as the food.</p></div>
+      <div class="vert-card"><h4>Boutiques & Shops</h4><p>Showcase your inventory with a brand-forward site that drives foot traffic and online sales.</p></div>
+      <div class="vert-card"><h4>Salons & Spas</h4><p>Online booking, service menus, and a visual experience that matches the atmosphere you've built.</p></div>
+      <div class="vert-card"><h4>Event Venues</h4><p>Photo galleries, availability calendars, and inquiry forms that turn browsers into bookings.</p></div>
+    </div>
+    <div class="vert-panel" data-vert="trade">
+      <div class="vert-card"><h4>Contractors & Builders</h4><p>Before-and-after galleries, service areas, and lead forms that turn Google searches into estimates.</p></div>
+      <div class="vert-card"><h4>HVAC & Plumbing</h4><p>Emergency calls start online. A fast, mobile-first site with click-to-call gets you the job.</p></div>
+      <div class="vert-card"><h4>Landscaping & Outdoor</h4><p>Visual portfolios and seasonal service pages that keep your pipeline full year-round.</p></div>
+      <div class="vert-card"><h4>Cleaning Services</h4><p>Quote request forms, service breakdowns, and trust signals that win over homeowners.</p></div>
+    </div>
+    <div class="vert-panel" data-vert="community">
+      <div class="vert-card"><h4>Daycares & Childcare</h4><p>Parent-first design with enrollment forms, program details, and the warmth that families are looking for.</p></div>
+      <div class="vert-card"><h4>Churches & Nonprofits</h4><p>Event calendars, donation integration, and a welcoming presence that reflects your mission.</p></div>
+      <div class="vert-card"><h4>Tutoring & Education</h4><p>Class schedules, instructor bios, and registration flows that make signing up effortless.</p></div>
+      <div class="vert-card"><h4>Community Organizations</h4><p>Membership portals, event listings, and a hub that keeps your community connected and informed.</p></div>
+    </div>
+  </div>
+
+  <!-- Mobile: accordion -->
+  <div class="vert-acc">
+    <div class="vert-acc-item open">
+      <button class="vert-acc-btn">Self-Employed Professionals <span>+</span></button>
+      <div class="vert-acc-body"><div class="vert-acc-inner">
+        <div class="vert-card"><h4>Consultants & Coaches</h4><p>Position yourself as the authority. A polished site converts referrals into paying clients before the first call.</p></div>
+        <div class="vert-card"><h4>Photographers & Creatives</h4><p>Your portfolio deserves a home that loads fast, looks stunning, and makes booking seamless.</p></div>
+        <div class="vert-card"><h4>Real Estate Agents</h4><p>Listings change, but your brand stays. A site that builds trust and captures leads around the clock.</p></div>
+        <div class="vert-card"><h4>Personal Trainers & Wellness</h4><p>Online booking, class schedules, and a brand that matches the transformation you deliver.</p></div>
+      </div></div>
+    </div>
+    <div class="vert-acc-item">
+      <button class="vert-acc-btn">Professional Services <span>+</span></button>
+      <div class="vert-acc-body"><div class="vert-acc-inner">
+        <div class="vert-card"><h4>Law Firms</h4><p>Clients research before they call. A credible, clear website turns searches into consultations.</p></div>
+        <div class="vert-card"><h4>Financial Advisors</h4><p>Trust is everything. A professional site signals competence before the first meeting.</p></div>
+        <div class="vert-card"><h4>Healthcare Practices</h4><p>Patient-first design with online scheduling, provider bios, and HIPAA-conscious contact forms.</p></div>
+        <div class="vert-card"><h4>Accounting & Tax</h4><p>Seasonal traffic spikes demand a site that converts. Clear services, easy contact, instant credibility.</p></div>
+      </div></div>
+    </div>
+    <div class="vert-acc-item">
+      <button class="vert-acc-btn">Retail & Hospitality <span>+</span></button>
+      <div class="vert-acc-body"><div class="vert-acc-inner">
+        <div class="vert-card"><h4>Restaurants & Cafes</h4><p>Menus, hours, reservations, and online ordering — all in one place that looks as good as the food.</p></div>
+        <div class="vert-card"><h4>Boutiques & Shops</h4><p>Showcase your inventory with a brand-forward site that drives foot traffic and online sales.</p></div>
+        <div class="vert-card"><h4>Salons & Spas</h4><p>Online booking, service menus, and a visual experience that matches the atmosphere you've built.</p></div>
+        <div class="vert-card"><h4>Event Venues</h4><p>Photo galleries, availability calendars, and inquiry forms that turn browsers into bookings.</p></div>
+      </div></div>
+    </div>
+    <div class="vert-acc-item">
+      <button class="vert-acc-btn">Home & Trade Services <span>+</span></button>
+      <div class="vert-acc-body"><div class="vert-acc-inner">
+        <div class="vert-card"><h4>Contractors & Builders</h4><p>Before-and-after galleries, service areas, and lead forms that turn Google searches into estimates.</p></div>
+        <div class="vert-card"><h4>HVAC & Plumbing</h4><p>Emergency calls start online. A fast, mobile-first site with click-to-call gets you the job.</p></div>
+        <div class="vert-card"><h4>Landscaping & Outdoor</h4><p>Visual portfolios and seasonal service pages that keep your pipeline full year-round.</p></div>
+        <div class="vert-card"><h4>Cleaning Services</h4><p>Quote request forms, service breakdowns, and trust signals that win over homeowners.</p></div>
+      </div></div>
+    </div>
+    <div class="vert-acc-item">
+      <button class="vert-acc-btn">Community & Education <span>+</span></button>
+      <div class="vert-acc-body"><div class="vert-acc-inner">
+        <div class="vert-card"><h4>Daycares & Childcare</h4><p>Parent-first design with enrollment forms, program details, and the warmth that families are looking for.</p></div>
+        <div class="vert-card"><h4>Churches & Nonprofits</h4><p>Event calendars, donation integration, and a welcoming presence that reflects your mission.</p></div>
+        <div class="vert-card"><h4>Tutoring & Education</h4><p>Class schedules, instructor bios, and registration flows that make signing up effortless.</p></div>
+        <div class="vert-card"><h4>Community Organizations</h4><p>Membership portals, event listings, and a hub that keeps your community connected and informed.</p></div>
+      </div></div>
+    </div>
+  </div>
+</div>
+</section>
+
 <!-- TESTIMONIALS -->
 <section class="sec-alt" id="testimonials">
 <div class="w">
@@ -481,7 +649,7 @@ footer{border-top:1px solid var(--bd);padding:48px 0;background:var(--b)}
       <svg width="20" height="20" viewBox="0 0 24 24" fill="var(--g)" stroke="none"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
       <svg width="20" height="20" viewBox="0 0 24 24" fill="var(--g)" stroke="none"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
     </div>
-    <q style="font-size:clamp(18px,2.5vw,22px);line-height:1.7;color:var(--t1);font-weight:300;display:block;margin-bottom:28px;font-style:normal">I told them what I wanted, showed them a few things I liked, and they came back with something better than I imagined. The site looks like a company ten times our size built it. Customers tell us that all the time now.</q>
+    <q style="font-size:clamp(18px,2.5vw,22px);line-height:1.7;color:var(--t1);font-weight:300;display:block;margin-bottom:28px;font-style:normal">I told them what I wanted, showed them a few things I liked, and they came back with something better than I imagined. Clients assume I have a full team behind me now. That's the difference a real website makes.</q>
     <div style="display:flex;align-items:center;justify-content:center;gap:14px">
       <img src="https://carsoncar.b-cdn.net/IMG_1762.png" alt="Monty Carson" style="width:56px;height:56px;border-radius:50%;object-fit:cover;border:2px solid rgba(198,164,76,.25)">
       <div style="text-align:left">
@@ -495,7 +663,7 @@ footer{border-top:1px solid var(--bd);padding:48px 0;background:var(--b)}
 </section>
 
 <!-- PROCESS -->
-<section class="sec" id="process">
+<section class="sec-cream" id="process">
 <div class="w">
   <div class="rv">
     <div class="ey">How It Works</div>
@@ -503,10 +671,10 @@ footer{border-top:1px solid var(--bd);padding:48px 0;background:var(--b)}
     <p class="sp">We keep it simple so you can get back to what matters.</p>
   </div>
   <div class="proc-grid">
-    <div class="proc rv d1"><div class="proc-n">→</div><h4>We Talk</h4><p>A 20-minute call where we learn about your business, your customers, and what's not working.</p></div>
-    <div class="proc rv d2"><div class="proc-n">→</div><h4>We Audit</h4><p>We go through your site, your Google presence, and your competitors. We find every gap.</p></div>
-    <div class="proc rv d3"><div class="proc-n">→</div><h4>We Build</h4><p>Custom code, responsive design, speed optimization, and every integration you need.</p></div>
-    <div class="proc rv d4"><div class="proc-n">✓</div><h4>We Launch</h4><p>You review, we refine, then go live. Analytics and tracking configured from day one.</p></div>
+    <div class="proc rv d1"><div class="proc-n"><svg viewBox="0 0 24 24" fill="none" stroke="#9B7A28" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg></div><h4>We Talk</h4><p>A 20-minute call where we learn about your business, your customers, and what's not working.</p></div>
+    <div class="proc rv d2"><div class="proc-n"><svg viewBox="0 0 24 24" fill="none" stroke="#9B7A28" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></div><h4>We Audit</h4><p>We go through your site, your Google presence, and your competitors. We find every gap.</p></div>
+    <div class="proc rv d3"><div class="proc-n"><svg viewBox="0 0 24 24" fill="none" stroke="#9B7A28" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg></div><h4>We Build</h4><p>Custom code, responsive design, speed optimization, and every integration you need.</p></div>
+    <div class="proc rv d4"><div class="proc-n"><svg viewBox="0 0 24 24" fill="none" stroke="#9B7A28" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 00-2.91-.09z"/><path d="M12 15l-3-3a22 22 0 012-3.95A12.88 12.88 0 0122 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 01-4 2z"/><path d="M9 12H4s.55-3.03 2-4c1.62-1.08 3 0 3 0"/><path d="M12 15v5s3.03-.55 4-2c1.08-1.62 0-3 0-3"/></svg></div><h4>We Launch</h4><p>You review, we refine, then go live. Analytics and tracking configured from day one.</p></div>
   </div>
 </div>
 </section>
@@ -516,7 +684,7 @@ footer{border-top:1px solid var(--bd);padding:48px 0;background:var(--b)}
 <div class="w">
   <div class="rv" style="text-align:center;max-width:480px;margin:0 auto">
     <div class="ey" style="text-align:center">The Transformation</div>
-    <h2 class="sh">Same business. <span class="gl">Completely different first impression.</span></h2>
+    <h2 class="sh">Same business. <span class="gl">Elevated in every way.</span></h2>
   </div>
   <div class="tf">
     <div class="tf-col bef rv">
@@ -548,7 +716,7 @@ footer{border-top:1px solid var(--bd);padding:48px 0;background:var(--b)}
 
 
 <!-- UNDER THE HOOD -->
-<section class="sec" id="included">
+<section class="sec-cream" id="included">
 <div class="w">
   <div class="rv">
     <div class="ey">Under The Hood</div>
@@ -574,7 +742,7 @@ footer{border-top:1px solid var(--bd);padding:48px 0;background:var(--b)}
   </div>
   <div class="roi-card rv">
     <div class="roi-sg">
-      <div class="roi-s"><label>Industry</label><select id="roiIndustry" onchange="calcROI()"><option>Restaurant / Food & Bev</option><option>Home Services</option><option>Professional Services</option><option>Retail / E-Commerce</option><option>Daycare / Childcare</option><option>Religious Institution</option><option>Legal</option><option>Healthcare Practice</option><option>Finance</option></select></div>
+      <div class="roi-s"><label>Industry</label><select id="roiIndustry" onchange="calcROI()"><option>Self-Employed Professionals</option><option>Professional Services</option><option>Retail & Hospitality</option><option>Home & Trade Services</option><option>Community & Education</option></select></div>
       <div class="roi-s"><label><span id="roiAovLabel">Avg Order Value</span>: <span class="roi-val" id="roiAovVal">$50</span></label><input type="range" id="roiAov" min="10" max="500" value="50" step="5" oninput="document.getElementById('roiAovVal').textContent='$'+parseInt(this.value).toLocaleString();calcROI()"></div>
       <div class="roi-s big"><label>Monthly Website Visitors: <span class="roi-val" id="roiVisVal">1,000</span></label><input type="range" id="roiVisitors" min="100" max="10000" value="1000" step="100" oninput="document.getElementById('roiVisVal').textContent=parseInt(this.value).toLocaleString();calcROI()"></div>
     </div>
@@ -607,16 +775,11 @@ footer{border-top:1px solid var(--bd);padding:48px 0;background:var(--b)}
       <input type="email" placeholder="Your email" id="auditEmail">
       <select id="auditIndustry">
         <option value="">Your industry</option>
-        <option>Restaurant / Food & Bev</option>
-        <option>Home Services / Contractor</option>
-        <option>Legal</option>
-        <option>Healthcare Practice</option>
-        <option>Daycare / Childcare</option>
-        <option>Religious Institution</option>
-        <option>Finance</option>
-        <option>Real Estate</option>
-        <option>Retail / E-Commerce</option>
-        <option>Automotive</option>
+        <option>Self-Employed Professionals</option>
+        <option>Professional Services</option>
+        <option>Retail & Hospitality</option>
+        <option>Home & Trade Services</option>
+        <option>Community & Education</option>
         <option>Other</option>
       </select>
       <button onclick="submitAudit()">Send my free audit →</button>
@@ -644,7 +807,7 @@ footer{border-top:1px solid var(--bd);padding:48px 0;background:var(--b)}
 <div class="w">
   <div class="ft">
     <div class="ft-left">
-      <img src="https://WhiteHaus.b-cdn.net/WhiteHause%20Logo%20.png" alt="White Haus Media" style="height:40px;width:auto;opacity:.5">
+      <img src="https://WhiteHaus.b-cdn.net/WhiteHause%20Logo%20.png" alt="White Haus Media" style="height:40px;width:auto;object-fit:contain;opacity:.5">
       <p class="ft-tag">Custom websites for businesses that give a damn.</p>
     </div>
     <div class="ft-right">
@@ -684,6 +847,22 @@ footer{border-top:1px solid var(--bd);padding:48px 0;background:var(--b)}
 // Scroll reveal
 const obs=new IntersectionObserver(e=>{e.forEach(el=>{if(el.isIntersecting)el.target.classList.add('vis')})},{threshold:.06});
 document.querySelectorAll('.rv').forEach(el=>obs.observe(el));
+
+// Verticals tabs
+document.querySelectorAll('.vert-tab').forEach(btn=>{btn.addEventListener('click',()=>{
+  const v=btn.dataset.vert;
+  document.querySelectorAll('.vert-tab').forEach(b=>b.classList.remove('active'));
+  document.querySelectorAll('.vert-panel').forEach(p=>p.classList.remove('active'));
+  btn.classList.add('active');
+  document.querySelector('.vert-panel[data-vert="'+v+'"]').classList.add('active');
+})});
+// Verticals accordion
+document.querySelectorAll('.vert-acc-btn').forEach(btn=>{btn.addEventListener('click',()=>{
+  const item=btn.parentElement;
+  const wasOpen=item.classList.contains('open');
+  document.querySelectorAll('.vert-acc-item').forEach(i=>i.classList.remove('open'));
+  if(!wasOpen)item.classList.add('open');
+})});
 
 // Nav scroll
 window.addEventListener('scroll',()=>{document.querySelector('nav').classList.toggle('scrolled',window.scrollY>60);
@@ -728,18 +907,14 @@ function calcROI(){
   var ind=document.getElementById('roiIndustry').value;
   
   var cfg={
-    'Restaurant / Food & Bev':{label:'Avg Order Value',min:10,max:200,step:5,def:45,unit:'orders',cr:.025,opt:.05},
-    'Home Services':{label:'Avg Job Value',min:50,max:5000,step:50,def:500,unit:'leads',cr:.02,opt:.045},
+    'Self-Employed Professionals':{label:'Avg Client Value',min:50,max:5000,step:50,def:500,unit:'clients',cr:.02,opt:.045},
     'Professional Services':{label:'Avg Client Value',min:100,max:10000,step:100,def:1500,unit:'clients',cr:.02,opt:.04},
-    'Retail / E-Commerce':{label:'Avg Order Value',min:10,max:500,step:5,def:65,unit:'orders',cr:.025,opt:.05},
-    'Daycare / Childcare':{label:'Monthly Tuition',min:200,max:3000,step:50,def:1200,unit:'enrollments',cr:.015,opt:.035},
-    'Religious Institution':{label:'Avg Monthly Giving',min:20,max:500,step:10,def:100,unit:'new donors',cr:.02,opt:.04},
-    'Legal':{label:'Avg Case Value',min:500,max:50000,step:500,def:5000,unit:'consultations',cr:.015,opt:.035},
-    'Healthcare Practice':{label:'Avg Visit Revenue',min:50,max:1000,step:25,def:250,unit:'new patients',cr:.02,opt:.04},
-    'Finance':{label:'Avg Client Value',min:200,max:20000,step:200,def:3000,unit:'new clients',cr:.015,opt:.035}
+    'Retail & Hospitality':{label:'Avg Order Value',min:10,max:500,step:5,def:55,unit:'orders',cr:.025,opt:.05},
+    'Home & Trade Services':{label:'Avg Job Value',min:50,max:5000,step:50,def:500,unit:'leads',cr:.02,opt:.045},
+    'Community & Education':{label:'Monthly Tuition/Giving',min:50,max:3000,step:50,def:800,unit:'enrollments',cr:.015,opt:.035}
   };
   
-  var c=cfg[ind]||cfg['Restaurant / Food & Bev'];
+  var c=cfg[ind]||cfg['Self-Employed Professionals'];
   var slider=document.getElementById('roiAov');
   
   // Update label
@@ -763,15 +938,11 @@ function calcROI(){
   document.getElementById('roiAnn').textContent='$'+ann.toLocaleString();
   
   var tips={
-    'Restaurant / Food & Bev':'Online ordering integration and reservation CTAs typically drive 35%+ more covers for restaurants.',
-    'Home Services':'Before/after galleries and instant quote forms convert 3x better than generic contact pages for contractors.',
-    'Professional Services':'Case studies and client testimonials build trust faster than any sales page for service businesses.',
-    'Retail / E-Commerce':'Product photography and streamlined checkout flows can reduce cart abandonment by up to 40%.',
-    'Daycare / Childcare':'Virtual tours, safety certifications, and easy enrollment forms are the top trust-builders for parents choosing childcare.',
-    'Religious Institution':'Event calendars, online giving portals, and sermon archives keep your congregation connected and engaged throughout the week.',
-    'Legal':'Practice area pages with clear case results and a confidential intake form convert 4x better than a basic contact page for law firms.',
-    'Healthcare Practice':'Online appointment booking and patient portals reduce no-shows by 30% and free up front desk staff immediately.',
-    'Finance':'Compliance-friendly lead capture, educational content, and trust signals like certifications convert high-intent prospects in financial services.'
+    'Self-Employed Professionals':'A polished personal brand site with clear CTAs and booking integration converts referrals into paying clients before the first call.',
+    'Professional Services':'Case studies and client testimonials build trust faster than any sales page. Clear intake forms convert 4x better than generic contact pages.',
+    'Retail & Hospitality':'Product photography, online ordering, and streamlined checkout flows can reduce abandonment by up to 40% and drive more covers.',
+    'Home & Trade Services':'Before/after galleries and instant quote forms convert 3x better than generic contact pages for contractors and trades.',
+    'Community & Education':'Virtual tours, enrollment forms, event calendars, and trust signals are the top decision-drivers for families and community members.'
   };
   document.getElementById('roiTip').textContent=tips[ind]||'A professional website typically pays for itself within the first month through increased conversions.';
 }
@@ -921,7 +1092,7 @@ PRICING APPROACH:
 - Free site audit is available — just need their URL, name, and email
 
 INDUSTRIES WE SERVE:
-Restaurants, home services/contractors, legal, healthcare, daycare/childcare, religious institutions, finance, real estate, retail/e-commerce, automotive, and more.
+Self-employed professionals, professional services (legal, healthcare, finance), retail and hospitality, home and trade services, and community and education organizations.
 
 SCHEDULING:
 If someone wants to book a call or schedule a consultation, collect their name, email, and preferred time, then tell them we'll confirm within 24 hours. Direct them to fill out the audit form on the site for fastest response.
