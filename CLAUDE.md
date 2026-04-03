@@ -351,6 +351,33 @@ After generating the proposal, create via HubSpot MCP:
 
 ---
 
+## Contact Enrichment Order
+
+When searching for a prospect's contact info, follow this order — do not skip ahead:
+
+1. **Website scrape** — During Step 1 analysis, check every page thoroughly: About, Contact, Staff, Team, footer, privacy policy. Look for owner/director name, email address, and phone number.
+2. **Google Business Profile** — Check the GBP listing for owner name and phone number.
+3. **Apollo** — Only if steps 1 and 2 found no email, use Apollo to search for the decision maker at this business.
+4. **No result** — If Apollo also returns nothing, create a HubSpot task: "No contact found for [Business Name] — manual research needed."
+
+This saves Apollo credits for prospects where we truly can't find contact info any other way.
+
+---
+
+## Bottom 15 — No Email Fallback
+
+If a bottom 15 prospect has no email address after completing the full enrichment order (website scrape → Google Business → Apollo):
+
+1. **Contact form exists** — Submit the outreach message through their contact form. Include the proposal link. Log in `volume-outreach-log.md` as "contact form submitted" with date.
+
+2. **No contact form, but social presence exists** — Log their Facebook or Instagram profile URL in `volume-outreach-log.md` and flag for manual DM: "No email or contact form. Social profile: [URL]. Manual DM needed."
+
+3. **No email, no contact form, no social** — Mark as "unreachable" in `volume-outreach-log.md` and move on.
+
+The proposal still gets built and pushed live either way. If they ever Google themselves and find it, or if contact info surfaces later, the proposal is ready.
+
+---
+
 ## Email Generation
 
 After the proposal is live, draft an outreach email:
