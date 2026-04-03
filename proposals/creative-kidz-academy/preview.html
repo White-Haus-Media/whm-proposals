@@ -7,7 +7,7 @@
 <meta name="description" content="Creative Kidz Academy is a privately owned child care center in North Raleigh serving children 6 weeks to 12 years. Certified preschool, before & after care, summer camp.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@300;400;500;600;700;800&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&display=swap" rel="stylesheet">
 <style>
 *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
 :root{
@@ -17,11 +17,10 @@
   --coral:#FE7375;
   --coral-dark:#E45C5E;
   --yellow:#FFDE59;
-  --yellow-soft:#FFF8E1;
   --purple:#998DDD;
-  --cream:#FFF2BF;
-  --cream-light:#FFFDF5;
-  --orange:#E39934;
+  --cream:#FFF8E1;
+  --navy:#1A1A2E;
+  --navy-light:#2A2A42;
   --white:#FFFFFF;
   --off-white:#FAFBF9;
   --text:#1A1A2E;
@@ -29,201 +28,209 @@
   --text-light:#6B6B82;
   --text-muted:#9E9EB5;
   --border:rgba(0,0,0,.06);
+  --shadow-sm:0 2px 8px rgba(26,26,46,.04);
+  --shadow-md:0 8px 32px rgba(26,26,46,.06);
+  --shadow-lg:0 24px 64px rgba(26,26,46,.08);
 }
 html{scroll-behavior:smooth}
-body{font-family:'Work Sans',system-ui,sans-serif;color:var(--text);background:var(--off-white);-webkit-font-smoothing:antialiased;line-height:1.65}
+body{font-family:'Outfit',system-ui,sans-serif;color:var(--text);background:var(--off-white);-webkit-font-smoothing:antialiased;line-height:1.65;overflow-x:hidden}
 img{max-width:100%;display:block;object-fit:cover}
 a{text-decoration:none;color:inherit}
 
 /* NAV */
-.nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:0;transition:all .4s}
-.nav.scrolled{background:rgba(255,255,255,.96);backdrop-filter:blur(20px);box-shadow:0 1px 24px rgba(0,0,0,.05)}
-.nav-inner{display:flex;align-items:center;justify-content:space-between;padding:18px 40px;max-width:1280px;margin:0 auto}
-.nav-brand{display:flex;align-items:center;gap:12px}
-.nav-brand img{height:40px;border-radius:6px}
-.nav-brand-text{font-weight:700;font-size:1rem;color:var(--text);letter-spacing:-.01em}
-.nav-brand-text span{color:var(--coral)}
-.nav-links{display:flex;align-items:center;gap:32px;list-style:none}
-.nav-links a{font-size:.82rem;font-weight:600;color:var(--text-light);letter-spacing:.04em;text-transform:uppercase;transition:color .2s}
+.nav{position:fixed;top:0;left:0;right:0;z-index:100;transition:all .4s}
+.nav.scrolled{background:rgba(255,255,255,.97);backdrop-filter:blur(24px);box-shadow:0 1px 0 rgba(0,0,0,.04)}
+.nav-inner{display:flex;align-items:center;justify-content:space-between;padding:20px 48px;max-width:1360px;margin:0 auto}
+.nav-brand{display:flex;align-items:center;gap:14px}
+.nav-brand img{height:42px;border-radius:6px}
+.nav-brand-text{font-weight:700;font-size:1.05rem;color:var(--text);letter-spacing:-.02em}
+.nav-brand-text em{font-style:normal;color:var(--coral)}
+.nav-links{display:flex;align-items:center;gap:36px;list-style:none}
+.nav-links a{font-size:.8rem;font-weight:600;color:var(--text-light);letter-spacing:.06em;text-transform:uppercase;transition:color .25s}
 .nav-links a:hover{color:var(--coral)}
-.nav-cta{background:var(--coral);color:var(--white);padding:12px 28px;border-radius:100px;font-size:.82rem;font-weight:700;letter-spacing:.04em;text-transform:uppercase;transition:all .3s;border:none;cursor:pointer;font-family:inherit}
+.nav-cta{background:var(--coral);color:var(--white);padding:13px 30px;border-radius:100px;font-size:.8rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;transition:all .3s;border:none;cursor:pointer;font-family:inherit}
 .nav-cta:hover{background:var(--coral-dark);transform:translateY(-1px)}
 .menu-toggle{display:none;background:none;border:none;cursor:pointer}
 .menu-toggle span{display:block;width:24px;height:2px;background:var(--text);margin:5px 0;transition:.3s}
+.nav-phone{font-size:.85rem;font-weight:600;color:var(--teal-deep);letter-spacing:.02em}
 
-/* HERO — full-bleed split layout */
-.hero{min-height:100vh;display:grid;grid-template-columns:1fr 1fr;position:relative;overflow:hidden}
-.hero-content{display:flex;flex-direction:column;justify-content:center;padding:140px 60px 80px 80px;position:relative;z-index:2}
-.hero-label{font-size:.72rem;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:var(--teal-deep);margin-bottom:20px}
-.hero h1{font-family:'DM Serif Display',Georgia,serif;font-size:clamp(2.4rem,4.2vw,3.6rem);line-height:1.08;color:var(--text);margin-bottom:24px;letter-spacing:-.02em}
-.hero h1 span{color:var(--coral)}
-.hero-body{font-size:1.05rem;color:var(--text-body);max-width:440px;margin-bottom:36px;line-height:1.75;font-weight:400}
-.hero-actions{display:flex;gap:14px;flex-wrap:wrap;margin-bottom:40px}
-.btn{display:inline-flex;align-items:center;gap:8px;padding:15px 32px;border-radius:100px;font-size:.88rem;font-weight:700;border:none;cursor:pointer;font-family:inherit;transition:all .3s}
+/* HERO */
+.hero{min-height:100vh;position:relative;overflow:hidden;display:flex;align-items:flex-end}
+.hero-bg{position:absolute;inset:0;z-index:0}
+.hero-bg img{width:100%;height:100%;object-fit:cover;object-position:center 30%}
+.hero-bg::after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,rgba(26,26,46,.1) 0%,rgba(26,26,46,.25) 40%,rgba(26,26,46,.75) 100%)}
+.hero-content{position:relative;z-index:2;width:100%;max-width:1360px;margin:0 auto;padding:0 48px 80px}
+.hero-label{font-size:.72rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--teal);margin-bottom:20px}
+.hero h1{font-family:'Playfair Display',Georgia,serif;font-size:clamp(2.6rem,5vw,4.2rem);line-height:1.08;color:var(--white);margin-bottom:20px;max-width:700px;letter-spacing:-.02em}
+.hero h1 em{font-style:italic;color:var(--coral)}
+.hero-body{font-size:1.05rem;color:rgba(255,255,255,.8);max-width:520px;margin-bottom:36px;line-height:1.75;font-weight:300}
+.hero-actions{display:flex;gap:14px;flex-wrap:wrap;margin-bottom:44px}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:16px 34px;border-radius:100px;font-size:.85rem;font-weight:700;border:none;cursor:pointer;font-family:inherit;transition:all .3s;letter-spacing:.02em}
 .btn-coral{background:var(--coral);color:var(--white)}
-.btn-coral:hover{background:var(--coral-dark);transform:translateY(-2px);box-shadow:0 8px 24px rgba(254,115,117,.25)}
-.btn-teal{background:var(--teal);color:var(--white)}
-.btn-teal:hover{background:var(--teal-deep);transform:translateY(-2px)}
-.btn-outline{background:transparent;color:var(--text);border:2px solid var(--border)}
-.btn-outline:hover{border-color:var(--text);background:var(--text);color:var(--white)}
-.hero-trust{display:flex;gap:32px;font-size:.82rem;color:var(--text-light);font-weight:500}
-.hero-trust span{display:flex;align-items:center;gap:6px}
-.hero-trust svg{width:16px;height:16px;fill:none;stroke:var(--teal);stroke-width:2}
-.hero-media{position:relative;overflow:hidden}
-.hero-media img{width:100%;height:100%;object-fit:cover;object-position:center}
-.hero-media::after{content:'';position:absolute;inset:0;background:linear-gradient(90deg,var(--off-white) 0%,transparent 8%)}
+.btn-coral:hover{background:var(--coral-dark);transform:translateY(-2px);box-shadow:0 12px 32px rgba(254,115,117,.3)}
+.btn-white{background:rgba(255,255,255,.12);color:var(--white);backdrop-filter:blur(12px);border:1px solid rgba(255,255,255,.2)}
+.btn-white:hover{background:rgba(255,255,255,.22)}
+.hero-meta{display:flex;gap:48px}
+.hero-meta-item{color:var(--white)}
+.hero-meta-item strong{display:block;font-size:1.8rem;font-weight:800;letter-spacing:-.03em;line-height:1.1}
+.hero-meta-item span{font-size:.72rem;font-weight:500;text-transform:uppercase;letter-spacing:.1em;opacity:.6}
 
-/* TRUST BAR */
-.trust-bar{background:var(--teal);padding:28px 40px}
-.trust-inner{max-width:1280px;margin:0 auto;display:flex;justify-content:center;gap:48px;flex-wrap:wrap}
-.trust-stat{text-align:center;color:var(--white)}
-.trust-stat strong{display:block;font-size:1.6rem;font-weight:800;letter-spacing:-.02em}
-.trust-stat span{font-size:.75rem;font-weight:500;opacity:.85;letter-spacing:.04em;text-transform:uppercase}
+/* SECTIONS */
+section{padding:120px 48px}
+.section-inner{max-width:1360px;margin:0 auto}
+.section-label{font-size:.7rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--teal-deep);margin-bottom:14px}
+.section-heading{font-family:'Playfair Display',Georgia,serif;font-size:clamp(1.8rem,3.2vw,2.8rem);color:var(--text);line-height:1.12;margin-bottom:18px}
+.section-heading em{font-style:italic;color:var(--coral)}
+.section-sub{font-size:1rem;color:var(--text-light);max-width:540px;line-height:1.8;font-weight:300}
 
-/* SECTION UTILITIES */
-section{padding:100px 40px}
-.section-inner{max-width:1280px;margin:0 auto}
-.section-label{font-size:.72rem;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:var(--teal-deep);margin-bottom:12px}
-.section-heading{font-family:'DM Serif Display',Georgia,serif;font-size:clamp(1.8rem,3vw,2.6rem);color:var(--text);line-height:1.15;margin-bottom:16px}
-.section-heading span{color:var(--coral)}
-.section-sub{font-size:1rem;color:var(--text-light);max-width:520px;line-height:1.75}
-
-/* ABOUT — offset image + text */
+/* ABOUT — editorial layout */
 .about{background:var(--white)}
-.about-layout{display:grid;grid-template-columns:1.1fr 1fr;gap:72px;align-items:center}
-.about-image{position:relative;border-radius:24px;overflow:hidden;aspect-ratio:4/5}
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:0;min-height:600px}
+.about-image{position:relative;overflow:hidden}
 .about-image img{width:100%;height:100%;object-fit:cover}
-.about-image::before{content:'';position:absolute;bottom:0;left:0;right:0;height:40%;background:linear-gradient(to top,rgba(26,26,46,.15),transparent);z-index:1}
-.about-text p{font-size:1rem;color:var(--text-body);line-height:1.8;margin-bottom:16px}
-.about-highlights{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:32px}
-.highlight{padding:20px;background:var(--off-white);border-radius:16px}
-.highlight h4{font-size:.88rem;font-weight:700;color:var(--text);margin-bottom:4px}
-.highlight p{font-size:.82rem;color:var(--text-light);line-height:1.6;margin:0}
+.about-copy{display:flex;flex-direction:column;justify-content:center;padding:80px 72px}
+.about-copy .section-heading{margin-bottom:24px}
+.about-copy p{font-size:.95rem;color:var(--text-body);line-height:1.85;margin-bottom:16px;font-weight:300}
+.about-details{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-top:36px}
+.about-detail{border-left:2px solid var(--teal);padding-left:16px}
+.about-detail h4{font-size:.88rem;font-weight:700;color:var(--text);margin-bottom:4px}
+.about-detail p{font-size:.82rem;color:var(--text-light);line-height:1.6;margin:0}
 
-/* PROGRAMS — staggered layout */
+/* PROGRAMS — unique asymmetric layout */
 .programs{background:var(--off-white)}
-.programs-header{max-width:560px;margin-bottom:60px}
-.programs-grid{display:grid;grid-template-columns:repeat(12,1fr);gap:24px}
-.program{border-radius:24px;overflow:hidden;position:relative;transition:transform .4s}
-.program:hover{transform:translateY(-4px)}
-.program-bg{position:absolute;inset:0;z-index:0}
-.program-content{position:relative;z-index:2;padding:40px 32px}
-.program h3{font-family:'DM Serif Display',Georgia,serif;font-size:1.4rem;margin-bottom:8px}
-.program .ages{font-size:.75rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;opacity:.7;margin-bottom:12px}
-.program p{font-size:.88rem;line-height:1.65;opacity:.9}
-/* Unique sizing for each card */
-.program-1{grid-column:1/8;background:var(--teal);color:var(--white)}
-.program-2{grid-column:8/13;background:var(--coral);color:var(--white)}
-.program-3{grid-column:1/5;background:var(--purple);color:var(--white)}
-.program-4{grid-column:5/9;background:var(--yellow-soft);color:var(--text)}
-.program-4 h3{color:var(--text)}
-.program-4 .ages{color:var(--orange)}
-.program-5{grid-column:9/13;background:var(--text);color:var(--white)}
+.programs-header{max-width:560px;margin-bottom:72px}
+.programs-layout{display:grid;grid-template-columns:1fr 1fr;gap:32px}
+.program-feature{position:relative;border-radius:28px;overflow:hidden;min-height:480px;display:flex;flex-direction:column;justify-content:flex-end}
+.program-feature img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.program-feature::after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,transparent 30%,rgba(26,26,46,.85) 100%)}
+.program-feature-content{position:relative;z-index:2;padding:40px 36px}
+.program-feature-content .ages{font-size:.7rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--teal);margin-bottom:8px}
+.program-feature-content h3{font-family:'Playfair Display',Georgia,serif;font-size:1.6rem;color:var(--white);margin-bottom:10px}
+.program-feature-content p{font-size:.88rem;color:rgba(255,255,255,.75);line-height:1.7;font-weight:300}
+.program-stack{display:flex;flex-direction:column;gap:24px}
+.program-card{border-radius:24px;padding:36px;position:relative;overflow:hidden;flex:1;display:flex;flex-direction:column;justify-content:center}
+.program-card .ages{font-size:.68rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;margin-bottom:8px}
+.program-card h3{font-family:'Playfair Display',Georgia,serif;font-size:1.25rem;margin-bottom:10px}
+.program-card p{font-size:.86rem;line-height:1.65;opacity:.85;font-weight:300}
+.pc-teal{background:var(--teal);color:var(--white)}
+.pc-teal .ages{color:rgba(255,255,255,.6)}
+.pc-purple{background:var(--purple);color:var(--white)}
+.pc-purple .ages{color:rgba(255,255,255,.6)}
+.pc-warm{background:var(--cream);color:var(--text)}
+.pc-warm .ages{color:var(--coral)}
+.pc-warm h3{color:var(--text)}
 
-/* GALLERY — masonry-style */
-.gallery{background:var(--white)}
-.gallery-header{text-align:center;max-width:560px;margin:0 auto 60px}
-.gallery-header .section-sub{margin:0 auto}
-.gallery-grid{display:grid;grid-template-columns:repeat(3,1fr);grid-auto-rows:220px;gap:16px}
+/* GALLERY — editorial mosaic */
+.gallery{background:var(--white);padding-bottom:0}
+.gallery-header{max-width:560px;margin-bottom:60px}
+.gallery-mosaic{display:grid;grid-template-columns:2fr 1fr 1fr;grid-template-rows:320px 280px;gap:12px}
 .gallery-item{border-radius:20px;overflow:hidden;position:relative}
-.gallery-item img{width:100%;height:100%;object-fit:cover;transition:transform .6s}
-.gallery-item:hover img{transform:scale(1.05)}
-.gallery-item.tall{grid-row:span 2}
-.gallery-item.wide{grid-column:span 2}
+.gallery-item img{width:100%;height:100%;object-fit:cover;transition:transform .8s cubic-bezier(.25,.1,.25,1)}
+.gallery-item:hover img{transform:scale(1.04)}
+.gallery-item:first-child{grid-row:1/3}
 
-/* WHY — full-width with inset content */
-.why{background:var(--text);color:var(--white);position:relative;overflow:hidden}
-.why::before{content:'';position:absolute;top:-100px;right:-100px;width:500px;height:500px;border-radius:50%;background:var(--teal);opacity:.06;filter:blur(80px)}
+/* WHY — dark section with editorial layout */
+.why{background:var(--navy);color:var(--white);position:relative;overflow:hidden}
+.why::before{content:'';position:absolute;top:-200px;right:-200px;width:600px;height:600px;border-radius:50%;background:var(--teal);opacity:.04;filter:blur(120px)}
+.why::after{content:'';position:absolute;bottom:-200px;left:-100px;width:400px;height:400px;border-radius:50%;background:var(--coral);opacity:.03;filter:blur(100px)}
 .why .section-label{color:var(--yellow)}
 .why .section-heading{color:var(--white)}
-.why .section-heading span{color:var(--yellow)}
-.why-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:40px;margin-top:60px}
-.why-item{padding:0}
-.why-num{font-family:'DM Serif Display',Georgia,serif;font-size:3rem;color:var(--teal);opacity:.3;margin-bottom:8px;line-height:1}
-.why-item h3{font-size:1.05rem;font-weight:700;margin-bottom:10px;color:var(--white)}
-.why-item p{font-size:.9rem;color:rgba(255,255,255,.6);line-height:1.7}
+.why .section-heading em{color:var(--yellow)}
+.why-layout{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:start;margin-top:72px}
+.why-col{display:flex;flex-direction:column;gap:48px}
+.why-item{position:relative;padding-left:28px}
+.why-item::before{content:'';position:absolute;left:0;top:6px;width:3px;height:32px;background:var(--teal);border-radius:4px}
+.why-item h3{font-size:1rem;font-weight:700;margin-bottom:10px;color:var(--white)}
+.why-item p{font-size:.88rem;color:rgba(255,255,255,.55);line-height:1.75;font-weight:300}
 
-/* TESTIMONIAL — offset quote */
-.testimonials{background:var(--cream-light)}
-.testimonial-layout{display:grid;grid-template-columns:1fr 1.2fr;gap:60px;align-items:center}
-.testimonial-intro .section-heading{margin-bottom:20px}
-.testimonial-card{background:var(--white);border-radius:24px;padding:48px;position:relative;box-shadow:0 4px 32px rgba(0,0,0,.04)}
-.testimonial-card::before{content:'\201C';font-family:'DM Serif Display',Georgia,serif;font-size:6rem;color:var(--teal);opacity:.15;position:absolute;top:16px;left:32px;line-height:1}
-.testimonial-quote{font-size:1.1rem;color:var(--text);line-height:1.8;font-style:italic;position:relative;z-index:1;margin-bottom:24px}
-.testimonial-attr{display:flex;align-items:center;gap:12px}
-.testimonial-avatar{width:44px;height:44px;border-radius:50%;background:var(--teal);display:grid;place-items:center;color:var(--white);font-weight:700;font-size:.9rem}
+/* TESTIMONIAL */
+.testimonials{background:var(--off-white)}
+.testimonial-grid{display:grid;grid-template-columns:1.4fr 1fr;gap:72px;align-items:center}
+.testimonial-card{position:relative;padding:0}
+.testimonial-quote{font-family:'Playfair Display',Georgia,serif;font-size:1.5rem;color:var(--text);line-height:1.6;font-style:italic;margin-bottom:32px;position:relative}
+.testimonial-quote::before{content:'\201C';font-family:'Playfair Display',Georgia,serif;font-size:8rem;color:var(--teal);opacity:.12;position:absolute;top:-50px;left:-20px;line-height:1}
+.testimonial-attr{display:flex;align-items:center;gap:14px}
+.testimonial-avatar{width:48px;height:48px;border-radius:50%;background:var(--teal);display:grid;place-items:center;color:var(--white);font-weight:700;font-size:.95rem}
 .testimonial-name{font-weight:700;font-size:.88rem;color:var(--text)}
 .testimonial-role{font-size:.78rem;color:var(--text-muted)}
+.testimonial-image{border-radius:24px;overflow:hidden;aspect-ratio:4/5}
+.testimonial-image img{width:100%;height:100%;object-fit:cover}
 
-/* CTA BANNER */
-.cta-banner{background:linear-gradient(135deg,var(--coral) 0%,var(--purple) 100%);padding:80px 40px;text-align:center;position:relative;overflow:hidden}
-.cta-banner::before{content:'';position:absolute;top:-60px;left:50%;transform:translateX(-50%);width:600px;height:600px;border-radius:50%;background:rgba(255,255,255,.05);filter:blur(60px)}
-.cta-banner h2{font-family:'DM Serif Display',Georgia,serif;font-size:clamp(1.8rem,3vw,2.6rem);color:var(--white);margin-bottom:16px;position:relative;z-index:2}
-.cta-banner p{font-size:1.05rem;color:rgba(255,255,255,.85);max-width:460px;margin:0 auto 32px;position:relative;z-index:2;line-height:1.75}
-.cta-banner .btn{position:relative;z-index:2}
+/* CTA */
+.cta{background:var(--coral);position:relative;overflow:hidden;text-align:center}
+.cta::before{content:'';position:absolute;top:-100px;left:50%;transform:translateX(-50%);width:800px;height:800px;border-radius:50%;background:var(--purple);opacity:.15;filter:blur(120px)}
+.cta h2{font-family:'Playfair Display',Georgia,serif;font-size:clamp(2rem,3.5vw,3rem);color:var(--white);margin-bottom:18px;position:relative;z-index:2}
+.cta p{font-size:1.05rem;color:rgba(255,255,255,.85);max-width:480px;margin:0 auto 36px;position:relative;z-index:2;line-height:1.75;font-weight:300}
+.btn-on-coral{background:var(--white);color:var(--coral);font-weight:700;position:relative;z-index:2}
+.btn-on-coral:hover{transform:translateY(-2px);box-shadow:0 12px 32px rgba(0,0,0,.15)}
 
 /* CONTACT */
 .contact{background:var(--white)}
-.contact-layout{display:grid;grid-template-columns:1fr 1.2fr;gap:60px}
-.contact-info h3{font-family:'DM Serif Display',Georgia,serif;font-size:1.6rem;color:var(--text);margin-bottom:16px}
-.contact-info>p{font-size:1rem;color:var(--text-light);line-height:1.75;margin-bottom:32px}
-.contact-detail{display:flex;gap:14px;margin-bottom:24px;align-items:flex-start}
-.contact-icon{width:40px;height:40px;min-width:40px;border-radius:12px;background:var(--teal);display:grid;place-items:center}
+.contact-layout{display:grid;grid-template-columns:1fr 1.2fr;gap:72px}
+.contact-info h3{font-family:'Playfair Display',Georgia,serif;font-size:1.6rem;color:var(--text);margin-bottom:16px}
+.contact-info>p{font-size:.95rem;color:var(--text-light);line-height:1.8;margin-bottom:36px;font-weight:300}
+.contact-detail{display:flex;gap:16px;margin-bottom:28px;align-items:flex-start}
+.contact-icon{width:44px;height:44px;min-width:44px;border-radius:14px;background:var(--teal);display:grid;place-items:center}
 .contact-icon svg{width:18px;height:18px;stroke:var(--white);fill:none;stroke-width:2}
-.contact-detail-text strong{display:block;font-size:.72rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--text-muted);margin-bottom:2px}
-.contact-detail-text span{font-size:.95rem;color:var(--text)}
+.contact-detail-text strong{display:block;font-size:.7rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--text-muted);margin-bottom:3px}
+.contact-detail-text span{font-size:.92rem;color:var(--text)}
 .contact-detail-text a{color:var(--coral);font-weight:600}
-.contact-form{background:var(--off-white);border-radius:24px;padding:48px}
+.contact-form{background:var(--off-white);border-radius:28px;padding:52px}
 .form-row{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:16px}
 .form-group{margin-bottom:16px}
-.form-group label{display:block;font-size:.72rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--text-light);margin-bottom:6px}
-.form-group input,.form-group textarea,.form-group select{width:100%;padding:14px 18px;border:1px solid var(--border);border-radius:12px;font-family:'Work Sans',sans-serif;font-size:.92rem;color:var(--text);background:var(--white);transition:border-color .2s}
+.form-group label{display:block;font-size:.7rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--text-light);margin-bottom:8px}
+.form-group input,.form-group textarea,.form-group select{width:100%;padding:15px 20px;border:1px solid var(--border);border-radius:14px;font-family:'Outfit',sans-serif;font-size:.9rem;color:var(--text);background:var(--white);transition:border-color .25s}
 .form-group input:focus,.form-group textarea:focus,.form-group select:focus{outline:none;border-color:var(--teal)}
 .form-group textarea{height:110px;resize:vertical}
-.form-submit{width:100%;padding:16px;background:var(--coral);color:var(--white);border:none;border-radius:100px;font-family:'Work Sans',sans-serif;font-size:.88rem;font-weight:700;letter-spacing:.04em;text-transform:uppercase;cursor:pointer;transition:all .3s}
+.form-submit{width:100%;padding:17px;background:var(--coral);color:var(--white);border:none;border-radius:100px;font-family:'Outfit',sans-serif;font-size:.85rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;cursor:pointer;transition:all .3s}
 .form-submit:hover{background:var(--coral-dark)}
 
 /* FOOTER */
-.footer{background:var(--text);color:rgba(255,255,255,.5);padding:60px 40px}
-.footer-inner{max-width:1280px;margin:0 auto;display:grid;grid-template-columns:1.5fr 1fr 1fr;gap:48px}
-.footer-brand img{height:36px;margin-bottom:14px;filter:brightness(10)}
-.footer-brand p{font-size:.88rem;line-height:1.7;max-width:300px}
-.footer h4{font-size:.72rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.3);margin-bottom:16px}
-.footer-links{list-style:none;display:flex;flex-direction:column;gap:10px}
-.footer-links a{font-size:.88rem;color:rgba(255,255,255,.5);transition:color .2s}
+.footer{background:var(--navy);color:rgba(255,255,255,.5);padding:64px 48px}
+.footer-inner{max-width:1360px;margin:0 auto;display:grid;grid-template-columns:1.5fr 1fr 1fr;gap:48px}
+.footer-brand img{height:36px;margin-bottom:16px;filter:brightness(10)}
+.footer-brand p{font-size:.86rem;line-height:1.75;max-width:300px;font-weight:300}
+.footer h4{font-size:.7rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.25);margin-bottom:18px}
+.footer-links{list-style:none;display:flex;flex-direction:column;gap:12px}
+.footer-links a{font-size:.86rem;color:rgba(255,255,255,.45);transition:color .25s;font-weight:300}
 .footer-links a:hover{color:var(--teal)}
-.footer-bottom{max-width:1280px;margin:0 auto;padding-top:32px;margin-top:32px;border-top:1px solid rgba(255,255,255,.06);display:flex;justify-content:space-between;font-size:.78rem}
-.footer-bottom a{color:var(--teal);text-decoration:none}
+.footer-bottom{max-width:1360px;margin:0 auto;padding-top:36px;margin-top:36px;border-top:1px solid rgba(255,255,255,.06);display:flex;justify-content:space-between;font-size:.78rem}
+.footer-bottom a{color:var(--teal)}
 
 /* REVEAL */
-.reveal{opacity:0;transform:translateY(20px);transition:opacity .7s ease,transform .7s ease}
+.reveal{opacity:0;transform:translateY(24px);transition:opacity .8s cubic-bezier(.25,.1,.25,1),transform .8s cubic-bezier(.25,.1,.25,1)}
 .reveal.visible{opacity:1;transform:translateY(0)}
 
 /* MOBILE */
 @media(max-width:900px){
-  .hero{grid-template-columns:1fr;min-height:auto}
-  .hero-content{padding:120px 24px 60px}
-  .hero-media{height:360px}
-  .hero-media::after{background:linear-gradient(180deg,var(--off-white) 0%,transparent 15%)}
   .nav-inner{padding:14px 24px}
   .nav-links{display:none}
   .menu-toggle{display:block}
-  section{padding:72px 24px}
-  .about-layout,.contact-layout,.testimonial-layout{grid-template-columns:1fr;gap:40px}
-  .programs-grid{grid-template-columns:1fr}
-  .programs-grid .program{grid-column:auto!important}
-  .why-grid{grid-template-columns:1fr;gap:32px}
-  .gallery-grid{grid-template-columns:1fr 1fr;grid-auto-rows:180px}
-  .gallery-item.wide{grid-column:auto}
-  .trust-inner{gap:24px}
-  .trust-stat strong{font-size:1.3rem}
+  section{padding:80px 24px}
+  .hero{min-height:90vh}
+  .hero-content{padding:0 24px 60px}
+  .hero h1{font-size:clamp(2rem,7vw,2.6rem)}
+  .hero-meta{gap:24px;flex-wrap:wrap}
+  .hero-meta-item strong{font-size:1.3rem}
+  .about-grid{grid-template-columns:1fr}
+  .about-image{height:360px}
+  .about-copy{padding:48px 24px}
+  .about-details{grid-template-columns:1fr}
+  .programs-layout{grid-template-columns:1fr}
+  .program-feature{min-height:360px}
+  .gallery-mosaic{grid-template-columns:1fr 1fr;grid-template-rows:240px 200px 200px}
+  .gallery-item:first-child{grid-row:auto;grid-column:1/-1}
+  .why-layout{grid-template-columns:1fr;gap:48px}
+  .testimonial-grid{grid-template-columns:1fr}
+  .testimonial-image{display:none}
+  .contact-layout{grid-template-columns:1fr}
   .footer-inner{grid-template-columns:1fr}
   .footer-bottom{flex-direction:column;gap:8px}
   .form-row{grid-template-columns:1fr}
 }
 @media(max-width:480px){
-  .gallery-grid{grid-template-columns:1fr;grid-auto-rows:200px}
-  .gallery-item.tall{grid-row:auto}
+  .gallery-mosaic{grid-template-columns:1fr;grid-template-rows:repeat(5,200px)}
+  .hero-meta{flex-direction:column;gap:16px}
 }
 </style>
 </head>
@@ -234,14 +241,14 @@ section{padding:100px 40px}
   <div class="nav-inner">
     <a href="#" class="nav-brand">
       <img src="https://lirp.cdn-website.com/6a704379/dms3rep/multi/opt/Logo-Creative-Kidz-Academy-364w.png" alt="Creative Kidz Academy">
-      <span class="nav-brand-text">Creative Kidz <span>Academy</span></span>
+      <span class="nav-brand-text">Creative Kidz <em>Academy</em></span>
     </a>
     <ul class="nav-links">
       <li><a href="#about">About</a></li>
       <li><a href="#programs">Programs</a></li>
       <li><a href="#gallery">Gallery</a></li>
       <li><a href="#contact">Contact</a></li>
-      <li><a href="tel:9198415707" style="color:var(--coral);font-weight:700">919-841-5707</a></li>
+      <li><a href="tel:9198415707" class="nav-phone">919-841-5707</a></li>
       <li><button class="nav-cta" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Enroll Now</button></li>
     </ul>
     <button class="menu-toggle" id="menuToggle" aria-label="Menu"><span></span><span></span><span></span></button>
@@ -250,64 +257,53 @@ section{padding:100px 40px}
 
 <!-- HERO -->
 <section class="hero">
+  <div class="hero-bg">
+    <img src="https://lirp.cdn-website.com/6a704379/dms3rep/multi/opt/Untitled-design--2811-29-08800919-1920w.png" alt="Children at Creative Kidz Academy">
+  </div>
   <div class="hero-content">
-    <div class="hero-label reveal">North Raleigh Child Care</div>
-    <h1 class="reveal">Where every child is <span>known,</span> loved, and learning</h1>
-    <p class="hero-body reveal">A privately owned child care center on Strickland Road, serving families from infants to school-age since 2004. Certified preschool, before and after care, and summer camp — all under one roof.</p>
+    <div class="hero-label reveal">North Raleigh Child Care &middot; Since 2004</div>
+    <h1 class="reveal">Where every child is <em>known,</em> loved, and learning</h1>
+    <p class="hero-body reveal">A privately owned child care center on Strickland Road, serving families from infants to school-age. Certified preschool, before and after care, and summer camp — all under one roof.</p>
     <div class="hero-actions reveal">
       <button class="btn btn-coral" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Schedule a Tour</button>
-      <a href="#programs" class="btn btn-outline">View Programs</a>
+      <a href="#programs" class="btn btn-white">View Programs</a>
     </div>
-    <div class="hero-trust reveal">
-      <span><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg> 3-Star Rated Center</span>
-      <span><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg> Open 7am - 6pm</span>
-      <span><svg viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg> Ages 6 weeks - 12 years</span>
+    <div class="hero-meta reveal">
+      <div class="hero-meta-item"><strong>22+</strong><span>Years in Raleigh</span></div>
+      <div class="hero-meta-item"><strong>6wk–12yr</strong><span>Age Range</span></div>
+      <div class="hero-meta-item"><strong>4.7 ★</strong><span>Google Rating</span></div>
+      <div class="hero-meta-item"><strong>172</strong><span>Student Capacity</span></div>
     </div>
-  </div>
-  <div class="hero-media">
-    <img src="https://lirp.cdn-website.com/6a704379/dms3rep/multi/opt/Untitled-design--2811-29-08800919-1920w.png" alt="Children at Creative Kidz Academy">
   </div>
 </section>
 
-<!-- TRUST BAR -->
-<div class="trust-bar">
-  <div class="trust-inner">
-    <div class="trust-stat"><strong>20+</strong><span>Years Serving Raleigh</span></div>
-    <div class="trust-stat"><strong>6wk - 12yr</strong><span>Age Range</span></div>
-    <div class="trust-stat"><strong>90%+</strong><span>Lead Teacher Certified Staff</span></div>
-    <div class="trust-stat"><strong>5</strong><span>Elementary Schools Served</span></div>
-  </div>
-</div>
-
 <!-- ABOUT -->
 <section class="about" id="about">
-  <div class="section-inner">
-    <div class="about-layout">
-      <div class="about-image reveal">
-        <img src="https://lirp.cdn-website.com/6a704379/dms3rep/multi/opt/Untitled+design%2827%29-bc014ac0-1920w.jpg" alt="Creative Kidz Academy facility">
-      </div>
-      <div class="about-text reveal">
-        <div class="section-label">Our Story</div>
-        <h2 class="section-heading">A family-owned center built on <span>trust</span></h2>
-        <p>Creative Kidz Academy has been a cornerstone of the North Raleigh community since 2004. Located at 8408 Strickland Road, our privately owned and operated center provides a warm, structured environment where children thrive.</p>
-        <p>Our team uses developmentally appropriate practices (DAP) to guide every child's growth. Over ninety percent of our staff have earned lead teacher status or a degree in early childhood education — a commitment to quality that sets us apart.</p>
-        <div class="about-highlights">
-          <div class="highlight">
-            <h4>Certified Preschool</h4>
-            <p>Structured curriculum preparing children for kindergarten and beyond</p>
-          </div>
-          <div class="highlight">
-            <h4>Transportation</h4>
-            <p>Serving Millbrook, Leadmine, Abbots Creek, Lynn Road &amp; North Ridge</p>
-          </div>
-          <div class="highlight">
-            <h4>Flexible Scheduling</h4>
-            <p>Full-time, before/after school, track-out, and summer camp options</p>
-          </div>
-          <div class="highlight">
-            <h4>Qualified Staff</h4>
-            <p>90%+ of teachers hold lead teacher credentials or early childhood degrees</p>
-          </div>
+  <div class="about-grid">
+    <div class="about-image reveal">
+      <img src="https://lirp.cdn-website.com/6a704379/dms3rep/multi/opt/Untitled+design%2827%29-bc014ac0-1920w.jpg" alt="Creative Kidz Academy facility">
+    </div>
+    <div class="about-copy">
+      <div class="section-label reveal">Our Story</div>
+      <h2 class="section-heading reveal">A family-owned center built on <em>trust</em></h2>
+      <p class="reveal">Creative Kidz Academy has been a cornerstone of the North Raleigh community since 2004. Located at 8408 Strickland Road, our privately owned and operated center provides a warm, structured environment where children thrive from their earliest days through elementary school.</p>
+      <p class="reveal">Our team uses developmentally appropriate practices to guide every child's growth. Over ninety percent of our lead teachers are credentialed or hold a degree in early childhood education — a commitment to quality that families across Wake County have trusted for more than two decades.</p>
+      <div class="about-details reveal">
+        <div class="about-detail">
+          <h4>Certified Preschool</h4>
+          <p>Structured curriculum preparing children for kindergarten and beyond</p>
+        </div>
+        <div class="about-detail">
+          <h4>School Transportation</h4>
+          <p>Daily service to Millbrook, Leadmine, Abbots Creek, Lynn Road &amp; North Ridge</p>
+        </div>
+        <div class="about-detail">
+          <h4>Flexible Scheduling</h4>
+          <p>Full-time, before/after school, track-out, and summer camp options</p>
+        </div>
+        <div class="about-detail">
+          <h4>WakeMed Partner</h4>
+          <p>Proud employee partnership serving local healthcare families</p>
         </div>
       </div>
     </div>
@@ -319,43 +315,45 @@ section{padding:100px 40px}
   <div class="section-inner">
     <div class="programs-header reveal">
       <div class="section-label">Programs</div>
-      <h2 class="section-heading">Care designed for <span>every stage</span></h2>
+      <h2 class="section-heading">Care designed for <em>every stage</em></h2>
       <p class="section-sub">From infants to elementary schoolers, each program is built around where your child is developmentally — and where they are headed next.</p>
     </div>
-    <div class="programs-grid">
-      <div class="program program-1 reveal">
-        <div class="program-content">
-          <div class="ages">6 weeks - 12 months</div>
+    <div class="programs-layout">
+      <div class="program-feature reveal">
+        <img src="https://lirp.cdn-website.com/6a704379/dms3rep/multi/opt/attach1-699w.jpg" alt="Infant care at Creative Kidz Academy">
+        <div class="program-feature-content">
+          <div class="ages">6 weeks – 12 months</div>
           <h3>Infant Care</h3>
           <p>Nurturing, one-on-one attention in a safe environment. Individualized schedules for feeding, napping, and play that follow each baby's natural rhythm.</p>
         </div>
       </div>
-      <div class="program program-2 reveal">
-        <div class="program-content">
-          <div class="ages">1 - 2 years</div>
+      <div class="program-stack">
+        <div class="program-card pc-teal reveal">
+          <div class="ages">1 – 2 years</div>
           <h3>Toddler Program</h3>
-          <p>Hands-on exploration and early social development. Language-rich activities that spark curiosity and build confidence.</p>
+          <p>Hands-on exploration and early social development. Language-rich activities that spark curiosity and build confidence during these foundational years.</p>
+        </div>
+        <div class="program-card pc-purple reveal">
+          <div class="ages">3 – 5 years</div>
+          <h3>Certified Preschool</h3>
+          <p>State-certified curriculum preparing children for kindergarten readiness through structured learning, creative play, and social skill building.</p>
         </div>
       </div>
-      <div class="program program-3 reveal">
-        <div class="program-content">
-          <div class="ages">3 - 5 years</div>
-          <h3>Preschool</h3>
-          <p>State-certified curriculum preparing children for kindergarten readiness.</p>
-        </div>
-      </div>
-      <div class="program program-4 reveal">
-        <div class="program-content">
-          <div class="ages">5 - 12 years</div>
+    </div>
+    <div class="programs-layout" style="margin-top:32px">
+      <div class="program-stack">
+        <div class="program-card pc-warm reveal">
+          <div class="ages">5 – 12 years</div>
           <h3>Before &amp; After School</h3>
-          <p>Safe transport from 5 local elementary schools with structured homework time and enrichment activities.</p>
+          <p>Safe transport from five local elementary schools with structured homework time, enrichment activities, and supervised outdoor play.</p>
         </div>
       </div>
-      <div class="program program-5 reveal">
-        <div class="program-content">
+      <div class="program-feature reveal">
+        <img src="https://lirp.cdn-website.com/6a704379/dms3rep/multi/opt/Untitled+design%287%29-9460e472-1920w.jpg" alt="Summer camp at Creative Kidz Academy">
+        <div class="program-feature-content">
           <div class="ages">All ages</div>
           <h3>Summer Camp</h3>
-          <p>Themed weeks packed with field trips, arts, sports, and hands-on learning all summer long.</p>
+          <p>Themed weeks packed with field trips, arts, sports, and hands-on learning all summer long. A summer they will remember.</p>
         </div>
       </div>
     </div>
@@ -367,20 +365,20 @@ section{padding:100px 40px}
   <div class="section-inner">
     <div class="gallery-header reveal">
       <div class="section-label">See Our Center</div>
-      <h2 class="section-heading">A space built for <span>growing minds</span></h2>
+      <h2 class="section-heading">A space built for <em>growing minds</em></h2>
       <p class="section-sub">Take a look inside Creative Kidz Academy — our classrooms, outdoor areas, and the everyday moments that make this place special.</p>
     </div>
-    <div class="gallery-grid reveal">
-      <div class="gallery-item tall">
+    <div class="gallery-mosaic reveal">
+      <div class="gallery-item">
         <img src="https://lirp.cdn-website.com/6a704379/dms3rep/multi/opt/attach1-699w.jpg" alt="Creative Kidz Academy">
       </div>
-      <div class="gallery-item wide">
+      <div class="gallery-item">
         <img src="https://lirp.cdn-website.com/6a704379/dms3rep/multi/opt/Untitled+design%287%29-9460e472-1920w.jpg" alt="Learning at Creative Kidz">
       </div>
       <div class="gallery-item">
         <img src="https://lirp.cdn-website.com/6a704379/dms3rep/multi/opt/attach3-874h.jpg" alt="Activities at Creative Kidz">
       </div>
-      <div class="gallery-item wide">
+      <div class="gallery-item">
         <img src="https://lirp.cdn-website.com/6a704379/dms3rep/multi/opt/attach2-1419w.jpg" alt="Creative Kidz community">
       </div>
       <div class="gallery-item">
@@ -394,37 +392,36 @@ section{padding:100px 40px}
 <section class="why">
   <div class="section-inner">
     <div class="section-label reveal">Why Creative Kidz</div>
-    <h2 class="section-heading reveal">What families value <span>most</span></h2>
-    <div class="why-grid">
-      <div class="why-item reveal">
-        <div class="why-num">01</div>
-        <h3>Privately Owned, Personally Invested</h3>
-        <p>This is not a franchise. Creative Kidz Academy is independently owned and operated, which means every decision is made with your children in mind — not a corporate office.</p>
+    <h2 class="section-heading reveal">What families value <em>most</em></h2>
+    <p class="section-sub reveal" style="color:rgba(255,255,255,.55)">Two decades of trust, built one family at a time.</p>
+    <div class="why-layout">
+      <div class="why-col">
+        <div class="why-item reveal">
+          <h3>Privately Owned, Personally Invested</h3>
+          <p>This is not a franchise. Creative Kidz Academy is independently owned and operated, which means every decision is made with your children in mind — not a corporate office.</p>
+        </div>
+        <div class="why-item reveal">
+          <h3>Credentialed Teaching Staff</h3>
+          <p>Over ninety percent of our teachers hold lead teacher status or a degree in early childhood education. Your child learns from professionals who have invested in their craft.</p>
+        </div>
+        <div class="why-item reveal">
+          <h3>Continuity from Infancy to Elementary</h3>
+          <p>Children can grow with us from 6 weeks through age 12 — infant care, preschool, before and after school, track-out, and summer camp all in one trusted place.</p>
+        </div>
       </div>
-      <div class="why-item reveal">
-        <div class="why-num">02</div>
-        <h3>Credentialed Teaching Staff</h3>
-        <p>Over ninety percent of our teachers hold lead teacher status or a degree in early childhood education. Your child learns from professionals who have invested in their craft.</p>
-      </div>
-      <div class="why-item reveal">
-        <div class="why-num">03</div>
-        <h3>Continuity from Infancy to Elementary</h3>
-        <p>Children can grow with us from 6 weeks through age 12 — infant care, preschool, before and after school, track-out, and summer camp all in one trusted place.</p>
-      </div>
-      <div class="why-item reveal">
-        <div class="why-num">04</div>
-        <h3>Built-In School Transportation</h3>
-        <p>We provide daily transport to and from Millbrook, Leadmine, Abbots Creek, Lynn Road, and North Ridge Elementary — one less thing for working parents to coordinate.</p>
-      </div>
-      <div class="why-item reveal">
-        <div class="why-num">05</div>
-        <h3>Two Decades of Community Trust</h3>
-        <p>Since 2004, Raleigh families have chosen Creative Kidz Academy. That kind of longevity speaks to the relationships we build and the care we provide every single day.</p>
-      </div>
-      <div class="why-item reveal">
-        <div class="why-num">06</div>
-        <h3>Full Flexibility for Working Families</h3>
-        <p>Full-time, part-time, before and after school, track-out, summer camp. We designed our programs around the real schedules of working parents in North Raleigh.</p>
+      <div class="why-col">
+        <div class="why-item reveal">
+          <h3>Built-In School Transportation</h3>
+          <p>We provide daily transport to and from Millbrook, Leadmine, Abbots Creek, Lynn Road, and North Ridge Elementary — one less thing for working parents to coordinate.</p>
+        </div>
+        <div class="why-item reveal">
+          <h3>Two Decades of Community Trust</h3>
+          <p>Since 2004, Raleigh families have chosen Creative Kidz Academy. That kind of longevity speaks to the relationships we build and the care we provide every single day.</p>
+        </div>
+        <div class="why-item reveal">
+          <h3>Full Flexibility for Working Families</h3>
+          <p>Full-time, part-time, before and after school, track-out, summer camp. We designed our programs around the real schedules of working parents in North Raleigh.</p>
+        </div>
       </div>
     </div>
   </div>
@@ -433,13 +430,9 @@ section{padding:100px 40px}
 <!-- TESTIMONIAL -->
 <section class="testimonials">
   <div class="section-inner">
-    <div class="testimonial-layout">
-      <div class="testimonial-intro reveal">
-        <div class="section-label">From Our Families</div>
-        <h2 class="section-heading">Parents trust Creative Kidz with what matters <span>most</span></h2>
-        <p class="section-sub">Every day, we earn the confidence of Raleigh families by treating their children like our own.</p>
-      </div>
+    <div class="testimonial-grid">
       <div class="testimonial-card reveal">
+        <div class="section-label">From Our Families</div>
         <blockquote class="testimonial-quote">"We have had our daughter at Creative Kidz since she was an infant. The teachers are incredible and the communication is always there. It truly feels like a second family for our child."</blockquote>
         <div class="testimonial-attr">
           <div class="testimonial-avatar">R</div>
@@ -449,16 +442,21 @@ section{padding:100px 40px}
           </div>
         </div>
       </div>
+      <div class="testimonial-image reveal">
+        <img src="https://lirp.cdn-website.com/6a704379/dms3rep/multi/opt/attach2-1419w.jpg" alt="Creative Kidz Academy families">
+      </div>
     </div>
   </div>
 </section>
 
 <!-- CTA BANNER -->
-<div class="cta-banner">
-  <h2>Your child's next chapter starts here</h2>
-  <p>Schedule a tour of Creative Kidz Academy and see firsthand why North Raleigh families have trusted us for over 20 years.</p>
-  <button class="btn" style="background:var(--white);color:var(--coral);font-weight:700" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Schedule a Tour</button>
-</div>
+<section class="cta">
+  <div class="section-inner" style="max-width:640px">
+    <h2 class="reveal">Your child's next chapter starts here</h2>
+    <p class="reveal">Schedule a tour of Creative Kidz Academy and see firsthand why North Raleigh families have trusted us for over 20 years.</p>
+    <button class="btn btn-on-coral reveal" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Schedule a Tour</button>
+  </div>
+</section>
 
 <!-- CONTACT -->
 <section class="contact" id="contact">
@@ -501,7 +499,7 @@ section{padding:100px 40px}
           </div>
           <div class="contact-detail-text">
             <strong>Hours</strong>
-            <span>Monday - Friday, 7:00am - 6:00pm</span>
+            <span>Monday – Friday, 7:00am – 6:00pm</span>
           </div>
         </div>
       </div>
@@ -525,10 +523,10 @@ section{padding:100px 40px}
             <label for="childAge">Child's Age</label>
             <select id="childAge">
               <option value="">Select age range</option>
-              <option>Infant (6 weeks - 12 months)</option>
-              <option>Toddler (1 - 2 years)</option>
-              <option>Preschool (3 - 5 years)</option>
-              <option>School-Age (5 - 12 years)</option>
+              <option>Infant (6 weeks – 12 months)</option>
+              <option>Toddler (1 – 2 years)</option>
+              <option>Preschool (3 – 5 years)</option>
+              <option>School-Age (5 – 12 years)</option>
             </select>
           </div>
           <div class="form-group">

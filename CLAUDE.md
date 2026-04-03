@@ -273,7 +273,11 @@ The spec site is a complete, functional website mockup for the prospect's busine
 
 - Be a single self-contained HTML file (all CSS/JS inline)
 - Use real content from the analysis (business name, services, location, phone)
-- Use CSS-only decorative elements (no external images unless on Bunny CDN)
+- Extract actual images from the prospect's current website and use them in the spec site. Never use placeholder text like "Hero photography of children." If the current site has photos, use those image URLs. If no usable photos exist, use CSS-only abstract visuals, or stock images that are related to the business that are premium — never placeholder text.
+- Extract the prospect's brand colors from their current site and use them in the redesign. Not generic pastels or invented colors. Match what they already have.
+- No floating pill badges or stat bubbles. Integrate stats and trust signals naturally into the layout.
+- Design must look premium and custom, not template-like. No cookie-cutter card layouts. Each spec site should feel like it was designed specifically for that business.
+- Use CSS-only decorative elements where no real images are available (no external images unless on Bunny CDN or sourced from the prospect's current site)
 - Include working navigation, forms, and interactive elements
 - Be mobile responsive
 - Use typography and design appropriate to the PROSPECT'S industry (NOT the WHM brand — this is THEIR site)
