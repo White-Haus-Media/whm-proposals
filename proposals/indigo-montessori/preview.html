@@ -1,0 +1,979 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Indigo Montessori School — Private Preschool & Kindergarten in Durham, NC</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@400;500;600;700&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Work Sans', sans-serif;
+            background: #F8F7F5;
+            color: #2B2520;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* Header & Navigation */
+        header {
+            background: #FFFFFF;
+            border-bottom: 1px solid #E8E3DC;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+        }
+
+        .logo-text {
+            font-family: 'DM Serif Display', serif;
+            font-size: 24px;
+            font-weight: 700;
+            color: #1F3A5F;
+            text-decoration: none;
+        }
+
+        nav {
+            display: flex;
+            gap: 40px;
+        }
+
+        nav a {
+            font-size: 14px;
+            font-weight: 500;
+            color: #2B2520;
+            text-decoration: none;
+            transition: color 0.3s;
+            border-bottom: 2px solid transparent;
+        }
+
+        nav a:hover {
+            color: #6B4C8A;
+            border-bottom-color: #6B4C8A;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #1F3A5F 0%, #2B4A6F 100%);
+            color: #FFFFFF;
+            padding: 100px 0;
+            text-align: center;
+            animation: fadeIn 0.8s ease-out;
+        }
+
+        .hero h1 {
+            font-family: 'DM Serif Display', serif;
+            font-size: 56px;
+            margin-bottom: 20px;
+            line-height: 1.2;
+            font-weight: 400;
+            font-style: italic;
+        }
+
+        .hero p {
+            font-size: 18px;
+            color: #E8D5C4;
+            max-width: 600px;
+            margin: 0 auto 40px;
+            line-height: 1.8;
+        }
+
+        .hero-cta {
+            display: inline-block;
+            background: #C6A44C;
+            color: #1F3A5F;
+            padding: 14px 40px;
+            border-radius: 4px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 14px;
+            transition: all 0.3s;
+            border: none;
+            cursor: pointer;
+        }
+
+        .hero-cta:hover {
+            background: #E8D5C4;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(198, 164, 76, 0.3);
+        }
+
+        /* Trust Bar */
+        .trust-bar {
+            background: #FFFFFF;
+            padding: 40px 0;
+            border-bottom: 1px solid #E8E3DC;
+            animation: slideUp 0.8s ease-out 0.2s backwards;
+        }
+
+        .trust-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+            text-align: center;
+        }
+
+        .trust-item h3 {
+            font-size: 28px;
+            font-weight: 700;
+            color: #1F3A5F;
+            margin-bottom: 8px;
+        }
+
+        .trust-item p {
+            font-size: 14px;
+            color: #7A6F66;
+        }
+
+        /* About Section */
+        .about {
+            padding: 100px 0;
+            animation: fadeIn 0.8s ease-out 0.4s backwards;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .section-header h2 {
+            font-family: 'DM Serif Display', serif;
+            font-size: 40px;
+            color: #1F3A5F;
+            margin-bottom: 16px;
+            font-weight: 400;
+        }
+
+        .section-header p {
+            font-size: 16px;
+            color: #7A6F66;
+            max-width: 600px;
+            margin: 0 auto;
+            line-height: 1.8;
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .about-text h3 {
+            font-family: 'DM Serif Display', serif;
+            font-size: 28px;
+            color: #1F3A5F;
+            margin-bottom: 20px;
+            font-weight: 400;
+        }
+
+        .about-text p {
+            color: #2B2520;
+            margin-bottom: 16px;
+            line-height: 1.8;
+        }
+
+        .about-image {
+            background: linear-gradient(135deg, #E8D5C4 0%, #D4C5B9 100%);
+            aspect-ratio: 1;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #A89F94;
+            font-size: 14px;
+            text-align: center;
+        }
+
+        /* Programs Section */
+        .programs {
+            padding: 100px 0;
+            background: #FFFFFF;
+            border-top: 1px solid #E8E3DC;
+            border-bottom: 1px solid #E8E3DC;
+            animation: fadeIn 0.8s ease-out 0.6s backwards;
+        }
+
+        .programs-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 32px;
+        }
+
+        .program-card {
+            background: #F8F7F5;
+            padding: 40px 32px;
+            border-radius: 8px;
+            border-left: 4px solid #6B4C8A;
+            transition: all 0.3s;
+        }
+
+        .program-card:hover {
+            background: #FFFFFF;
+            border-left-color: #C6A44C;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+        }
+
+        .program-card h3 {
+            font-family: 'DM Serif Display', serif;
+            font-size: 22px;
+            color: #1F3A5F;
+            margin-bottom: 16px;
+            font-weight: 400;
+        }
+
+        .program-age {
+            font-size: 12px;
+            color: #C6A44C;
+            font-weight: 600;
+            text-transform: uppercase;
+            margin-bottom: 12px;
+            letter-spacing: 0.5px;
+        }
+
+        .program-card p {
+            font-size: 14px;
+            color: #7A6F66;
+            line-height: 1.8;
+        }
+
+        /* Montessori Philosophy */
+        .philosophy {
+            padding: 100px 0;
+            animation: fadeIn 0.8s ease-out 0.8s backwards;
+        }
+
+        .philosophy-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .philosophy-image {
+            background: linear-gradient(135deg, #D4C5B9 0%, #C9BAB2 100%);
+            aspect-ratio: 1;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #A89F94;
+            font-size: 14px;
+            text-align: center;
+        }
+
+        .philosophy-text h3 {
+            font-family: 'DM Serif Display', serif;
+            font-size: 28px;
+            color: #1F3A5F;
+            margin-bottom: 20px;
+            font-weight: 400;
+        }
+
+        .philosophy-text p {
+            color: #2B2520;
+            margin-bottom: 16px;
+            line-height: 1.8;
+        }
+
+        .philosophy-list {
+            list-style: none;
+            margin-top: 24px;
+        }
+
+        .philosophy-list li {
+            padding-left: 32px;
+            position: relative;
+            margin-bottom: 12px;
+            color: #2B2520;
+            font-size: 14px;
+        }
+
+        .philosophy-list li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: #6B4C8A;
+            font-weight: 700;
+            font-size: 18px;
+        }
+
+        /* Gallery Section */
+        .gallery {
+            padding: 100px 0;
+            background: #FFFFFF;
+            border-top: 1px solid #E8E3DC;
+            border-bottom: 1px solid #E8E3DC;
+            animation: fadeIn 0.8s ease-out 1s backwards;
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 24px;
+        }
+
+        .gallery-item {
+            background: linear-gradient(135deg, #E8D5C4 0%, #D4C5B9 100%);
+            aspect-ratio: 1;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #A89F94;
+            font-size: 14px;
+            text-align: center;
+            transition: all 0.3s;
+            cursor: pointer;
+        }
+
+        .gallery-item:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 32px rgba(0, 0, 0, 0.12);
+        }
+
+        /* Testimonial Section */
+        .testimonial {
+            padding: 100px 0;
+            animation: fadeIn 0.8s ease-out 1.2s backwards;
+        }
+
+        .testimonial-content {
+            background: #FFFFFF;
+            padding: 60px 48px;
+            border-radius: 8px;
+            border-left: 4px solid #6B4C8A;
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .testimonial-quote {
+            font-family: 'DM Serif Display', serif;
+            font-size: 24px;
+            color: #1F3A5F;
+            margin-bottom: 24px;
+            line-height: 1.8;
+            font-style: italic;
+            font-weight: 400;
+        }
+
+        .testimonial-author {
+            font-weight: 600;
+            color: #2B2520;
+            margin-bottom: 4px;
+        }
+
+        .testimonial-title {
+            font-size: 12px;
+            color: #C6A44C;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        /* Enrollment Section */
+        .enrollment {
+            padding: 100px 0;
+            background: #1F3A5F;
+            color: #FFFFFF;
+            animation: fadeIn 0.8s ease-out 1.4s backwards;
+        }
+
+        .enrollment h2 {
+            font-family: 'DM Serif Display', serif;
+            font-size: 40px;
+            margin-bottom: 16px;
+            font-weight: 400;
+        }
+
+        .enrollment-intro {
+            font-size: 16px;
+            color: #E8D5C4;
+            margin-bottom: 40px;
+            max-width: 700px;
+        }
+
+        .enrollment-steps {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 32px;
+            margin-bottom: 60px;
+        }
+
+        .enrollment-step {
+            background: rgba(198, 164, 76, 0.15);
+            padding: 32px;
+            border-radius: 8px;
+            border-top: 3px solid #C6A44C;
+        }
+
+        .enrollment-step-number {
+            font-size: 32px;
+            font-weight: 700;
+            color: #C6A44C;
+            margin-bottom: 12px;
+        }
+
+        .enrollment-step h3 {
+            font-size: 16px;
+            color: #FFFFFF;
+            margin-bottom: 8px;
+        }
+
+        .enrollment-step p {
+            font-size: 14px;
+            color: #E8D5C4;
+            line-height: 1.6;
+        }
+
+        .enrollment-buttons {
+            display: flex;
+            gap: 16px;
+            flex-wrap: wrap;
+        }
+
+        .enrollment-button {
+            display: inline-block;
+            padding: 14px 32px;
+            border-radius: 4px;
+            font-weight: 600;
+            font-size: 14px;
+            text-decoration: none;
+            transition: all 0.3s;
+            border: none;
+            cursor: pointer;
+        }
+
+        .enrollment-button.primary {
+            background: #C6A44C;
+            color: #1F3A5F;
+        }
+
+        .enrollment-button.primary:hover {
+            background: #E8D5C4;
+            transform: translateY(-2px);
+        }
+
+        .enrollment-button.secondary {
+            background: transparent;
+            color: #C6A44C;
+            border: 2px solid #C6A44C;
+        }
+
+        .enrollment-button.secondary:hover {
+            background: rgba(198, 164, 76, 0.15);
+        }
+
+        /* Contact Section */
+        .contact {
+            padding: 100px 0;
+            background: #FFFFFF;
+            border-top: 1px solid #E8E3DC;
+            animation: fadeIn 0.8s ease-out 1.6s backwards;
+        }
+
+        .contact-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+        }
+
+        .contact-info h3 {
+            font-family: 'DM Serif Display', serif;
+            font-size: 28px;
+            color: #1F3A5F;
+            margin-bottom: 32px;
+            font-weight: 400;
+        }
+
+        .contact-item {
+            margin-bottom: 32px;
+        }
+
+        .contact-label {
+            font-size: 12px;
+            color: #C6A44C;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            font-weight: 600;
+            margin-bottom: 8px;
+            display: block;
+        }
+
+        .contact-value {
+            font-size: 16px;
+            color: #2B2520;
+            font-weight: 500;
+        }
+
+        .contact-value a {
+            color: #6B4C8A;
+            text-decoration: none;
+        }
+
+        .contact-value a:hover {
+            text-decoration: underline;
+        }
+
+        .contact-form {
+            background: #F8F7F5;
+            padding: 40px;
+            border-radius: 8px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+            color: #2B2520;
+            font-size: 14px;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #E8E3DC;
+            border-radius: 4px;
+            font-family: 'Work Sans', sans-serif;
+            font-size: 14px;
+            color: #2B2520;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: #6B4C8A;
+            box-shadow: 0 0 0 3px rgba(107, 76, 138, 0.1);
+        }
+
+        .form-group textarea {
+            min-height: 120px;
+            resize: vertical;
+        }
+
+        .form-submit {
+            display: inline-block;
+            background: #6B4C8A;
+            color: #FFFFFF;
+            padding: 14px 40px;
+            border-radius: 4px;
+            border: none;
+            font-weight: 600;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .form-submit:hover {
+            background: #1F3A5F;
+            transform: translateY(-2px);
+        }
+
+        /* Footer */
+        footer {
+            background: #2B2520;
+            color: #E8D5C4;
+            padding: 48px 0;
+            text-align: center;
+        }
+
+        footer p {
+            font-size: 14px;
+            margin-bottom: 12px;
+        }
+
+        footer a {
+            color: #C6A44C;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            nav {
+                gap: 20px;
+                font-size: 12px;
+            }
+
+            .hero h1 {
+                font-size: 36px;
+            }
+
+            .hero p {
+                font-size: 16px;
+            }
+
+            .section-header h2 {
+                font-size: 32px;
+            }
+
+            .about-grid,
+            .philosophy-content,
+            .contact-content {
+                grid-template-columns: 1fr;
+            }
+
+            .enrollment-steps {
+                grid-template-columns: 1fr;
+            }
+
+            .programs-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .testimonial-content {
+                padding: 40px 24px;
+            }
+
+            .testimonial-quote {
+                font-size: 18px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <a href="#" class="logo-text">Indigo Montessori</a>
+                <nav>
+                    <a href="#about">About</a>
+                    <a href="#programs">Programs</a>
+                    <a href="#philosophy">Philosophy</a>
+                    <a href="#enrollment">Enrollment</a>
+                    <a href="#contact">Contact</a>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <h1>Montessori Education in the Heart of Durham</h1>
+            <p>A warm, prepared environment where children from infancy through kindergarten develop independence, curiosity, and a lifelong love of learning.</p>
+            <a href="#enrollment" class="hero-cta">Start the Enrollment Journey</a>
+        </div>
+    </section>
+
+    <!-- Trust Bar -->
+    <section class="trust-bar">
+        <div class="container">
+            <div class="trust-content">
+                <div class="trust-item">
+                    <h3>25+</h3>
+                    <p>Years of Montessori Excellence</p>
+                </div>
+                <div class="trust-item">
+                    <h3>120+</h3>
+                    <p>Families Served & Graduated</p>
+                </div>
+                <div class="trust-item">
+                    <h3>8:1</h3>
+                    <p>Average Student-to-Teacher Ratio</p>
+                </div>
+                <div class="trust-item">
+                    <h3>100%</h3>
+                    <p>Certified Montessori Instructors</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about" id="about">
+        <div class="container">
+            <div class="section-header">
+                <h2>Our Story</h2>
+                <p>Indigo Montessori School has served the Durham community since 2001, providing a nurturing environment where children flourish academically and emotionally.</p>
+            </div>
+
+            <div class="about-grid">
+                <div class="about-text">
+                    <h3>A Prepared Community</h3>
+                    <p>Located near Duke East Campus and the vibrant Brightleaf Square, Indigo Montessori offers families a convenient, welcoming space where their children can thrive. Our classrooms are thoughtfully designed to inspire discovery, respect, and independent thought.</p>
+                    <p>We believe that every child is a unique individual with their own pace of development. Our role is to guide, not direct—to offer the tools for learning while nurturing the whole child: mind, heart, and hands.</p>
+                </div>
+                <div class="about-image">
+                    [Classroom Photo]
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Programs Section -->
+    <section class="programs" id="programs">
+        <div class="container">
+            <div class="section-header">
+                <h2>Our Programs</h2>
+                <p>We serve children from infancy through kindergarten, with age-appropriate Montessori curricula designed to foster curiosity and independence.</p>
+            </div>
+
+            <div class="programs-grid">
+                <div class="program-card">
+                    <div class="program-age">Ages 6 weeks – 18 months</div>
+                    <h3>Infant Community</h3>
+                    <p>A tender, carefully prepared environment where babies explore their world through sensory experiences, gentle movement, and responsive care.</p>
+                </div>
+                <div class="program-card">
+                    <div class="program-age">Ages 18 months – 3 years</div>
+                    <h3>Toddler Community</h3>
+                    <p>Transitioning toward independence, toddlers develop practical life skills, language, and coordination in a supportive, secure community.</p>
+                </div>
+                <div class="program-card">
+                    <div class="program-age">Ages 3 – 4 years</div>
+                    <h3>Primary Community</h3>
+                    <p>Children expand their world through sensorial exploration, early literacy and numeracy, and a growing sense of community responsibility.</p>
+                </div>
+                <div class="program-card">
+                    <div class="program-age">Ages 4 – 6 years</div>
+                    <h3>Kindergarten (Casa dei Bambini)</h3>
+                    <p>Our oldest students deepen academic skills while embracing leadership, collaborative projects, and preparation for elementary school.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Philosophy Section -->
+    <section class="philosophy" id="philosophy">
+        <div class="container">
+            <div class="philosophy-content">
+                <div class="philosophy-image">
+                    [Philosophy / Activity Photo]
+                </div>
+                <div class="philosophy-text">
+                    <h3>The Montessori Method</h3>
+                    <p>Developed by Dr. Maria Montessori over a century ago, the Montessori approach is rooted in respect for the child's natural development. Children learn through hands-on, self-directed exploration in a carefully prepared environment.</p>
+                    <p>Our practice honors three core principles:</p>
+                    <ul class="philosophy-list">
+                        <li><strong>Respect for the Child:</strong> Each child develops at their own pace, guided by intrinsic motivation rather than external rewards or punishment.</li>
+                        <li><strong>Prepared Environment:</strong> Classrooms are thoughtfully organized with age-appropriate materials that invite exploration and discovery.</li>
+                        <li><strong>Guided Participation:</strong> Teachers observe, guide, and facilitate—fostering independence, concentration, and a genuine love of learning.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section class="gallery">
+        <div class="container">
+            <div class="section-header">
+                <h2>Life at Indigo Montessori</h2>
+                <p>A glimpse into our vibrant community where children play, learn, and grow together.</p>
+            </div>
+
+            <div class="gallery-grid">
+                <div class="gallery-item">[Classroom Work]</div>
+                <div class="gallery-item">[Outdoor Play]</div>
+                <div class="gallery-item">[Community Circle]</div>
+                <div class="gallery-item">[Art & Music]</div>
+                <div class="gallery-item">[Practical Life]</div>
+                <div class="gallery-item">[Graduation]</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonial Section -->
+    <section class="testimonial">
+        <div class="container">
+            <div class="testimonial-content">
+                <div class="testimonial-quote">
+                    "Indigo Montessori gave our daughter the confidence to ask questions, explore her interests, and grow at her own pace. The teachers truly know each child as an individual."
+                </div>
+                <div class="testimonial-author">Sarah Mitchell</div>
+                <div class="testimonial-title">Parent, Primary Community Graduate (2024)</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Enrollment Section -->
+    <section class="enrollment" id="enrollment">
+        <div class="container">
+            <h2>Begin Your Journey</h2>
+            <p class="enrollment-intro">We'd love to welcome your family to Indigo Montessori. Our enrollment process is straightforward and designed to help families get to know us.</p>
+
+            <div class="enrollment-steps">
+                <div class="enrollment-step">
+                    <div class="enrollment-step-number">1</div>
+                    <h3>Schedule a Visit</h3>
+                    <p>Explore our classrooms, meet our teachers, and experience the Montessori environment firsthand.</p>
+                </div>
+                <div class="enrollment-step">
+                    <div class="enrollment-step-number">2</div>
+                    <h3>Submit Application</h3>
+                    <p>Complete our brief enrollment application with family information and program preferences.</p>
+                </div>
+                <div class="enrollment-step">
+                    <div class="enrollment-step-number">3</div>
+                    <h3>Family Interview</h3>
+                    <p>We discuss your child's development, family goals, and how we can best support their growth.</p>
+                </div>
+                <div class="enrollment-step">
+                    <div class="enrollment-step-number">4</div>
+                    <h3>Welcome Home</h3>
+                    <p>Your child joins our community. We provide a gentle transition plan to help them feel secure.</p>
+                </div>
+            </div>
+
+            <div class="enrollment-buttons">
+                <a href="#contact" class="enrollment-button primary">Schedule a Tour</a>
+                <a href="#contact" class="enrollment-button secondary">Reach Out by Phone</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact" id="contact">
+        <div class="container">
+            <div class="contact-content">
+                <div class="contact-info">
+                    <h3>Get in Touch</h3>
+
+                    <div class="contact-item">
+                        <span class="contact-label">Address</span>
+                        <span class="contact-value">1101 West Main Street<br>Durham, NC 27701</span>
+                    </div>
+
+                    <div class="contact-item">
+                        <span class="contact-label">Phone</span>
+                        <span class="contact-value"><a href="tel:919-687-0665">919-687-0665</a></span>
+                    </div>
+
+                    <div class="contact-item">
+                        <span class="contact-label">Email</span>
+                        <span class="contact-value"><a href="mailto:contact@indigomontessori.com">contact@indigomontessori.com</a></span>
+                    </div>
+
+                    <div class="contact-item">
+                        <span class="contact-label">Hours</span>
+                        <span class="contact-value">Monday – Friday<br>7:30 AM – 5:30 PM</span>
+                    </div>
+                </div>
+
+                <div class="contact-form">
+                    <form onsubmit="handleSubmit(event)">
+                        <div class="form-group">
+                            <label for="name">Your Name</label>
+                            <input type="text" id="name" name="name" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="email">Email Address</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="phone">Phone Number</label>
+                            <input type="tel" id="phone" name="phone">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="message">Message</label>
+                            <textarea id="message" name="message" required></textarea>
+                        </div>
+
+                        <button type="submit" class="form-submit">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 Indigo Montessori School. Durham, North Carolina.</p>
+            <p>
+                <a href="#">Privacy Policy</a> •
+                <a href="#">Admissions</a> •
+                <a href="https://whitehausmedia.com">Website by White Haus Media</a>
+            </p>
+        </div>
+    </footer>
+
+    <script>
+        function handleSubmit(event) {
+            event.preventDefault();
+            const form = event.target;
+            const name = form.querySelector('#name').value;
+            const email = form.querySelector('#email').value;
+
+            alert(`Thank you, ${name}! We've received your message and will be in touch soon at ${email}.`);
+            form.reset();
+        }
+
+        // Smooth scroll offset for fixed header
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                const href = this.getAttribute('href');
+                if (href !== '#') {
+                    e.preventDefault();
+                    const target = document.querySelector(href);
+                    if (target) {
+                        const offset = 80;
+                        const targetPosition = target.offsetTop - offset;
+                        window.scrollTo({
+                            top: targetPosition,
+                            behavior: 'smooth'
+                        });
+                    }
+                }
+            });
+        });
+    </script>
+</body>
+</html>

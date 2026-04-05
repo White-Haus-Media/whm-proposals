@@ -1,0 +1,899 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chapel Hill Day Care Center — Website Proposal | White Haus Media</title>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --cream: #F4EFE6;
+            --black: #080808;
+            --gold: #C9A84C;
+            --dark-bg: #0f0f0f;
+            --card-bg: #1a1a1a;
+            --text-light: #e0e0e0;
+            --text-muted: #999;
+            --border: #2a2a2a;
+            --transition: all 0.3s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background: var(--dark-bg);
+            color: var(--text-light);
+            line-height: 1.6;
+        }
+
+        /* Progress Bar */
+        .progress-bar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: var(--border);
+            z-index: 1000;
+        }
+
+        .progress-bar-fill {
+            height: 100%;
+            background: linear-gradient(90deg, var(--gold), var(--gold));
+            width: 0%;
+            transition: width 0.3s ease;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(15, 15, 15, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--border);
+            padding: 1.5rem 2rem;
+            z-index: 999;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .nav-logo {
+            height: 32px;
+        }
+
+        .nav-logo img {
+            height: 100%;
+            width: auto;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 3rem;
+            align-items: center;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--text-light);
+            text-decoration: none;
+            font-size: 0.95rem;
+            font-weight: 500;
+            transition: var(--transition);
+            cursor: pointer;
+        }
+
+        .nav-links a:hover {
+            color: var(--gold);
+        }
+
+        .nav-cta {
+            background: var(--gold);
+            color: var(--black);
+            padding: 0.75rem 1.5rem;
+            border-radius: 50px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: var(--transition);
+            border: none;
+            cursor: pointer;
+        }
+
+        .nav-cta:hover {
+            background: #ddb94a;
+            transform: translateY(-2px);
+        }
+
+        /* Main Content */
+        main {
+            margin-top: 80px;
+        }
+
+        section {
+            padding: 4rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .pill {
+            display: inline-block;
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            padding: 0.5rem 1.25rem;
+            border-radius: 50px;
+            font-size: 0.85rem;
+            color: var(--gold);
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+        }
+
+        /* Hero Section */
+        .hero {
+            text-align: center;
+            padding: 6rem 2rem;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            line-height: 1.2;
+            margin: 2rem 0 1.5rem;
+            color: var(--cream);
+            font-weight: 700;
+        }
+
+        .hero p {
+            font-size: 1.1rem;
+            color: var(--text-muted);
+            max-width: 700px;
+            margin: 0 auto 3rem;
+        }
+
+        .meta-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .meta-item {
+            text-align: left;
+            padding: 1.5rem;
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+        }
+
+        .meta-label {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .meta-value {
+            font-size: 1.1rem;
+            color: var(--cream);
+            font-weight: 600;
+        }
+
+        /* Letter Section */
+        .letter-section {
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            padding: 3rem;
+            border-radius: 8px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .letter-section p {
+            margin-bottom: 1.5rem;
+            color: var(--text-light);
+            line-height: 1.8;
+        }
+
+        .letter-section strong {
+            color: var(--gold);
+        }
+
+        /* Opportunity Section */
+        .opportunity-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .opp-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            padding: 2rem;
+            border-radius: 8px;
+            transition: var(--transition);
+        }
+
+        .opp-card:hover {
+            border-color: var(--gold);
+            background: rgba(201, 168, 76, 0.05);
+        }
+
+        .opp-card h3 {
+            font-size: 1.2rem;
+            color: var(--cream);
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .opp-card p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+        }
+
+        .icon-circle {
+            width: 32px;
+            height: 32px;
+            background: var(--gold);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+        }
+
+        /* Solution Section */
+        .solution-list {
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            padding: 2.5rem;
+            border-radius: 8px;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .solution-list h3 {
+            color: var(--cream);
+            margin-bottom: 2rem;
+            font-size: 1.3rem;
+        }
+
+        .solution-item {
+            display: flex;
+            gap: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .solution-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .solution-star {
+            color: var(--gold);
+            font-size: 1.5rem;
+            flex-shrink: 0;
+            margin-top: 2px;
+        }
+
+        .solution-item p {
+            color: var(--text-light);
+            font-size: 0.95rem;
+        }
+
+        /* Preview Section */
+        .preview-section {
+            text-align: center;
+        }
+
+        .preview-frame {
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            overflow: hidden;
+            margin-top: 2rem;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+        }
+
+        .preview-frame iframe {
+            width: 100%;
+            height: 600px;
+            border: none;
+            display: block;
+        }
+
+        .fullscreen-btn {
+            margin-top: 1.5rem;
+            padding: 0.75rem 1.5rem;
+            background: var(--gold);
+            color: var(--black);
+            border: none;
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .fullscreen-btn:hover {
+            background: #ddb94a;
+            transform: translateY(-2px);
+        }
+
+        /* Process Section */
+        .process-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .process-step {
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            padding: 2rem;
+            border-radius: 8px;
+            text-align: center;
+        }
+
+        .step-number {
+            width: 48px;
+            height: 48px;
+            background: var(--gold);
+            color: var(--black);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin: 0 auto 1.5rem;
+        }
+
+        .process-step h3 {
+            color: var(--cream);
+            margin-bottom: 1rem;
+            font-size: 1.1rem;
+        }
+
+        .process-step p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+        }
+
+        /* Pricing Section */
+        .pricing-card {
+            background: var(--card-bg);
+            border: 2px solid var(--gold);
+            padding: 3rem;
+            border-radius: 8px;
+            max-width: 500px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .pricing-label {
+            color: var(--gold);
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+
+        .pricing-amount {
+            font-size: 3rem;
+            color: var(--cream);
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+
+        .pricing-period {
+            color: var(--text-muted);
+            margin-bottom: 2rem;
+            font-size: 0.95rem;
+        }
+
+        .pricing-includes {
+            text-align: left;
+            background: rgba(201, 168, 76, 0.05);
+            padding: 2rem;
+            border-radius: 8px;
+            margin-bottom: 2rem;
+        }
+
+        .pricing-includes h4 {
+            color: var(--cream);
+            margin-bottom: 1rem;
+            font-size: 0.95rem;
+            text-transform: uppercase;
+            font-weight: 600;
+        }
+
+        .pricing-includes ul {
+            list-style: none;
+        }
+
+        .pricing-includes li {
+            color: var(--text-light);
+            padding: 0.5rem 0;
+            font-size: 0.9rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .pricing-includes li:before {
+            content: "★";
+            color: var(--gold);
+            font-size: 0.8rem;
+        }
+
+        .care-plans {
+            margin-top: 3rem;
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            padding: 2.5rem;
+            border-radius: 8px;
+        }
+
+        .care-plans h4 {
+            color: var(--cream);
+            text-align: center;
+            margin-bottom: 2rem;
+            font-size: 1.1rem;
+        }
+
+        .care-plan-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .care-plan {
+            background: rgba(201, 168, 76, 0.05);
+            border: 1px solid var(--border);
+            padding: 1.5rem;
+            border-radius: 8px;
+            text-align: center;
+        }
+
+        .care-plan-name {
+            color: var(--cream);
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .care-plan-price {
+            color: var(--gold);
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+
+        .care-plan-desc {
+            color: var(--text-muted);
+            font-size: 0.85rem;
+            line-height: 1.5;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            text-align: center;
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            padding: 3rem 2rem;
+            border-radius: 8px;
+            margin: 2rem auto 0;
+            max-width: 600px;
+        }
+
+        .cta-section h2 {
+            color: var(--cream);
+            margin-bottom: 1.5rem;
+            font-size: 1.8rem;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 0.95rem;
+            cursor: pointer;
+            transition: var(--transition);
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .btn-primary {
+            background: var(--gold);
+            color: var(--black);
+        }
+
+        .btn-primary:hover {
+            background: #ddb94a;
+            transform: translateY(-2px);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--gold);
+            border: 2px solid var(--gold);
+        }
+
+        .btn-secondary:hover {
+            background: rgba(201, 168, 76, 0.1);
+            transform: translateY(-2px);
+        }
+
+        /* Footer */
+        footer {
+            background: var(--card-bg);
+            border-top: 1px solid var(--border);
+            padding: 3rem 2rem;
+            text-align: center;
+            margin-top: 4rem;
+        }
+
+        .footer-logo {
+            height: 32px;
+            margin-bottom: 1.5rem;
+        }
+
+        .footer-logo img {
+            height: 100%;
+            width: auto;
+        }
+
+        .footer-text {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        /* Reveal Animation */
+        .reveal {
+            opacity: 0;
+            transform: translateY(20px);
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+            transition: all 0.6s ease;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-links {
+                gap: 1.5rem;
+                font-size: 0.85rem;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .meta-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .opportunity-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .process-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .cta-buttons {
+                flex-direction: column;
+            }
+
+            .btn {
+                width: 100%;
+            }
+
+            .preview-frame iframe {
+                height: 400px;
+            }
+
+            section {
+                padding: 2.5rem 1.5rem;
+            }
+
+            nav {
+                padding: 1rem 1.5rem;
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .nav-links {
+                gap: 1rem;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="progress-bar">
+        <div class="progress-bar-fill"></div>
+    </div>
+
+    <nav>
+        <div class="nav-logo">
+            <img src="https://WhiteHaus.b-cdn.net/WhiteHause%20Logo%20.png" alt="White Haus Media">
+        </div>
+        <ul class="nav-links">
+            <li><a href="#opportunity">Opportunity</a></li>
+            <li><a href="#solution">Solution</a></li>
+            <li><a href="#preview">Preview</a></li>
+            <li><a href="#investment">Investment</a></li>
+            <li><a href="#cta"><button class="nav-cta">Let's Talk</button></a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero reveal">
+            <div class="pill">Prepared exclusively for Chapel Hill Day Care Center</div>
+            <h1>Your earned reputation deserves a website that matches it.</h1>
+            <p>Chapel Hill Day Care Center has built something remarkable — NAEYC accreditation, five-star ratings, and a continuity of care model that keeps children and teachers together through their critical early years. Your website should tell that story as powerfully as you live it every day.</p>
+
+            <div class="meta-grid">
+                <div class="meta-item">
+                    <div class="meta-label">Prepared for</div>
+                    <div class="meta-value">Latasha Garner</div>
+                </div>
+                <div class="meta-item">
+                    <div class="meta-label">Prepared by</div>
+                    <div class="meta-value">White Haus Media</div>
+                </div>
+                <div class="meta-item">
+                    <div class="meta-label">Date</div>
+                    <div class="meta-value">April 2026</div>
+                </div>
+                <div class="meta-item">
+                    <div class="meta-label">Delivery</div>
+                    <div class="meta-value">Under 2 Weeks</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Letter Section -->
+        <section class="reveal">
+            <div class="letter-section">
+                <p><strong>Dear Latasha,</strong></p>
+                <p>We spent time reviewing Chapel Hill Day Care Center's current web presence, and while your site has solid fundamentals — good LocalBusiness markup and clear value positioning — there are real opportunities being left on the table.</p>
+                <p>Your contact form is broken (it's losing leads right now), your banner still shows 2018 imagery, and despite having NAEYC accreditation and five-star ratings, that trust isn't being leveraged on your site. You have no parent testimonials, no photo gallery, no staff bios. Parents visiting your site see a good center described on an outdated platform.</p>
+                <p>We've built a working concept showing what's possible — a site that reflects your real credential, tells your continuity-of-care story visually, and turns interest into enrollments. Below, you'll see what we found and what we'd build.</p>
+            </div>
+        </section>
+
+        <!-- Opportunity Section -->
+        <section id="opportunity" class="reveal">
+            <h2 style="color: var(--cream); margin-bottom: 1rem;">The Gaps We Found</h2>
+            <div class="opportunity-grid">
+                <div class="opp-card">
+                    <h3><span class="icon-circle">📋</span> Broken Contact Form</h3>
+                    <p>Your contact form isn't working and has no storage option. Leads are being lost. This is your primary conversion point.</p>
+                </div>
+                <div class="opp-card">
+                    <h3><span class="icon-circle">⭐</span> No Trust Leverage</h3>
+                    <p>NAEYC accreditation and five-star ratings exist but aren't featured. Parents see credentials nowhere on your site.</p>
+                </div>
+                <div class="opp-card">
+                    <h3><span class="icon-circle">📅</span> Outdated Content</h3>
+                    <p>Your banner still shows 2018-2019 imagery. Visitors get the impression your center hasn't been updated in years.</p>
+                </div>
+                <div class="opp-card">
+                    <h3><span class="icon-circle">📸</span> No Gallery or Social Proof</h3>
+                    <p>No photo gallery, staff bios, or parent testimonials. Parents can't see what enrollment actually means day-to-day.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Solution Section -->
+        <section id="solution" class="reveal">
+            <h2 style="color: var(--cream); margin-bottom: 1rem;">What We'll Build</h2>
+            <div class="solution-list">
+                <h3>Complete Site Redesign & Build</h3>
+                <div class="solution-item">
+                    <div class="solution-star">★</div>
+                    <p><strong>Working Contact Form:</strong> Fully functional form with lead capture and email notifications. No more lost inquiries.</p>
+                </div>
+                <div class="solution-item">
+                    <div class="solution-star">★</div>
+                    <p><strong>Trust-Forward Design:</strong> NAEYC badge, 5-star rating, and accreditation prominently featured above the fold.</p>
+                </div>
+                <div class="solution-item">
+                    <div class="solution-star">★</div>
+                    <p><strong>Photo Gallery & Virtual Tour:</strong> Showcase classrooms, outdoor play, facilities, and staff in action. Let parents envision their child there.</p>
+                </div>
+                <div class="solution-item">
+                    <div class="solution-star">★</div>
+                    <p><strong>Staff Bios & Testimonials:</strong> Introduce your teachers and let parents hear from other families. Build genuine connection.</p>
+                </div>
+                <div class="solution-item">
+                    <div class="solution-star">★</div>
+                    <p><strong>Enrollment & Tuition Info:</strong> Clear pathways to enrollment, age-group details, and tuition transparency. Remove friction.</p>
+                </div>
+                <div class="solution-item">
+                    <div class="solution-star">★</div>
+                    <p><strong>Branded Email Address:</strong> Migrate from Gmail to a branded email (hello@chapelhilldaycarecenter.com). Build professional trust.</p>
+                </div>
+                <div class="solution-item">
+                    <div class="solution-star">★</div>
+                    <p><strong>Fast, Secure, SEO-Ready:</strong> Built on modern standards. Faster than your current Squarespace site, optimized for local search, and fully secure.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Preview Section -->
+        <section id="preview" class="reveal">
+            <h2 style="color: var(--cream); margin-bottom: 1rem; text-align: center;">Live Concept Preview</h2>
+            <p style="text-align: center; color: var(--text-muted); margin-bottom: 1.5rem;">Below is a working design concept showing exactly what your new site will look and feel like. This is built on your real programs, accreditations, and value prop.</p>
+            <div class="preview-frame">
+                <iframe src="preview.html" title="Chapel Hill Day Care Center - Site Preview"></iframe>
+            </div>
+            <div style="text-align: center;">
+                <a href="preview.html" target="_blank" class="fullscreen-btn">→ Open in Full Screen</a>
+            </div>
+        </section>
+
+        <!-- Process Section -->
+        <section class="reveal">
+            <h2 style="color: var(--cream); margin-bottom: 1rem; text-align: center;">How We Work</h2>
+            <div class="process-grid">
+                <div class="process-step">
+                    <div class="step-number">1</div>
+                    <h3>Discovery</h3>
+                    <p>We gather your photos, staff info, program details, and talk through your vision. One call, one week.</p>
+                </div>
+                <div class="process-step">
+                    <div class="step-number">2</div>
+                    <h3>Design & Build</h3>
+                    <p>We design and build your site in parallel. You'll see drafts along the way. Five working days.</p>
+                </div>
+                <div class="process-step">
+                    <div class="step-number">3</div>
+                    <h3>Review & Refine</h3>
+                    <p>We present the site, gather feedback, make refinements. Two rounds of revisions included. Three days.</p>
+                </div>
+                <div class="process-step">
+                    <div class="step-number">4</div>
+                    <h3>Launch & Support</h3>
+                    <p>We launch your site, set up your email, and you're live. Then ongoing updates and support included in your care plan.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Investment Section -->
+        <section id="investment" class="reveal">
+            <h2 style="color: var(--cream); margin-bottom: 2rem; text-align: center;">Investment</h2>
+            <div class="pricing-card">
+                <div class="pricing-label">One-Time Build</div>
+                <div class="pricing-amount">$797</div>
+                <div class="pricing-period">Complete site redesign & deployment</div>
+
+                <div class="pricing-includes">
+                    <h4>Included in your build:</h4>
+                    <ul>
+                        <li>Fully responsive website (mobile, tablet, desktop)</li>
+                        <li>Working contact form with lead capture</li>
+                        <li>Photo gallery & virtual tour setup</li>
+                        <li>Staff bios & testimonial section</li>
+                        <li>Program details & enrollment info</li>
+                        <li>Branded email setup (hello@chapelhilldaycarecenter.com)</li>
+                        <li>Local SEO optimization</li>
+                        <li>Fast hosting on global CDN</li>
+                        <li>SSL security certificate</li>
+                        <li>Two rounds of revisions</li>
+                        <li>Deployment & launch support</li>
+                    </ul>
+                </div>
+
+                <div style="text-align: center; margin-top: 2rem;">
+                    <p style="color: var(--text-muted); margin-bottom: 1.5rem; font-size: 0.95rem;">Your site is live and yours to own. Then choose a care plan for ongoing support.</p>
+                </div>
+
+                <div class="care-plans">
+                    <h4>Monthly Care Plans (Optional)</h4>
+                    <div class="care-plan-grid">
+                        <div class="care-plan">
+                            <div class="care-plan-name">Core Care</div>
+                            <div class="care-plan-price">$47<span style="font-size: 0.8rem; color: var(--text-muted);">/mo</span></div>
+                            <div class="care-plan-desc">Updates, 2 content edits per month, email support</div>
+                        </div>
+                        <div class="care-plan" style="border: 2px solid var(--gold); background: rgba(201, 168, 76, 0.1);">
+                            <div class="care-plan-name">Full Care</div>
+                            <div class="care-plan-price">$97<span style="font-size: 0.8rem; color: var(--text-muted);">/mo</span></div>
+                            <div class="care-plan-desc">Core + security, uptime monitoring, monthly report</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Section -->
+        <section id="cta" class="reveal">
+            <div class="cta-section">
+                <h2>Ready to see what's possible?</h2>
+                <div class="cta-buttons">
+                    <button class="btn btn-primary" onclick="window.location.href='https://calendar.app.google.com/calendar/u/0/r'">Book Consultation</button>
+                    <a href="mailto:hello@whitehausmedia.com" class="btn btn-secondary">Get in Touch via Email</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-logo">
+            <img src="https://WhiteHaus.b-cdn.net/WhiteHause%20Logo%20.png" alt="White Haus Media">
+        </div>
+        <p class="footer-text">&copy; 2026 White Haus Media. All rights reserved.</p>
+    </footer>
+
+    <script>
+        // Progress bar
+        window.addEventListener('scroll', () => {
+            const scrollTop = window.scrollY;
+            const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+            const scrollPercent = (scrollTop / docHeight) * 100;
+            document.querySelector('.progress-bar-fill').style.width = scrollPercent + '%';
+        });
+
+        // Reveal animation
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -100px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.reveal').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Smooth scroll for nav links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            });
+        });
+    </script>
+</body>
+</html>

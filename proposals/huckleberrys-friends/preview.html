@@ -1,0 +1,962 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Huckleberry's Friends Child Care Center & Preschool</title>
+    <link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@400;500;600;700&family=DM+Serif+Display:wght@400&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #8B6B47;
+            --accent: #D4A574;
+            --light-accent: #F5E6D3;
+            --dark: #3E3E3E;
+            --text: #333;
+            --light: #F9F7F3;
+            --success: #7BA881;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Work Sans', sans-serif;
+            color: var(--text);
+            line-height: 1.6;
+            background: var(--light);
+        }
+
+        /* Navigation */
+        nav {
+            background: white;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .nav-brand {
+            font-family: 'DM Serif Display', serif;
+            font-size: 1.4rem;
+            color: var(--primary);
+            font-weight: 600;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+            align-items: center;
+        }
+
+        .nav-links a {
+            color: var(--text);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+            font-size: 0.95rem;
+        }
+
+        .nav-links a:hover {
+            color: var(--accent);
+        }
+
+        .nav-phone {
+            color: var(--primary);
+            font-weight: 600;
+            text-decoration: none;
+            margin: 0 1rem;
+            border-right: 1px solid #ddd;
+            padding-right: 1rem;
+        }
+
+        .enroll-btn {
+            background: var(--primary);
+            color: white;
+            padding: 0.6rem 1.5rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            font-size: 0.9rem;
+        }
+
+        .enroll-btn:hover {
+            background: var(--accent);
+            color: var(--dark);
+            transform: translateY(-2px);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, var(--light-accent) 0%, white 100%);
+            padding: 4rem 2rem;
+            min-height: 600px;
+            display: flex;
+            align-items: center;
+        }
+
+        .hero-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            width: 100%;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .hero-content h1 {
+            font-family: 'DM Serif Display', serif;
+            font-size: clamp(2.2rem, 5vw, 3.2rem);
+            color: var(--dark);
+            margin-bottom: 1.5rem;
+            line-height: 1.2;
+        }
+
+        .hero-content p {
+            font-size: 1.1rem;
+            color: var(--text);
+            margin-bottom: 2rem;
+            line-height: 1.8;
+        }
+
+        .trust-badges {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+
+        .badge {
+            background: white;
+            padding: 1rem;
+            border-radius: 8px;
+            border-left: 4px solid var(--accent);
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+        }
+
+        .badge-label {
+            color: var(--primary);
+            font-size: 0.8rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 0.3rem;
+        }
+
+        .badge-value {
+            color: var(--dark);
+            font-size: 1.1rem;
+            font-weight: 600;
+        }
+
+        .hero-image {
+            background: linear-gradient(135deg, var(--accent) 0%, var(--primary) 100%);
+            border-radius: 12px;
+            height: 400px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 4rem;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+        }
+
+        /* Trust Bar */
+        .trust-bar {
+            background: var(--primary);
+            color: white;
+            padding: 2rem;
+            margin: 0;
+        }
+
+        .trust-bar-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            text-align: center;
+        }
+
+        .trust-stat h3 {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+
+        .trust-stat p {
+            font-size: 0.9rem;
+            opacity: 0.95;
+        }
+
+        /* About Section */
+        .about {
+            padding: 5rem 2rem;
+            background: white;
+        }
+
+        .about-container {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            font-family: 'DM Serif Display', serif;
+            font-size: clamp(2rem, 4vw, 2.8rem);
+            color: var(--dark);
+            margin-bottom: 1rem;
+        }
+
+        .section-subtitle {
+            color: var(--primary);
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            font-weight: 600;
+            margin-bottom: 2rem;
+        }
+
+        .about p {
+            font-size: 1.05rem;
+            color: var(--text);
+            margin-bottom: 1.5rem;
+            line-height: 1.8;
+        }
+
+        .about strong {
+            color: var(--primary);
+        }
+
+        /* Programs Section */
+        .programs {
+            padding: 5rem 2rem;
+            background: var(--light);
+        }
+
+        .programs-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .programs-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .program-card {
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+            transition: all 0.3s ease;
+        }
+
+        .program-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+        }
+
+        .program-image {
+            background: linear-gradient(135deg, var(--accent) 0%, var(--primary) 100%);
+            height: 200px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 3rem;
+        }
+
+        .program-content {
+            padding: 1.5rem;
+        }
+
+        .program-card h3 {
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+            font-size: 1.2rem;
+        }
+
+        .program-card p {
+            color: var(--text);
+            font-size: 0.95rem;
+        }
+
+        /* Gallery Section */
+        .gallery {
+            padding: 5rem 2rem;
+            background: white;
+        }
+
+        .gallery-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin-top: 3rem;
+        }
+
+        .gallery-item {
+            background: linear-gradient(135deg, var(--light-accent) 0%, var(--accent) 100%);
+            aspect-ratio: 1;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 2rem;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            transition: transform 0.3s ease;
+        }
+
+        .gallery-item:hover {
+            transform: scale(1.05);
+        }
+
+        /* Why Choose Us */
+        .why-choose {
+            padding: 5rem 2rem;
+            background: var(--light);
+        }
+
+        .why-choose-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .reasons {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .reason {
+            background: white;
+            padding: 2rem;
+            border-radius: 12px;
+            border-left: 4px solid var(--accent);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+        }
+
+        .reason h3 {
+            color: var(--primary);
+            margin-bottom: 1rem;
+            font-size: 1.2rem;
+        }
+
+        .reason p {
+            color: var(--text);
+            line-height: 1.7;
+        }
+
+        /* Testimonials */
+        .testimonials {
+            padding: 5rem 2rem;
+            background: white;
+        }
+
+        .testimonials-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .testimonial-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .testimonial {
+            background: var(--light);
+            padding: 2rem;
+            border-radius: 8px;
+            border-top: 3px solid var(--primary);
+        }
+
+        .testimonial-stars {
+            color: var(--accent);
+            font-size: 1.1rem;
+            margin-bottom: 1rem;
+        }
+
+        .testimonial p {
+            color: var(--text);
+            margin-bottom: 1.5rem;
+            font-style: italic;
+            line-height: 1.7;
+        }
+
+        .testimonial-author {
+            color: var(--primary);
+            font-weight: 600;
+            font-size: 0.95rem;
+        }
+
+        /* CTA Banner */
+        .cta-banner {
+            background: linear-gradient(135deg, var(--primary) 0%, #6B5538 100%);
+            color: white;
+            padding: 3rem 2rem;
+            text-align: center;
+        }
+
+        .cta-banner-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .cta-banner h2 {
+            font-family: 'DM Serif Display', serif;
+            font-size: clamp(1.8rem, 4vw, 2.5rem);
+            margin-bottom: 1rem;
+        }
+
+        .cta-banner p {
+            font-size: 1.05rem;
+            margin-bottom: 2rem;
+            opacity: 0.95;
+        }
+
+        .cta-banner-btn {
+            background: var(--accent);
+            color: var(--dark);
+            padding: 1rem 2.5rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1rem;
+            display: inline-block;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+        }
+
+        .cta-banner-btn:hover {
+            background: var(--light-accent);
+            transform: translateY(-2px);
+        }
+
+        /* Contact Section */
+        .contact {
+            padding: 5rem 2rem;
+            background: var(--light);
+        }
+
+        .contact-container {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .contact-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: start;
+        }
+
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+
+        .contact-item h3 {
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+            font-size: 1.1rem;
+        }
+
+        .contact-item p {
+            color: var(--text);
+            font-size: 1rem;
+        }
+
+        .contact-item a {
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s ease;
+        }
+
+        .contact-item a:hover {
+            color: var(--accent);
+        }
+
+        .contact-form {
+            background: white;
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            color: var(--primary);
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            font-size: 0.95rem;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 0.75rem;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            font-family: 'Work Sans', sans-serif;
+            font-size: 0.95rem;
+            transition: border-color 0.3s ease;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(139, 107, 71, 0.1);
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 100px;
+        }
+
+        .form-submit {
+            background: var(--primary);
+            color: white;
+            padding: 0.75rem 2rem;
+            border: none;
+            border-radius: 6px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            width: 100%;
+            font-size: 1rem;
+        }
+
+        .form-submit:hover {
+            background: var(--accent);
+            color: var(--dark);
+        }
+
+        /* Footer */
+        footer {
+            background: var(--dark);
+            color: white;
+            padding: 3rem 2rem;
+            text-align: center;
+        }
+
+        footer p {
+            margin-bottom: 0.5rem;
+        }
+
+        footer a {
+            color: var(--accent);
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+        /* Animations */
+        @keyframes slideInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .animate-in {
+            animation: slideInUp 0.6s ease-out forwards;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-container {
+                padding: 1rem;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .hero-container {
+                grid-template-columns: 1fr;
+            }
+
+            .hero-image {
+                height: 300px;
+            }
+
+            .contact-content {
+                grid-template-columns: 1fr;
+            }
+
+            .trust-badges {
+                grid-template-columns: 1fr;
+            }
+
+            .hero {
+                padding: 3rem 1rem;
+                min-height: auto;
+            }
+
+            .about,
+            .programs,
+            .gallery,
+            .why-choose,
+            .testimonials,
+            .contact {
+                padding: 3rem 1rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .nav-brand {
+                font-size: 1.1rem;
+            }
+
+            .hero-content h1 {
+                font-size: 1.8rem;
+            }
+
+            .section-title {
+                font-size: 1.8rem;
+            }
+
+            .trust-bar-content {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+
+            .enroll-btn {
+                padding: 0.5rem 1rem;
+                font-size: 0.8rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-container">
+            <div class="nav-brand">Huckleberry's Friends</div>
+            <ul class="nav-links">
+                <li><a href="#about">About</a></li>
+                <li><a href="#programs">Programs</a></li>
+                <li><a href="#gallery">Gallery</a></li>
+                <li><a href="#contact">Contact</a></li>
+                <li><a href="tel:+19198675309" class="nav-phone">(919) 867-5309</a></li>
+                <li><a href="#contact" class="enroll-btn">Enroll Now</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-container">
+            <div class="hero-content">
+                <h1>Nearly 40 Years of Family-Owned Care Excellence</h1>
+                <p>We combine academic-focused learning with play-based discovery, creating an environment where every child thrives. Serving families with infants through school-age children since 1987.</p>
+                <div class="trust-badges">
+                    <div class="badge">
+                        <div class="badge-label">Est.</div>
+                        <div class="badge-value">1987</div>
+                    </div>
+                    <div class="badge">
+                        <div class="badge-label">Rating</div>
+                        <div class="badge-value">5-Star</div>
+                    </div>
+                    <div class="badge">
+                        <div class="badge-label">Ages Served</div>
+                        <div class="badge-value">6wk–12yr</div>
+                    </div>
+                    <div class="badge">
+                        <div class="badge-label">Philosophy</div>
+                        <div class="badge-value">Family-Owned</div>
+                    </div>
+                </div>
+            </div>
+            <div class="hero-image">🏡</div>
+        </div>
+    </section>
+
+    <!-- Trust Bar -->
+    <section class="trust-bar">
+        <div class="trust-bar-content">
+            <div class="trust-stat">
+                <h3>37+</h3>
+                <p>Years of Excellence</p>
+            </div>
+            <div class="trust-stat">
+                <h3>5-Star</h3>
+                <p>Licensed & Rated</p>
+            </div>
+            <div class="trust-stat">
+                <h3>6 weeks – 12 years</h3>
+                <p>Full Age Range</p>
+            </div>
+            <div class="trust-stat">
+                <h3>6:30 AM – 6:30 PM</h3>
+                <p>Extended Hours</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about" id="about">
+        <div class="about-container">
+            <div class="section-subtitle">Our Story</div>
+            <h2 class="section-title">Building Foundations Since 1987</h2>
+            <p>Huckleberry's Friends was founded on a simple belief: every child deserves an environment where they can grow academically, emotionally, and socially. For nearly four decades, we've been that place for families in Garner.</p>
+            <p>We're not just a daycare—we're a partnership between families and educators who believe in going above and beyond state standards. Our family-owned approach means every decision is made with your child's development in mind.</p>
+            <p><strong>We exceed expectations.</strong> Our curriculum blends structured academics with play-based learning, our facility is beautiful and safe, and our staff treats every child as part of the family. That's why families choose us, and why they stay.</p>
+        </div>
+    </section>
+
+    <!-- Programs Section -->
+    <section class="programs" id="programs">
+        <div class="programs-container">
+            <div class="section-subtitle">What We Offer</div>
+            <h2 class="section-title">Programs for Every Age</h2>
+            <div class="programs-grid">
+                <div class="program-card">
+                    <div class="program-image">👶</div>
+                    <div class="program-content">
+                        <h3>Infant Care</h3>
+                        <p>6 weeks – 18 months. Nurturing, secure environments with individualized attention and developmental milestones tracked daily.</p>
+                    </div>
+                </div>
+                <div class="program-card">
+                    <div class="program-image">🧒</div>
+                    <div class="program-content">
+                        <h3>Toddlers</h3>
+                        <p>18 months – 3 years. Language development, exploration, and social skills in a safe, engaging space.</p>
+                    </div>
+                </div>
+                <div class="program-card">
+                    <div class="program-image">📚</div>
+                    <div class="program-content">
+                        <h3>Preschool</h3>
+                        <p>3 – 5 years. Academic readiness, creative expression, and social-emotional development preparing them for kindergarten.</p>
+                    </div>
+                </div>
+                <div class="program-card">
+                    <div class="program-image">🎒</div>
+                    <div class="program-content">
+                        <h3>School-Age Care</h3>
+                        <p>5 – 12 years. Extended hours before and after school. Homework support, enrichment activities, and safe community.</p>
+                    </div>
+                </div>
+                <div class="program-card">
+                    <div class="program-image">🌅</div>
+                    <div class="program-content">
+                        <h3>Before & After School</h3>
+                        <p>Early drop-off (6:30 AM) and extended pickup (6:30 PM) for working families.</p>
+                    </div>
+                </div>
+                <div class="program-card">
+                    <div class="program-image">🎨</div>
+                    <div class="program-content">
+                        <h3>Enrichment Activities</h3>
+                        <p>Art, music, movement, STEM exploration, and seasonal celebrations throughout the year.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section class="gallery" id="gallery">
+        <div class="gallery-container">
+            <div class="section-subtitle">Our Space</div>
+            <h2 class="section-title">A Beautiful, Safe Environment</h2>
+            <div class="gallery-grid">
+                <div class="gallery-item">📷</div>
+                <div class="gallery-item">📷</div>
+                <div class="gallery-item">📷</div>
+                <div class="gallery-item">📷</div>
+                <div class="gallery-item">📷</div>
+                <div class="gallery-item">📷</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Choose Us -->
+    <section class="why-choose">
+        <div class="why-choose-container">
+            <div class="section-subtitle">Why Families Choose Us</div>
+            <h2 class="section-title">What Sets Us Apart</h2>
+            <div class="reasons">
+                <div class="reason">
+                    <h3>Higher Standards</h3>
+                    <p>We exceed state requirements in everything from staff-to-child ratios to curriculum design. Your child gets the best because we demand it of ourselves.</p>
+                </div>
+                <div class="reason">
+                    <h3>Academic + Play Balance</h3>
+                    <p>Learning doesn't mean sitting at desks. We blend structured academics with creative play, discovery, and outdoor exploration for holistic development.</p>
+                </div>
+                <div class="reason">
+                    <h3>Family Partnership</h3>
+                    <p>You're not dropping off—you're partnering with us. Daily communication, regular updates, and genuine relationships with our staff and families.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="testimonials">
+        <div class="testimonials-container">
+            <div class="section-subtitle">What Families Say</div>
+            <h2 class="section-title">5-Star Reviews from Real Families</h2>
+            <div class="testimonial-grid">
+                <div class="testimonial">
+                    <div class="testimonial-stars">⭐⭐⭐⭐⭐</div>
+                    <p>"We've trusted Huckleberry's Friends with both our kids. The staff genuinely care, the facility is immaculate, and our children have grown so much. Can't recommend them enough."</p>
+                    <div class="testimonial-author">— Jessica M.</div>
+                </div>
+                <div class="testimonial">
+                    <div class="testimonial-stars">⭐⭐⭐⭐⭐</div>
+                    <p>"Our daughter was nervous about preschool. Within a week, she was excited to go. That's because the teachers treat them with real care and patience. So grateful."</p>
+                    <div class="testimonial-author">— David & Sarah L.</div>
+                </div>
+                <div class="testimonial">
+                    <div class="testimonial-stars">⭐⭐⭐⭐⭐</div>
+                    <p>"The best part? The communication. We get updates, photos, and real feedback about our kids' development. We know what's happening here. That matters."</p>
+                    <div class="testimonial-author">— Michelle P.</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Banner -->
+    <section class="cta-banner">
+        <div class="cta-banner-content">
+            <h2>Ready to Join Our Family?</h2>
+            <p>We have limited spots available. Schedule a tour and see why families in Garner trust us.</p>
+            <a href="#contact" class="cta-banner-btn">Schedule a Tour</a>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact" id="contact">
+        <div class="contact-container">
+            <div class="contact-info">
+                <div class="section-subtitle">Get In Touch</div>
+                <h2 class="section-title">We'd Love to Meet You</h2>
+                <div class="contact-item">
+                    <h3>Call Us</h3>
+                    <p><a href="tel:+19198675309">(919) 867-5309</a></p>
+                </div>
+                <div class="contact-item">
+                    <h3>Email Us</h3>
+                    <p><a href="mailto:info@huckleberrysfriends.com">info@huckleberrysfriends.com</a></p>
+                </div>
+                <div class="contact-item">
+                    <h3>Visit Us</h3>
+                    <p>1000 Lawndale Street<br>Garner, NC 27529</p>
+                </div>
+                <div class="contact-item">
+                    <h3>Hours</h3>
+                    <p>Monday – Friday<br>6:30 AM – 6:30 PM</p>
+                </div>
+            </div>
+            <form class="contact-form">
+                <div class="form-group">
+                    <label for="name">Your Name</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="phone">Phone (optional)</label>
+                    <input type="tel" id="phone" name="phone">
+                </div>
+                <div class="form-group">
+                    <label for="message">Message</label>
+                    <textarea id="message" name="message" placeholder="Tell us about your family..."></textarea>
+                </div>
+                <button type="submit" class="form-submit">Send Inquiry</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2026 Huckleberry's Friends Child Care Center & Preschool</p>
+        <p>Licensed 5-Star Childcare Center • Garner, NC</p>
+    </footer>
+
+    <script>
+        // Intersection Observer for animations
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animate-in');
+                }
+            });
+        }, {
+            threshold: 0.1
+        });
+
+        document.querySelectorAll('.program-card, .reason, .testimonial, .gallery-item').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Form handling
+        document.querySelector('.contact-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Thank you for your inquiry! We\'ll be in touch soon.');
+            this.reset();
+        });
+
+        // Smooth scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth' });
+                }
+            });
+        });
+    </script>
+</body>
+</html>

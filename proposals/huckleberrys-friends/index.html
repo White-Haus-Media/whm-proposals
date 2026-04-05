@@ -1,0 +1,887 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Website Proposal — Huckleberry's Friends | White Haus Media</title>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --cream: #F4EFE6;
+            --black: #080808;
+            --gold: #C6A44C;
+            --dark-bg: #0f0f0f;
+            --dark-card: #1a1a1a;
+            --border: #2a2a2a;
+            --text-light: #e8e8e8;
+            --text-muted: #999;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: var(--dark-bg);
+            color: var(--text-light);
+            line-height: 1.6;
+        }
+
+        /* Progress Bar */
+        .progress-bar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 3px;
+            background: linear-gradient(90deg, var(--gold) 0%, var(--cream) 100%);
+            width: 0%;
+            z-index: 1000;
+            transition: width 0.3s ease;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(15, 15, 15, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--border);
+            z-index: 999;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .nav-logo {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            text-decoration: none;
+            color: var(--cream);
+            font-weight: 700;
+            font-size: 1.1rem;
+        }
+
+        .nav-logo img {
+            height: 32px;
+            width: auto;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--text-light);
+            text-decoration: none;
+            font-size: 0.95rem;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--gold);
+        }
+
+        .cta-pill {
+            background: var(--gold);
+            color: var(--black);
+            padding: 0.5rem 1.25rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+        }
+
+        .cta-pill:hover {
+            background: var(--cream);
+            transform: translateY(-2px);
+        }
+
+        /* Main Content */
+        main {
+            margin-top: 80px;
+        }
+
+        section {
+            padding: 4rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        /* Hero Section */
+        .hero {
+            text-align: center;
+            padding: 5rem 2rem;
+        }
+
+        .pill-badge {
+            display: inline-block;
+            background: var(--dark-card);
+            border: 1px solid var(--border);
+            color: var(--gold);
+            padding: 0.5rem 1rem;
+            border-radius: 50px;
+            font-size: 0.85rem;
+            margin-bottom: 2rem;
+            font-weight: 500;
+        }
+
+        .hero h1 {
+            font-size: clamp(2.5rem, 6vw, 4rem);
+            line-height: 1.2;
+            margin-bottom: 1.5rem;
+            color: var(--cream);
+        }
+
+        .hero p {
+            font-size: 1.1rem;
+            color: var(--text-muted);
+            max-width: 700px;
+            margin: 0 auto 3rem;
+        }
+
+        .meta-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+            padding-top: 3rem;
+            border-top: 1px solid var(--border);
+        }
+
+        .meta-item {
+            text-align: left;
+        }
+
+        .meta-label {
+            color: var(--text-muted);
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 0.5rem;
+        }
+
+        .meta-value {
+            color: var(--cream);
+            font-weight: 600;
+            font-size: 1.1rem;
+        }
+
+        /* Letter Section */
+        .letter {
+            background: var(--dark-card);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 3rem;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .letter h2 {
+            color: var(--cream);
+            margin-bottom: 1.5rem;
+            font-size: 1.3rem;
+        }
+
+        .letter p {
+            margin-bottom: 1.5rem;
+            color: var(--text-light);
+            line-height: 1.8;
+        }
+
+        .letter strong {
+            color: var(--gold);
+        }
+
+        /* Section Titles */
+        h2 {
+            font-size: clamp(2rem, 4vw, 2.5rem);
+            margin-bottom: 0.5rem;
+            color: var(--cream);
+        }
+
+        .section-subtitle {
+            color: var(--text-muted);
+            font-size: 1rem;
+            margin-bottom: 3rem;
+        }
+
+        /* Opportunity Cards */
+        .cards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .card {
+            background: var(--dark-card);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 2rem;
+            transition: all 0.3s ease;
+        }
+
+        .card:hover {
+            border-color: var(--gold);
+            transform: translateY(-4px);
+        }
+
+        .card-number {
+            color: var(--gold);
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+
+        .card h3 {
+            color: var(--cream);
+            margin-bottom: 1rem;
+            font-size: 1.2rem;
+        }
+
+        .card p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+        }
+
+        /* Solution Section */
+        .solution-list {
+            list-style: none;
+            margin-top: 2rem;
+        }
+
+        .solution-list li {
+            padding: 1rem;
+            background: var(--dark-card);
+            border: 1px solid var(--border);
+            border-radius: 6px;
+            margin-bottom: 1rem;
+            color: var(--text-light);
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .solution-list li:before {
+            content: "✓";
+            color: var(--gold);
+            font-weight: 700;
+            font-size: 1.3rem;
+            flex-shrink: 0;
+        }
+
+        /* Preview Section */
+        .preview-container {
+            background: var(--dark-card);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            overflow: hidden;
+            margin-top: 2rem;
+        }
+
+        .preview-header {
+            background: var(--border);
+            padding: 1rem;
+            display: flex;
+            gap: 0.5rem;
+            align-items: center;
+        }
+
+        .preview-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: var(--gold);
+        }
+
+        .preview-dot:nth-child(2) {
+            background: #ffc107;
+        }
+
+        .preview-dot:nth-child(3) {
+            background: #888;
+        }
+
+        .preview-iframe {
+            width: 100%;
+            height: 600px;
+            border: none;
+            display: block;
+        }
+
+        @media (max-height: 800px) {
+            .preview-iframe {
+                height: 400px;
+            }
+        }
+
+        /* Process Section */
+        .process-steps {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .step {
+            background: var(--dark-card);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 2rem;
+            text-align: center;
+        }
+
+        .step-number {
+            color: var(--gold);
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+
+        .step h3 {
+            color: var(--cream);
+            margin-bottom: 1rem;
+            font-size: 1.1rem;
+        }
+
+        .step p {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        /* Pricing Section */
+        .pricing-intro {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .investment-box {
+            background: linear-gradient(135deg, var(--gold) 0%, var(--cream) 100%);
+            color: var(--black);
+            border-radius: 8px;
+            padding: 3rem;
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .investment-box h3 {
+            font-size: 1.1rem;
+            margin-bottom: 1rem;
+            font-weight: 500;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+        }
+
+        .investment-box .price {
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+
+        .investment-box p {
+            color: rgba(8, 8, 8, 0.7);
+            font-size: 0.95rem;
+        }
+
+        .care-plans {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .plan {
+            background: var(--dark-card);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 2rem;
+        }
+
+        .plan.featured {
+            border-color: var(--gold);
+            background: linear-gradient(135deg, rgba(198, 164, 76, 0.1) 0%, transparent 100%);
+        }
+
+        .plan h3 {
+            color: var(--cream);
+            margin-bottom: 0.5rem;
+            font-size: 1.2rem;
+        }
+
+        .plan .price {
+            color: var(--gold);
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+
+        .plan-features {
+            list-style: none;
+            margin: 1.5rem 0;
+        }
+
+        .plan-features li {
+            padding: 0.5rem 0;
+            color: var(--text-muted);
+            font-size: 0.95rem;
+        }
+
+        .plan-features li:before {
+            content: "•";
+            color: var(--gold);
+            margin-right: 0.75rem;
+            font-weight: 700;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            background: linear-gradient(135deg, var(--dark-card) 0%, var(--border) 100%);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 3rem;
+            text-align: center;
+            margin: 4rem 0;
+        }
+
+        .cta-section h2 {
+            margin-bottom: 1rem;
+        }
+
+        .cta-section p {
+            color: var(--text-muted);
+            margin-bottom: 2rem;
+            font-size: 1.05rem;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: var(--gold);
+            color: var(--black);
+            padding: 1rem 2.5rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            border: none;
+        }
+
+        .cta-button:hover {
+            background: var(--cream);
+            transform: translateY(-2px);
+        }
+
+        /* Footer */
+        footer {
+            background: var(--black);
+            border-top: 1px solid var(--border);
+            padding: 3rem 2rem;
+            text-align: center;
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+            text-align: left;
+        }
+
+        .footer-section h3 {
+            color: var(--cream);
+            margin-bottom: 1rem;
+            font-size: 1rem;
+        }
+
+        .footer-section ul {
+            list-style: none;
+        }
+
+        .footer-section ul li {
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-section a {
+            color: var(--text-muted);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-section a:hover {
+            color: var(--gold);
+        }
+
+        .footer-bottom {
+            border-top: 1px solid var(--border);
+            padding-top: 2rem;
+            text-align: center;
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .reveal {
+            animation: fadeInUp 0.6s ease-out forwards;
+            opacity: 0;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            nav {
+                padding: 1rem;
+                flex-wrap: wrap;
+            }
+
+            .nav-links {
+                gap: 1rem;
+                font-size: 0.85rem;
+            }
+
+            section {
+                padding: 3rem 1rem;
+            }
+
+            .hero {
+                padding: 3rem 1rem;
+            }
+
+            .letter {
+                padding: 2rem;
+            }
+
+            .cta-section {
+                padding: 2rem;
+            }
+
+            .investment-box {
+                padding: 2rem;
+            }
+
+            .investment-box .price {
+                font-size: 2.5rem;
+            }
+
+            .meta-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+
+            .preview-iframe {
+                height: 500px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            nav {
+                padding: 0.75rem;
+            }
+
+            .nav-links {
+                gap: 0.5rem;
+            }
+
+            .hero h1 {
+                font-size: 1.75rem;
+            }
+
+            section {
+                padding: 2rem 1rem;
+            }
+
+            .letter {
+                padding: 1.5rem;
+            }
+
+            .cta-pill {
+                padding: 0.4rem 1rem;
+                font-size: 0.8rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="progress-bar" id="progressBar"></div>
+
+    <nav>
+        <a href="#" class="nav-logo">
+            <img src="https://WhiteHaus.b-cdn.net/WhiteHause%20Logo%20.png" alt="White Haus Media">
+        </a>
+        <ul class="nav-links">
+            <li><a href="#opportunity">Opportunity</a></li>
+            <li><a href="#solution">Solution</a></li>
+            <li><a href="#preview">Preview</a></li>
+            <li><a href="#investment">Investment</a></li>
+            <li><a href="#contact" class="cta-pill">Let's Talk</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="pill-badge">Prepared exclusively for Huckleberry's Friends</div>
+            <h1>Nearly 40 Years of Trust Deserves to Be Seen</h1>
+            <p>Your reputation is stellar. Your website is silent. Let's change that.</p>
+            <div class="meta-grid">
+                <div class="meta-item">
+                    <div class="meta-label">Prepared For</div>
+                    <div class="meta-value">Emily Sauls</div>
+                </div>
+                <div class="meta-item">
+                    <div class="meta-label">Prepared By</div>
+                    <div class="meta-value">White Haus Media</div>
+                </div>
+                <div class="meta-item">
+                    <div class="meta-label">Date</div>
+                    <div class="meta-value">April 2026</div>
+                </div>
+                <div class="meta-item">
+                    <div class="meta-label">Delivery</div>
+                    <div class="meta-value">Under 2 Weeks</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Letter Section -->
+        <section>
+            <div class="letter reveal">
+                <h2>Dear Emily,</h2>
+                <p>We found your website. Well, we tried to—and discovered it's been completely offline. Your SSL certificate expired, and families searching for "childcare in Garner" or "preschool near me" can't find you. Not because your business isn't exceptional, but because your digital presence has gone dark.</p>
+                <p>That's a problem worth solving quickly. You've spent <strong>nearly 40 years</strong> building trust, a 5-star rating, and a reputation for excellence. You serve families from 6 weeks through 12 years old—the widest age range in the area. Parents are looking for exactly what you offer. They just can't see you.</p>
+                <p>We've built a working concept of what your new website could look like: modern, responsive, trustworthy, and ready to capture the families who need you most. This proposal outlines the opportunity, the solution, and a clear path forward.</p>
+                <p><strong>Let's get you back online—and make sure families can find you.</strong></p>
+            </div>
+        </section>
+
+        <!-- Opportunity Section -->
+        <section id="opportunity">
+            <h2>The Opportunity</h2>
+            <p class="section-subtitle">Why this matters right now</p>
+            <div class="cards-grid">
+                <div class="card reveal">
+                    <div class="card-number">1</div>
+                    <h3>You're Invisible Online</h3>
+                    <p>Your website is completely offline. Families searching for you find nothing. Your competitors capture those leads every single day.</p>
+                </div>
+                <div class="card reveal">
+                    <div class="card-number">2</div>
+                    <h3>37+ Years of Trust Goes Unseen</h3>
+                    <p>Your history, your 5-star rating, your expertise—it's all real, but it's not visible to new families who don't know you yet.</p>
+                </div>
+                <div class="card reveal">
+                    <div class="card-number">3</div>
+                    <h3>No Path to Enrollment</h3>
+                    <p>There's no online way for interested families to contact you, learn about your programs, or start the enrollment process.</p>
+                </div>
+                <div class="card reveal">
+                    <div class="card-number">4</div>
+                    <h3>Local Competitors Own Your Search Traffic</h3>
+                    <p>When parents search for childcare in Garner, they see other centers. Your reputation should be making this easy. Instead, you're losing leads.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Solution Section -->
+        <section id="solution">
+            <h2>The Solution</h2>
+            <p class="section-subtitle">What you'll get</p>
+            <ul class="solution-list">
+                <li>Modern, fully responsive website built on current web standards</li>
+                <li>Trust-building hero section highlighting 37+ years of family-owned care</li>
+                <li>Clear program pages for all age groups (Infants, Toddlers, Preschool, School-Age, Before/After)</li>
+                <li>Photo gallery to showcase your beautiful facility and happy families</li>
+                <li>Enrollment inquiry form integrated directly into your site</li>
+                <li>Mobile-optimized contact section with hours, location, and phone</li>
+                <li>Trust badges and testimonials prominently displayed</li>
+                <li>SEO-ready foundation to help families find you in local searches</li>
+                <li>Professional design reflecting your warm, trustworthy brand</li>
+                <li>Deployed to a secure, fast, global CDN</li>
+                <li>Clean, maintainable code for future updates</li>
+                <li>Includes 30 days of post-launch support</li>
+            </ul>
+        </section>
+
+        <!-- Preview Section -->
+        <section id="preview">
+            <h2>The Preview</h2>
+            <p class="section-subtitle">See your new site in action</p>
+            <div class="preview-container">
+                <div class="preview-header">
+                    <div class="preview-dot"></div>
+                    <div class="preview-dot"></div>
+                    <div class="preview-dot"></div>
+                </div>
+                <iframe class="preview-iframe" src="preview.html"></iframe>
+            </div>
+        </section>
+
+        <!-- Process Section -->
+        <section>
+            <h2>The Process</h2>
+            <p class="section-subtitle">How we'll get you there</p>
+            <div class="process-steps">
+                <div class="step reveal">
+                    <div class="step-number">1</div>
+                    <h3>Discovery</h3>
+                    <p>We'll gather your program details, photos, testimonials, and brand preferences to build the perfect site for your center.</p>
+                </div>
+                <div class="step reveal">
+                    <div class="step-number">2</div>
+                    <h3>Design & Development</h3>
+                    <p>We'll design and build your website with all the features you need: programs, gallery, enrollment forms, and contact pathways.</p>
+                </div>
+                <div class="step reveal">
+                    <div class="step-number">3</div>
+                    <h3>Review & Refinement</h3>
+                    <p>You'll see the site, provide feedback, and we'll make refinements until it's exactly what you want.</p>
+                </div>
+                <div class="step reveal">
+                    <div class="step-number">4</div>
+                    <h3>Launch & Support</h3>
+                    <p>We'll deploy your site, set up domain redirects, ensure everything works perfectly, and provide 30 days of support.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Pricing Section -->
+        <section id="investment">
+            <div class="pricing-intro">
+                <h2>The Investment</h2>
+                <p class="section-subtitle">One-time website build, then ongoing care</p>
+            </div>
+
+            <div class="investment-box">
+                <h3>Website Build (One-Time)</h3>
+                <div class="price">$897</div>
+                <p>Complete, fully responsive website designed and deployed in under 2 weeks</p>
+            </div>
+
+            <h3 style="text-align: center; color: var(--cream); margin-top: 3rem; margin-bottom: 2rem;">Then Choose Your Care Plan</h3>
+            <div class="care-plans">
+                <div class="plan">
+                    <h3>Core Care</h3>
+                    <div class="price">$47<span style="font-size: 1rem; color: var(--text-muted);">/month</span></div>
+                    <p style="color: var(--text-muted); font-size: 0.95rem; margin-bottom: 1.5rem;">For centers that want essential updates and support.</p>
+                    <ul class="plan-features">
+                        <li>Monthly content updates</li>
+                        <li>2 hours of edits per month</li>
+                        <li>Email support</li>
+                        <li>Basic maintenance</li>
+                    </ul>
+                </div>
+                <div class="plan featured">
+                    <h3>Full Care</h3>
+                    <div class="price">$97<span style="font-size: 1rem; color: rgba(8, 8, 8, 0.6);">/month</span></div>
+                    <p style="color: var(--text-muted); font-size: 0.95rem; margin-bottom: 1.5rem;">Our most popular. Everything you need to stay current and secure.</p>
+                    <ul class="plan-features">
+                        <li>Everything in Core Care</li>
+                        <li>4 hours of edits per month</li>
+                        <li>Security monitoring</li>
+                        <li>Uptime monitoring</li>
+                        <li>Monthly performance report</li>
+                        <li>Priority support</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Section -->
+        <section class="cta-section" id="contact">
+            <h2>Ready to Get Back Online?</h2>
+            <p>Let's talk about bringing your nearly 40-year reputation back to where it belongs: where families can find you.</p>
+            <a href="mailto:hello@whitehausmedia.com?subject=Let%27s%20talk%20about%20my%20website" class="cta-button">Get Started Today</a>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>White Haus Media</h3>
+                <p>Premium custom websites for businesses in the Triangle area.</p>
+            </div>
+            <div class="footer-section">
+                <h3>Contact</h3>
+                <ul>
+                    <li><a href="mailto:hello@whitehausmedia.com">hello@whitehausmedia.com</a></li>
+                    <li><a href="tel:+19198675309">(919) 867-5309</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Location</h3>
+                <p>Wake Forest, NC<br>Serving the Triangle</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 White Haus Media. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Progress bar
+        function updateProgressBar() {
+            const scrollHeight = document.documentElement.scrollHeight - window.innerHeight;
+            const scrolled = window.scrollY;
+            const progress = (scrolled / scrollHeight) * 100;
+            document.getElementById('progressBar').style.width = progress + '%';
+        }
+
+        window.addEventListener('scroll', updateProgressBar);
+
+        // Reveal animations on scroll
+        function revealOnScroll() {
+            const reveals = document.querySelectorAll('.reveal');
+            reveals.forEach(reveal => {
+                const windowHeight = window.innerHeight;
+                const elementTop = reveal.getBoundingClientRect().top;
+                const elementVisible = 150;
+
+                if (elementTop < windowHeight - elementVisible) {
+                    reveal.style.animation = 'fadeInUp 0.6s ease-out forwards';
+                }
+            });
+        }
+
+        window.addEventListener('scroll', revealOnScroll);
+        revealOnScroll(); // Run on load
+
+        // Smooth scroll for nav links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth' });
+                }
+            });
+        });
+    </script>
+</body>
+</html>

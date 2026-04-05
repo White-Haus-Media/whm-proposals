@@ -1,0 +1,626 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mi Escuelita Spanish Immersion Preschool — Website Proposal</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html, body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            color: #080808;
+            background: #080808;
+        }
+
+        /* Dark theme */
+        body {
+            background-color: #0a0a0a;
+            color: #f4efe6;
+        }
+
+        a {
+            color: #c6a44c;
+            text-decoration: none;
+        }
+
+        a:hover {
+            opacity: 0.8;
+        }
+
+        /* Header */
+        header {
+            padding: 2rem 1rem;
+            text-align: center;
+            border-bottom: 1px solid rgba(198, 164, 76, 0.2);
+        }
+
+        .header-logo {
+            height: 40px;
+            margin-bottom: 1.5rem;
+        }
+
+        .header-subtitle {
+            font-size: 0.875rem;
+            color: #999;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+        }
+
+        /* Hero */
+        .hero {
+            padding: 4rem 1rem;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .hero-pill {
+            display: inline-block;
+            border: 1px solid rgba(198, 164, 76, 0.4);
+            border-radius: 999px;
+            padding: 0.5rem 1.25rem;
+            font-size: 0.875rem;
+            color: #c6a44c;
+            margin-bottom: 2rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            line-height: 1.2;
+            margin-bottom: 2rem;
+            font-weight: 700;
+            color: #f4efe6;
+        }
+
+        .meta-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            margin-top: 2rem;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(198, 164, 76, 0.2);
+        }
+
+        .meta-item {
+            text-align: left;
+        }
+
+        .meta-label {
+            font-size: 0.75rem;
+            color: #999;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 0.5rem;
+        }
+
+        .meta-value {
+            font-size: 1rem;
+            font-weight: 600;
+            color: #f4efe6;
+        }
+
+        /* Letter Section */
+        .letter {
+            max-width: 900px;
+            margin: 3rem auto;
+            padding: 3rem;
+            background: rgba(198, 164, 76, 0.05);
+            border-left: 4px solid #c6a44c;
+        }
+
+        .letter h2 {
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+            color: #f4efe6;
+        }
+
+        .letter p {
+            font-size: 1rem;
+            line-height: 1.7;
+            margin-bottom: 1rem;
+            color: #ddd;
+        }
+
+        .letter strong {
+            color: #c6a44c;
+            font-weight: 600;
+        }
+
+        /* Opportunity Cards */
+        .opportunity-section {
+            max-width: 900px;
+            margin: 3rem auto;
+            padding: 0 1rem;
+        }
+
+        .section-title {
+            font-size: 1.75rem;
+            font-weight: 700;
+            margin-bottom: 2rem;
+            text-align: center;
+            color: #f4efe6;
+        }
+
+        .opportunity-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+            margin-bottom: 3rem;
+        }
+
+        .opportunity-card {
+            background: linear-gradient(135deg, rgba(198, 164, 76, 0.1), rgba(198, 164, 76, 0.05));
+            border: 1px solid rgba(198, 164, 76, 0.2);
+            padding: 2rem;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+        }
+
+        .opportunity-card:hover {
+            border-color: rgba(198, 164, 76, 0.5);
+            background: linear-gradient(135deg, rgba(198, 164, 76, 0.15), rgba(198, 164, 76, 0.08));
+        }
+
+        .opportunity-icon {
+            width: 48px;
+            height: 48px;
+            margin-bottom: 1rem;
+            opacity: 0.8;
+        }
+
+        .opportunity-card h3 {
+            font-size: 1.125rem;
+            font-weight: 600;
+            margin-bottom: 0.75rem;
+            color: #f4efe6;
+        }
+
+        .opportunity-card p {
+            font-size: 0.95rem;
+            line-height: 1.6;
+            color: #bbb;
+        }
+
+        /* Solution Section */
+        .solution-section {
+            max-width: 900px;
+            margin: 3rem auto;
+            padding: 3rem 1rem;
+            background: rgba(198, 164, 76, 0.08);
+            border-radius: 8px;
+        }
+
+        .solution-section h2 {
+            font-size: 1.75rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            color: #f4efe6;
+        }
+
+        .solution-list {
+            list-style: none;
+            margin-bottom: 2rem;
+        }
+
+        .solution-list li {
+            padding: 0.75rem 0;
+            padding-left: 2rem;
+            position: relative;
+            color: #ddd;
+            font-size: 1rem;
+            line-height: 1.6;
+        }
+
+        .solution-list li:before {
+            content: "→";
+            position: absolute;
+            left: 0;
+            color: #c6a44c;
+            font-weight: 700;
+        }
+
+        /* Preview Section */
+        .preview-section {
+            max-width: 900px;
+            margin: 3rem auto;
+            padding: 0 1rem;
+        }
+
+        .preview-box {
+            background: linear-gradient(135deg, rgba(198, 164, 76, 0.1), rgba(198, 164, 76, 0.05));
+            border: 1px solid rgba(198, 164, 76, 0.2);
+            padding: 2rem;
+            border-radius: 8px;
+            text-align: center;
+        }
+
+        .preview-box p {
+            color: #bbb;
+            margin-bottom: 1rem;
+        }
+
+        .preview-link {
+            display: inline-block;
+            padding: 0.75rem 2rem;
+            background: #c6a44c;
+            color: #080808;
+            border-radius: 4px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .preview-link:hover {
+            background: #d9ba5c;
+            transform: translateY(-2px);
+        }
+
+        /* Process Section */
+        .process-section {
+            max-width: 900px;
+            margin: 3rem auto;
+            padding: 0 1rem;
+        }
+
+        .process-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 1.5rem;
+        }
+
+        .process-step {
+            text-align: center;
+        }
+
+        .step-number {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 50px;
+            height: 50px;
+            background: rgba(198, 164, 76, 0.2);
+            border: 2px solid #c6a44c;
+            border-radius: 50%;
+            font-weight: 700;
+            font-size: 1.25rem;
+            margin-bottom: 1rem;
+            color: #c6a44c;
+        }
+
+        .process-step h3 {
+            font-size: 1.125rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: #f4efe6;
+        }
+
+        .process-step p {
+            font-size: 0.95rem;
+            color: #bbb;
+            line-height: 1.5;
+        }
+
+        /* Pricing Section */
+        .pricing-section {
+            max-width: 900px;
+            margin: 3rem auto;
+            padding: 3rem 1rem;
+            background: rgba(198, 164, 76, 0.1);
+            border-radius: 8px;
+            border: 1px solid rgba(198, 164, 76, 0.2);
+        }
+
+        .pricing-section h2 {
+            font-size: 1.75rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            text-align: center;
+            color: #f4efe6;
+        }
+
+        .pricing-card {
+            background: rgba(8, 8, 8, 0.5);
+            border: 2px solid #c6a44c;
+            padding: 2rem;
+            border-radius: 8px;
+            text-align: center;
+            max-width: 400px;
+            margin: 0 auto;
+        }
+
+        .price {
+            font-size: 3rem;
+            font-weight: 700;
+            color: #c6a44c;
+            margin: 1rem 0;
+        }
+
+        .price-description {
+            color: #bbb;
+            font-size: 0.95rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .pricing-includes {
+            list-style: none;
+            text-align: left;
+            margin-bottom: 2rem;
+        }
+
+        .pricing-includes li {
+            padding: 0.5rem 0;
+            color: #ddd;
+            font-size: 0.95rem;
+        }
+
+        .pricing-includes li:before {
+            content: "✓ ";
+            color: #c6a44c;
+            font-weight: 700;
+            margin-right: 0.5rem;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            max-width: 900px;
+            margin: 3rem auto;
+            padding: 3rem 1rem;
+            background: linear-gradient(135deg, rgba(198, 164, 76, 0.2), rgba(198, 164, 76, 0.1));
+            border-radius: 8px;
+            text-align: center;
+        }
+
+        .cta-section h2 {
+            font-size: 1.75rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: #f4efe6;
+        }
+
+        .cta-section p {
+            font-size: 1rem;
+            color: #ddd;
+            margin-bottom: 2rem;
+            line-height: 1.6;
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 1rem 2.5rem;
+            background: #c6a44c;
+            color: #080808;
+            border-radius: 4px;
+            font-weight: 700;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .cta-button:hover {
+            background: #d9ba5c;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 16px rgba(198, 164, 76, 0.3);
+        }
+
+        /* Footer */
+        footer {
+            margin-top: 4rem;
+            padding: 3rem 1rem;
+            border-top: 1px solid rgba(198, 164, 76, 0.2);
+            text-align: center;
+        }
+
+        .footer-content {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .footer-logo {
+            height: 30px;
+            margin-bottom: 1.5rem;
+        }
+
+        .footer-text {
+            font-size: 0.9rem;
+            color: #999;
+            margin-bottom: 1rem;
+        }
+
+        .footer-contact {
+            font-size: 0.9rem;
+            color: #c6a44c;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 1.75rem;
+            }
+
+            .meta-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .opportunity-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .process-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .letter {
+                padding: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <svg class="header-logo" viewBox="0 0 200 80" xmlns="http://www.w3.org/2000/svg">
+            <image href="https://WhiteHaus.b-cdn.net/WhiteHause%20Logo%20.png" width="200" height="80" preserveAspectRatio="xMidYMid meet" />
+        </svg>
+        <div class="header-subtitle">Website Proposal</div>
+    </header>
+
+    <!-- Hero -->
+    <section class="hero">
+        <div class="hero-pill">Prepared For Mi Escuelita</div>
+        <h1>30 Years of Bilingual Excellence Deserves to Be Found Online</h1>
+        <div class="meta-grid">
+            <div class="meta-item">
+                <div class="meta-label">Prepared for</div>
+                <div class="meta-value">Carolina Stealey</div>
+            </div>
+            <div class="meta-item">
+                <div class="meta-label">Your Current Platform</div>
+                <div class="meta-value">Wix (JavaScript-Rendered)</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Letter -->
+    <section class="letter">
+        <h2>Dear Carolina,</h2>
+        <p>Mi Escuelita has earned <strong>Chapel Hill Magazine's Best Childcare award in 2024 and 2025</strong>. Your nonprofit model, 30-year track record, and unique Spanish immersion curriculum set you apart in the Triangle.</p>
+        <p>But here's the challenge: despite these accolades, searching parents can't find your story. Your current Wix site is built entirely in JavaScript, which means search engines see an empty page—no content, no programs, no hours, no way for families to understand what makes you special.</p>
+        <p><strong>30 years of immersion education shouldn't be hidden behind a framework.</strong></p>
+        <p>We've built a concept to show you what's possible: a fully accessible, search-optimized site that tells your story in both Spanish and English, showcases your awards, and creates a clear enrollment pathway for searching parents in Chapel Hill.</p>
+    </section>
+
+    <!-- Opportunities -->
+    <section class="opportunity-section">
+        <h2 class="section-title">The Opportunity</h2>
+        <div class="opportunity-grid">
+            <div class="opportunity-card">
+                <svg class="opportunity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                    <circle cx="12" cy="12" r="10"></circle>
+                    <path d="M12 6v6l4 2"></path>
+                </svg>
+                <h3>Content Invisible to Search Engines</h3>
+                <p>Your Wix site is JavaScript-rendered. Search engines can't read your programs, hours, or staff bios. Searching parents find your competitors instead.</p>
+            </div>
+            <div class="opportunity-card">
+                <svg class="opportunity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                    <path d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+                </svg>
+                <h3>Awards Not Showcased</h3>
+                <p>Chapel Hill Magazine's Best Childcare 2024 & 2025—your biggest competitive advantage—isn't visible in search results or on your site's homepage.</p>
+            </div>
+            <div class="opportunity-card">
+                <svg class="opportunity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                    <circle cx="12" cy="12" r="1"></circle>
+                    <path d="M12 1v6m0 6v6M1 12h6m6 0h6"></path>
+                </svg>
+                <h3>Immersion Model Unexplained</h3>
+                <p>Parents searching "Spanish immersion preschool Chapel Hill" need to understand your bilingual approach, philosophy, and outcomes. Your site doesn't teach them.</p>
+            </div>
+            <div class="opportunity-card">
+                <svg class="opportunity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                    <path d="M9 11l3 3L22 4"></path>
+                    <path d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                </svg>
+                <h3>No Enrollment Pathway</h3>
+                <p>Interested families can't easily find enrollment information, contact details, or next steps in search results.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Solution -->
+    <section class="solution-section">
+        <h2>Our Solution</h2>
+        <ul class="solution-list">
+            <li><strong>Fully HTML-Rendered Site:</strong> Every word, every program detail, every award is visible to search engines and parents.</li>
+            <li><strong>Bilingual-First Design:</strong> English/Spanish navigation and content that reflects your immersion philosophy.</li>
+            <li><strong>Award Visibility:</strong> Chapel Hill Magazine's Best Childcare prominently featured to build parent confidence.</li>
+            <li><strong>Program Clarity:</strong> Dedicated sections for Toddlers, Preschool, and Pre-K with learning outcomes and philosophy.</li>
+            <li><strong>Enrollment Funnel:</strong> Clear pathways to contact, apply, and schedule tours.</li>
+            <li><strong>Performance:</strong> Fast, mobile-responsive, optimized for search engines and parent experience.</li>
+            <li><strong>Ongoing Care Option:</strong> Monthly updates and 2 content edits included in Core Care ($47/mo) or Full Care ($97/mo).</li>
+        </ul>
+    </section>
+
+    <!-- Preview -->
+    <section class="preview-section">
+        <h2 class="section-title">See the Concept</h2>
+        <div class="preview-box">
+            <p>We've built a full preview of what your new site could look like—bilingual, award-focused, and optimized for searching parents.</p>
+            <a href="preview.html" class="preview-link">View Design Concept →</a>
+        </div>
+    </section>
+
+    <!-- Process -->
+    <section class="process-section">
+        <h2 class="section-title">Our Process</h2>
+        <div class="process-grid">
+            <div class="process-step">
+                <div class="step-number">1</div>
+                <h3>Discovery</h3>
+                <p>We learn your programs, philosophy, and enrollment goals. You approve copy and design direction.</p>
+            </div>
+            <div class="process-step">
+                <div class="step-number">2</div>
+                <h3>Build & Deploy</h3>
+                <p>We build your fully HTML-rendered, bilingual site and deploy to a custom domain.</p>
+            </div>
+            <div class="process-step">
+                <div class="step-number">3</div>
+                <h3>Launch & Optimize</h3>
+                <p>Site goes live. We configure search engines and monitor performance over the first month.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing -->
+    <section class="pricing-section">
+        <h2>Our Investment</h2>
+        <div class="pricing-card">
+            <div style="font-size: 0.9rem; color: #999; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 1rem;">One-Time Build</div>
+            <div class="price">$897</div>
+            <p class="price-description">Fully HTML-rendered, bilingual, search-optimized site</p>
+            <ul class="pricing-includes">
+                <li>Complete site build and design</li>
+                <li>Bilingual (English/Spanish) interface</li>
+                <li>Program pages (Toddlers, Preschool, Pre-K)</li>
+                <li>Award showcase and testimonials</li>
+                <li>Contact form and enrollment pathway</li>
+                <li>Mobile responsive and fast</li>
+                <li>Search engine optimization</li>
+                <li>Deployment and setup</li>
+            </ul>
+            <div style="font-size: 0.9rem; color: #bbb; margin-bottom: 1.5rem; padding-top: 1rem; border-top: 1px solid rgba(198, 164, 76, 0.2);">
+                <strong>Ongoing Support (Optional):</strong><br>
+                Core Care $47/mo (updates, 2 edits/month) or Full Care $97/mo (+ security, uptime)
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="cta-section">
+        <h2>Ready to Bring Mi Escuelita Online?</h2>
+        <p>Let's build a site that tells your 30-year story in a way parents can find and love.</p>
+        <a href="mailto:hello@whitehausmedia.com?subject=Mi%20Escuelita%20Website%20Proposal&body=Hi%20White%20Haus%20Media%2C%0A%0AI%27m%20interested%20in%20moving%20forward%20with%20the%20proposal." class="cta-button">Start Your Project</a>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <svg class="footer-logo" viewBox="0 0 200 80" xmlns="http://www.w3.org/2000/svg">
+                <image href="https://WhiteHaus.b-cdn.net/WhiteHause%20Logo%20.png" width="200" height="80" preserveAspectRatio="xMidYMid meet" />
+            </svg>
+            <div class="footer-text">Premium websites for the Triangle</div>
+            <div class="footer-contact">hello@whitehausmedia.com</div>
+        </div>
+    </footer>
+</body>
+</html>

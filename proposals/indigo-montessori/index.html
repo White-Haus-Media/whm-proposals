@@ -1,0 +1,735 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Indigo Montessori School | Website Proposal</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background: #080808;
+            color: #F4EFE6;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 960px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* Header */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 32px 0;
+            border-bottom: 1px solid rgba(198, 164, 76, 0.2);
+        }
+
+        .logo {
+            height: 40px;
+            width: auto;
+        }
+
+        nav a {
+            color: #F4EFE6;
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 500;
+            margin-left: 32px;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: #C6A44C;
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 80px 0;
+            text-align: center;
+        }
+
+        .hero-pill {
+            display: inline-block;
+            background: rgba(198, 164, 76, 0.1);
+            border: 1px solid #C6A44C;
+            color: #C6A44C;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 24px;
+        }
+
+        .hero h1 {
+            font-size: 48px;
+            font-weight: 700;
+            margin-bottom: 16px;
+            line-height: 1.2;
+        }
+
+        .hero p {
+            font-size: 18px;
+            color: #B8B0A0;
+            margin-bottom: 40px;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .meta-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 24px;
+            margin-top: 60px;
+            padding-top: 40px;
+            border-top: 1px solid rgba(198, 164, 76, 0.2);
+        }
+
+        .meta-item {
+            text-align: left;
+        }
+
+        .meta-label {
+            font-size: 12px;
+            color: #999;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 8px;
+            display: block;
+        }
+
+        .meta-value {
+            font-size: 16px;
+            font-weight: 600;
+            color: #F4EFE6;
+        }
+
+        /* Letter Section */
+        .letter {
+            padding: 80px 0;
+            border-top: 1px solid rgba(198, 164, 76, 0.2);
+        }
+
+        .letter h2 {
+            font-size: 32px;
+            margin-bottom: 40px;
+        }
+
+        .letter-content {
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .letter-content p {
+            margin-bottom: 24px;
+            color: #B8B0A0;
+            line-height: 1.8;
+            font-size: 16px;
+        }
+
+        .highlight {
+            color: #C6A44C;
+            font-weight: 600;
+        }
+
+        /* Opportunity Section */
+        .opportunity {
+            padding: 80px 0;
+            border-top: 1px solid rgba(198, 164, 76, 0.2);
+        }
+
+        .section-header {
+            margin-bottom: 60px;
+        }
+
+        .section-header h2 {
+            font-size: 36px;
+            margin-bottom: 16px;
+        }
+
+        .section-header p {
+            font-size: 16px;
+            color: #B8B0A0;
+            max-width: 600px;
+        }
+
+        .opportunity-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 32px;
+        }
+
+        .opportunity-card {
+            background: rgba(198, 164, 76, 0.05);
+            border: 1px solid rgba(198, 164, 76, 0.2);
+            padding: 32px;
+            border-radius: 8px;
+            transition: all 0.3s;
+        }
+
+        .opportunity-card:hover {
+            background: rgba(198, 164, 76, 0.1);
+            border-color: rgba(198, 164, 76, 0.4);
+        }
+
+        .opportunity-card h3 {
+            font-size: 18px;
+            margin-bottom: 12px;
+            color: #C6A44C;
+        }
+
+        .opportunity-card p {
+            font-size: 14px;
+            color: #B8B0A0;
+            line-height: 1.7;
+        }
+
+        /* Solution Section */
+        .solution {
+            padding: 80px 0;
+            border-top: 1px solid rgba(198, 164, 76, 0.2);
+        }
+
+        .solution h2 {
+            font-size: 36px;
+            margin-bottom: 16px;
+        }
+
+        .solution-intro {
+            font-size: 16px;
+            color: #B8B0A0;
+            max-width: 600px;
+            margin-bottom: 40px;
+        }
+
+        .solution-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 32px;
+        }
+
+        .solution-item {
+            background: rgba(198, 164, 76, 0.08);
+            padding: 24px;
+            border-radius: 8px;
+            border-left: 3px solid #C6A44C;
+        }
+
+        .solution-item h3 {
+            font-size: 16px;
+            color: #F4EFE6;
+            margin-bottom: 12px;
+        }
+
+        .solution-item p {
+            font-size: 14px;
+            color: #B8B0A0;
+        }
+
+        /* Preview Section */
+        .preview {
+            padding: 80px 0;
+            border-top: 1px solid rgba(198, 164, 76, 0.2);
+        }
+
+        .preview h2 {
+            font-size: 36px;
+            margin-bottom: 16px;
+        }
+
+        .preview-note {
+            font-size: 14px;
+            color: #999;
+            margin-bottom: 40px;
+        }
+
+        .preview-link {
+            display: inline-block;
+            background: #C6A44C;
+            color: #080808;
+            text-decoration: none;
+            padding: 12px 32px;
+            border-radius: 4px;
+            font-weight: 600;
+            font-size: 14px;
+            transition: all 0.3s;
+        }
+
+        .preview-link:hover {
+            background: #F4EFE6;
+            transform: translateY(-2px);
+        }
+
+        /* Process Section */
+        .process {
+            padding: 80px 0;
+            border-top: 1px solid rgba(198, 164, 76, 0.2);
+        }
+
+        .process h2 {
+            font-size: 36px;
+            margin-bottom: 60px;
+        }
+
+        .process-steps {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 32px;
+        }
+
+        .process-step {
+            position: relative;
+        }
+
+        .step-number {
+            font-size: 48px;
+            font-weight: 700;
+            color: #C6A44C;
+            margin-bottom: 16px;
+            opacity: 0.3;
+        }
+
+        .process-step h3 {
+            font-size: 18px;
+            color: #F4EFE6;
+            margin-bottom: 12px;
+        }
+
+        .process-step p {
+            font-size: 14px;
+            color: #B8B0A0;
+        }
+
+        /* Pricing Section */
+        .pricing {
+            padding: 80px 0;
+            border-top: 1px solid rgba(198, 164, 76, 0.2);
+        }
+
+        .pricing h2 {
+            font-size: 36px;
+            margin-bottom: 60px;
+        }
+
+        .pricing-card {
+            background: rgba(198, 164, 76, 0.05);
+            border: 2px solid #C6A44C;
+            padding: 48px;
+            border-radius: 8px;
+            text-align: center;
+            max-width: 500px;
+        }
+
+        .pricing-tier {
+            font-size: 14px;
+            color: #C6A44C;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 16px;
+        }
+
+        .pricing-amount {
+            font-size: 56px;
+            font-weight: 700;
+            color: #F4EFE6;
+            margin-bottom: 8px;
+        }
+
+        .pricing-desc {
+            font-size: 14px;
+            color: #B8B0A0;
+            margin-bottom: 40px;
+        }
+
+        .pricing-features {
+            text-align: left;
+            margin-bottom: 40px;
+            border-top: 1px solid rgba(198, 164, 76, 0.2);
+            border-bottom: 1px solid rgba(198, 164, 76, 0.2);
+            padding: 24px 0;
+        }
+
+        .pricing-feature {
+            font-size: 14px;
+            color: #B8B0A0;
+            margin-bottom: 12px;
+            padding-left: 24px;
+            position: relative;
+        }
+
+        .pricing-feature::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: #C6A44C;
+            font-weight: 700;
+        }
+
+        /* CTA Section */
+        .cta {
+            padding: 80px 0;
+            border-top: 1px solid rgba(198, 164, 76, 0.2);
+            text-align: center;
+        }
+
+        .cta h2 {
+            font-size: 36px;
+            margin-bottom: 24px;
+        }
+
+        .cta p {
+            font-size: 16px;
+            color: #B8B0A0;
+            margin-bottom: 40px;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: #C6A44C;
+            color: #080808;
+            text-decoration: none;
+            padding: 14px 48px;
+            border-radius: 4px;
+            font-weight: 600;
+            font-size: 14px;
+            transition: all 0.3s;
+            border: none;
+            cursor: pointer;
+        }
+
+        .cta-button:hover {
+            background: #F4EFE6;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(198, 164, 76, 0.3);
+        }
+
+        /* Footer */
+        footer {
+            border-top: 1px solid rgba(198, 164, 76, 0.2);
+            padding: 48px 0;
+            margin-top: 80px;
+            text-align: center;
+        }
+
+        footer p {
+            font-size: 14px;
+            color: #999;
+        }
+
+        .footer-contact {
+            margin-top: 16px;
+        }
+
+        .footer-contact a {
+            color: #C6A44C;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .footer-contact a:hover {
+            text-decoration: underline;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 32px;
+            }
+
+            .hero p {
+                font-size: 16px;
+            }
+
+            .section-header h2,
+            .opportunity h2,
+            .solution h2,
+            .preview h2,
+            .process h2,
+            .pricing h2,
+            .cta h2 {
+                font-size: 28px;
+            }
+
+            nav a {
+                margin-left: 16px;
+                font-size: 12px;
+            }
+
+            .pricing-card {
+                padding: 32px;
+            }
+
+            .pricing-amount {
+                font-size: 40px;
+            }
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .hero,
+        .letter,
+        .opportunity,
+        .solution,
+        .preview,
+        .process,
+        .pricing,
+        .cta {
+            animation: fadeInUp 0.8s ease-out;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header>
+            <img src="https://WhiteHaus.b-cdn.net/WhiteHause%20Logo%20.png" alt="White Haus Media" class="logo">
+            <nav>
+                <a href="#opportunity">The Opportunity</a>
+                <a href="#solution">Our Solution</a>
+                <a href="#pricing">Pricing</a>
+                <a href="#contact">Contact</a>
+            </nav>
+        </header>
+
+        <!-- Hero Section -->
+        <section class="hero">
+            <span class="hero-pill">Website Proposal</span>
+            <h1>Your Montessori Vision Deserves a Polished Digital Home</h1>
+            <p>A modern, responsive website that showcases your teaching philosophy, enrollment pathway, and the heart of Indigo Montessori School.</p>
+
+            <div class="meta-grid">
+                <div class="meta-item">
+                    <span class="meta-label">Prepared For</span>
+                    <span class="meta-value">Mastaneh Christofferson</span>
+                </div>
+                <div class="meta-item">
+                    <span class="meta-label">Organization</span>
+                    <span class="meta-value">Indigo Montessori School</span>
+                </div>
+                <div class="meta-item">
+                    <span class="meta-label">Location</span>
+                    <span class="meta-value">Durham, NC</span>
+                </div>
+                <div class="meta-item">
+                    <span class="meta-label">Date</span>
+                    <span class="meta-value">April 2026</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Letter Section -->
+        <section class="letter">
+            <div class="letter-content">
+                <h2>Dear Mastaneh,</h2>
+                <p>
+                    Your Squarespace site has a clean foundation—solid design, responsive layout, and proper structured data. But we noticed something that tells us there's untapped potential: your phone field still displays <span class="highlight">"Your Custom Text Here"</span> as a placeholder. It's a small detail, but it signals that the site isn't fully optimized to welcome and guide families toward enrollment.
+                </p>
+                <p>
+                    That's exactly what we want to fix. Your current site works, but it doesn't tell the complete story of Indigo Montessori—the philosophy, the credentials of your staff, the enrollment journey, or the testimonials from families you've served.
+                </p>
+                <p>
+                    We're proposing a custom website rebuild that transforms your digital presence from a template into a purpose-built platform designed to <span class="highlight">attract families, communicate your Montessori method, and convert visitors into enrolled students.</span>
+                </p>
+                <p style="margin-top: 40px;">
+                    Let's talk about what we can build together.<br>
+                    <strong>— White Haus Media</strong>
+                </p>
+            </div>
+        </section>
+
+        <!-- Opportunity Section -->
+        <section class="opportunity" id="opportunity">
+            <div class="section-header">
+                <h2>The Opportunity</h2>
+                <p>Your current website has strong bones, but there are clear gaps that prevent families from confidently enrolling.</p>
+            </div>
+
+            <div class="opportunity-grid">
+                <div class="opportunity-card">
+                    <h3>Placeholder Text Still Visible</h3>
+                    <p>The phone contact field shows "Your Custom Text Here"—a sign the site was never fully customized for your brand and mission.</p>
+                </div>
+                <div class="opportunity-card">
+                    <h3>No Clear Enrollment Pathway</h3>
+                    <p>Interested families have no procedural guidance on how to apply, register, or get on the waitlist. The journey from visitor to enrolled student is unclear.</p>
+                </div>
+                <div class="opportunity-card">
+                    <h3>Montessori Philosophy Not Communicated</h3>
+                    <p>Your teaching method deserves more than a generic description. Families want to understand what sets Indigo Montessori apart and why the approach matters.</p>
+                </div>
+                <div class="opportunity-card">
+                    <h3>Missing Trust Signals</h3>
+                    <p>No staff bios, no credentials, no hours, no parent testimonials, no social proof. Families researching childcare want to see who they're trusting with their children.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Solution Section -->
+        <section class="solution" id="solution">
+            <h2>Our Solution</h2>
+            <p class="solution-intro">We'll build a custom, fully responsive website that elevates Indigo Montessori from template to purpose-built digital home. Here's what we deliver:</p>
+
+            <div class="solution-list">
+                <div class="solution-item">
+                    <h3>Polished Brand Presence</h3>
+                    <p>Fully customized design reflecting your school's elegance, professionalism, and warm Montessori environment. No placeholder text, no template defaults.</p>
+                </div>
+                <div class="solution-item">
+                    <h3>Clear Enrollment Pathway</h3>
+                    <p>Dedicated enrollment section with application process, waitlist signup, contact forms, and clear next steps for interested families.</p>
+                </div>
+                <div class="solution-item">
+                    <h3>Montessori Philosophy Section</h3>
+                    <p>In-depth explanation of your teaching method, age-appropriate programs, and why families choose Indigo Montessori for their children's early education.</p>
+                </div>
+                <div class="solution-item">
+                    <h3>Staff Bios & Credentials</h3>
+                    <p>Showcase your team's qualifications, experience, and passion. Build trust through transparency about who leads your classrooms.</p>
+                </div>
+                <div class="solution-item">
+                    <h3>Hours, Location & Logistics</h3>
+                    <p>Clear operating hours, drop-off/pick-up procedures, address with map embed, parking info—everything families need to know upfront.</p>
+                </div>
+                <div class="solution-item">
+                    <h3>Parent Testimonials & Gallery</h3>
+                    <p>Real feedback from families and rich photo gallery showcasing classroom life, activities, and the vibrant Indigo Montessori community.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Preview Section -->
+        <section class="preview" id="preview">
+            <h2>See the Vision</h2>
+            <p class="preview-note">Click below to explore a live concept design of your new website.</p>
+            <a href="preview.html" class="preview-link">View Preview Site →</a>
+        </section>
+
+        <!-- Process Section -->
+        <section class="process">
+            <h2>Our Process</h2>
+
+            <div class="process-steps">
+                <div class="process-step">
+                    <div class="step-number">1</div>
+                    <h3>Discovery & Strategy</h3>
+                    <p>We learn about your programs, values, and enrollment goals. Competitive analysis and family persona research.</p>
+                </div>
+                <div class="process-step">
+                    <div class="step-number">2</div>
+                    <h3>Design & Wireframes</h3>
+                    <p>High-fidelity mockups of your custom site. You approve the look and feel before we write a single line of code.</p>
+                </div>
+                <div class="process-step">
+                    <div class="step-number">3</div>
+                    <h3>Build & Development</h3>
+                    <p>Custom-coded, fully responsive website built on modern tech. SEO-optimized, fast, and secure.</p>
+                </div>
+                <div class="process-step">
+                    <div class="step-number">4</div>
+                    <h3>Content & Launch</h3>
+                    <p>We populate your site with your content, staff photos, and testimonials. Deploy live and monitor for success.</p>
+                </div>
+                <div class="process-step">
+                    <div class="step-number">5</div>
+                    <h3>Training & Handoff</h3>
+                    <p>You learn how to manage your site. We're available for questions and can offer ongoing maintenance if needed.</p>
+                </div>
+                <div class="process-step">
+                    <div class="step-number">6</div>
+                    <h3>Ongoing Support</h3>
+                    <p>Optional Core Care or Full Care plans keep your site secure, fast, and updated. We handle updates and backups.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Pricing Section -->
+        <section class="pricing" id="pricing">
+            <h2>Investment</h2>
+
+            <div class="pricing-card">
+                <div class="pricing-tier">Growth Tier — Website Build</div>
+                <div class="pricing-amount">$697</div>
+                <div class="pricing-desc">One-time website build and launch</div>
+
+                <div class="pricing-features">
+                    <div class="pricing-feature">Custom, fully responsive design</div>
+                    <div class="pricing-feature">All content sections & pages</div>
+                    <div class="pricing-feature">Enrollment pathway & contact forms</div>
+                    <div class="pricing-feature">SEO optimization & structured data</div>
+                    <div class="pricing-feature">Mobile-first development</div>
+                    <div class="pricing-feature">Hosting setup & deployment</div>
+                    <div class="pricing-feature">Training & knowledge transfer</div>
+                </div>
+
+                <button class="cta-button" onclick="scrollToContact()">Let's Get Started</button>
+            </div>
+
+            <div style="margin-top: 40px; text-align: center;">
+                <p style="color: #B8B0A0; font-size: 14px;">
+                    <strong>Optional Ongoing Care:</strong><br>
+                    Core Care $47/mo (updates, 2 edits) • Full Care $97/mo (Core + security, uptime, monthly report)
+                </p>
+            </div>
+        </section>
+
+        <!-- CTA Section -->
+        <section class="cta" id="contact">
+            <h2>Ready to Transform Your Digital Presence?</h2>
+            <p>Let's build a website that tells the story of Indigo Montessori and welcomes families into your community.</p>
+
+            <a href="mailto:contact@indigomontessori.com?cc=hello@whitehausmedia.com&subject=Indigo%20Montessori%20Website%20Proposal&body=Hi%20Mastaneh%2C%0A%0AI'm%20ready%20to%20move%20forward%20with%20the%20website%20rebuild.%0A%0ABest%20regards" class="cta-button">Approve Proposal →</a>
+
+            <div style="margin-top: 40px; font-size: 14px; color: #999;">
+                <p>Questions? Reach out directly:</p>
+                <p style="margin-top: 12px;">
+                    <a href="tel:919-687-0665" style="color: #C6A44C; text-decoration: none; font-weight: 600;">919-687-0665</a> or
+                    <a href="mailto:hello@whitehausmedia.com" style="color: #C6A44C; text-decoration: none; font-weight: 600;">hello@whitehausmedia.com</a>
+                </p>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer>
+            <p>&copy; 2026 White Haus Media. Premium Custom Websites for the Triangle.</p>
+            <div class="footer-contact">
+                <a href="https://whitehausmedia.com">whitehausmedia.com</a> •
+                <a href="mailto:hello@whitehausmedia.com">hello@whitehausmedia.com</a>
+            </div>
+        </footer>
+    </div>
+
+    <script>
+        function scrollToContact() {
+            document.getElementById('contact').scrollIntoView({ behavior: 'smooth' });
+        }
+    </script>
+</body>
+</html>
