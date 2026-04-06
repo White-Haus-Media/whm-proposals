@@ -116,7 +116,7 @@ a { text-decoration: none; }
   to { opacity: 1; transform: translateY(0); }
 }
 
-/* ─── LUXURY BUTTON ─── */
+/* â”€â”€â”€ LUXURY BUTTON â”€â”€â”€ */
 .lux-btn {
   display: inline-block; text-decoration: none;
   font-family: var(--sans); font-size: 10px; letter-spacing: 4px; font-weight: 400;
@@ -156,7 +156,7 @@ a { text-decoration: none; }
   box-shadow: 0 0 24px rgba(214,0,108,.09);
 }
 
-/* ─── PINK LINE ─── */
+/* â”€â”€â”€ PINK LINE â”€â”€â”€ */
 .pink-line {
   width: 36px; height: 2px; background: var(--pink);
   box-shadow: 0 0 8px rgba(214,0,108,.4), 0 0 20px rgba(214,0,108,.2);
@@ -164,7 +164,7 @@ a { text-decoration: none; }
 .pink-line.no-glow { box-shadow: none; }
 .pink-line.dark { box-shadow: none; }
 
-/* ─── NAV ─── */
+/* â”€â”€â”€ NAV â”€â”€â”€ */
 nav {
   position: fixed; top: 0; left: 0; right: 0; z-index: 300;
   padding: 24px 48px; display: flex; justify-content: space-between; align-items: center;
@@ -208,7 +208,7 @@ nav.scrolled {
 }
 .mobile-menu a:hover { color: var(--pink); }
 
-/* ─── HERO ─── */
+/* â”€â”€â”€ HERO â”€â”€â”€ */
 .hero {
   position: relative; height: 100vh; min-height: 720px;
   display: flex; align-items: flex-end; overflow: hidden;
@@ -278,7 +278,7 @@ nav.scrolled {
 }
 .hero-cta.vis { opacity: 1; }
 
-/* ─── PRESS BAR ─── */
+/* â”€â”€â”€ PRESS BAR â”€â”€â”€ */
 .press-bar {
   padding: 44px 48px; position: relative; background: var(--black);
   border-top: 1px solid rgba(42,42,42,.2);
@@ -302,7 +302,7 @@ nav.scrolled {
 }
 .press-logos span:hover { color: rgba(255,255,255,.53); }
 
-/* ─── COLLECTION ─── */
+/* â”€â”€â”€ COLLECTION â”€â”€â”€ */
 .collection { padding: 120px 48px 80px; max-width: 1300px; margin: 0 auto; }
 .collection-header {
   display: flex; align-items: flex-end; justify-content: space-between;
@@ -432,12 +432,12 @@ nav.scrolled {
 }
 
 .frag-img-col {
-  flex: 0 0 260px; display: none;
+  flex: 0 0 400px; display: none;
   animation: floatIn .7s cubic-bezier(.22,1,.36,1) .12s both;
 }
 .frag-card.open .frag-img-col { display: block; }
 .frag-img-col img {
-  width: 100%; height: 380px; object-fit: contain;
+  width: 100%; height: 480px; object-fit: contain;
   filter: brightness(0.9) contrast(1.05);
 }
 
@@ -449,7 +449,7 @@ nav.scrolled {
 }
 .frag-card.open .frag-arrow-col { display: none; }
 
-/* ─── DISCOVERY SET — LIGHT ─── */
+/* â”€â”€â”€ DISCOVERY SET — LIGHT â”€â”€â”€ */
 .discovery {
   padding: 140px 48px; position: relative; overflow: hidden;
   background: linear-gradient(180deg, var(--cream), var(--blush) 50%, var(--cream));
@@ -501,27 +501,16 @@ nav.scrolled {
   color: var(--light-text); margin-top: 6px;
 }
 
-/* ─── FOUNDER — DARK ─── */
+/* â”€â”€â”€ FOUNDER — DARK â”€â”€â”€ */
 .founder {
   padding: 140px 48px; max-width: 1200px; margin: 0 auto; background: var(--black);
 }
 .founder-inner { display: flex; gap: 80px; align-items: flex-start; flex-wrap: wrap; }
-.founder-img-wrap { flex: 0 0 340px; position: relative; }
+.founder-img-wrap { flex: 0 0 380px; position: relative; }
 .founder-img-wrap img {
-  width: 100%;
-  filter: brightness(0.88);
-  mask-image: linear-gradient(to right, transparent 0%, black 8%, black 75%, transparent 100%), linear-gradient(to bottom, transparent 0%, black 8%, black 70%, transparent 100%);
-  -webkit-mask-image: linear-gradient(to right, transparent 0%, black 8%, black 75%, transparent 100%), linear-gradient(to bottom, transparent 0%, black 8%, black 70%, transparent 100%);
-  -webkit-mask-composite: source-in;
-  mask-composite: intersect;
-}
-.founder-img-overlay {
-  position: absolute; bottom: 0; left: 0; right: 0; padding: 24px;
-  background: linear-gradient(to top, rgba(8,8,8,.87), transparent);
-}
-.founder-img-overlay span {
-  font-family: var(--sans); font-size: 8px; letter-spacing: 3px;
-  color: var(--pink); font-weight: 300; text-shadow: 0 0 10px rgba(214,0,108,.27);
+  width: 100%; max-height: 580px; object-fit: contain;
+  filter: brightness(0.95) contrast(1.05);
+  drop-shadow: 0 8px 40px rgba(214,0,108,.15);
 }
 .founder-text { flex: 1 1 400px; }
 .founder-text h2 {
@@ -556,7 +545,7 @@ nav.scrolled {
   color: var(--ash); margin-top: 6px;
 }
 
-/* ─── PODCAST — DARK + FLORAL ─── */
+/* â”€â”€â”€ PODCAST — DARK + FLORAL â”€â”€â”€ */
 .podcast {
   padding: 120px 48px; position: relative; overflow: hidden;
   background: var(--ink);
@@ -587,7 +576,7 @@ nav.scrolled {
   max-width: 520px; margin: 0 auto;
 }
 
-/* ─── EXPERIENCE — LIGHT ─── */
+/* â”€â”€â”€ EXPERIENCE — LIGHT â”€â”€â”€ */
 .experience { padding: 140px 48px; background: var(--cream); }
 .experience-inner { max-width: 1200px; margin: 0 auto; }
 .experience-header { text-align: center; margin-bottom: 72px; }
@@ -627,7 +616,7 @@ nav.scrolled {
   color: var(--light-text); margin-top: 6px;
 }
 
-/* ─── GALLERY ─── */
+/* â”€â”€â”€ GALLERY â”€â”€â”€ */
 .gallery-strip {
   display: flex; gap: 2px; overflow: hidden;
   max-height: 220px;
@@ -639,7 +628,7 @@ nav.scrolled {
 }
 .gallery-strip img:hover { filter: brightness(1); }
 
-/* ─── NEWSLETTER — DARK ─── */
+/* â”€â”€â”€ NEWSLETTER — DARK â”€â”€â”€ */
 .newsletter {
   padding: 100px 48px; text-align: center; background: var(--black);
   border-top: 1px solid rgba(214,0,108,.13);
@@ -665,7 +654,7 @@ nav.scrolled {
 .newsletter-form input::placeholder { color: var(--ash); }
 .newsletter-form .lux-btn { border-left: none; }
 
-/* ─── FOOTER — DARK ─── */
+/* â”€â”€â”€ FOOTER — DARK â”€â”€â”€ */
 footer {
   padding: 72px 48px 36px; max-width: 1200px; margin: 0 auto;
   border-top: 1px solid rgba(214,0,108,.09);
@@ -712,7 +701,7 @@ footer {
   letter-spacing: 2px; font-weight: 300;
 }
 
-/* ─── INTERSECTION OBSERVER ANIMATIONS ─── */
+/* â”€â”€â”€ INTERSECTION OBSERVER ANIMATIONS â”€â”€â”€ */
 .anim-fade { opacity: 0; transform: translateY(30px); transition: all 1s cubic-bezier(.22,1,.36,1); }
 .anim-fade.vis { opacity: 1; transform: none; }
 .anim-fade-left { opacity: 0; transform: translateX(-40px); transition: all 1.2s cubic-bezier(.22,1,.36,1); }
@@ -722,7 +711,7 @@ footer {
 .anim-delay-1 { transition-delay: .2s; }
 .anim-delay-2 { transition-delay: .3s; }
 
-/* ─── RESPONSIVE ─── */
+/* â”€â”€â”€ RESPONSIVE â”€â”€â”€ */
 @media (max-width: 1200px) {
   .press-logos { gap: 36px; }
 }
@@ -740,8 +729,9 @@ footer {
   .frag-body { padding: 0 24px; }
   .frag-card.open .frag-body { padding: 32px 24px; }
   .frag-card.open .frag-name { font-size: 32px; }
-  .frag-img-col { flex: 0 0 100%; max-height: 280px; }
-  .frag-img-col img { height: 280px; border-left: none; border-top: 2px solid rgba(214,0,108,.27); }
+  .frag-card.open .frag-img-col { order: -1; }
+  .frag-img-col { flex: 0 0 100%; max-height: 340px; }
+  .frag-img-col img { height: 340px; border-left: none; border-top: 2px solid rgba(214,0,108,.27); }
   .frag-card.open { min-height: auto; }
   .discovery { padding: 80px 24px; }
   .discovery-inner { gap: 48px; }
@@ -749,7 +739,7 @@ footer {
   .discovery-img-wrap img { margin: 0 auto; }
   .founder { padding: 80px 24px; }
   .founder-inner { gap: 48px; }
-  .founder-img-wrap { flex: 0 0 100%; max-width: 340px; }
+  .founder-img-wrap { flex: 0 0 100%; max-width: 380px; }
   .podcast { padding: 80px 24px; }
   .experience { padding: 80px 24px; }
   .experience-cards { flex-direction: column; align-items: center; }
@@ -776,7 +766,7 @@ footer {
   .gallery-strip img { min-width: 120px; height: 120px; }
 }
 
-/* ─── SCENT NOTE POPOUT ─── */
+/* â”€â”€â”€ SCENT NOTE POPOUT â”€â”€â”€ */
 .scent-popout {
   position: fixed; display: none; z-index: 5000;
   background: rgba(8,8,8,.92);
@@ -804,7 +794,7 @@ footer {
   font-family: var(--sans); font-style: normal; text-transform: uppercase;
 }
 
-/* ─── GALLERY LIGHTBOX ─── */
+/* â”€â”€â”€ GALLERY LIGHTBOX â”€â”€â”€ */
 .lightbox-overlay {
   position: fixed; top: 0; left: 0; right: 0; bottom: 0;
   background: rgba(8,8,8,.95);
@@ -860,7 +850,7 @@ footer {
 </head>
 <body>
 
-<!-- ═══════════════════ NAV ═══════════════════ -->
+<!-- â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• NAV â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• -->
 <nav id="mainNav">
   <div class="nav-logo">ByLeCr&egrave;me<sup>&trade;</sup></div>
   <div class="nav-links">
@@ -881,7 +871,7 @@ footer {
   <a href="#collection" onclick="closeMobileMenu()" class="lux-btn primary" style="margin-top:16px">SHOP</a>
 </div>
 
-<!-- ═══════════════════ HERO ═══════════════════ -->
+<!-- â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• HERO â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• -->
 <section class="hero">
   <div class="hero-bg" id="heroBg"></div>
   <div class="hero-overlay-pink"></div>
@@ -903,11 +893,11 @@ footer {
   </div>
 </section>
 
-<!-- ═══════════════════ PRESS BAR ═══════════════════ -->
+<!-- â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• PRESS BAR â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• -->
 <div class="press-bar">
   <div class="press-label">as featured in</div>
   <div class="press-logos">
-    <span style="font-size:22px;font-weight:700;font-family:var(--sans);letter-spacing:2px">MTV</span>
+    <span style="font-size:16px;font-weight:400;font-family:var(--sans);letter-spacing:3px">MTV</span>
     <span style="font-size:16px;font-weight:300;font-family:var(--serif);font-style:italic;letter-spacing:1px">VoyageATL</span>
     <span style="font-size:16px;font-weight:300;font-family:var(--sans);letter-spacing:3px">peacock</span>
     <span style="font-size:11px;font-weight:500;font-family:var(--sans);letter-spacing:4px">LOVE &amp; HIP HOP</span>
@@ -916,7 +906,7 @@ footer {
   </div>
 </div>
 
-<!-- ═══════════════════ COLLECTION ═══════════════════ -->
+<!-- â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• COLLECTION â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• -->
 <section id="collection" class="collection">
   <div class="collection-header anim-fade">
     <div>
@@ -1100,7 +1090,7 @@ footer {
   </div>
 </section>
 
-<!-- ═══════════════════ DISCOVERY SET — LIGHT ═══════════════════ -->
+<!-- â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• DISCOVERY SET — LIGHT â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• -->
 <section id="discovery" class="discovery">
   <div class="discovery-glow"></div>
   <div class="discovery-inner">
@@ -1124,14 +1114,11 @@ footer {
   </div>
 </section>
 
-<!-- ═══════════════════ FOUNDER — DARK ═══════════════════ -->
+<!-- â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• FOUNDER — DARK â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• -->
 <section id="founder" class="founder">
   <div class="founder-inner">
     <div class="founder-img-wrap anim-fade-left">
-      <img src="https://WHMClients.b-cdn.net/clients/bylecreme/founder-headshot.jpg" alt="Sakari Sanders — founder of ByLeCreme Parfums" loading="lazy">
-      <div class="founder-img-overlay">
-        <span>SPELMAN COLLEGE &middot; BEST OF ATLANTA 2025</span>
-      </div>
+      <img src="https://WHMClients.b-cdn.net/clients/bylecreme/founder-nobg.png" alt="Sakari Sanders — founder of ByLeCreme Parfums" loading="lazy">
     </div>
     <div class="founder-text anim-fade-right anim-delay-1">
       <div style="display:flex;align-items:center;gap:16px;margin-bottom:24px">
@@ -1153,7 +1140,7 @@ footer {
   </div>
 </section>
 
-<!-- ═══════════════════ PODCAST — DARK + FLORAL ═══════════════════ -->
+<!-- â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• PODCAST — DARK + FLORAL â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• -->
 <section class="podcast">
   <div class="podcast-atmosphere"></div>
   <!-- Floating floral shapes -->
@@ -1170,7 +1157,7 @@ footer {
   </div>
 </section>
 
-<!-- ═══════════════════ GALLERY STRIP ═══════════════════ -->
+<!-- â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• GALLERY STRIP â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• -->
 <div class="gallery-strip">
   <img src="https://WHMClients.b-cdn.net/clients/bylecreme/gallery-1.jpg" alt="ByLeCreme studio experience" loading="lazy">
   <img src="https://WHMClients.b-cdn.net/clients/bylecreme/gallery-2.jpg" alt="ByLeCreme fragrance crafting" loading="lazy">
@@ -1181,7 +1168,7 @@ footer {
   <img src="https://WHMClients.b-cdn.net/clients/bylecreme/gallery-7.jpg" alt="ByLeCreme Atlanta studio" loading="lazy">
 </div>
 
-<!-- ═══════════════════ EXPERIENCE — LIGHT ═══════════════════ -->
+<!-- â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• EXPERIENCE — LIGHT â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• -->
 <section class="experience">
   <div class="experience-inner">
     <div class="experience-header anim-fade">
@@ -1224,7 +1211,7 @@ footer {
   </div>
 </section>
 
-<!-- ═══════════════════ NEWSLETTER — DARK ═══════════════════ -->
+<!-- â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• NEWSLETTER — DARK â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• -->
 <section class="newsletter">
   <div class="newsletter-inner">
     <span style="font-size:9px;letter-spacing:5px;color:var(--pink);font-family:var(--sans);font-weight:300;text-shadow:0 0 14px rgba(214,0,108,.27)">INNER CIRCLE</span>
@@ -1237,7 +1224,7 @@ footer {
   </div>
 </section>
 
-<!-- ═══════════════════ FOOTER ═══════════════════ -->
+<!-- â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• FOOTER â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• -->
 <footer>
   <div class="footer-top">
     <div>
@@ -1282,7 +1269,7 @@ footer {
 </footer>
 
 <script>
-/* ─── NAV SCROLL ─── */
+/* â”€â”€â”€ NAV SCROLL â”€â”€â”€ */
 const nav = document.getElementById('mainNav');
 const heroBg = document.getElementById('heroBg');
 let ticking = false;
@@ -1298,7 +1285,7 @@ window.addEventListener('scroll', () => {
   }
 }, { passive: true });
 
-/* ─── HERO LOAD ANIMATION ─── */
+/* â”€â”€â”€ HERO LOAD ANIMATION â”€â”€â”€ */
 setTimeout(() => {
   document.getElementById('heroTag').classList.add('vis');
   document.getElementById('heroTitle').classList.add('vis');
@@ -1307,7 +1294,7 @@ setTimeout(() => {
   document.getElementById('heroCta').classList.add('vis');
 }, 80);
 
-/* ─── MOBILE MENU ─── */
+/* â”€â”€â”€ MOBILE MENU â”€â”€â”€ */
 const hamburger = document.getElementById('hamburger');
 const mobileMenu = document.getElementById('mobileMenu');
 function closeMobileMenu() {
@@ -1321,7 +1308,7 @@ hamburger.addEventListener('click', () => {
   document.body.style.overflow = isOpen ? 'hidden' : '';
 });
 
-/* ─── ACCORDION FRAGRANCE CARDS ─── */
+/* â”€â”€â”€ ACCORDION FRAGRANCE CARDS â”€â”€â”€ */
 let activeScent = null;
 function toggleScent(index) {
   const cards = document.querySelectorAll('.frag-card');
@@ -1338,7 +1325,7 @@ function toggleScent(index) {
   }
 }
 
-/* ─── INTERSECTION OBSERVER ─── */
+/* â”€â”€â”€ INTERSECTION OBSERVER â”€â”€â”€ */
 const observerOptions = { threshold: 0.15 };
 const observer = new IntersectionObserver((entries) => {
   entries.forEach(entry => {
@@ -1352,7 +1339,7 @@ document.querySelectorAll('.anim-fade, .anim-fade-left, .anim-fade-right').forEa
   observer.observe(el);
 });
 
-/* ─── GA4 EVENT HELPERS (placeholder) ─── */
+/* â”€â”€â”€ GA4 EVENT HELPERS (placeholder) â”€â”€â”€ */
 function trackEvent(name, params) {
   if (typeof gtag === 'function') {
     gtag('event', name, params || {});
@@ -1375,7 +1362,7 @@ document.querySelector('.newsletter-form')?.addEventListener('submit', () => {
   trackEvent('newsletter_signup');
 });
 
-/* ─── SCENT NOTE POPOUT ─── */
+/* â”€â”€â”€ SCENT NOTE POPOUT â”€â”€â”€ */
 const scentData = {
   'Saffron': { desc: 'Warm, honeyed spice with a leathery depth', layer: 'TOP' },
   'Jasmine': { desc: 'Intoxicating white floral with narcotic sweetness', layer: 'TOP' },
@@ -1442,7 +1429,7 @@ document.addEventListener('click', (e) => {
   }
 });
 
-/* ─── GALLERY LIGHTBOX ─── */
+/* â”€â”€â”€ GALLERY LIGHTBOX â”€â”€â”€ */
 const galleryImages = Array.from(document.querySelectorAll('.gallery-strip img')).map(img => img.src);
 let currentImageIndex = 0;
 
