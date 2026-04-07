@@ -1565,17 +1565,23 @@ hamburger.addEventListener('click', () => {
 let activeScent = null;
 function toggleScent(index) {
   const cards = document.querySelectorAll('.frag-card');
+  const card = cards[index];
+  const rect = card.getBoundingClientRect();
+  const scrollY = window.scrollY;
   if (activeScent === index) {
-    cards[index].classList.remove('open');
+    card.classList.remove('open');
     activeScent = null;
   } else {
     cards.forEach(c => c.classList.remove('open'));
-    cards[index].classList.add('open');
+    card.classList.add('open');
     activeScent = index;
-    setTimeout(() => {
-      cards[index].scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-    }, 100);
   }
+  /* pin scroll so card stays put — no jerk */
+  requestAnimationFrame(() => {
+    const newRect = card.getBoundingClientRect();
+    const drift = newRect.top - rect.top;
+    if (Math.abs(drift) > 2) window.scrollTo({ top: scrollY + drift, behavior: 'instant' });
+  });
 }
 
 /* â”€â”€â”€ INTERSECTION OBSERVER â”€â”€â”€ */
