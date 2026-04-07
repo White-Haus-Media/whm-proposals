@@ -1,9 +1,3 @@
 {
-  "trailingSlash": true,
-  "rewrites": [
-    {
-      "source": "/proposals/bylecreme-parfums/:path*",
-      "destination": "/give-me-flowers/:path*"
-    }
-  ]
+  "trailingSlash": true
 }
