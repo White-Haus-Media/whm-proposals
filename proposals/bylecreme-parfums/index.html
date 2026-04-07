@@ -1616,7 +1616,7 @@ footer {
         <div><div class="stat-val">3</div><div class="stat-label">FRAGRANCES</div></div>
         <div><div class="stat-val">10ml</div><div class="stat-label">EACH BOTTLE</div></div>
       </div>
-      <button class="lux-btn dark-bg primary atb-btn" onclick="addToCart(this)">ADD TO BAG</button>
+      <button class="lux-btn dark-bg primary atb-btn" data-name="Discovery Set" onclick="addToCart(this)">ADD TO BAG</button>
     </div>
   </div>
 </section>
@@ -2030,7 +2030,9 @@ const productMap = {
 
 function addToCart(btn) {
     var card = btn.closest(".frag-card");
-    var name = card.querySelector(".frag-name").textContent.trim();
+    var name;
+    if (card) { name = card.querySelector(".frag-name").textContent.trim(); }
+    else { name = btn.getAttribute("data-name") || "Discovery Set"; }
     var existing = cartState.find(function(i) { return i.name === name; });
     if (existing) { existing.qty++; } else { cartState.push({ name: name, qty: 1 }); }
     renderCart();
