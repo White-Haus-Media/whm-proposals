@@ -469,25 +469,42 @@ nav.scrolled .logo-img{height:56px}
 .svc p{font-size:13px;color:var(--t2);line-height:1.6;position:relative;z-index:2}
 .svc-divider{width:60px;height:1px;background:var(--g);margin:56px auto;opacity:.3}
 
-/* Specialized Services */
-.spec-grid{display:flex;flex-direction:column;gap:24px}
-.spec-card{padding:40px;border:1px solid rgba(155,122,40,.12);border-radius:var(--r);background:rgba(155,122,40,.03);transition:border-color .3s;position:relative;backdrop-filter:blur(8px)}
+/* Specialized Services — Collapsible */
+.spec-grid{display:flex;flex-direction:column;gap:16px}
+.spec-card{border:1px solid rgba(155,122,40,.12);border-radius:var(--r);background:rgba(155,122,40,.03);transition:border-color .3s, box-shadow .3s;position:relative;backdrop-filter:blur(8px);overflow:hidden}
 .spec-card:hover{border-color:rgba(155,122,40,.25)}
-.spec-icon{width:48px;height:48px;border-radius:12px;background:rgba(155,122,40,.08);border:1px solid rgba(155,122,40,.15);display:flex;align-items:center;justify-content:center;margin-bottom:20px}
+.spec-card.open{border-color:rgba(155,122,40,.3);box-shadow:0 8px 32px rgba(155,122,40,.08)}
+.spec-header{display:flex;align-items:center;gap:20px;padding:28px 32px;cursor:pointer;-webkit-user-select:none;user-select:none}
+.spec-icon{width:48px;height:48px;border-radius:12px;background:rgba(155,122,40,.08);border:1px solid rgba(155,122,40,.15);display:flex;align-items:center;justify-content:center;flex-shrink:0}
 .spec-icon svg{width:24px;height:24px}
-.spec-card h3{font-size:22px;font-weight:800;color:#080808;margin-bottom:8px;letter-spacing:-.02em}
-.spec-tagline{font-size:15px;color:rgba(8,8,8,.5);margin-bottom:28px;font-weight:500;font-style:italic}
-.spec-details{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-bottom:32px}
+.spec-header-text{flex:1;min-width:0}
+.spec-card h3{font-size:20px;font-weight:800;color:#080808;margin-bottom:4px;letter-spacing:-.02em}
+.spec-tagline{font-size:14px;color:rgba(8,8,8,.45);font-weight:500;font-style:italic;margin:0}
+.spec-toggle{width:36px;height:36px;border-radius:50%;border:1px solid rgba(155,122,40,.15);background:rgba(155,122,40,.04);display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:transform .4s cubic-bezier(.4,0,.2,1), background .3s}
+.spec-toggle svg{width:14px;height:14px;stroke:#9B7A28;stroke-width:2;fill:none;stroke-linecap:round;stroke-linejoin:round}
+.spec-card.open .spec-toggle{transform:rotate(180deg);background:rgba(155,122,40,.12)}
+.spec-body{max-height:0;overflow:hidden;transition:max-height .5s cubic-bezier(.4,0,.2,1)}
+.spec-body-inner{padding:0 32px 32px}
+.spec-details{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:24px}
 .spec-detail-item{padding:20px;border-radius:12px;background:rgba(155,122,40,.04);border:1px solid rgba(155,122,40,.08)}
 .spec-detail-item h4{font-size:13px;font-weight:700;color:#080808;margin-bottom:8px;letter-spacing:.01em}
 .spec-detail-item p{font-size:13px;color:rgba(8,8,8,.55);line-height:1.7}
 .spec-detail-item:first-child{grid-column:1/-1}
 .spec-cta{display:inline-flex;align-items:center;gap:6px;font-size:13px;font-weight:700;color:#9B7A28;letter-spacing:.04em;transition:gap .3s,color .3s}
 .spec-cta:hover{gap:10px;color:#080808}
+@media(max-width:768px){
+  .spec-header{padding:20px;gap:14px}
+  .spec-card h3{font-size:17px}
+  .spec-tagline{font-size:13px}
+  .spec-body-inner{padding:0 20px 24px}
+  .spec-details{grid-template-columns:1fr;gap:12px}
+  .spec-detail-item:first-child{grid-column:auto}
+  .spec-toggle{width:32px;height:32px}
+}
 
 /* Process */
 .proc-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:0;position:relative}
-.proc-grid::before{content:'';position:absolute;top:50%;left:5%;right:5%;height:1px;background:linear-gradient(90deg, transparent, var(--g), transparent);z-index:0;pointer-events:none}
+.proc-grid::before{content:'';position:absolute;top:68px;left:5%;right:5%;height:1px;background:linear-gradient(90deg, transparent, rgba(155,122,40,.25), transparent);z-index:0;pointer-events:none}
 .proc{padding:28px;border-right:1px solid var(--bd);text-align:center;position:relative;z-index:1}
 .proc:last-child{border-right:none}
 .proc-n{margin-bottom:10px;line-height:0;position:relative;z-index:2}
@@ -930,93 +947,120 @@ footer::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;back
   <div class="spec-grid">
 
     <!-- SEO SERVICES -->
-    <div class="spec-card rv d1">
-      <div class="spec-icon"><svg viewBox="0 0 24 24" fill="none" stroke="#9B7A28" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="8" y1="11" x2="14" y2="11"/><line x1="11" y1="8" x2="11" y2="14"/></svg></div>
-      <h3>Search Engine Optimization</h3>
-      <p class="spec-tagline">Get found by the people already searching for what you do.</p>
-      <div class="spec-details">
-        <div class="spec-detail-item">
-          <h4>Technical SEO Audits</h4>
-          <p>We crawl your entire site and identify every issue hurting your rankings — broken links, slow pages, missing meta tags, indexing problems, Core Web Vitals failures. You get a prioritized fix list and we handle the implementation.</p>
+    <div class="spec-card rv d1" onclick="toggleSpec(this)">
+      <div class="spec-header">
+        <div class="spec-icon"><svg viewBox="0 0 24 24" fill="none" stroke="#9B7A28" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="8" y1="11" x2="14" y2="11"/><line x1="11" y1="8" x2="11" y2="14"/></svg></div>
+        <div class="spec-header-text">
+          <h3>Search Engine Optimization</h3>
+          <p class="spec-tagline">Get found by the people already searching for what you do.</p>
         </div>
-        <div class="spec-detail-item">
-          <h4>On-Page Optimization</h4>
-          <p>Every page gets optimized: title tags, meta descriptions, heading hierarchy, image alt text, internal linking structure, schema markup, and keyword placement. We write the copy changes, implement them, and monitor the ranking impact.</p>
-        </div>
-        <div class="spec-detail-item">
-          <h4>Keyword Strategy & Content</h4>
-          <p>We research what your ideal customers are actually typing into Google, then build content around those exact searches — blog posts, service pages, location pages, FAQ sections. Each piece is written, published, and tracked for performance.</p>
-        </div>
-        <div class="spec-detail-item">
-          <h4>Local SEO & Map Pack</h4>
-          <p>Google Business Profile fully optimized, local citations built across 50+ directories, review generation strategy deployed, and location-specific content created. We get you showing up in the map pack where buying decisions happen.</p>
-        </div>
-        <div class="spec-detail-item">
-          <h4>Monthly Reporting & Monitoring</h4>
-          <p>Ranking dashboards, traffic analytics, competitor tracking, and Search Console monitoring — delivered monthly with plain-English analysis. You always know what's working, what changed, and what we're doing about it.</p>
+        <div class="spec-toggle"><svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg></div>
+      </div>
+      <div class="spec-body">
+        <div class="spec-body-inner">
+          <div class="spec-details">
+            <div class="spec-detail-item">
+              <h4>Technical SEO Audits</h4>
+              <p>We crawl your entire site and identify every issue hurting your rankings — broken links, slow pages, missing meta tags, indexing problems, Core Web Vitals failures. You get a prioritized fix list and we handle the implementation.</p>
+            </div>
+            <div class="spec-detail-item">
+              <h4>On-Page Optimization</h4>
+              <p>Every page gets optimized: title tags, meta descriptions, heading hierarchy, image alt text, internal linking structure, schema markup, and keyword placement. We write the copy changes, implement them, and monitor the ranking impact.</p>
+            </div>
+            <div class="spec-detail-item">
+              <h4>Keyword Strategy & Content</h4>
+              <p>We research what your ideal customers are actually typing into Google, then build content around those exact searches — blog posts, service pages, location pages, FAQ sections. Each piece is written, published, and tracked for performance.</p>
+            </div>
+            <div class="spec-detail-item">
+              <h4>Local SEO & Map Pack</h4>
+              <p>Google Business Profile fully optimized, local citations built across 50+ directories, review generation strategy deployed, and location-specific content created. We get you showing up in the map pack where buying decisions happen.</p>
+            </div>
+            <div class="spec-detail-item">
+              <h4>Monthly Reporting & Monitoring</h4>
+              <p>Ranking dashboards, traffic analytics, competitor tracking, and Search Console monitoring — delivered monthly with plain-English analysis. You always know what's working, what changed, and what we're doing about it.</p>
+            </div>
+          </div>
+          <a href="#audit" class="spec-cta" onclick="event.stopPropagation()">Let's talk about SEO →</a>
         </div>
       </div>
-      <a href="#audit" class="spec-cta">Let's talk about SEO →</a>
     </div>
 
     <!-- HEADLESS SHOPIFY / CUSTOM STOREFRONTS -->
-    <div class="spec-card rv d2">
-      <div class="spec-icon"><svg viewBox="0 0 24 24" fill="none" stroke="#9B7A28" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M2 7h20"/><path d="M12 17v4"/><path d="M8 21h8"/></svg></div>
-      <h3>Custom Shopify Storefronts</h3>
-      <p class="spec-tagline">Your Shopify backend. Our custom-designed frontend. No theme limitations.</p>
-      <div class="spec-details">
-        <div class="spec-detail-item">
-          <h4>Why This Matters</h4>
-          <p>Most Shopify stores look the same because they're built on the same 20 themes. Yours doesn't have to. We build a completely custom storefront that connects to your Shopify backend — so you keep everything that works (inventory, checkout, payments, orders) while getting a frontend that looks and performs like nothing your competitors have.</p>
+    <div class="spec-card rv d2" onclick="toggleSpec(this)">
+      <div class="spec-header">
+        <div class="spec-icon"><svg viewBox="0 0 24 24" fill="none" stroke="#9B7A28" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M2 7h20"/><path d="M12 17v4"/><path d="M8 21h8"/></svg></div>
+        <div class="spec-header-text">
+          <h3>Custom Shopify Storefronts</h3>
+          <p class="spec-tagline">Your Shopify backend. Our custom-designed frontend. No theme limitations.</p>
         </div>
-        <div class="spec-detail-item">
-          <h4>Blazing Fast Performance</h4>
-          <p>Standard Shopify themes load in 3-5 seconds. Our custom storefronts load in under 1 second. Pages are pre-built and served from edge servers closest to your customer. Faster pages mean lower bounce rates, higher conversions, and better Google rankings.</p>
-        </div>
-        <div class="spec-detail-item">
-          <h4>Total Design Freedom</h4>
-          <p>No more working around theme limitations. Custom product pages, unique collection layouts, branded checkout flows, interactive product configurators, lookbooks, size guides — whatever your brand needs, we build it. Your store looks like a $50,000 custom build, not a $200 template.</p>
-        </div>
-        <div class="spec-detail-item">
-          <h4>You Still Use Shopify</h4>
-          <p>Nothing changes on your end. You still manage products, inventory, orders, and fulfillment from the same Shopify dashboard you already know. We just replace the part your customers see with something dramatically better. All your existing apps and integrations keep working.</p>
-        </div>
-        <div class="spec-detail-item">
-          <h4>Built to Scale</h4>
-          <p>Flash sales that crash your theme? Not anymore. Custom storefronts handle traffic spikes without breaking a sweat. And when you're ready to expand — mobile app, in-store kiosk, wholesale portal — the same backend powers all of it.</p>
+        <div class="spec-toggle"><svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg></div>
+      </div>
+      <div class="spec-body">
+        <div class="spec-body-inner">
+          <div class="spec-details">
+            <div class="spec-detail-item">
+              <h4>Why This Matters</h4>
+              <p>Most Shopify stores look the same because they're built on the same 20 themes. Yours doesn't have to. We build a completely custom storefront that connects to your Shopify backend — so you keep everything that works (inventory, checkout, payments, orders) while getting a frontend that looks and performs like nothing your competitors have.</p>
+            </div>
+            <div class="spec-detail-item">
+              <h4>Blazing Fast Performance</h4>
+              <p>Standard Shopify themes load in 3-5 seconds. Our custom storefronts load in under 1 second. Pages are pre-built and served from edge servers closest to your customer. Faster pages mean lower bounce rates, higher conversions, and better Google rankings.</p>
+            </div>
+            <div class="spec-detail-item">
+              <h4>Total Design Freedom</h4>
+              <p>No more working around theme limitations. Custom product pages, unique collection layouts, branded checkout flows, interactive product configurators, lookbooks, size guides — whatever your brand needs, we build it. Your store looks like a $50,000 custom build, not a $200 template.</p>
+            </div>
+            <div class="spec-detail-item">
+              <h4>You Still Use Shopify</h4>
+              <p>Nothing changes on your end. You still manage products, inventory, orders, and fulfillment from the same Shopify dashboard you already know. We just replace the part your customers see with something dramatically better. All your existing apps and integrations keep working.</p>
+            </div>
+            <div class="spec-detail-item">
+              <h4>Built to Scale</h4>
+              <p>Flash sales that crash your theme? Not anymore. Custom storefronts handle traffic spikes without breaking a sweat. And when you're ready to expand — mobile app, in-store kiosk, wholesale portal — the same backend powers all of it.</p>
+            </div>
+          </div>
+          <a href="#audit" class="spec-cta" onclick="event.stopPropagation()">Let's talk about Shopify →</a>
         </div>
       </div>
-      <a href="#audit" class="spec-cta">Let's talk about Shopify →</a>
     </div>
 
     <!-- SOCIAL MEDIA MARKETING MANAGEMENT -->
-    <div class="spec-card rv d3">
-      <div class="spec-icon"><svg viewBox="0 0 24 24" fill="none" stroke="#9B7A28" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8A6 6 0 006 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 01-3.46 0"/><path d="M2 8c0-3.31 2.69-6 6-6"/><path d="M22 8c0-3.31-2.69-6-6-6"/></svg></div>
-      <h3>Social Media Management</h3>
-      <p class="spec-tagline">Consistent content. Growing audience. Zero effort from you.</p>
-      <div class="spec-details">
-        <div class="spec-detail-item">
-          <h4>Content Creation & Strategy</h4>
-          <p>We build a full content calendar tailored to your brand, your audience, and your goals. Every post is written, designed, and scheduled — from educational carousels to promotional stories to engagement-driving reels. Your brand voice stays consistent across every platform without you touching a thing.</p>
+    <div class="spec-card rv d3" onclick="toggleSpec(this)">
+      <div class="spec-header">
+        <div class="spec-icon"><svg viewBox="0 0 24 24" fill="none" stroke="#9B7A28" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8A6 6 0 006 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 01-3.46 0"/><path d="M2 8c0-3.31 2.69-6 6-6"/><path d="M22 8c0-3.31-2.69-6-6-6"/></svg></div>
+        <div class="spec-header-text">
+          <h3>Social Media Management</h3>
+          <p class="spec-tagline">Consistent content. Growing audience. Zero effort from you.</p>
         </div>
-        <div class="spec-detail-item">
-          <h4>Multi-Platform Publishing</h4>
-          <p>Instagram, Facebook, LinkedIn, TikTok, X — wherever your audience lives, we're there. Each platform gets content optimized for its format and algorithm. Posts are scheduled at peak engagement times and published automatically. You wake up and your feeds are already working for you.</p>
-        </div>
-        <div class="spec-detail-item">
-          <h4>Community Engagement</h4>
-          <p>We monitor comments, DMs, and mentions across every platform. Responses go out quickly and on-brand. Questions get answered, positive reviews get amplified, and your audience feels like there's always someone home. This is where followers become fans and fans become customers.</p>
-        </div>
-        <div class="spec-detail-item">
-          <h4>Performance Analytics</h4>
-          <p>Monthly reports covering follower growth, engagement rates, reach, top-performing content, audience demographics, and competitor benchmarks. Every decision is data-backed — if something's not working, we pivot. If something's crushing it, we double down.</p>
-        </div>
-        <div class="spec-detail-item">
-          <h4>Campaign & Promotion Support</h4>
-          <p>Launching a new product? Running a seasonal sale? Opening a new location? We build and execute targeted social campaigns around your business milestones — coordinated across platforms with custom graphics, countdown posts, and audience-specific messaging.</p>
+        <div class="spec-toggle"><svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg></div>
+      </div>
+      <div class="spec-body">
+        <div class="spec-body-inner">
+          <div class="spec-details">
+            <div class="spec-detail-item">
+              <h4>Content Creation & Strategy</h4>
+              <p>We build a full content calendar tailored to your brand, your audience, and your goals. Every post is written, designed, and scheduled — from educational carousels to promotional stories to engagement-driving reels. Your brand voice stays consistent across every platform without you touching a thing.</p>
+            </div>
+            <div class="spec-detail-item">
+              <h4>Multi-Platform Publishing</h4>
+              <p>Instagram, Facebook, LinkedIn, TikTok, X — wherever your audience lives, we're there. Each platform gets content optimized for its format and algorithm. Posts are scheduled at peak engagement times and published automatically. You wake up and your feeds are already working for you.</p>
+            </div>
+            <div class="spec-detail-item">
+              <h4>Community Engagement</h4>
+              <p>We monitor comments, DMs, and mentions across every platform. Responses go out quickly and on-brand. Questions get answered, positive reviews get amplified, and your audience feels like there's always someone home. This is where followers become fans and fans become customers.</p>
+            </div>
+            <div class="spec-detail-item">
+              <h4>Performance Analytics</h4>
+              <p>Monthly reports covering follower growth, engagement rates, reach, top-performing content, audience demographics, and competitor benchmarks. Every decision is data-backed — if something's not working, we pivot. If something's crushing it, we double down.</p>
+            </div>
+            <div class="spec-detail-item">
+              <h4>Campaign & Promotion Support</h4>
+              <p>Launching a new product? Running a seasonal sale? Opening a new location? We build and execute targeted social campaigns around your business milestones — coordinated across platforms with custom graphics, countdown posts, and audience-specific messaging.</p>
+            </div>
+          </div>
+          <a href="#audit" class="spec-cta" onclick="event.stopPropagation()">Let's talk about social →</a>
         </div>
       </div>
-      <a href="#audit" class="spec-cta">Let's talk about social →</a>
     </div>
 
   </div>
@@ -1105,20 +1149,6 @@ footer::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;back
             <span class="feature-tag">Mobile & email optimized</span>
           </div>
         </div>
-        <div class="featured-project">
-          <div class="featured-mark">
-            <svg viewBox="0 0 24 24" fill="#C6A44C" width="32" height="32"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-          </div>
-          <div class="featured-info">
-            <div class="featured-label">Featured Project</div>
-            <div class="featured-name">Legal & Accounting Firms</div>
-            <div class="featured-type">Professional Services</div>
-          </div>
-          <a href="#" class="featured-link">
-            View case study
-            <svg viewBox="0 0 16 16"><path d="M3 8h10M9 4l4 4-4 4" stroke-linecap="round" stroke-linejoin="round"/></svg>
-          </a>
-        </div>
       </div>
 
       <div class="tab-panel" data-panel="2">
@@ -1136,20 +1166,6 @@ footer::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;back
             <span class="feature-tag">Loyalty program integration</span>
             <span class="feature-tag">Event & promotion showcase</span>
           </div>
-        </div>
-        <div class="featured-project">
-          <div class="featured-mark">
-            <svg viewBox="0 0 24 24" fill="#C6A44C" width="32" height="32"><path d="M6 9l6-6 6 6M3 10h18v9a3 3 0 0 1-3 3H6a3 3 0 0 1-3-3v-9z"/></svg>
-          </div>
-          <div class="featured-info">
-            <div class="featured-label">Featured Project</div>
-            <div class="featured-name">Retail & Hospitality</div>
-            <div class="featured-type">Restaurants, Shops, Services</div>
-          </div>
-          <a href="#" class="featured-link">
-            View case study
-            <svg viewBox="0 0 16 16"><path d="M3 8h10M9 4l4 4-4 4" stroke-linecap="round" stroke-linejoin="round"/></svg>
-          </a>
         </div>
       </div>
 
@@ -1169,20 +1185,6 @@ footer::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;back
             <span class="feature-tag">License & insurance display</span>
           </div>
         </div>
-        <div class="featured-project">
-          <div class="featured-mark">
-            <svg viewBox="0 0 24 24" fill="#C6A44C" width="32" height="32"><path d="M12 2L2 7v10c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V7l-10-5z"/></svg>
-          </div>
-          <div class="featured-info">
-            <div class="featured-label">Featured Project</div>
-            <div class="featured-name">Home & Trade Services</div>
-            <div class="featured-type">HVAC, Plumbing, Contractors</div>
-          </div>
-          <a href="#" class="featured-link">
-            View case study
-            <svg viewBox="0 0 16 16"><path d="M3 8h10M9 4l4 4-4 4" stroke-linecap="round" stroke-linejoin="round"/></svg>
-          </a>
-        </div>
       </div>
 
       <div class="tab-panel" data-panel="4">
@@ -1200,20 +1202,6 @@ footer::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;back
             <span class="feature-tag">Testimonial & story showcase</span>
             <span class="feature-tag">Mobile-optimized giving</span>
           </div>
-        </div>
-        <div class="featured-project">
-          <div class="featured-mark">
-            <svg viewBox="0 0 24 24" fill="#C6A44C" width="32" height="32"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
-          </div>
-          <div class="featured-info">
-            <div class="featured-label">Featured Project</div>
-            <div class="featured-name">Community & Education</div>
-            <div class="featured-type">Nonprofits, Schools, Orgs</div>
-          </div>
-          <a href="#" class="featured-link">
-            View case study
-            <svg viewBox="0 0 16 16"><path d="M3 8h10M9 4l4 4-4 4" stroke-linecap="round" stroke-linejoin="round"/></svg>
-          </a>
         </div>
       </div>
 
@@ -1770,6 +1758,18 @@ function showTab(index) {
 function toggleAcc(header) {
   const item = header.parentElement;
   item.classList.toggle('open');
+}
+
+// Specialized services collapse/expand
+function toggleSpec(card) {
+  const body = card.querySelector('.spec-body');
+  if (card.classList.contains('open')) {
+    body.style.maxHeight = '0';
+    card.classList.remove('open');
+  } else {
+    card.classList.add('open');
+    body.style.maxHeight = body.scrollHeight + 'px';
+  }
 }
 
 // Vertical accordion (mobile)
