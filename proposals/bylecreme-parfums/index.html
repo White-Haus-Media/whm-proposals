@@ -199,10 +199,14 @@ nav.scrolled {
   border-bottom: 1px solid rgba(214,0,108,.13);
 }
 .nav-logo {
-  font-family: var(--serif); font-style: italic; font-size: 20px;
-  font-weight: 300; color: var(--cream); letter-spacing: 3px;
+  display: flex; align-items: center; line-height: 0;
 }
-.nav-logo sup { font-size: 7px; position: relative; top: -8px; }
+.nav-logo img {
+  height: 32px; width: auto; display: block;
+}
+@media (max-width: 640px) {
+  .nav-logo img { height: 26px; }
+}
 .nav-links { display: flex; gap: 32px; align-items: center; }
 .nav-links a {
   color: var(--silver); font-size: 10px; letter-spacing: 3px;
@@ -272,13 +276,17 @@ nav.scrolled {
 }
 .hero-tag .pink-line { width: 48px; }
 .hero h1 {
-  font-family: var(--serif); font-style: italic; font-weight: 300;
-  font-size: clamp(56px, 10vw, 116px); line-height: .92; color: var(--cream);
-  letter-spacing: 3px;
+  margin: 0; padding: 0; line-height: 0;
   opacity: 0; transform: translateY(50px);
   transition: all 1.4s cubic-bezier(.22,1,.36,1) .5s;
 }
 .hero h1.vis { opacity: 1; transform: none; }
+.hero h1 img {
+  display: block; width: auto;
+  height: clamp(90px, 14vw, 160px);
+  max-width: 92vw;
+  filter: drop-shadow(0 0 24px rgba(214,0,108,.22));
+}
 .hero-parfums {
   font-family: var(--sans); font-weight: 200;
   font-size: clamp(16px, 3vw, 28px); letter-spacing: 16px;
@@ -1273,7 +1281,7 @@ footer {
   .discovery-stats { gap: 24px; flex-wrap: wrap; }
 }
 @media (max-width: 480px) {
-  .hero h1 { font-size: clamp(40px, 12vw, 56px); }
+  .hero h1 img { height: clamp(64px, 18vw, 96px); }
   .hero-parfums { letter-spacing: 8px; }
   .press-logos span { font-size: 10px !important; }
   .frag-num-col { width: 50px; }
@@ -1369,7 +1377,7 @@ footer {
 
 <!-- â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• NAV â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• -->
 <nav id="mainNav">
-  <div class="nav-logo">ByLeCr&egrave;me<sup>&trade;</sup></div>
+  <div class="nav-logo"><a href="/" style="line-height:0"><img src="https://WHMClients.b-cdn.net/clients/bylecreme/bylecremelogo.png" alt="ByLeCrème Parfums"></a></div>
   <div class="nav-links">
     <a href="#collection">COLLECTION</a>
     <a href="#discovery">DISCOVERY</a>
@@ -1406,7 +1414,7 @@ footer {
       <div class="pink-line" style="width:48px"></div>
       <span>ATLANTA &middot; EST. 2013</span>
     </div>
-    <h1 id="heroTitle"><span style="margin-right:.18em">By</span>LeCr&egrave;me</h1>
+    <h1 id="heroTitle"><img src="https://WHMClients.b-cdn.net/clients/bylecreme/bylecremelogo.png" alt="ByLeCrème Parfums"></h1>
     <div class="hero-parfums" id="heroParfums">PARFUMS</div>
     <p class="hero-desc" id="heroDesc">Luxury fragrances crafted with intention. Each scent — an invitation to express every side of you.</p>
     <div class="hero-cta" id="heroCta">
@@ -1759,7 +1767,7 @@ footer {
 <footer>
   <div class="footer-top">
     <div>
-      <div class="footer-brand">ByLeCr&egrave;me<sup>&trade;</sup></div>
+      <div class="footer-brand"><img src="https://WHMClients.b-cdn.net/clients/bylecreme/bylecremelogo.png" alt="ByLeCrème Parfums" style="height:44px;width:auto;display:block"></div>
       <div class="footer-contact">
         141 Mangum St. SW #202B<br>Atlanta, GA 30313<br>(404) 717-4542<br>shop@bylecreme.com
       </div>
