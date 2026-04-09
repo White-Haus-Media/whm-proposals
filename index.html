@@ -447,7 +447,7 @@ nav.scrolled .logo-img{height:56px}
 
 /* Cards */
 .cards{display:flex;flex-direction:column;gap:12px}
-.card{display:flex;gap:16px;align-items:flex-start;padding:28px;border:1px solid var(--bd);border-radius:var(--r);background:rgba(198,164,76,.02);backdrop-filter:blur(12px);transition:all .4s;position:relative;overflow:hidden}
+.card{display:flex;gap:16px;align-items:flex-start;padding:28px;border:1px solid var(--bd);border-radius:var(--r);background:rgba(198,164,76,.02);backdrop-filter:blur(12px);transition:border-color .3s,box-shadow .3s;position:relative;overflow:hidden}
 .card::before{content:'';position:absolute;inset:0;border-radius:var(--r);opacity:0;transition:opacity .4s;pointer-events:none;z-index:0}
 .card:hover{border-color:rgba(198,164,76,.15);backdrop-filter:blur(16px);box-shadow:0 8px 32px rgba(198,164,76,.08), 0 2px 8px rgba(198,164,76,.04)}
 .card:hover::before{opacity:0.08}
@@ -457,7 +457,7 @@ nav.scrolled .logo-img{height:56px}
 
 /* Services grid */
 .svc-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
-.svc{padding:28px;border:1px solid var(--bd);border-radius:var(--r);background:rgba(198,164,76,.015);backdrop-filter:blur(12px);transition:all .4s;position:relative;overflow:hidden}
+.svc{padding:28px;border:1px solid var(--bd);border-radius:var(--r);background:rgba(198,164,76,.015);backdrop-filter:blur(12px);transition:border-color .3s,box-shadow .3s,transform .3s;position:relative;overflow:hidden}
 .svc::before{content:'';position:absolute;inset:0;background:conic-gradient(from 0deg, rgba(198,164,76,.3), rgba(198,164,76,.1), rgba(198,164,76,.3));opacity:0;animation:none;transition:opacity .4s;border-radius:var(--r)}
 .svc:hover{border-color:rgba(198,164,76,.15);backdrop-filter:blur(16px);box-shadow:0 12px 48px rgba(198,164,76,.12), 0 4px 12px rgba(198,164,76,.06);transform:translateY(-4px)}
 .svc:hover::before{opacity:0.4;animation:rotateBorder 3s linear infinite}
@@ -710,11 +710,10 @@ footer::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;back
 .cream .pill:hover{background:#1a1a1a}
 
 /* ANIMATIONS */
-.rv{opacity:0;transform:translateY(30px);transition:opacity .55s cubic-bezier(.23,1,.32,1),transform .55s cubic-bezier(.23,1,.32,1)}
-.rv.vis{opacity:1;transform:translateY(0) scale(1)}
-.rv.vis{animation:scaleReveal .55s cubic-bezier(.23,1,.32,1)}
-@keyframes scaleReveal{from{opacity:0;transform:translateY(30px) scale(0.98)}to{opacity:1;transform:translateY(0) scale(1)}}
-.d1{transition-delay:.08s}.d2{transition-delay:.16s}.d3{transition-delay:.24s}.d4{transition-delay:.32s}
+.rv{opacity:0;transform:translateY(20px);transition:opacity .4s ease-out,transform .4s ease-out;will-change:opacity,transform}
+.rv.vis{opacity:1;transform:translateY(0)}
+.d1{transition-delay:.05s}.d2{transition-delay:.1s}.d3{transition-delay:.15s}.d4{transition-delay:.2s}
+@media(max-width:640px){.d1,.d2,.d3,.d4{transition-delay:0s}}
 
 /* ── MOBILE ── */
 @media(max-width:900px){
@@ -781,6 +780,16 @@ footer::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;back
   .tab-icon{display:none}
   .tab-panels{padding-left:0}
   .featured-project{flex-wrap:wrap;gap:16px}
+
+  /* ── MOBILE PERF: kill GPU-heavy effects ── */
+  .float-decor,.hero-orb{display:none!important}
+  .card,.svc,.test,.roi-card,.audit-card,.alt-c,.spec-card{backdrop-filter:none!important;-webkit-backdrop-filter:none!important}
+  .cream .card,.cream .svc{backdrop-filter:none!important;-webkit-backdrop-filter:none!important}
+  nav.scrolled{backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px)}
+  .card,.svc,.test{transition:border-color .3s,box-shadow .3s}
+  .svc:hover,.test:hover{transform:none;box-shadow:none}
+  .pill:hover{transform:none}
+  .rv{transform:translateY(12px)}
 }
 </style>
 </head>
