@@ -319,17 +319,17 @@ body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:999;
 @keyframes orbDrift2{0%,100%{transform:translate(0,0)}50%{transform:translate(-30px,50px)}}
 
 /* ── NAV ── */
-nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:16px 0;transition:all .4s}
+nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:16px 0;transition:padding .3s ease,background .3s ease,border-color .3s ease,box-shadow .3s ease}
 nav.scrolled{padding:8px 0;background:rgba(8,8,8,.88);backdrop-filter:blur(24px);border-bottom:1px solid var(--bd);box-shadow:0 8px 32px rgba(0,0,0,.2)}
 nav .w{display:flex;justify-content:space-between;align-items:center}
 .logo-img{height:68px;width:auto;transition:height .3s}
 nav.scrolled .logo-img{height:56px}
 .nav-links{display:flex;gap:32px;align-items:center;list-style:none}
-.nav-links a{font-size:11px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--t3);transition:all .3s;position:relative}
+.nav-links a{font-size:11px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--t3);transition:color .3s;position:relative}
 .nav-links a::after{content:'';position:absolute;bottom:-4px;left:0;width:0;height:1px;background:var(--g);transition:width .3s}
 .nav-links a:hover{color:var(--t1)}
 .nav-links a:hover::after{width:100%}
-.nav-links .pill-sm{background:transparent;color:var(--g);padding:9px 22px;border-radius:100px;font-weight:600;transition:all .3s;border:1px solid var(--g);letter-spacing:.06em;font-size:11px;text-transform:uppercase}
+.nav-links .pill-sm{background:transparent;color:var(--g);padding:9px 22px;border-radius:100px;font-weight:600;transition:background .3s,color .3s,box-shadow .3s,transform .3s;border:1px solid var(--g);letter-spacing:.06em;font-size:11px;text-transform:uppercase}
 .nav-links .pill-sm:hover{background:var(--g);color:var(--b);box-shadow:0 0 24px rgba(198,164,76,.2);transform:translateY(-1px)}
 .mob-tog{display:none;background:none;border:none;cursor:pointer;padding:8px}
 .mob-close{display:none;position:fixed;top:24px;right:24px;background:none;border:none;cursor:pointer;z-index:201;padding:8px}
@@ -733,7 +733,9 @@ footer::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;back
   .mob-close{display:none;position:fixed;top:24px;right:24px;background:none;border:none;cursor:pointer;z-index:201;padding:8px}
   .mob-close svg{stroke:var(--cream);width:24px;height:24px}
   .mob-close.show{display:block}
-  .hero .w{padding-top:100px;padding-bottom:48px}
+  .logo-img{height:44px}
+  nav.scrolled .logo-img{height:36px}
+  .hero .w{padding-top:90px;padding-bottom:48px}
   .hero h1{font-size:28px}
   .hero-p{font-size:15px}
   .hero-cta{flex-direction:column;align-items:stretch}
