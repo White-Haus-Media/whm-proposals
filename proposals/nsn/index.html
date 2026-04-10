@@ -130,6 +130,14 @@ body{
   border:1px solid rgba(198,164,76,0.15);
   padding:8px 18px;border-radius:100px;
 }
+.hero-date{
+  display:flex;align-items:center;gap:12px;
+  font-size:11px;letter-spacing:0.22em;
+  text-transform:uppercase;color:rgba(255,255,255,0.45);font-weight:600;
+}
+.hero-date::before{
+  content:'';width:24px;height:1px;background:var(--gold);
+}
 .hero-body{
   display:flex;flex-direction:column;justify-content:center;
   position:relative;z-index:2;padding:100px 0 60px;
@@ -169,7 +177,13 @@ body{
   border-top:1px solid var(--line);padding-top:28px;
   opacity:0;animation:fadeUp 0.8s 1.3s var(--ease-out) forwards;
 }
-.hero-meta{font-size:12px;color:rgba(255,255,255,0.2);line-height:1.9;}
+.hero-meta{font-size:12px;color:rgba(255,255,255,0.28);line-height:1.9;}
+.hero-meta strong{color:rgba(255,255,255,0.55);font-weight:600;letter-spacing:0.01em;}
+.hero-credit{
+  font-size:11px;letter-spacing:0.18em;text-transform:uppercase;
+  color:rgba(255,255,255,0.32);font-weight:600;line-height:1.9;
+}
+.hero-credit span{color:var(--gold);}
 .scroll-hint{
   display:flex;align-items:center;gap:10px;
   font-size:10px;letter-spacing:0.18em;text-transform:uppercase;
@@ -338,8 +352,9 @@ h2 em{font-style:italic;font-weight:300;color:var(--gold);}
   background-repeat:no-repeat;background-size:contain;
 }
 .cklist li strong{color:var(--white);}
-.cream-section .cklist li{color:var(--muted-dk);}
-.cream-section .cklist li strong{color:var(--ink);}
+/* When cklist is inside a dark card within a cream section, keep light text */
+.cream-section .card-top .cklist li{color:var(--muted);}
+.cream-section .card-top .cklist li strong{color:var(--white);}
 
 /* ── Revenue Table ── */
 .rtable-wrap{
@@ -453,14 +468,35 @@ h2 em{font-style:italic;font-weight:300;color:var(--gold);}
   font-size:14px;color:var(--muted);line-height:1.78;
   margin-bottom:22px;max-width:560px;
 }
-.phase-tags{display:flex;flex-wrap:wrap;gap:8px;}
-.ptag{
-  background:rgba(255,255,255,0.04);border:1px solid var(--line);
-  border-radius:100px;padding:6px 16px;
-  font-size:12px;color:var(--muted);font-weight:500;
-  transition:all 0.3s ease;
+/* ── Deliverables Grid (replaces old pill tags) ── */
+.deliverables{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:10px;
+  margin-top:6px;
+  max-width:560px;
 }
-.ptag:hover{border-color:rgba(198,164,76,0.25);color:rgba(255,255,255,0.65);}
+.deliv{
+  display:flex;align-items:flex-start;gap:12px;
+  padding:14px 18px;
+  background:linear-gradient(180deg, rgba(255,255,255,0.025), rgba(255,255,255,0.012));
+  border:1px solid rgba(255,255,255,0.07);
+  border-radius:12px;
+  font-size:13px;color:rgba(255,255,255,0.72);
+  line-height:1.5;font-weight:500;
+  letter-spacing:-0.005em;
+  transition:border-color 0.4s ease, transform 0.4s var(--ease-out), background 0.4s ease;
+}
+.deliv:hover{
+  border-color:rgba(198,164,76,0.32);
+  background:linear-gradient(180deg, rgba(198,164,76,0.04), rgba(198,164,76,0.012));
+  transform:translateY(-2px);
+}
+.deliv::before{
+  content:'';width:14px;height:14px;flex-shrink:0;margin-top:2px;
+  background-image:url("data:image/svg+xml,%3Csvg width='14' height='14' viewBox='0 0 14 14' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Ccircle cx='7' cy='7' r='6' stroke='%23C6A44C' stroke-width='0.9'/%3E%3Cpath d='M4.4 7l1.8 1.8 3.6-3.6' stroke='%23C6A44C' stroke-width='1.3' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+  background-repeat:no-repeat;background-size:contain;
+}
 
 /* ── About Block ── */
 .about-block{
@@ -496,6 +532,28 @@ h2 em{font-style:italic;font-weight:300;color:var(--gold);}
   font-size:10px;letter-spacing:0.14em;text-transform:uppercase;
   color:var(--muted);margin-top:8px;font-weight:500;display:block;
 }
+
+/* ── Principles List ── */
+.principles{display:flex;flex-direction:column;gap:22px;}
+.principle{
+  padding-left:22px;position:relative;
+  border-left:1px solid rgba(198,164,76,0.22);
+  transition:border-color 0.4s ease, padding 0.4s var(--ease-out);
+}
+.principle:hover{border-left-color:var(--gold);padding-left:26px;}
+.principle::before{
+  content:'';position:absolute;left:-4px;top:6px;
+  width:7px;height:7px;border-radius:50%;
+  background:var(--gold);box-shadow:0 0 0 3px rgba(198,164,76,0.1);
+}
+.principle-label{
+  font-size:10px;letter-spacing:0.2em;text-transform:uppercase;
+  color:var(--gold);font-weight:700;margin-bottom:6px;display:block;
+}
+.principle-body{
+  font-size:13.5px;color:var(--muted);line-height:1.72;
+}
+.principle-body strong{color:var(--white);font-weight:700;}
 
 /* ── CTA Section ── */
 .cta-section{
@@ -579,8 +637,8 @@ hr{border:none;border-top:1px solid var(--line);margin:64px 0;}
 
 /* ── Mobile ── */
 @media(max-width:900px){
-  .hero{padding:36px 28px;}
-  .wrap{padding:80px 28px;}
+  .hero{padding:36px 28px;min-height:auto;}
+  .wrap{padding:84px 28px;}
   .cta-section{padding:100px 28px;}
   .doc-footer{padding:32px 28px;flex-direction:column;gap:20px;text-align:center;}
   .footer-r{text-align:center;}
@@ -589,7 +647,8 @@ hr{border:none;border-top:1px solid var(--line);margin:64px 0;}
   .compare-col.nxt-col{border-left:none;border-top:1px solid var(--line);}
   .stats{background:transparent;border:none;gap:12px;}
   .stat{border:1px solid var(--line);border-radius:12px;}
-  .hero-h1{font-size:clamp(38px,10vw,64px);}
+  .hero-h1{font-size:clamp(40px,10vw,72px);line-height:0.96;}
+  .hero-sub{font-size:16px;}
   .rtable-wrap{border-radius:12px;}
   .rtable th,.rtable td{padding:14px 16px;font-size:12px;}
   .rtable td:first-child{width:auto;}
@@ -597,13 +656,54 @@ hr{border:none;border-top:1px solid var(--line);margin:64px 0;}
   .phase-row{gap:20px;}
   .phase-dot{width:40px;height:40px;font-size:12px;}
   .phase-row::before{left:19px;top:44px;}
-  .about-block{padding:28px;gap:32px;}
+  .about-block{padding:32px 24px;gap:32px;}
   .callout{padding:28px 24px;}
+  .deliverables{grid-template-columns:1fr;gap:8px;max-width:none;}
+  .deliv{padding:13px 16px;font-size:13px;}
+  .principles{gap:18px;}
+  .principle{padding-left:20px;}
+  .lead{font-size:16px;margin-bottom:48px;line-height:1.78;}
+  .prose{font-size:16px;line-height:1.82;}
+  .pull p{font-size:20px;line-height:1.5;}
+  .ey-txt{font-size:10px;}
+  .c-title{font-size:18px;}
+  .card-top{padding:32px 26px;}
+  .cklist li{font-size:14px;line-height:1.65;}
+  .compare-head{font-size:11px;}
+  .cmp-item{font-size:13.5px;line-height:1.55;}
+  .cta-h{font-size:clamp(36px,8vw,56px);line-height:1.05;}
+  .cta-sub{font-size:15px;}
+}
+@media(max-width:600px){
+  .wrap{padding:72px 22px;}
+  .hero{padding:30px 22px;}
+  .hero-body{padding:60px 0 40px;}
+  .hero-h1{font-size:clamp(36px,11vw,64px);}
+  .about-block{padding:28px 20px;}
+  .stat{padding:22px 16px;}
+  .stat-n{font-size:32px;}
+  .principle-body{font-size:13px;}
+  .doc-footer{padding:28px 22px;}
+  .doc-footer img{height:30px;}
+  .phase-row{gap:16px;}
+  .phase-name{font-size:18px;}
+  .phase-desc{font-size:13.5px;}
 }
 @media(max-width:480px){
   .hero-foot{flex-direction:column;align-items:flex-start;gap:16px;}
+  .hero-meta{font-size:11px;}
+  .hero-credit{font-size:10px;letter-spacing:0.14em;}
+  .hero-date{font-size:10px;letter-spacing:0.18em;gap:10px;}
+  .hero-date::before{width:18px;}
   .tag{font-size:9px;padding:6px 14px;}
   .addressee-text{font-size:10px;letter-spacing:0.16em;}
+  .addressee{margin-bottom:40px;}
+  h2{font-size:clamp(30px,8.5vw,44px);line-height:1.08;}
+  .lead{margin-bottom:36px;}
+  .stats{gap:10px;}
+  .chips{gap:8px;}
+  .chip{font-size:11px;padding:6px 12px;}
+  .rtable th,.rtable td{padding:12px 13px;font-size:11.5px;}
 }
 </style>
 </head>
@@ -619,18 +719,18 @@ hr{border:none;border-top:1px solid var(--line);margin:64px 0;}
       <img src="https://WhiteHaus.b-cdn.net/WhiteHause%20Logo%20.png" alt="White Haus Media" onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
       <span class="logo-text">White Haus Media</span>
     </div>
-    <span class="tag">Point of View — April 2026</span>
+    <span class="hero-date">April 2026</span>
   </nav>
   <div class="hero-body">
     <div class="addressee">
       <div class="addressee-bar"></div>
-      <div class="addressee-text">Prepared for Amira Richardson — Executive Director, NSN</div>
+      <div class="addressee-text">Prepared for the National Sales Network Leadership Team</div>
     </div>
     <h1 class="hero-h1">The Network<br>That Works<br><em>Deserves a Platform<br>That Works Too.</em></h1>
     <p class="hero-sub">NSN has spent 30 years building something rare — a community that genuinely changes careers. This is a vision for how the digital experience finally matches the organization behind it.</p>
   </div>
   <div class="hero-foot">
-    <div class="hero-meta">National Sales Network &nbsp;·&nbsp; salesnetwork.org<br>Atlanta, GA &nbsp;·&nbsp; Founded 1992</div>
+    <div class="hero-credit">Prepared by <span>Rico White &amp; Colton Palmer</span><br>White Haus Media &nbsp;·&nbsp; whitehausmedia.com</div>
     <div class="scroll-hint"><span class="scroll-bar"></span>Continue reading</div>
   </div>
 </section>
@@ -640,7 +740,7 @@ hr{border:none;border-top:1px solid var(--line);margin:64px 0;}
 <div class="wrap">
   <div class="ey rv"><div class="ey-dot">01</div><div class="ey-txt">The Foundation</div><div class="ey-line"></div></div>
   <h2 class="rv">What You've <em>Built</em> Is Rare.</h2>
-  <p class="lead rv">Before anything else — this needs to be said. What David Richardson started in Newark in 1992 with a handshake and a vision, and what this team has grown into over three decades, is genuinely uncommon. Let's look at what actually exists.</p>
+  <p class="lead rv">Before anything else — this needs to be said. What began in Newark in 1992 with a handshake and a vision, and what the National Sales Network has grown into over three decades, is genuinely uncommon. Let's look at what actually exists today.</p>
   <div class="stats stagger">
     <div class="stat"><span class="stat-n">30+</span><span class="stat-l">Years of Impact</span></div>
     <div class="stat"><span class="stat-n">100K+</span><span class="stat-l">Network Contacts</span></div>
@@ -648,10 +748,10 @@ hr{border:none;border-top:1px solid var(--line);margin:64px 0;}
     <div class="stat"><span class="stat-n">20</span><span class="stat-l">Chapters & Growing</span></div>
   </div>
   <p class="prose rv">NSN is the only professional organization in the country positioned to develop, recruit, and advance Black sales professionals at <strong>every career level</strong> — from students entering the workforce to senior executives navigating the C-suite. That positioning is rare. The sponsor roster confirms it: Salesforce, Microsoft, Gartner, Johnson &amp; Johnson, the NBA.</p>
-  <p class="prose rv" style="margin-top:22px;">The conference has grown to 3,000+ attendees. New chapters are launching — Boston opened February 2026, Central/North New Jersey is being re-activated. Amira is traveling chapter to chapter, Get Connected events are drawing crowds, and the energy inside NSN is as strong as it's ever been.</p>
+  <p class="prose rv" style="margin-top:22px;">The annual conference has grown to 3,000+ attendees. New chapters are launching — Boston opened February 2026, and Central/North New Jersey is being re-activated. Leadership is engaging chapters directly, Get Connected events are drawing crowds, and the momentum inside NSN is as strong as it's ever been.</p>
   <div class="pull rv">
     <p>"Membership is more than access — it's opportunity."</p>
-    <cite>Amira Richardson, Executive Director — NSN</cite>
+    <cite>The National Sales Network</cite>
   </div>
   <p class="prose rv">That phrase is exactly right. And it's the lens through which we see the opportunity in front of you. Because right now, that opportunity — the community, the resources, the network, the career-changing potential — is largely invisible online.</p>
   <div class="chips stagger" style="margin-top:24px;">
@@ -662,29 +762,29 @@ hr{border:none;border-top:1px solid var(--line);margin:64px 0;}
 </div>
 </section>
 
-<!-- ═══ 02 · THE HONEST ASSESSMENT ═══ -->
+<!-- ═══ 02 · THE OPPORTUNITY ═══ -->
 <section class="sec-alt">
 <div class="wrap">
-  <div class="ey rv"><div class="ey-dot">02</div><div class="ey-txt">The Honest Assessment</div><div class="ey-line"></div></div>
-  <h2 class="rv">The Organization Has <em>Outgrown</em><br>Its Digital Presence.</h2>
-  <p class="lead rv">We'll say this the way you'd say it to a nonprofit client: the infrastructure hasn't kept pace with the organization. That's not a criticism — it's the most important growth opportunity on the table.</p>
-  <p class="prose rv">David advises nonprofits on how to scale revenue while holding expenses down. The principle he brings to those engagements applies here too: <strong>when your digital platform isn't working for you, you're working harder than you should have to.</strong></p>
-  <p class="prose rv" style="margin-top:22px;">Right now, NSN's website is a scheduling brochure for conferences. It tells people events are happening and invites them to join. It does not <em>demonstrate</em> value. It does not <em>retain</em> members between events. It does not give the 70+ sponsor partners a year-round commercial surface. And it doesn't yet give the 100,000+ people in the network a reason to engage digitally when there's no conference on the calendar.</p>
+  <div class="ey rv"><div class="ey-dot">02</div><div class="ey-txt">The Opportunity</div><div class="ey-line"></div></div>
+  <h2 class="rv">The Organization Has <em>Outgrown</em><br>Its Digital Home.</h2>
+  <p class="lead rv">We say this as creative partners, not critics: the digital experience hasn't yet caught up to the organization behind it. That's one of the most exciting growth levers NSN has right now — and the kind of opportunity we'd love to build into alongside you.</p>
+  <p class="prose rv">There's a principle we believe in across every nonprofit engagement we touch: <strong>when your digital platform is working for you, the whole organization can stop working harder than it needs to.</strong> A site that earns its keep takes pressure off the team, off the calendar, and off the conference cycle.</p>
+  <p class="prose rv" style="margin-top:22px;">There's already a membership page and a member login experience in place — and we want to be clear that NSN's foundation here is real. The opportunity is to bring that experience fully into the NSN brand and platform. Today, the join and login flows route members out to Memberclicks, a third-party membership system. The next evolution is an on-brand, on-domain experience that <em>demonstrates</em> the value of membership before the click, <em>retains</em> members between events, gives the 70+ sponsor partners a year-round commercial surface, and gives the 100,000+ people in the network a reason to engage digitally even when there's no conference on the calendar.</p>
 
   <div class="compare rv-scale">
     <div class="compare-col now-col">
       <div class="compare-head now">
-        <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="7" stroke="rgba(192,57,43,0.5)" stroke-width="1.2"/><path d="M5.5 5.5l5 5M10.5 5.5l-5 5" stroke="rgba(192,57,43,0.5)" stroke-width="1.2" stroke-linecap="round"/></svg>
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="7" stroke="rgba(198,164,76,0.5)" stroke-width="1.2"/><path d="M8 4v4l2.5 2.5" stroke="rgba(198,164,76,0.5)" stroke-width="1.2" stroke-linecap="round"/></svg>
         Where Things Stand Today
       </div>
-      <div class="cmp-item now">Membership page: a join button and a YouTube embed</div>
-      <div class="cmp-item now">Members join via an off-site third-party portal</div>
-      <div class="cmp-item now">No stated member benefits — no published pricing</div>
-      <div class="cmp-item now">Sponsors require a form submission just to see pricing</div>
-      <div class="cmp-item now">10+ years of conference video buried in a dropdown</div>
-      <div class="cmp-item now">No member hub, job board, or resource library</div>
-      <div class="cmp-item now">20 chapters — no standardized chapter page template</div>
-      <div class="cmp-item now">Zero digital revenue between events</div>
+      <div class="cmp-item now">Membership page leads with the JOIN button, ahead of the story of what members get</div>
+      <div class="cmp-item now">Join &amp; member login both route off-platform to Memberclicks, away from the NSN experience</div>
+      <div class="cmp-item now">Member benefits and tier pricing live inside Memberclicks, not on the public site</div>
+      <div class="cmp-item now">Sponsors complete a form before they can see tiers or packages</div>
+      <div class="cmp-item now">A decade of conference video and media lives one layer deep</div>
+      <div class="cmp-item now">Resource library, job board, and member directory aren't yet on-domain</div>
+      <div class="cmp-item now">20 chapters without a shared, templated chapter page system</div>
+      <div class="cmp-item now">Digital revenue is concentrated around event windows</div>
     </div>
     <div class="compare-col nxt-col">
       <div class="compare-head nxt">
@@ -703,7 +803,7 @@ hr{border:none;border-top:1px solid var(--line);margin:64px 0;}
   </div>
 
   <div class="callout rv" style="margin-top:44px;">
-    <p>This isn't about aesthetics. <strong>A redesigned digital platform is a revenue decision.</strong> It changes how many people join, how many renew, how many sponsors commit at higher tiers, and how many of the 100K+ contacts in the network become paying members. The website is currently the weakest link between NSN's mission and its ability to fund it.</p>
+    <p>This isn't about aesthetics — it's about revenue. <strong>A modern digital platform is a commercial decision</strong>, and it shapes how many people join, how many renew, how many sponsors commit at higher tiers, and how many of the 100K+ contacts in the network become paying members. The opportunity in front of NSN is to close the space between the caliber of what this team has built over three decades and how that story lives online. That's where the next chapter of growth begins — and it's the work we'd love to partner with you on.</p>
   </div>
 </div>
 </section>
@@ -718,9 +818,9 @@ hr{border:none;border-top:1px solid var(--line);margin:64px 0;}
     <div class="card-top">
       <div class="c-num">Pillar 01</div>
       <div class="c-title">The Member Experience</div>
-      <div class="c-body" style="color:var(--muted);">A fully realized member hub that gives professionals a reason to visit, engage, and stay — 365 days a year, not just during conference season.</div>
+      <div class="c-body" style="color:var(--muted);">A fully realized member hub that brings the existing membership experience back into the NSN brand — and gives professionals a reason to visit, engage, and stay 365 days a year, not just during conference season.</div>
       <ul class="cklist" style="margin-top:18px;">
-        <li><strong>Gated member portal</strong> — on-brand, on-domain, not a third-party redirect</li>
+        <li><strong>On-brand member portal</strong> — Memberclicks data integrated into a native NSN experience, no external handoff</li>
         <li><strong>Resource library</strong> — on-demand sales training, career tools, exclusive content</li>
         <li><strong>Member directory</strong> — searchable network of 100K+ professionals</li>
         <li><strong>Chapter events calendar</strong> — all 20 chapters, unified in one place</li>
@@ -798,10 +898,13 @@ hr{border:none;border-top:1px solid var(--line);margin:64px 0;}
         <div class="phase-time">Phase 1 — Weeks 1 – 4</div>
         <div class="phase-name">Foundation Rebuild</div>
         <div class="phase-desc">Every public-facing page rebuilt with a modern, authoritative design system. The visual gap between NSN's institutional credibility and its current website closes completely. The site starts working for both member acquisition and sponsor conversion from day one.</div>
-        <div class="phase-tags">
-          <span class="ptag">Homepage redesign</span><span class="ptag">Membership page with benefits</span>
-          <span class="ptag">Sponsor Hub — live pricing</span><span class="ptag">About / leadership pages</span>
-          <span class="ptag">Media hub</span><span class="ptag">Mobile-first performance</span>
+        <div class="deliverables">
+          <div class="deliv">Homepage redesign</div>
+          <div class="deliv">Membership page with benefits</div>
+          <div class="deliv">Sponsor Hub — live pricing</div>
+          <div class="deliv">About &amp; leadership pages</div>
+          <div class="deliv">Media hub</div>
+          <div class="deliv">Mobile-first performance</div>
         </div>
       </div>
     </div>
@@ -811,10 +914,13 @@ hr{border:none;border-top:1px solid var(--line);margin:64px 0;}
         <div class="phase-time">Phase 2 — Weeks 5 – 8</div>
         <div class="phase-name">Chapter Infrastructure</div>
         <div class="phase-desc">A reusable chapter page template system that gives every chapter its own SEO-optimized local presence. New chapters onboard in hours. Chapter presidents get a straightforward update mechanism. Local content — member spotlights, events, leaders — lives on the NSN domain, not just Instagram.</div>
-        <div class="phase-tags">
-          <span class="ptag">20 chapter landing pages</span><span class="ptag">Local event integration</span>
-          <span class="ptag">Chapter president profiles</span><span class="ptag">Member spotlight sections</span>
-          <span class="ptag">Local sponsor recognition</span><span class="ptag">New chapter rapid-deploy</span>
+        <div class="deliverables">
+          <div class="deliv">20 chapter landing pages</div>
+          <div class="deliv">Local event integration</div>
+          <div class="deliv">Chapter president profiles</div>
+          <div class="deliv">Member spotlight sections</div>
+          <div class="deliv">Local sponsor recognition</div>
+          <div class="deliv">New chapter rapid-deploy</div>
         </div>
       </div>
     </div>
@@ -824,10 +930,13 @@ hr{border:none;border-top:1px solid var(--line);margin:64px 0;}
         <div class="phase-time">Phase 3 — Weeks 9 – 14</div>
         <div class="phase-name">Revenue Platform</div>
         <div class="phase-desc">The member portal, job board, and digital sponsor infrastructure deploy. This is where the compounding return begins — the website becomes a business asset that generates revenue between events, reduces administrative load, and scales with the organization rather than requiring new headcount.</div>
-        <div class="phase-tags">
-          <span class="ptag">Member portal dashboard</span><span class="ptag">Resource library</span>
-          <span class="ptag">Job board</span><span class="ptag">Member directory</span>
-          <span class="ptag">Digital sponsor self-serve</span><span class="ptag">Email capture &amp; nurture flows</span>
+        <div class="deliverables">
+          <div class="deliv">Member portal dashboard</div>
+          <div class="deliv">Resource library</div>
+          <div class="deliv">Job board</div>
+          <div class="deliv">Member directory</div>
+          <div class="deliv">Digital sponsor self-serve</div>
+          <div class="deliv">Email capture &amp; nurture flows</div>
         </div>
       </div>
     </div>
@@ -840,19 +949,27 @@ hr{border:none;border-top:1px solid var(--line);margin:64px 0;}
 <div class="wrap">
   <div class="ey rv"><div class="ey-dot">06</div><div class="ey-txt">Who We Are</div><div class="ey-line"></div></div>
   <h2 class="rv">Built for <em>Organizations<br>That Mean Business.</em></h2>
-  <p class="lead rv" style="margin-bottom:44px;">White Haus Media is a premium custom website agency based in the Triangle area of North Carolina. We build for organizations that have outgrown template solutions and need a digital platform that works as hard as they do.</p>
+  <p class="lead rv" style="margin-bottom:44px;">White Haus Media is a premium custom website agency serving clients nationwide. We partner with organizations that have outgrown template solutions and are ready for a digital platform that carries its weight alongside everything else the team is building.</p>
   <div class="about-block rv-scale">
     <div>
       <div class="about-label">White Haus Media</div>
       <div class="about-name">Premium Web.<br>Built for Growth.</div>
-      <div class="about-role">Wake Forest, NC — Serving the Southeast & Beyond</div>
-      <div class="about-body">We specialize in custom websites and digital platforms for organizations with complex member, sponsor, and community dynamics. We don't use templates because our clients don't have template-sized ambitions. Every site we deliver is a single-file, performance-first build — fast, custom, and owned entirely by you.</div>
+      <div class="about-role">Premium Custom Web — Serving Clients Nationwide</div>
+      <div class="about-body">We specialize in custom websites and digital platforms for organizations with complex member, sponsor, and community dynamics. Our work starts with listening — understanding the organization, the audience, and the outcomes that matter — and ends with a single-file, performance-first build that's fast, custom, and owned entirely by you. We work as an extension of your team, not as a vendor handing over files.</div>
     </div>
-    <div class="metrics-grid stagger">
-      <div class="metric"><span class="metric-n">100%</span><span class="metric-l">Custom Builds</span></div>
-      <div class="metric"><span class="metric-n">0</span><span class="metric-l">Templates Used</span></div>
-      <div class="metric"><span class="metric-n">SE</span><span class="metric-l">Regional Focus</span></div>
-      <div class="metric"><span class="metric-n">NSN</span><span class="metric-l">Raleigh Chapter</span></div>
+    <div class="principles stagger">
+      <div class="principle">
+        <span class="principle-label">How We Work 01</span>
+        <div class="principle-body"><strong>Creative partners, not order-takers.</strong> We bring strategy, not just pixels. Every decision is a conversation, and every build is shaped around the organization's real goals and voice.</div>
+      </div>
+      <div class="principle">
+        <span class="principle-label">How We Work 02</span>
+        <div class="principle-body"><strong>Custom, never templated.</strong> No page-builder shortcuts, no cookie-cutter layouts. Every site we deliver is written from scratch to match the organization's character and ambition.</div>
+      </div>
+      <div class="principle">
+        <span class="principle-label">How We Work 03</span>
+        <div class="principle-body"><strong>Built to last, supported with care.</strong> The codebase is yours, your domain stays yours, your data stays yours. Optional hosting and care plans keep the platform fast, secure, and current — quietly handled in the background while your team stays focused on the mission.</div>
+      </div>
     </div>
   </div>
 </div>
@@ -878,7 +995,7 @@ hr{border:none;border-top:1px solid var(--line);margin:64px 0;}
 <!-- ═══ Footer ═══ -->
 <footer class="doc-footer">
   <img src="https://WhiteHaus.b-cdn.net/WhiteHause%20Logo%20.png" alt="White Haus Media" onerror="this.style.display='none'">
-  <div class="footer-r">Prepared for National Sales Network · April 2026<br>White Haus Media · Wake Forest, NC · hello@whitehausmedia.com</div>
+  <div class="footer-r">Prepared for National Sales Network · April 2026<br>White Haus Media · Serving Clients Nationwide · hello@whitehausmedia.com</div>
 </footer>
 
 <!-- ═══ Scroll Reveal Engine ═══ -->
