@@ -1,0 +1,1486 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Sanctuary — Sacred Sound Healing Member Portal</title>
+    <meta name="description" content="Access your Sacred Sound Healing member portal. Stream on-demand sound baths, manage bookings, and connect with your healing community.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Plus+Jakarta+Sans:wght@300;400;500;600&family=Italiana&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --cream: #F5F0E8;
+            --cream-light: #FAF8F3;
+            --cream-warm: #F0E8DA;
+            --cream-dark: #E8E0D0;
+            --green-deep: #1B3A2D;
+            --green-rich: #234B3A;
+            --green-mid: #2D5E47;
+            --green-sage: #6B8F7F;
+            --green-muted: #8BAA9C;
+            --green-pale: #C5D9CF;
+            --green-whisper: #E5EDE9;
+            --gold: #B8975A;
+            --gold-light: #D4B87A;
+            --gold-warm: #C9A95E;
+            --gold-pale: #E8D5A8;
+            --text-dark: #1A1A1A;
+            --text-body: #3D3D3D;
+            --text-soft: #5A5A5A;
+            --text-muted: #7A7A7A;
+            --white: #FFFFFF;
+            --font-display: 'Cormorant Garamond', Georgia, serif;
+            --font-accent: 'Italiana', serif;
+            --font-body: 'Plus Jakarta Sans', -apple-system, sans-serif;
+            --ease-luxe: cubic-bezier(0.22, 0.61, 0.36, 1);
+            --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+        html { font-size: 16px; -webkit-font-smoothing: antialiased; }
+        body { font-family: var(--font-body); background: var(--cream); color: var(--text-body); line-height: 1.6; min-height: 100vh; }
+        img { max-width: 100%; display: block; }
+        a { text-decoration: none; color: inherit; }
+        button { cursor: pointer; border: none; background: none; font-family: inherit; }
+        ::selection { background: var(--gold-pale); color: var(--green-deep); }
+
+        /* ── Layout ── */
+        .container { max-width: 1280px; margin: 0 auto; padding: 0 24px; }
+        @media (min-width: 768px) { .container { padding: 0 40px; } }
+        @media (min-width: 992px) { .container { padding: 0 80px; } }
+
+        /* ── Buttons ── */
+        .btn {
+            display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+            font-family: var(--font-body); font-size: 0.75rem; font-weight: 500;
+            letter-spacing: 0.1em; text-transform: uppercase;
+            height: 50px; padding: 0 32px; border-radius: 0;
+            transition: all 0.5s var(--ease-luxe); position: relative; overflow: hidden;
+        }
+        .btn-primary { background: var(--green-deep); color: var(--cream); border: 1px solid var(--green-deep); }
+        .btn-primary:hover { background: var(--green-rich); transform: translateY(-2px); }
+        .btn-gold { background: var(--gold); color: var(--white); border: 1px solid var(--gold); }
+        .btn-gold:hover { background: var(--gold-warm); transform: translateY(-2px); }
+        .btn-outline { background: transparent; color: var(--green-deep); border: 1px solid var(--green-deep); }
+        .btn-outline:hover { background: var(--green-deep); color: var(--cream); }
+
+        /* ── Screens ── */
+        .screen { display: none; min-height: 100vh; }
+        .screen.active { display: block; }
+
+        /* ══════════════════════════════════════
+           SCREEN 1 — LANDING / GATE
+           ══════════════════════════════════════ */
+        .gate {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+            background: var(--green-deep);
+        }
+
+        .gate-bg {
+            position: absolute; inset: 0;
+            background: url('https://img1.wsimg.com/isteam/ip/2c70ee64-13be-40e1-9fc7-4aa65a1bd899/DAW_8503.jpeg/:/cr=t:0%25,l:0%25,w:100%25,h:100%25/rs=w:1920') center/cover no-repeat;
+            opacity: 0.15;
+        }
+
+        .gate-grain {
+            position: absolute; inset: 0;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E");
+            pointer-events: none; z-index: 1;
+        }
+
+        .gate-content {
+            position: relative; z-index: 2;
+            text-align: center;
+            max-width: 440px;
+            padding: 48px 32px;
+        }
+
+        .gate-logo {
+            margin: 0 auto 28px;
+            opacity: 0.9;
+        }
+
+        .gate-logo svg { margin: 0 auto; }
+
+        .gate-title {
+            font-family: var(--font-accent);
+            font-size: 0.75rem;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: var(--gold-light);
+            margin-bottom: 8px;
+        }
+
+        .gate h1 {
+            font-family: var(--font-display);
+            font-size: 2.75rem;
+            font-weight: 300;
+            color: var(--cream);
+            line-height: 1.1;
+            margin-bottom: 12px;
+        }
+        .gate h1 em { font-style: italic; color: var(--gold-light); }
+
+        .gate-sub {
+            font-size: 0.875rem;
+            color: rgba(245,240,232,0.5);
+            line-height: 1.7;
+            margin-bottom: 36px;
+        }
+
+        .gate-tabs {
+            display: flex;
+            border-bottom: 1px solid rgba(245,240,232,0.1);
+            margin-bottom: 28px;
+        }
+        .gate-tab {
+            flex: 1;
+            padding: 12px 0;
+            font-size: 0.6875rem;
+            font-weight: 500;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: rgba(245,240,232,0.35);
+            border-bottom: 2px solid transparent;
+            transition: all 0.3s;
+            cursor: pointer;
+            background: none;
+        }
+        .gate-tab.active {
+            color: var(--gold);
+            border-bottom-color: var(--gold);
+        }
+
+        .gate-form { display: none; }
+        .gate-form.active { display: block; }
+
+        .gate-field {
+            margin-bottom: 14px;
+            text-align: left;
+        }
+        .gate-field label {
+            display: block;
+            font-size: 0.625rem;
+            font-weight: 500;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            color: rgba(245,240,232,0.4);
+            margin-bottom: 6px;
+        }
+        .gate-field input {
+            width: 100%;
+            height: 48px;
+            padding: 0 16px;
+            font-family: var(--font-body);
+            font-size: 0.875rem;
+            color: var(--cream);
+            background: rgba(245,240,232,0.06);
+            border: 1px solid rgba(245,240,232,0.1);
+            outline: none;
+            transition: border-color 0.3s;
+        }
+        .gate-field input::placeholder { color: rgba(245,240,232,0.2); }
+        .gate-field input:focus { border-color: var(--gold); }
+
+        .gate .btn { width: 100%; margin-top: 8px; }
+
+        .gate-divider {
+            display: flex; align-items: center; gap: 16px;
+            margin: 20px 0;
+            color: rgba(245,240,232,0.2);
+            font-size: 0.625rem;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+        }
+        .gate-divider::before, .gate-divider::after {
+            content: ''; flex: 1; height: 1px;
+            background: rgba(245,240,232,0.08);
+        }
+
+        .gate-social-btn {
+            width: 100%;
+            height: 48px;
+            display: flex; align-items: center; justify-content: center; gap: 10px;
+            background: rgba(245,240,232,0.06);
+            border: 1px solid rgba(245,240,232,0.1);
+            color: rgba(245,240,232,0.6);
+            font-size: 0.75rem;
+            font-weight: 500;
+            letter-spacing: 0.04em;
+            transition: all 0.3s;
+            cursor: pointer;
+        }
+        .gate-social-btn:hover { border-color: var(--gold); color: var(--cream); }
+        .gate-social-btn svg { width: 16px; height: 16px; fill: currentColor; }
+
+        .gate-footer {
+            margin-top: 28px;
+            font-size: 0.6875rem;
+            color: rgba(245,240,232,0.25);
+        }
+        .gate-footer a { color: var(--gold); }
+
+        .gate-back {
+            position: absolute; top: 24px; left: 24px; z-index: 3;
+            display: flex; align-items: center; gap: 6px;
+            font-size: 0.6875rem; letter-spacing: 0.06em; text-transform: uppercase;
+            color: rgba(245,240,232,0.4);
+            transition: color 0.3s;
+        }
+        .gate-back:hover { color: var(--gold); }
+        .gate-back svg { width: 14px; height: 14px; stroke: currentColor; fill: none; stroke-width: 1.5; }
+
+        /* ══════════════════════════════════════
+           SCREEN 2 — MEMBER DASHBOARD
+           ══════════════════════════════════════ */
+        .dashboard { background: var(--cream); }
+
+        .dash-nav {
+            height: 64px;
+            display: flex; align-items: center;
+            border-bottom: 1px solid var(--cream-dark);
+            background: var(--white);
+        }
+        .dash-nav .container {
+            display: flex; align-items: center; justify-content: space-between;
+            width: 100%;
+        }
+        .dash-nav-logo {
+            display: flex; align-items: center; gap: 8px;
+            font-family: var(--font-accent);
+            font-size: 0.8rem;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: var(--green-deep);
+        }
+        .dash-nav-logo svg { width: 28px; height: 28px; }
+
+        .dash-nav-right {
+            display: flex; align-items: center; gap: 20px;
+        }
+        .dash-nav-link {
+            font-size: 0.6875rem; letter-spacing: 0.06em; text-transform: uppercase;
+            color: var(--text-muted); transition: color 0.3s;
+        }
+        .dash-nav-link:hover { color: var(--gold); }
+        .dash-nav-link.active { color: var(--green-deep); font-weight: 600; }
+        .dash-avatar {
+            width: 32px; height: 32px;
+            background: var(--green-deep);
+            border-radius: 50%;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 0.625rem; font-weight: 600; color: var(--gold);
+            cursor: pointer;
+        }
+
+        .dash-hero {
+            background: var(--green-deep);
+            padding: 40px 0;
+            position: relative; overflow: hidden;
+        }
+        .dash-hero::before {
+            content: ''; position: absolute; inset: 0;
+            background: radial-gradient(circle at 30% 50%, rgba(184,151,90,0.08), transparent 50%);
+        }
+        .dash-hero-inner {
+            position: relative; z-index: 1;
+            display: flex; align-items: center; justify-content: space-between;
+            flex-wrap: wrap; gap: 20px;
+        }
+        .dash-greeting h2 {
+            font-family: var(--font-display); font-weight: 300;
+            font-size: 1.75rem; color: var(--cream); margin-bottom: 4px;
+        }
+        .dash-greeting h2 em { font-style: italic; color: var(--gold-light); }
+        .dash-greeting p { font-size: 0.8125rem; color: rgba(245,240,232,0.45); }
+        .dash-badge {
+            padding: 8px 16px;
+            background: rgba(184,151,90,0.15);
+            border: 1px solid rgba(184,151,90,0.3);
+            font-size: 0.625rem; font-weight: 600;
+            letter-spacing: 0.1em; text-transform: uppercase;
+            color: var(--gold-light);
+        }
+
+        .dash-grid {
+            display: grid; gap: 20px;
+            padding: 32px 0 48px;
+        }
+        @media (min-width: 768px) { .dash-grid { grid-template-columns: 2fr 1fr; } }
+
+        /* Main content area */
+        .dash-main { display: flex; flex-direction: column; gap: 20px; }
+
+        .dash-card {
+            background: var(--white);
+            padding: 28px 24px;
+            box-shadow: 0 1px 24px rgba(27,58,45,0.04);
+        }
+        .dash-card-header {
+            display: flex; align-items: center; justify-content: space-between;
+            margin-bottom: 20px;
+        }
+        .dash-card-title {
+            font-family: var(--font-display);
+            font-size: 1.25rem; color: var(--green-deep);
+        }
+        .dash-card-action {
+            font-size: 0.625rem; font-weight: 500;
+            letter-spacing: 0.08em; text-transform: uppercase;
+            color: var(--gold); cursor: pointer;
+            transition: opacity 0.3s;
+        }
+        .dash-card-action:hover { opacity: 0.7; }
+
+        /* Frequencies player */
+        .freq-item {
+            display: flex; align-items: center; gap: 14px;
+            padding: 14px 0;
+            border-bottom: 1px solid var(--cream-dark);
+        }
+        .freq-item:last-child { border-bottom: none; }
+
+        .freq-play {
+            width: 40px; height: 40px; flex-shrink: 0;
+            background: var(--green-deep); border-radius: 50%;
+            display: flex; align-items: center; justify-content: center;
+            cursor: pointer; transition: background 0.3s;
+        }
+        .freq-play:hover { background: var(--green-rich); }
+        .freq-play svg { width: 14px; height: 14px; fill: none; stroke: var(--gold); stroke-width: 2; }
+
+        .freq-info { flex: 1; }
+        .freq-name { font-size: 0.875rem; font-weight: 500; color: var(--green-deep); }
+        .freq-meta { font-size: 0.6875rem; color: var(--text-muted); }
+
+        .freq-tag {
+            font-size: 0.5rem; font-weight: 600;
+            letter-spacing: 0.1em; text-transform: uppercase;
+            color: var(--gold); border: 1px solid var(--gold-pale);
+            padding: 2px 8px;
+        }
+
+        /* Bookings */
+        .booking-item {
+            display: flex; align-items: center; gap: 16px;
+            padding: 16px 0;
+            border-bottom: 1px solid var(--cream-dark);
+        }
+        .booking-item:last-child { border-bottom: none; }
+
+        .booking-date {
+            width: 48px; text-align: center; flex-shrink: 0;
+            background: var(--cream-light);
+            padding: 8px 4px;
+        }
+        .booking-date-month {
+            font-size: 0.5rem; font-weight: 600;
+            letter-spacing: 0.1em; text-transform: uppercase;
+            color: var(--gold);
+        }
+        .booking-date-day {
+            font-family: var(--font-display); font-size: 1.375rem;
+            color: var(--green-deep); line-height: 1;
+        }
+
+        .booking-info { flex: 1; }
+        .booking-name { font-size: 0.875rem; font-weight: 500; color: var(--green-deep); }
+        .booking-detail { font-size: 0.6875rem; color: var(--text-muted); }
+
+        .booking-status {
+            font-size: 0.5rem; font-weight: 600;
+            letter-spacing: 0.1em; text-transform: uppercase;
+            padding: 4px 10px;
+        }
+        .booking-status.confirmed { background: var(--green-whisper); color: var(--green-mid); }
+        .booking-status.pending { background: var(--gold-pale); color: var(--gold); }
+
+        /* Sidebar */
+        .dash-sidebar { display: flex; flex-direction: column; gap: 20px; }
+
+        .membership-card {
+            background: var(--green-deep);
+            padding: 24px;
+            position: relative; overflow: hidden;
+        }
+        .membership-card::before {
+            content: ''; position: absolute; inset: 0;
+            background: radial-gradient(circle at 80% 20%, rgba(184,151,90,0.12), transparent 60%);
+        }
+        .membership-card > * { position: relative; z-index: 1; }
+        .membership-tier {
+            font-size: 0.5625rem; font-weight: 600;
+            letter-spacing: 0.12em; text-transform: uppercase;
+            color: var(--gold-light); margin-bottom: 4px;
+        }
+        .membership-name {
+            font-family: var(--font-display); font-size: 1.375rem;
+            color: var(--cream); font-weight: 300; margin-bottom: 16px;
+        }
+        .membership-detail {
+            display: flex; align-items: center; gap: 8px;
+            font-size: 0.75rem; color: rgba(245,240,232,0.5);
+            margin-bottom: 8px;
+        }
+        .membership-detail svg { width: 13px; height: 13px; stroke: var(--gold); fill: none; stroke-width: 1.5; flex-shrink: 0; }
+        .membership-price {
+            font-family: var(--font-display); font-size: 1.75rem;
+            color: var(--cream); margin-top: 16px; padding-top: 16px;
+            border-top: 1px solid rgba(245,240,232,0.08);
+        }
+        .membership-price span { font-size: 0.75rem; font-family: var(--font-body); color: rgba(245,240,232,0.4); }
+        .membership-renew {
+            font-size: 0.625rem; color: rgba(245,240,232,0.3);
+            margin-top: 4px;
+        }
+
+        .quick-actions { }
+        .quick-action {
+            display: flex; align-items: center; gap: 12px;
+            padding: 14px 0;
+            border-bottom: 1px solid var(--cream-dark);
+            cursor: pointer; transition: opacity 0.3s;
+        }
+        .quick-action:last-child { border-bottom: none; }
+        .quick-action:hover { opacity: 0.7; }
+        .quick-action-icon {
+            width: 36px; height: 36px;
+            background: var(--green-whisper);
+            display: flex; align-items: center; justify-content: center;
+            flex-shrink: 0;
+        }
+        .quick-action-icon svg { width: 16px; height: 16px; stroke: var(--green-deep); fill: none; stroke-width: 1.5; }
+        .quick-action-text { font-size: 0.8125rem; font-weight: 500; color: var(--green-deep); }
+        .quick-action-desc { font-size: 0.6875rem; color: var(--text-muted); }
+
+        /* ══════════════════════════════════════
+           SCREEN 3 — BILLING
+           ══════════════════════════════════════ */
+        .billing-content { padding: 32px 0 48px; }
+
+        .billing-header {
+            margin-bottom: 28px;
+        }
+        .billing-header h2 {
+            font-family: var(--font-display); font-size: 1.75rem;
+            font-weight: 300; color: var(--green-deep); margin-bottom: 4px;
+        }
+        .billing-header p { font-size: 0.875rem; color: var(--text-muted); }
+
+        .billing-grid { display: grid; gap: 20px; }
+        @media (min-width: 768px) { .billing-grid { grid-template-columns: 1fr 1fr; } }
+
+        .plan-card {
+            background: var(--white); padding: 28px 24px;
+            border: 2px solid var(--cream-dark);
+            box-shadow: 0 1px 24px rgba(27,58,45,0.04);
+            transition: border-color 0.3s;
+        }
+        .plan-card.current { border-color: var(--gold); position: relative; }
+        .plan-card.current::after {
+            content: 'Current Plan'; position: absolute; top: -10px; left: 24px;
+            background: var(--gold); color: var(--white);
+            font-size: 0.5rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase;
+            padding: 3px 10px;
+        }
+
+        .plan-name {
+            font-family: var(--font-display); font-size: 1.25rem;
+            color: var(--green-deep); margin-bottom: 4px;
+        }
+        .plan-price {
+            font-family: var(--font-display); font-size: 2rem;
+            color: var(--green-deep);
+        }
+        .plan-price span { font-size: 0.875rem; font-family: var(--font-body); color: var(--text-muted); }
+        .plan-features {
+            margin: 16px 0 20px;
+            list-style: none;
+        }
+        .plan-features li {
+            font-size: 0.8125rem; color: var(--text-soft);
+            padding: 6px 0; display: flex; align-items: center; gap: 8px;
+        }
+        .plan-features li svg { width: 14px; height: 14px; stroke: var(--gold); fill: none; stroke-width: 2; flex-shrink: 0; }
+
+        .plan-card .btn { width: 100%; }
+
+        .invoice-table { margin-top: 32px; }
+        .invoice-table h3 {
+            font-family: var(--font-display); font-size: 1.125rem;
+            color: var(--green-deep); margin-bottom: 16px;
+        }
+
+        .invoice-row {
+            display: flex; align-items: center; justify-content: space-between;
+            padding: 12px 0;
+            border-bottom: 1px solid var(--cream-dark);
+            font-size: 0.8125rem;
+        }
+        .invoice-row:last-child { border-bottom: none; }
+        .invoice-date { color: var(--text-muted); }
+        .invoice-desc { flex: 1; margin-left: 20px; color: var(--text-body); }
+        .invoice-amount { font-weight: 600; color: var(--green-deep); }
+        .invoice-status {
+            font-size: 0.5rem; font-weight: 600;
+            letter-spacing: 0.08em; text-transform: uppercase;
+            padding: 3px 8px; margin-left: 12px;
+            background: var(--green-whisper); color: var(--green-mid);
+        }
+
+        /* ══════════════════════════════════════
+           SCREEN 4 — RESONANCE REWARDS
+           ══════════════════════════════════════ */
+        .rewards-content { padding: 32px 0 48px; }
+
+        .rewards-header { margin-bottom: 28px; }
+        .rewards-header h2 {
+            font-family: var(--font-display); font-size: 1.75rem;
+            font-weight: 300; color: var(--green-deep); margin-bottom: 4px;
+        }
+        .rewards-header p { font-size: 0.875rem; color: var(--text-muted); }
+
+        .rewards-hero-card {
+            background: var(--green-deep); padding: 32px 28px;
+            position: relative; overflow: hidden; margin-bottom: 24px;
+        }
+        .rewards-hero-card::before {
+            content: ''; position: absolute; inset: 0;
+            background: radial-gradient(circle at 75% 30%, rgba(184,151,90,0.15), transparent 55%),
+                        radial-gradient(circle at 20% 80%, rgba(184,151,90,0.08), transparent 50%);
+        }
+        .rewards-hero-card > * { position: relative; z-index: 1; }
+
+        .rewards-points-row {
+            display: flex; align-items: center; justify-content: space-between;
+            flex-wrap: wrap; gap: 24px;
+        }
+
+        .rewards-points-display { }
+        .rewards-points-label {
+            font-size: 0.5625rem; font-weight: 600;
+            letter-spacing: 0.14em; text-transform: uppercase;
+            color: var(--gold-light); margin-bottom: 6px;
+        }
+        .rewards-points-number {
+            font-family: var(--font-display); font-size: 3.5rem;
+            font-weight: 300; color: var(--cream); line-height: 1;
+        }
+        .rewards-points-number span {
+            font-size: 1rem; font-family: var(--font-accent);
+            letter-spacing: 0.08em; text-transform: uppercase;
+            color: var(--gold-light); margin-left: 8px;
+        }
+        .rewards-points-sub {
+            font-size: 0.75rem; color: rgba(245,240,232,0.4); margin-top: 6px;
+        }
+
+        .rewards-tier-badge {
+            text-align: center;
+        }
+        .rewards-lotus {
+            width: 72px; height: 72px; margin: 0 auto 8px;
+        }
+        .rewards-tier-name {
+            font-family: var(--font-accent); font-size: 0.75rem;
+            letter-spacing: 0.12em; text-transform: uppercase;
+            color: var(--gold-light);
+        }
+        .rewards-tier-progress {
+            margin-top: 6px; font-size: 0.6875rem;
+            color: rgba(245,240,232,0.35);
+        }
+
+        .rewards-progress-bar {
+            margin-top: 20px; padding-top: 20px;
+            border-top: 1px solid rgba(245,240,232,0.08);
+        }
+        .rewards-progress-labels {
+            display: flex; justify-content: space-between;
+            font-size: 0.5625rem; font-weight: 600;
+            letter-spacing: 0.1em; text-transform: uppercase;
+            color: rgba(245,240,232,0.3); margin-bottom: 8px;
+        }
+        .rewards-progress-labels .current { color: var(--gold-light); }
+        .rewards-bar-track {
+            height: 4px; background: rgba(245,240,232,0.08);
+            position: relative; overflow: hidden;
+        }
+        .rewards-bar-fill {
+            height: 100%; width: 68%;
+            background: linear-gradient(90deg, var(--gold), var(--gold-light));
+            transition: width 1s var(--ease-luxe);
+        }
+        .rewards-next-tier {
+            margin-top: 8px; font-size: 0.6875rem;
+            color: rgba(245,240,232,0.35);
+        }
+        .rewards-next-tier strong { color: var(--gold-light); }
+
+        .rewards-grid { display: grid; gap: 20px; }
+        @media (min-width: 768px) { .rewards-grid { grid-template-columns: 1fr 1fr; } }
+
+        .earn-item {
+            display: flex; align-items: flex-start; gap: 14px;
+            padding: 16px 0;
+            border-bottom: 1px solid var(--cream-dark);
+        }
+        .earn-item:last-child { border-bottom: none; }
+        .earn-icon {
+            width: 40px; height: 40px; flex-shrink: 0;
+            background: var(--green-whisper);
+            display: flex; align-items: center; justify-content: center;
+        }
+        .earn-icon svg { width: 18px; height: 18px; stroke: var(--green-deep); fill: none; stroke-width: 1.5; }
+        .earn-icon.gold-bg { background: rgba(184,151,90,0.12); }
+        .earn-icon.gold-bg svg { stroke: var(--gold); }
+        .earn-info { flex: 1; }
+        .earn-action { font-size: 0.875rem; font-weight: 500; color: var(--green-deep); }
+        .earn-desc { font-size: 0.6875rem; color: var(--text-muted); margin-top: 2px; }
+        .earn-points {
+            font-family: var(--font-display); font-size: 1.125rem;
+            color: var(--gold); white-space: nowrap;
+        }
+
+        .redeem-item {
+            display: flex; align-items: center; gap: 14px;
+            padding: 16px;
+            background: var(--cream-light);
+            border: 1px solid var(--cream-dark);
+            margin-bottom: 12px;
+            transition: all 0.3s var(--ease-luxe);
+            cursor: pointer;
+        }
+        .redeem-item:last-child { margin-bottom: 0; }
+        .redeem-item:hover { border-color: var(--gold-pale); transform: translateY(-2px); }
+        .redeem-info { flex: 1; }
+        .redeem-name { font-size: 0.875rem; font-weight: 500; color: var(--green-deep); }
+        .redeem-desc { font-size: 0.6875rem; color: var(--text-muted); margin-top: 2px; }
+        .redeem-cost {
+            font-family: var(--font-display); font-size: 1rem;
+            color: var(--gold); white-space: nowrap;
+            padding: 4px 12px;
+            border: 1px solid var(--gold-pale);
+            font-weight: 500;
+        }
+
+        .activity-item {
+            display: flex; align-items: center; justify-content: space-between;
+            padding: 12px 0;
+            border-bottom: 1px solid var(--cream-dark);
+            font-size: 0.8125rem;
+        }
+        .activity-item:last-child { border-bottom: none; }
+        .activity-date { color: var(--text-muted); min-width: 80px; }
+        .activity-desc { flex: 1; margin-left: 16px; color: var(--text-body); }
+        .activity-pts { font-weight: 600; white-space: nowrap; }
+        .activity-pts.earned { color: var(--green-mid); }
+        .activity-pts.redeemed { color: var(--gold); }
+
+        /* ── Rewards sidebar widget (dashboard) ── */
+        .rewards-widget {
+            background: linear-gradient(135deg, var(--green-deep) 0%, var(--green-rich) 100%);
+            padding: 20px;
+            position: relative; overflow: hidden;
+            cursor: pointer; transition: transform 0.3s var(--ease-luxe);
+        }
+        .rewards-widget:hover { transform: translateY(-2px); }
+        .rewards-widget::before {
+            content: ''; position: absolute; inset: 0;
+            background: radial-gradient(circle at 80% 20%, rgba(184,151,90,0.12), transparent 60%);
+        }
+        .rewards-widget > * { position: relative; z-index: 1; }
+        .rewards-widget-row {
+            display: flex; align-items: center; justify-content: space-between;
+            margin-bottom: 10px;
+        }
+        .rewards-widget-title {
+            font-size: 0.5625rem; font-weight: 600;
+            letter-spacing: 0.12em; text-transform: uppercase;
+            color: var(--gold-light);
+        }
+        .rewards-widget-tier {
+            font-size: 0.5rem; font-weight: 600;
+            letter-spacing: 0.1em; text-transform: uppercase;
+            color: rgba(245,240,232,0.4);
+            padding: 2px 8px;
+            border: 1px solid rgba(245,240,232,0.08);
+        }
+        .rewards-widget-pts {
+            font-family: var(--font-display); font-size: 2rem;
+            color: var(--cream); line-height: 1;
+        }
+        .rewards-widget-pts span {
+            font-size: 0.6875rem; font-family: var(--font-body);
+            color: rgba(245,240,232,0.4); margin-left: 4px;
+        }
+        .rewards-widget-bar {
+            height: 3px; background: rgba(245,240,232,0.08);
+            margin-top: 12px; position: relative;
+        }
+        .rewards-widget-bar-fill {
+            height: 100%; width: 68%;
+            background: linear-gradient(90deg, var(--gold), var(--gold-light));
+        }
+        .rewards-widget-next {
+            margin-top: 6px; font-size: 0.625rem;
+            color: rgba(245,240,232,0.3);
+        }
+
+        /* ══════════════════════════════════════
+           ANIMATIONS
+           ══════════════════════════════════════ */
+        .fade-up {
+            opacity: 0; transform: translateY(16px);
+            animation: fadeUp 0.6s var(--ease-out) forwards;
+        }
+        .fade-up-1 { animation-delay: 0.1s; }
+        .fade-up-2 { animation-delay: 0.2s; }
+        .fade-up-3 { animation-delay: 0.3s; }
+        .fade-up-4 { animation-delay: 0.4s; }
+
+        @keyframes fadeUp {
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* ── Responsive ── */
+        @media (max-width: 767px) {
+            .dash-nav-link:not(.active) { display: none; }
+            .billing-grid { grid-template-columns: 1fr; }
+            .invoice-row { font-size: 0.75rem; flex-wrap: wrap; gap: 4px; }
+        }
+    </style>
+</head>
+<body>
+
+<!-- ══════════════════════════════════════════════════
+     SCREEN 1 — THE SANCTUARY GATE (Login / Sign Up)
+     ══════════════════════════════════════════════════ -->
+<div class="screen active" id="screenGate">
+    <div class="gate">
+        <div class="gate-bg"></div>
+        <div class="gate-grain"></div>
+        <a href="index.html" class="gate-back">
+            <svg viewBox="0 0 24 24"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+            Back to Site
+        </a>
+        <div class="gate-content fade-up">
+            <div class="gate-logo">
+                <svg width="64" height="64" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                    <path fill="var(--gold)" d="M50 5C28 5 12 22 12 44c0 16 8 28 20 34-4-6-6-14-6-22C26 32 36 14 50 8c14 6 24 24 24 34 0 8-2 16-6 22 12-6 20-18 20-34C88 22 72 5 50 5z" opacity="0.3"/>
+                    <ellipse fill="var(--cream)" cx="50" cy="30" rx="6" ry="7"/>
+                    <path fill="var(--cream)" d="M50 38c-2 0-3 1-3 3v14c0 1 0 2 1 3l6 8c1 1 2 1 3 0s1-2 0-3l-5-7V41c0-2-1-3-2-3z"/>
+                    <path fill="var(--cream)" d="M50 38c2 0 3 1 3 3v14c0 1 0 2-1 3l-6 8c-1 1-2 1-3 0s-1-2 0-3l5-7V41c0-2 1-3 2-3z"/>
+                    <path fill="var(--cream)" d="M47 42c-4-2-10-8-14-14-1-1-1-3 0-3 2-1 3 0 4 1l12 14z" opacity="0.8"/>
+                    <path fill="var(--cream)" d="M53 42c4-2 10-8 14-14 1-1 1-3 0-3-2-1-3 0-4 1L51 40z" opacity="0.8"/>
+                    <path fill="var(--cream)" d="M50 65c-8 0-16 4-20 10 4 4 10 6 16 6h8c6 0 12-2 16-6-4-6-12-10-20-10z" opacity="0.35"/>
+                    <circle fill="var(--gold)" cx="30" cy="22" r="1.5" opacity="0.5"/>
+                    <circle fill="var(--gold)" cx="70" cy="22" r="1.5" opacity="0.5"/>
+                    <circle fill="var(--gold)" cx="38" cy="16" r="1.2" opacity="0.4"/>
+                    <circle fill="var(--gold)" cx="62" cy="16" r="1.2" opacity="0.4"/>
+                </svg>
+            </div>
+            <p class="gate-title">Member Portal</p>
+            <h1>The <em>Sanctuary</em></h1>
+            <p class="gate-sub">Your private space to stream sound baths, manage bookings, and connect with your healing community.</p>
+
+            <div class="gate-tabs">
+                <button class="gate-tab active" onclick="switchTab('login')">Sign In</button>
+                <button class="gate-tab" onclick="switchTab('signup')">Create Account</button>
+            </div>
+
+            <!-- Sign In Form -->
+            <div class="gate-form active" id="loginForm">
+                <div class="gate-field">
+                    <label>Email Address</label>
+                    <input type="email" placeholder="you@email.com">
+                </div>
+                <div class="gate-field">
+                    <label>Password</label>
+                    <input type="password" placeholder="Enter your password">
+                </div>
+                <button class="btn btn-gold" onclick="showScreen('screenDash')">Enter The Sanctuary</button>
+                <div class="gate-divider">or</div>
+                <button class="gate-social-btn" onclick="showScreen('screenDash')">
+                    <svg viewBox="0 0 24 24"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92a5.06 5.06 0 01-2.2 3.32v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.1z"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/></svg>
+                    Continue with Google
+                </button>
+                <p class="gate-footer" style="margin-top: 16px;">
+                    <a href="#" onclick="switchTab('signup'); return false;">Forgot your password?</a>
+                </p>
+            </div>
+
+            <!-- Sign Up Form -->
+            <div class="gate-form" id="signupForm">
+                <div class="gate-field">
+                    <label>Full Name</label>
+                    <input type="text" placeholder="Your name">
+                </div>
+                <div class="gate-field">
+                    <label>Email Address</label>
+                    <input type="email" placeholder="you@email.com">
+                </div>
+                <div class="gate-field">
+                    <label>Password</label>
+                    <input type="password" placeholder="Create a password">
+                </div>
+                <div class="gate-field">
+                    <label>Membership</label>
+                    <select style="width:100%;height:48px;padding:0 16px;font-family:var(--font-body);font-size:0.875rem;color:var(--cream);background:rgba(245,240,232,0.06);border:1px solid rgba(245,240,232,0.1);outline:none;appearance:none;">
+                        <option>Frequencies — $11/month</option>
+                        <option>Frequencies — $99/year (Save $33)</option>
+                    </select>
+                </div>
+                <button class="btn btn-gold" onclick="showScreen('screenDash')">Join The Sanctuary</button>
+                <div class="gate-divider">or</div>
+                <button class="gate-social-btn" onclick="showScreen('screenDash')">
+                    <svg viewBox="0 0 24 24"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92a5.06 5.06 0 01-2.2 3.32v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.1z"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/></svg>
+                    Sign up with Google
+                </button>
+            </div>
+
+            <p class="gate-footer">By joining you agree to our <a href="#">Terms</a> &amp; <a href="#">Privacy Policy</a></p>
+        </div>
+    </div>
+</div>
+
+<!-- ══════════════════════════════════════════════════
+     SCREEN 2 — MEMBER DASHBOARD
+     ══════════════════════════════════════════════════ -->
+<div class="screen" id="screenDash">
+    <!-- Dashboard Nav -->
+    <nav class="dash-nav">
+        <div class="container">
+            <a href="#" class="dash-nav-logo" onclick="showScreen('screenGate'); return false;">
+                <svg width="28" height="28" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                    <path fill="var(--green-deep)" d="M50 5C28 5 12 22 12 44c0 16 8 28 20 34-4-6-6-14-6-22C26 32 36 14 50 8c14 6 24 24 24 34 0 8-2 16-6 22 12-6 20-18 20-34C88 22 72 5 50 5z" opacity="0.2"/>
+                    <ellipse fill="var(--green-deep)" cx="50" cy="30" rx="6" ry="7"/>
+                    <path fill="var(--green-deep)" d="M50 38c-2 0-3 1-3 3v14c0 1 0 2 1 3l6 8c1 1 2 1 3 0s1-2 0-3l-5-7V41c0-2-1-3-2-3z"/>
+                    <path fill="var(--green-deep)" d="M50 38c2 0 3 1 3 3v14c0 1 0 2-1 3l-6 8c-1 1-2 1-3 0s-1-2 0-3l5-7V41c0-2 1-3 2-3z"/>
+                    <path fill="var(--green-deep)" d="M47 42c-4-2-10-8-14-14-1-1-1-3 0-3 2-1 3 0 4 1l12 14z" opacity="0.7"/>
+                    <path fill="var(--green-deep)" d="M53 42c4-2 10-8 14-14 1-1 1-3 0-3-2-1-3 0-4 1L51 40z" opacity="0.7"/>
+                </svg>
+                The Sanctuary
+            </a>
+            <div class="dash-nav-right">
+                <a href="#" class="dash-nav-link active" onclick="showScreen('screenDash'); return false;">Dashboard</a>
+                <a href="#" class="dash-nav-link" onclick="showScreen('screenRewards'); return false;">Rewards</a>
+                <a href="#" class="dash-nav-link" onclick="showScreen('screenBilling'); return false;">Billing</a>
+                <a href="index.html" class="dash-nav-link">Main Site</a>
+                <div class="dash-avatar" onclick="showScreen('screenGate')">VM</div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Welcome Banner -->
+    <div class="dash-hero">
+        <div class="container">
+            <div class="dash-hero-inner fade-up">
+                <div class="dash-greeting">
+                    <h2>Welcome back, <em>Victoria</em></h2>
+                    <p>Your next session is in 3 days. Take a breath — you're exactly where you need to be.</p>
+                </div>
+                <div style="display: flex; align-items: center; gap: 12px; flex-wrap: wrap;">
+                    <div class="dash-badge">Frequencies Member</div>
+                    <div class="dash-badge" style="cursor:pointer;" onclick="showScreen('screenRewards')">
+                        <svg style="display:inline;vertical-align:-2px;margin-right:4px;" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="var(--gold-light)" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                        1,340 Points
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Dashboard Content -->
+    <div class="container">
+        <div class="dash-grid">
+            <div class="dash-main">
+                <!-- Frequencies Library -->
+                <div class="dash-card fade-up fade-up-1">
+                    <div class="dash-card-header">
+                        <div class="dash-card-title">Your Sound Library</div>
+                        <span class="dash-card-action">Browse All</span>
+                    </div>
+                    <div class="freq-item">
+                        <div class="freq-play"><svg viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"/></svg></div>
+                        <div class="freq-info">
+                            <div class="freq-name">Root Chakra Reset</div>
+                            <div class="freq-meta">28:42 &middot; Grounding &middot; Crystal Bowls</div>
+                        </div>
+                        <span class="freq-tag">New</span>
+                    </div>
+                    <div class="freq-item">
+                        <div class="freq-play"><svg viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"/></svg></div>
+                        <div class="freq-info">
+                            <div class="freq-name">Nervous System Soothe</div>
+                            <div class="freq-meta">35:18 &middot; Deep Rest &middot; 432Hz</div>
+                        </div>
+                    </div>
+                    <div class="freq-item">
+                        <div class="freq-play"><svg viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"/></svg></div>
+                        <div class="freq-info">
+                            <div class="freq-name">Full Moon Release Ceremony</div>
+                            <div class="freq-meta">42:05 &middot; Lunar &middot; Guided</div>
+                        </div>
+                    </div>
+                    <div class="freq-item">
+                        <div class="freq-play"><svg viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"/></svg></div>
+                        <div class="freq-info">
+                            <div class="freq-name">Anxiety Dissolve</div>
+                            <div class="freq-meta">22:30 &middot; Calm &middot; Binaural</div>
+                        </div>
+                    </div>
+                    <div class="freq-item">
+                        <div class="freq-play"><svg viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"/></svg></div>
+                        <div class="freq-info">
+                            <div class="freq-name">Sleep Journey</div>
+                            <div class="freq-meta">55:00 &middot; Sleep &middot; Delta Waves</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Upcoming Bookings -->
+                <div class="dash-card fade-up fade-up-2">
+                    <div class="dash-card-header">
+                        <div class="dash-card-title">Your Bookings</div>
+                        <span class="dash-card-action">Book New Session</span>
+                    </div>
+                    <div class="booking-item">
+                        <div class="booking-date">
+                            <div class="booking-date-month">May</div>
+                            <div class="booking-date-day">14</div>
+                        </div>
+                        <div class="booking-info">
+                            <div class="booking-name">Public Sound Bath — Phoenix &amp; Dragon</div>
+                            <div class="booking-detail">7:00 PM &middot; Sandy Springs, GA &middot; $25</div>
+                        </div>
+                        <span class="booking-status confirmed">Confirmed</span>
+                    </div>
+                    <div class="booking-item">
+                        <div class="booking-date">
+                            <div class="booking-date-month">May</div>
+                            <div class="booking-date-day">22</div>
+                        </div>
+                        <div class="booking-info">
+                            <div class="booking-name">Private Sound Bath — 1:1 Session</div>
+                            <div class="booking-detail">2:00 PM &middot; Your Location &middot; Custom</div>
+                        </div>
+                        <span class="booking-status pending">Pending</span>
+                    </div>
+                    <div class="booking-item">
+                        <div class="booking-date">
+                            <div class="booking-date-month">Jun</div>
+                            <div class="booking-date-day">11</div>
+                        </div>
+                        <div class="booking-info">
+                            <div class="booking-name">Public Sound Bath — Phoenix &amp; Dragon</div>
+                            <div class="booking-detail">7:00 PM &middot; Sandy Springs, GA &middot; $25</div>
+                        </div>
+                        <span class="booking-status confirmed">Confirmed</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Sidebar -->
+            <div class="dash-sidebar">
+                <!-- Membership Card -->
+                <div class="membership-card fade-up fade-up-2">
+                    <div class="membership-tier">Active Membership</div>
+                    <div class="membership-name">Frequencies Annual</div>
+                    <div class="membership-detail">
+                        <svg viewBox="0 0 24 24"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+                        Unlimited sound bath library
+                    </div>
+                    <div class="membership-detail">
+                        <svg viewBox="0 0 24 24"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+                        New sessions monthly
+                    </div>
+                    <div class="membership-detail">
+                        <svg viewBox="0 0 24 24"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+                        Priority event access
+                    </div>
+                    <div class="membership-detail">
+                        <svg viewBox="0 0 24 24"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+                        Member-only live streams
+                    </div>
+                    <div class="membership-price">$99 <span>/year</span></div>
+                    <div class="membership-renew">Renews Apr 11, 2027</div>
+                </div>
+
+                <!-- Resonance Rewards Widget -->
+                <div class="rewards-widget fade-up fade-up-3" onclick="showScreen('screenRewards')">
+                    <div class="rewards-widget-row">
+                        <div class="rewards-widget-title">Resonance Rewards</div>
+                        <div class="rewards-widget-tier">Bloom Tier</div>
+                    </div>
+                    <div class="rewards-widget-pts">1,340 <span>points</span></div>
+                    <div class="rewards-widget-bar"><div class="rewards-widget-bar-fill"></div></div>
+                    <div class="rewards-widget-next">160 pts to Radiance tier</div>
+                </div>
+
+                <!-- Quick Actions -->
+                <div class="dash-card fade-up fade-up-4">
+                    <div class="dash-card-title" style="margin-bottom: 12px;">Quick Actions</div>
+                    <div class="quick-action" onclick="showScreen('screenBilling')">
+                        <div class="quick-action-icon"><svg viewBox="0 0 24 24"><rect x="1" y="4" width="22" height="16" rx="2"/><line x1="1" y1="10" x2="23" y2="10"/></svg></div>
+                        <div>
+                            <div class="quick-action-text">Manage Billing</div>
+                            <div class="quick-action-desc">Update payment, change plan</div>
+                        </div>
+                    </div>
+                    <div class="quick-action">
+                        <div class="quick-action-icon"><svg viewBox="0 0 24 24"><rect x="4" y="2" width="16" height="20" rx="2"/><path d="M9 22v-4h6v4"/><path d="M8 6h.01M8 10h.01M8 14h.01M12 6h4M12 10h4M12 14h4"/></svg></div>
+                        <div>
+                            <div class="quick-action-text">Purchase Gift Card</div>
+                            <div class="quick-action-desc">Give healing to someone</div>
+                        </div>
+                    </div>
+                    <div class="quick-action">
+                        <div class="quick-action-icon"><svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/></svg></div>
+                        <div>
+                            <div class="quick-action-text">Refer a Friend</div>
+                            <div class="quick-action-desc">Share your referral link</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- ══════════════════════════════════════════════════
+     SCREEN 3 — BILLING & SUBSCRIPTION
+     ══════════════════════════════════════════════════ -->
+<div class="screen" id="screenBilling">
+    <nav class="dash-nav">
+        <div class="container">
+            <a href="#" class="dash-nav-logo" onclick="showScreen('screenGate'); return false;">
+                <svg width="28" height="28" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                    <path fill="var(--green-deep)" d="M50 5C28 5 12 22 12 44c0 16 8 28 20 34-4-6-6-14-6-22C26 32 36 14 50 8c14 6 24 24 24 34 0 8-2 16-6 22 12-6 20-18 20-34C88 22 72 5 50 5z" opacity="0.2"/>
+                    <ellipse fill="var(--green-deep)" cx="50" cy="30" rx="6" ry="7"/>
+                    <path fill="var(--green-deep)" d="M50 38c-2 0-3 1-3 3v14c0 1 0 2 1 3l6 8c1 1 2 1 3 0s1-2 0-3l-5-7V41c0-2-1-3-2-3z"/>
+                    <path fill="var(--green-deep)" d="M50 38c2 0 3 1 3 3v14c0 1 0 2-1 3l-6 8c-1 1-2 1-3 0s-1-2 0-3l5-7V41c0-2 1-3 2-3z"/>
+                    <path fill="var(--green-deep)" d="M47 42c-4-2-10-8-14-14-1-1-1-3 0-3 2-1 3 0 4 1l12 14z" opacity="0.7"/>
+                    <path fill="var(--green-deep)" d="M53 42c4-2 10-8 14-14 1-1 1-3 0-3-2-1-3 0-4 1L51 40z" opacity="0.7"/>
+                </svg>
+                The Sanctuary
+            </a>
+            <div class="dash-nav-right">
+                <a href="#" class="dash-nav-link" onclick="showScreen('screenDash'); return false;">Dashboard</a>
+                <a href="#" class="dash-nav-link" onclick="showScreen('screenRewards'); return false;">Rewards</a>
+                <a href="#" class="dash-nav-link active" onclick="showScreen('screenBilling'); return false;">Billing</a>
+                <a href="index.html" class="dash-nav-link">Main Site</a>
+                <div class="dash-avatar" onclick="showScreen('screenGate')">VM</div>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+        <div class="billing-content">
+            <div class="billing-header fade-up">
+                <h2>Membership &amp; Billing</h2>
+                <p>Manage your subscription, update payment methods, and view invoices.</p>
+            </div>
+
+            <div class="billing-grid fade-up fade-up-1">
+                <div class="plan-card">
+                    <div class="plan-name">Frequencies Monthly</div>
+                    <div class="plan-price">$11 <span>/month</span></div>
+                    <ul class="plan-features">
+                        <li><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg>Full sound bath library</li>
+                        <li><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg>New sessions monthly</li>
+                        <li><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg>Community access</li>
+                        <li><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg>Cancel anytime</li>
+                    </ul>
+                    <button class="btn btn-outline">Switch to Monthly</button>
+                </div>
+                <div class="plan-card current">
+                    <div class="plan-name">Frequencies Annual</div>
+                    <div class="plan-price">$99 <span>/year</span></div>
+                    <ul class="plan-features">
+                        <li><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg>Everything in Monthly</li>
+                        <li><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg>Save $33 per year</li>
+                        <li><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg>Priority event booking</li>
+                        <li><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg>Exclusive live streams</li>
+                        <li><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg>10% off private sessions</li>
+                    </ul>
+                    <button class="btn btn-gold">Current Plan</button>
+                </div>
+            </div>
+
+            <!-- Payment Method -->
+            <div class="dash-card fade-up fade-up-2" style="margin-top: 24px;">
+                <div class="dash-card-header">
+                    <div class="dash-card-title">Payment Method</div>
+                    <span class="dash-card-action">Update</span>
+                </div>
+                <div style="display: flex; align-items: center; gap: 14px;">
+                    <div style="width: 48px; height: 32px; background: var(--green-deep); border-radius: 4px; display: flex; align-items: center; justify-content: center;">
+                        <svg width="20" height="14" viewBox="0 0 24 16" fill="none"><rect width="24" height="16" rx="2" fill="var(--green-deep)"/><circle cx="9" cy="8" r="5" fill="var(--gold)" opacity="0.8"/><circle cx="15" cy="8" r="5" fill="var(--gold)" opacity="0.5"/></svg>
+                    </div>
+                    <div>
+                        <div style="font-size: 0.875rem; font-weight: 500; color: var(--green-deep);">Visa ending in 4242</div>
+                        <div style="font-size: 0.6875rem; color: var(--text-muted);">Expires 12/2027</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Invoice History -->
+            <div class="dash-card fade-up fade-up-3" style="margin-top: 20px;">
+                <div class="dash-card-header">
+                    <div class="dash-card-title">Invoice History</div>
+                    <span class="dash-card-action">Download All</span>
+                </div>
+                <div class="invoice-row">
+                    <span class="invoice-date">Apr 11, 2026</span>
+                    <span class="invoice-desc">Frequencies Annual Membership</span>
+                    <span class="invoice-amount">$99.00</span>
+                    <span class="invoice-status">Paid</span>
+                </div>
+                <div class="invoice-row">
+                    <span class="invoice-date">Mar 15, 2026</span>
+                    <span class="invoice-desc">Private Sound Bath — 1:1 Session</span>
+                    <span class="invoice-amount">$150.00</span>
+                    <span class="invoice-status">Paid</span>
+                </div>
+                <div class="invoice-row">
+                    <span class="invoice-date">Mar 8, 2026</span>
+                    <span class="invoice-desc">Public Sound Bath — Phoenix &amp; Dragon</span>
+                    <span class="invoice-amount">$25.00</span>
+                    <span class="invoice-status">Paid</span>
+                </div>
+                <div class="invoice-row">
+                    <span class="invoice-date">Feb 14, 2026</span>
+                    <span class="invoice-desc">Gift Certificate — Healing Session</span>
+                    <span class="invoice-amount">$100.00</span>
+                    <span class="invoice-status">Paid</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- ══════════════════════════════════════════════════
+     SCREEN 4 — RESONANCE REWARDS
+     ══════════════════════════════════════════════════ -->
+<div class="screen" id="screenRewards">
+    <nav class="dash-nav">
+        <div class="container">
+            <a href="#" class="dash-nav-logo" onclick="showScreen('screenGate'); return false;">
+                <svg width="28" height="28" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                    <path fill="var(--green-deep)" d="M50 5C28 5 12 22 12 44c0 16 8 28 20 34-4-6-6-14-6-22C26 32 36 14 50 8c14 6 24 24 24 34 0 8-2 16-6 22 12-6 20-18 20-34C88 22 72 5 50 5z" opacity="0.2"/>
+                    <ellipse fill="var(--green-deep)" cx="50" cy="30" rx="6" ry="7"/>
+                    <path fill="var(--green-deep)" d="M50 38c-2 0-3 1-3 3v14c0 1 0 2 1 3l6 8c1 1 2 1 3 0s1-2 0-3l-5-7V41c0-2-1-3-2-3z"/>
+                    <path fill="var(--green-deep)" d="M50 38c2 0 3 1 3 3v14c0 1 0 2-1 3l-6 8c-1 1-2 1-3 0s-1-2 0-3l5-7V41c0-2 1-3 2-3z"/>
+                    <path fill="var(--green-deep)" d="M47 42c-4-2-10-8-14-14-1-1-1-3 0-3 2-1 3 0 4 1l12 14z" opacity="0.7"/>
+                    <path fill="var(--green-deep)" d="M53 42c4-2 10-8 14-14 1-1 1-3 0-3-2-1-3 0-4 1L51 40z" opacity="0.7"/>
+                </svg>
+                The Sanctuary
+            </a>
+            <div class="dash-nav-right">
+                <a href="#" class="dash-nav-link" onclick="showScreen('screenDash'); return false;">Dashboard</a>
+                <a href="#" class="dash-nav-link active" onclick="showScreen('screenRewards'); return false;">Rewards</a>
+                <a href="#" class="dash-nav-link" onclick="showScreen('screenBilling'); return false;">Billing</a>
+                <a href="index.html" class="dash-nav-link">Main Site</a>
+                <div class="dash-avatar" onclick="showScreen('screenGate')">VM</div>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+        <div class="rewards-content">
+            <div class="rewards-header fade-up">
+                <h2>Resonance Rewards</h2>
+                <p>Every session, every breath, every moment of healing earns you closer to your next reward.</p>
+            </div>
+
+            <!-- Points Hero Card -->
+            <div class="rewards-hero-card fade-up fade-up-1">
+                <div class="rewards-points-row">
+                    <div class="rewards-points-display">
+                        <div class="rewards-points-label">Your Balance</div>
+                        <div class="rewards-points-number">1,340 <span>Points</span></div>
+                        <div class="rewards-points-sub">Earned since joining Apr 2025</div>
+                    </div>
+                    <div class="rewards-tier-badge">
+                        <div class="rewards-lotus">
+                            <svg viewBox="0 0 72 72" xmlns="http://www.w3.org/2000/svg">
+                                <!-- Lotus flower SVG for tier badge -->
+                                <circle cx="36" cy="36" r="34" fill="none" stroke="rgba(184,151,90,0.2)" stroke-width="0.5"/>
+                                <!-- Center petal -->
+                                <ellipse cx="36" cy="26" rx="6" ry="14" fill="var(--gold)" opacity="0.35" transform="rotate(0,36,36)"/>
+                                <!-- Left petals -->
+                                <ellipse cx="36" cy="26" rx="6" ry="14" fill="var(--gold)" opacity="0.25" transform="rotate(-30,36,40)"/>
+                                <ellipse cx="36" cy="26" rx="6" ry="14" fill="var(--gold)" opacity="0.15" transform="rotate(-60,36,40)"/>
+                                <!-- Right petals -->
+                                <ellipse cx="36" cy="26" rx="6" ry="14" fill="var(--gold)" opacity="0.25" transform="rotate(30,36,40)"/>
+                                <ellipse cx="36" cy="26" rx="6" ry="14" fill="var(--gold)" opacity="0.15" transform="rotate(60,36,40)"/>
+                                <!-- Center circle -->
+                                <circle cx="36" cy="38" r="5" fill="var(--gold)" opacity="0.5"/>
+                                <circle cx="36" cy="38" r="2.5" fill="var(--gold-light)" opacity="0.8"/>
+                            </svg>
+                        </div>
+                        <div class="rewards-tier-name">Bloom Tier</div>
+                        <div class="rewards-tier-progress">Tier 2 of 4</div>
+                    </div>
+                </div>
+                <div class="rewards-progress-bar">
+                    <div class="rewards-progress-labels">
+                        <span class="current">Bloom — 500 pts</span>
+                        <span>Radiance — 1,500 pts</span>
+                    </div>
+                    <div class="rewards-bar-track">
+                        <div class="rewards-bar-fill"></div>
+                    </div>
+                    <div class="rewards-next-tier">Earn <strong>160 more points</strong> to unlock Radiance tier perks</div>
+                </div>
+            </div>
+
+            <!-- Tier Explanation -->
+            <div class="dash-card fade-up fade-up-2" style="margin-bottom: 24px;">
+                <div class="dash-card-title" style="margin-bottom: 16px;">Tier Levels</div>
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 16px;">
+                    <div style="text-align: center; padding: 16px 8px; background: var(--cream-light);">
+                        <div style="font-family: var(--font-display); font-size: 1.125rem; color: var(--green-sage); margin-bottom: 4px;">Seed</div>
+                        <div style="font-size: 0.625rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--text-muted);">0 — 499 pts</div>
+                        <div style="font-size: 0.6875rem; color: var(--text-soft); margin-top: 6px;">Welcome perks</div>
+                    </div>
+                    <div style="text-align: center; padding: 16px 8px; background: var(--cream-light); border: 1px solid var(--gold-pale);">
+                        <div style="font-family: var(--font-display); font-size: 1.125rem; color: var(--gold); margin-bottom: 4px;">Bloom</div>
+                        <div style="font-size: 0.625rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--text-muted);">500 — 1,499 pts</div>
+                        <div style="font-size: 0.6875rem; color: var(--text-soft); margin-top: 6px;">5% off sessions</div>
+                    </div>
+                    <div style="text-align: center; padding: 16px 8px; background: var(--cream-light);">
+                        <div style="font-family: var(--font-display); font-size: 1.125rem; color: var(--green-deep); margin-bottom: 4px;">Radiance</div>
+                        <div style="font-size: 0.625rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--text-muted);">1,500 — 2,999 pts</div>
+                        <div style="font-size: 0.6875rem; color: var(--text-soft); margin-top: 6px;">10% off + early access</div>
+                    </div>
+                    <div style="text-align: center; padding: 16px 8px; background: var(--cream-light);">
+                        <div style="font-family: var(--font-display); font-size: 1.125rem; color: var(--green-deep); margin-bottom: 4px;">Transcendence</div>
+                        <div style="font-size: 0.625rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--text-muted);">3,000+ pts</div>
+                        <div style="font-size: 0.6875rem; color: var(--text-soft); margin-top: 6px;">15% off + VIP</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="rewards-grid fade-up fade-up-2">
+                <!-- Earn Points -->
+                <div class="dash-card">
+                    <div class="dash-card-header">
+                        <div class="dash-card-title">Earn Points</div>
+                    </div>
+                    <div class="earn-item">
+                        <div class="earn-icon">
+                            <svg viewBox="0 0 24 24"><path d="M12 22c5.52 0 10-4.48 10-10S17.52 2 12 2 2 6.48 2 12s4.48 10 10 10z"/><path d="M12 6v6l4 2"/></svg>
+                        </div>
+                        <div class="earn-info">
+                            <div class="earn-action">Attend a Public Sound Bath</div>
+                            <div class="earn-desc">Earn every time you attend an event</div>
+                        </div>
+                        <div class="earn-points">+50</div>
+                    </div>
+                    <div class="earn-item">
+                        <div class="earn-icon">
+                            <svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg>
+                        </div>
+                        <div class="earn-info">
+                            <div class="earn-action">Book a Private Session</div>
+                            <div class="earn-desc">Personal healing, bigger reward</div>
+                        </div>
+                        <div class="earn-points">+150</div>
+                    </div>
+                    <div class="earn-item">
+                        <div class="earn-icon gold-bg">
+                            <svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/></svg>
+                        </div>
+                        <div class="earn-info">
+                            <div class="earn-action">Refer a Friend</div>
+                            <div class="earn-desc">When they book their first session</div>
+                        </div>
+                        <div class="earn-points">+300</div>
+                    </div>
+                    <div class="earn-item">
+                        <div class="earn-icon">
+                            <svg viewBox="0 0 24 24"><path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z"/><line x1="4" y1="22" x2="4" y2="15"/></svg>
+                        </div>
+                        <div class="earn-info">
+                            <div class="earn-action">Renew Annual Membership</div>
+                            <div class="earn-desc">Loyalty rewarded every renewal</div>
+                        </div>
+                        <div class="earn-points">+500</div>
+                    </div>
+                    <div class="earn-item">
+                        <div class="earn-icon">
+                            <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                        </div>
+                        <div class="earn-info">
+                            <div class="earn-action">Leave a Review</div>
+                            <div class="earn-desc">Share your experience on Google</div>
+                        </div>
+                        <div class="earn-points">+75</div>
+                    </div>
+                    <div class="earn-item">
+                        <div class="earn-icon gold-bg">
+                            <svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M12 8v8M8 12h8"/></svg>
+                        </div>
+                        <div class="earn-info">
+                            <div class="earn-action">Purchase from Ritual Collection</div>
+                            <div class="earn-desc">1 point per $1 spent on products</div>
+                        </div>
+                        <div class="earn-points">+1/$1</div>
+                    </div>
+                </div>
+
+                <!-- Redeem Rewards -->
+                <div class="dash-card">
+                    <div class="dash-card-header">
+                        <div class="dash-card-title">Redeem Rewards</div>
+                    </div>
+                    <div class="redeem-item">
+                        <div class="earn-icon gold-bg">
+                            <svg viewBox="0 0 24 24"><path d="M20.59 13.41l-7.17 7.17a2 2 0 01-2.83 0L2 12V2h10l8.59 8.59a2 2 0 010 2.82z"/><line x1="7" y1="7" x2="7.01" y2="7"/></svg>
+                        </div>
+                        <div class="redeem-info">
+                            <div class="redeem-name">$5 Off Any Session</div>
+                            <div class="redeem-desc">Applied at checkout</div>
+                        </div>
+                        <div class="redeem-cost">200 pts</div>
+                    </div>
+                    <div class="redeem-item">
+                        <div class="earn-icon gold-bg">
+                            <svg viewBox="0 0 24 24"><path d="M20.59 13.41l-7.17 7.17a2 2 0 01-2.83 0L2 12V2h10l8.59 8.59a2 2 0 010 2.82z"/><line x1="7" y1="7" x2="7.01" y2="7"/></svg>
+                        </div>
+                        <div class="redeem-info">
+                            <div class="redeem-name">$15 Off Private Session</div>
+                            <div class="redeem-desc">For 1:1 or group bookings</div>
+                        </div>
+                        <div class="redeem-cost">500 pts</div>
+                    </div>
+                    <div class="redeem-item">
+                        <div class="earn-icon gold-bg">
+                            <svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                        </div>
+                        <div class="redeem-info">
+                            <div class="redeem-name">Free Public Sound Bath</div>
+                            <div class="redeem-desc">Your next public event is on us</div>
+                        </div>
+                        <div class="redeem-cost">750 pts</div>
+                    </div>
+                    <div class="redeem-item">
+                        <div class="earn-icon gold-bg">
+                            <svg viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+                        </div>
+                        <div class="redeem-info">
+                            <div class="redeem-name">Ritual Collection Item</div>
+                            <div class="redeem-desc">Choose from curated crystals &amp; sage</div>
+                        </div>
+                        <div class="redeem-cost">1,000 pts</div>
+                    </div>
+                    <div class="redeem-item">
+                        <div class="earn-icon gold-bg">
+                            <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M8 12l2 2 4-4"/></svg>
+                        </div>
+                        <div class="redeem-info">
+                            <div class="redeem-name">Free 1-Month Membership</div>
+                            <div class="redeem-desc">Gift a month of Frequencies</div>
+                        </div>
+                        <div class="redeem-cost">1,500 pts</div>
+                    </div>
+                    <div class="redeem-item">
+                        <div class="earn-icon gold-bg">
+                            <svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg>
+                        </div>
+                        <div class="redeem-info">
+                            <div class="redeem-name">Free Private Sound Bath</div>
+                            <div class="redeem-desc">Full 60-minute personal session</div>
+                        </div>
+                        <div class="redeem-cost">3,000 pts</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Points Activity History -->
+            <div class="dash-card fade-up fade-up-3" style="margin-top: 24px;">
+                <div class="dash-card-header">
+                    <div class="dash-card-title">Points Activity</div>
+                    <span class="dash-card-action">View All</span>
+                </div>
+                <div class="activity-item">
+                    <span class="activity-date">Apr 11</span>
+                    <span class="activity-desc">Annual Membership Renewal Bonus</span>
+                    <span class="activity-pts earned">+500</span>
+                </div>
+                <div class="activity-item">
+                    <span class="activity-date">Mar 28</span>
+                    <span class="activity-desc">Referred Sarah M. — First Session Booked</span>
+                    <span class="activity-pts earned">+300</span>
+                </div>
+                <div class="activity-item">
+                    <span class="activity-date">Mar 15</span>
+                    <span class="activity-desc">Private Sound Bath — 1:1 Session</span>
+                    <span class="activity-pts earned">+150</span>
+                </div>
+                <div class="activity-item">
+                    <span class="activity-date">Mar 10</span>
+                    <span class="activity-desc">Redeemed: $5 Off Public Sound Bath</span>
+                    <span class="activity-pts redeemed">-200</span>
+                </div>
+                <div class="activity-item">
+                    <span class="activity-date">Mar 8</span>
+                    <span class="activity-desc">Public Sound Bath — Phoenix &amp; Dragon</span>
+                    <span class="activity-pts earned">+50</span>
+                </div>
+                <div class="activity-item">
+                    <span class="activity-date">Feb 22</span>
+                    <span class="activity-desc">Google Review Bonus</span>
+                    <span class="activity-pts earned">+75</span>
+                </div>
+                <div class="activity-item">
+                    <span class="activity-date">Feb 14</span>
+                    <span class="activity-desc">Ritual Collection — Rose Quartz Crystal</span>
+                    <span class="activity-pts earned">+35</span>
+                </div>
+                <div class="activity-item">
+                    <span class="activity-date">Feb 8</span>
+                    <span class="activity-desc">Public Sound Bath — Phoenix &amp; Dragon</span>
+                    <span class="activity-pts earned">+50</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    function showScreen(id) {
+        document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
+        document.getElementById(id).classList.add('active');
+        window.scrollTo(0, 0);
+        // Update active nav links
+        const screen = document.getElementById(id);
+        const navLinks = screen.querySelectorAll('.dash-nav-link');
+        navLinks.forEach(link => {
+            link.classList.remove('active');
+            const href = link.getAttribute('onclick') || '';
+            if (href.includes(id)) link.classList.add('active');
+        });
+    }
+
+    function switchTab(tab) {
+        document.querySelectorAll('.gate-tab').forEach(t => t.classList.remove('active'));
+        document.querySelectorAll('.gate-form').forEach(f => f.classList.remove('active'));
+        if (tab === 'login') {
+            document.querySelectorAll('.gate-tab')[0].classList.add('active');
+            document.getElementById('loginForm').classList.add('active');
+        } else {
+            document.querySelectorAll('.gate-tab')[1].classList.add('active');
+            document.getElementById('signupForm').classList.add('active');
+        }
+    }
+</script>
+</body>
+</html>
