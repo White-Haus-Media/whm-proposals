@@ -287,8 +287,8 @@
   --bd:rgba(198,164,76,.07);
   --r:16px;--font:'Plus Jakarta Sans',sans-serif;
 }
-html{scroll-behavior:smooth}
-body{font-family:var(--font);background:var(--b);color:var(--t1);overflow-x:hidden;-webkit-font-smoothing:antialiased;font-size:16px;line-height:1.6;letter-spacing:.005em}
+html{scroll-behavior:smooth;overflow-x:hidden}
+body{font-family:var(--font);background:var(--b);color:var(--t1);-webkit-font-smoothing:antialiased;font-size:16px;line-height:1.6;letter-spacing:.005em}
 .w{max-width:1200px;margin:0 auto;padding:0 clamp(24px,5vw,80px)}
 ::selection{background:var(--g);color:var(--b)}
 a{text-decoration:none;color:inherit}
@@ -1848,7 +1848,7 @@ function scrollChat(){
 <script>
 // Scroll reveal animation
 const revealElements = document.querySelectorAll('.rv');
-const observerOptions = { threshold: 0.1, rootMargin: '0px 0px -50px 0px' };
+const observerOptions = { threshold: 0.05, rootMargin: '0px 0px -30px 0px' };
 const observer = new IntersectionObserver(function(entries) {
   entries.forEach(entry => {
     if (entry.isIntersecting) {
@@ -1859,6 +1859,11 @@ const observer = new IntersectionObserver(function(entries) {
 }, observerOptions);
 
 revealElements.forEach(el => observer.observe(el));
+
+// Fallback: reveal any .rv still hidden after 4s (safety net)
+setTimeout(function() {
+  document.querySelectorAll('.rv:not(.vis)').forEach(el => el.classList.add('vis'));
+}, 4000);
 
 // Navigation scroll effect
 window.addEventListener('scroll', () => {
