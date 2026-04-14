@@ -25,6 +25,28 @@ Every proposal ships two files:
 - `proposals/[slug]/preview.html` — a fully built site concept for the client
 
 The preview.html is a real single-page HTML site showing what we'd build — not a mockup image or placeholder. It loads inside the proposal iframe. Build it with the client's actual brand palette, services, testimonials, and content. It should feel like a working site, not a wireframe.
+## LOGO FETCHING — PREVIEW SITES
+
+Every preview.html must use the client's actual logo, not a placeholder icon.
+
+**Workflow:**
+1. While scraping the prospect's site, find the logo `<img>` src (usually in `<header>` or `<nav>`)
+2. Fetch the image via curl: `curl -s -L -A "Mozilla/5.0" [logo-url] -o /tmp/logo.png`
+3. Resize to 2x retina nav height (typically 585px wide max) using Pillow
+4. Base64-encode and embed as a data URI: `<img src="data:image/png;base64,..." style="height:48px;width:auto;">`
+5. **Never hotlink** — the preview must not depend on the client's server
+
+**Filter guidance:**
+- RGBA logos from dark-background sites → use as-is (colors already designed for dark BG)
+- Light/colored logo on white background → apply `filter:brightness(0) invert(1)` for dark nav
+- If uncertain → embed both versions and use the one that reads better on the preview nav color
+
+**If no logo is found:**
+- Check `/images/`, `/assets/`, `/img/`, `/wp-content/uploads/` common paths
+- Fall back to styled text with the company name in the nav brand font
+- Never use a generic SVG cabin/house icon as a logo substitute
+
+
 
 ## MASTER TEMPLATE SYSTEM
 The template at `_template/proposal-template.html` uses `{{PLACEHOLDER}}` variables. **Always fetch this file via GitHub API and fill placeholders — never generate proposal HTML from scratch.**
