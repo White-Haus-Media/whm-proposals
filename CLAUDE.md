@@ -154,6 +154,47 @@ The `auto-proposal-generator` Cowork task runs 3x/day and handles proposals auto
 6. Updates prospect status to 'Proposal Generated'
 7. Auto-sends if build_fee < $800, otherwise queues 'Ready for Review' in The Haus
 
+
+## PREVIEW SITE — MOBILE REQUIREMENTS
+
+Every preview.html must be fully mobile-responsive before pushing. These are non-negotiable:
+
+**Viewport**
+- Always include `<meta name="viewport" content="width=device-width, initial-scale=1.0">`
+- Add `img{max-width:100%;height:auto}` as a global reset
+
+**Breakpoints — minimum two**
+- `@media(max-width:960px)` — collapse all multi-column grids to 1-col, reduce section padding to `64px 20px`, reduce nav padding to `12px 20px`
+- `@media(max-width:600px)` — further reductions, hide desktop nav links, show mobile CTA
+
+**Nav on mobile**
+- Desktop nav links (`<ul class="nav-links">`) must be `display:none` at 600px
+- A standalone mobile CTA button must be visible in the nav at 600px — never leave the nav empty on mobile
+- Pattern: `<a class="nav-mobile-cta" href="#contact">Free Quote</a>` shown via CSS at ≤600px
+
+**Touch interactions**
+- Never rely on `:hover` alone for interactive elements — always pair with a `.tapped` class toggled via JS click listener
+- Before/after gallery: tap toggles the reveal state; include `touchstart` passive listener to prevent delay
+- Pattern:
+  ```js
+  el.addEventListener('click', () => el.classList.toggle('tapped'));
+  el.addEventListener('touchstart', () => {}, {passive: true});
+  ```
+
+**Typography**
+- Use `clamp()` for all display headings: `font-size:clamp(1.8rem, 4vw, 3rem)`
+- Body text should never be below `.82rem` on any screen size
+
+**Spacing**
+- Section padding desktop: `88px 40px`
+- Section padding tablet (960px): `64px 20px`  
+- Section padding mobile (600px): `56px 16px`
+- Never use fixed `px` horizontal padding without a mobile override
+
+**Logo sizing**
+- Logo in nav: `height:44px;width:auto` — scales naturally, no fixed width
+- Always use the standalone logo file, not a banner composite (check image dimensions — anything wider than ~600px at source is likely a banner, not a logo)
+
 ## DESIGN REFERENCE
 - Background: #080808 (near-black)
 - Gold: #C6A44C
