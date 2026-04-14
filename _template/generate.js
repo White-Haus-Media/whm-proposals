@@ -17,6 +17,7 @@ const DEFAULT_DATE = 'April 2026';
 
 // ── Default daycare content ──────────────────────────────────────────────
 const DAYCARE_DEFAULTS = {
+  audience: 'families',
   heroHeadline: 'A digital home as <em>welcoming</em> as the one you\'ve built for families.',
   heroBody: 'Parents searching for childcare don\'t just want a program — they want to feel confident in their choice before they ever visit. A dedicated website gives your center that first impression, 24 hours a day.',
   letterP1: 'We took some time to look at your center\'s current digital footprint — your social media, your directory listings, your reviews — and what stood out immediately is that the quality of care you provide speaks for itself. Families trust you with their children, and that\'s the strongest foundation any business can have.',
@@ -90,6 +91,7 @@ function generate(prospect) {
     '{{DATE}}': d.date || DEFAULT_DATE,
     '{{PRICE}}': d.price,
     '{{BOOKING_URL}}': d.bookingUrl || BOOKING_URL,
+    '{{AUDIENCE}}': d.audience || 'families',
     '{{PREVIEW_DOMAIN}}': d.previewDomain || d.slug.replace(/-/g, '') + '.com',
     '{{HERO_HEADLINE}}': d.heroHeadline,
     '{{HERO_BODY}}': d.heroBody,
@@ -173,3 +175,4 @@ function main() {
 }
 
 main();
+
