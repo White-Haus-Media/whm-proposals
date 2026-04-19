@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" type="image/png" href="/favicon.png" sizes="32x32">
+<title>Lillypads Child Development Center — Website Proposal | White Haus Media</title>
+<meta name="robots" content="noindex, nofollow">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --cream:#F4EFE6;
+  --black:#080808;
+  --gold:#C9A84C;
+  --gold-light:#D4BA6A;
+  --gold-border:rgba(201,168,76,.25);
+  --gold-dim:rgba(201,168,76,.06);
+  --panel:rgba(255,255,255,.03);
+  --soft-border:rgba(255,255,255,.06);
+  --text-primary:rgba(255,255,255,.88);
+  --text-secondary:rgba(255,255,255,.5);
+  --text-muted:rgba(255,255,255,.28);
+}
+html{scroll-behavior:smooth}
+body{font-family:'Plus Jakarta Sans',-apple-system,sans-serif;background:var(--black);color:var(--text-primary);-webkit-font-smoothing:antialiased;line-height:1.6}
+a{text-decoration:none;color:inherit;transition:all .2s}
+.progress{position:fixed;top:0;left:0;height:2px;background:var(--gold);z-index:1000;width:0%;transition:width .1s linear}
+.nav{position:fixed;top:2px;left:0;right:0;z-index:100;padding:0 24px;transition:all .3s}
+.nav.scrolled{background:rgba(8,8,8,.85);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px)}
+.nav-inner{display:flex;align-items:center;justify-content:space-between;max-width:1040px;margin:0 auto;padding:16px 0}
+.nav-logo{display:flex;align-items:center;gap:12px}
+.nav-logo img{height:44px}
+.nav-logo-text{font-size:.9rem;font-weight:700;color:rgba(255,255,255,.88)}
+.nav-logo-text em{font-style:italic;color:var(--gold);font-weight:600}
+.nav-links{display:flex;align-items:center;gap:24px;list-style:none}
+.nav-links a{font-size:.82rem;font-weight:500;color:var(--text-secondary);transition:color .2s}
+.nav-links a:hover{color:#fff}
+.nav-pill{background:var(--gold);color:var(--black);padding:8px 20px;border-radius:100px;font-size:.82rem;font-weight:700;transition:all .2s}
+.nav-pill:hover{background:var(--gold-light);transform:translateY(-1px)}
+.section{padding:100px 24px}
+.wrap{max-width:680px;margin:0 auto}
+.wrap-wide{max-width:1040px;margin:0 auto}
+.eyebrow{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.12em;color:var(--gold);margin-bottom:14px}
+.reveal{opacity:0;transform:translateY(24px);transition:opacity .7s ease,transform .7s ease}
+.reveal.visible{opacity:1;transform:translateY(0)}
+.hero{min-height:100vh;display:flex;align-items:center;justify-content:center;text-align:center;padding:140px 24px 100px;position:relative;overflow:hidden}
+.hero::before{content:'';position:absolute;top:10%;left:50%;transform:translateX(-50%);width:600px;height:600px;border-radius:50%;background:radial-gradient(circle,rgba(201,168,76,.06) 0%,transparent 70%);pointer-events:none}
+.hero-pill{display:inline-flex;align-items:center;gap:8px;background:var(--gold-dim);border:1px solid var(--gold-border);color:var(--gold);padding:8px 20px;border-radius:100px;font-size:.78rem;font-weight:600;letter-spacing:.04em;margin-bottom:32px}
+.hero h1{font-family:'Cormorant Garamond',Georgia,serif;font-size:4rem;font-weight:500;line-height:1.08;color:rgba(255,255,255,.92);max-width:740px;margin:0 auto 24px;letter-spacing:-.02em}
+.hero h1 em{font-style:italic;color:var(--gold)}
+.hero-body{font-size:1.08rem;color:var(--text-secondary);max-width:520px;margin:0 auto 48px;line-height:1.7}
+.hero-meta{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--soft-border);border:1px solid var(--soft-border);border-radius:14px;overflow:hidden;max-width:640px;margin:0 auto}
+.hero-meta-item{background:var(--black);padding:20px 16px;text-align:center}
+.hero-meta-label{font-size:.68rem;font-weight:600;text-transform:uppercase;letter-spacing:.08em;color:var(--text-muted);margin-bottom:4px}
+.hero-meta-value{font-size:.88rem;font-weight:600;color:var(--text-primary)}
+.letter{padding:100px 24px}
+.letter-card{max-width:680px;margin:0 auto}
+.letter-greeting{font-family:'Cormorant Garamond',Georgia,serif;font-size:1.8rem;color:rgba(255,255,255,.85);margin-bottom:8px}
+.letter-rule{width:40px;height:1.5px;background:var(--gold-border);margin:20px 0 28px;border-radius:2px}
+.letter p{font-size:.95rem;color:var(--text-secondary);line-height:1.8;margin-bottom:20px}
+.letter-sig{display:flex;align-items:center;gap:14px;margin-top:36px;padding-top:28px;border-top:1px solid var(--soft-border)}
+.letter-sig img{height:24px;opacity:.5}
+.letter-sig-text{font-size:.82rem;color:var(--text-muted);line-height:1.5}
+.letter-sig-text strong{color:var(--text-secondary);display:block}
+.opp{padding:100px 24px}
+.opp h2{font-family:'Cormorant Garamond',Georgia,serif;font-size:2.4rem;font-weight:500;color:rgba(255,255,255,.88);margin-bottom:12px;letter-spacing:-.01em}
+.opp>.wrap-wide>.sub{font-size:1rem;color:var(--text-secondary);line-height:1.7;margin-bottom:48px;max-width:600px}
+.opp-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;max-width:1040px;margin:0 auto}
+.opp-card{background:var(--panel);border:1px solid var(--soft-border);border-radius:16px;padding:32px 28px;transition:all .3s;position:relative;overflow:hidden}
+.opp-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:var(--gold);opacity:0;transition:opacity .3s}
+.opp-card:hover{border-color:var(--gold-border);background:rgba(255,255,255,.04)}
+.opp-card:hover::before{opacity:1}
+.opp-num{font-size:.72rem;font-weight:700;color:var(--gold);letter-spacing:.08em;margin-bottom:12px}
+.opp-card h3{font-size:1.05rem;font-weight:700;color:rgba(255,255,255,.85);margin-bottom:8px}
+.opp-card p{font-size:.88rem;color:var(--text-secondary);line-height:1.65}
+.solution{padding:100px 24px}
+.solution h2{font-family:'Cormorant Garamond',Georgia,serif;font-size:2.4rem;font-weight:500;color:rgba(255,255,255,.88);margin-bottom:12px}
+.solution .sub{font-size:1rem;color:var(--text-secondary);line-height:1.7;margin-bottom:48px;max-width:600px}
+.del-list{border:1px solid var(--soft-border);border-radius:16px;overflow:hidden;margin-top:8px}
+.del-item{display:flex;align-items:center;gap:16px;padding:18px 28px;border-bottom:1px solid var(--soft-border);font-size:.92rem;color:var(--text-secondary);transition:background .2s}
+.del-item:last-child{border-bottom:none}
+.del-item:hover{background:var(--panel)}
+.del-star{color:var(--gold);font-size:.75rem;flex-shrink:0}
+.preview{padding:100px 24px}
+.preview h2{font-family:'Cormorant Garamond',Georgia,serif;font-size:2.4rem;font-weight:500;color:rgba(255,255,255,.88);margin-bottom:12px}
+.preview .sub{font-size:1rem;color:var(--text-secondary);line-height:1.7;margin-bottom:40px;max-width:600px}
+.browser{background:rgba(255,255,255,.03);border:1px solid var(--soft-border);border-radius:16px;overflow:hidden}
+.browser-bar{display:flex;align-items:center;gap:10px;padding:12px 16px;background:rgba(255,255,255,.03);border-bottom:1px solid var(--soft-border)}
+.bd{width:12px;height:12px;border-radius:50%}
+.bd.r{background:rgba(255,95,87,.6)}
+.bd.y{background:rgba(255,189,46,.6)}
+.bd.g{background:rgba(40,205,65,.6)}
+.browser-url{flex:1;text-align:center;font-size:.75rem;color:var(--text-muted)}
+.browser-open{font-size:.75rem;color:var(--gold);font-weight:600;white-space:nowrap}
+.browser-open:hover{color:var(--gold-light)}
+.preview-iframe{width:100%;height:600px;border:none;display:block}
+.preview-caption{text-align:center;font-size:.8rem;color:var(--text-muted);margin-top:16px}
+.process{padding:100px 24px}
+.process h2{font-family:'Cormorant Garamond',Georgia,serif;font-size:2.4rem;font-weight:500;color:rgba(255,255,255,.88);margin-bottom:12px}
+.process .sub{font-size:1rem;color:var(--text-secondary);line-height:1.7;margin-bottom:48px;max-width:600px}
+.step-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;position:relative}
+.step{background:var(--panel);border:1px solid var(--soft-border);border-radius:14px;padding:28px 24px;position:relative}
+.step-num{font-size:.68rem;font-weight:700;color:var(--gold);letter-spacing:.08em;margin-bottom:12px}
+.step h4{font-size:.95rem;font-weight:700;color:rgba(255,255,255,.85);margin-bottom:8px}
+.step p{font-size:.82rem;color:var(--text-secondary);line-height:1.6}
+.step-arrow{position:absolute;right:-18px;top:50%;transform:translateY(-50%);font-size:1.2rem;color:var(--gold-border);z-index:1}
+.pricing{padding:100px 24px}
+.pricing-head{text-align:center;margin-bottom:48px}
+.pricing-head h2{font-family:'Cormorant Garamond',Georgia,serif;font-size:2.4rem;font-weight:500;color:rgba(255,255,255,.88);margin-bottom:12px}
+.pricing-cards{display:flex;justify-content:center;margin-bottom:48px}
+.p-card{background:var(--panel);border:1px solid var(--gold-border);border-radius:20px;padding:40px 36px;max-width:500px;width:100%;position:relative}
+.p-badge{display:inline-flex;background:var(--gold);color:var(--black);font-size:.72rem;font-weight:700;padding:6px 16px;border-radius:100px;margin-bottom:24px;letter-spacing:.04em}
+.p-eyebrow{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--gold);margin-bottom:8px}
+.p-headline{font-size:1rem;color:var(--text-secondary);margin-bottom:24px;line-height:1.5}
+.p-amount{font-family:'Cormorant Garamond',Georgia,serif;font-size:4rem;font-weight:600;color:rgba(255,255,255,.9);line-height:1;margin-bottom:4px}
+.p-amount sup{font-size:1.8rem;vertical-align:top;margin-top:.5rem}
+.p-label{font-size:.78rem;color:var(--text-muted);margin-bottom:28px}
+.p-list{border-top:1px solid var(--soft-border);padding-top:24px;margin-bottom:28px}
+.p-item{display:flex;align-items:flex-start;gap:12px;padding:8px 0;font-size:.88rem;color:var(--text-secondary)}
+.p-check{color:var(--gold);flex-shrink:0;margin-top:1px}
+.p-cta{display:block;text-align:center;background:var(--gold);color:var(--black);padding:16px;border-radius:10px;font-weight:700;font-size:.9rem;transition:all .2s;margin-bottom:16px}
+.p-cta:hover{background:var(--gold-light);transform:translateY(-1px)}
+.p-note{font-size:.78rem;color:var(--text-muted);text-align:center;line-height:1.5}
+.care-plans{display:flex;justify-content:center;gap:16px;margin-top:40px;flex-wrap:wrap}
+.care-card{background:var(--panel);border:1px solid var(--soft-border);border-radius:14px;padding:24px 28px;min-width:200px;text-align:center}
+.care-card.rec{border-color:var(--gold-border)}
+.care-name{font-size:.8rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--gold);margin-bottom:8px}
+.care-price{font-size:1.8rem;font-weight:700;color:rgba(255,255,255,.88);margin-bottom:8px}
+.care-price span{font-size:.9rem;font-weight:400;color:var(--text-muted)}
+.care-desc{font-size:.82rem;color:var(--text-secondary);line-height:1.5}
+.care-note{text-align:center;font-size:.8rem;color:var(--text-muted);margin-top:20px;max-width:500px;margin-left:auto;margin-right:auto}
+.cta-section{padding:100px 24px}
+.cta-box{max-width:640px;margin:0 auto;text-align:center;background:var(--panel);border:1px solid var(--gold-border);border-radius:20px;padding:64px 48px}
+.cta-box h2{font-family:'Cormorant Garamond',Georgia,serif;font-size:2.4rem;font-weight:500;color:rgba(255,255,255,.9);margin-bottom:16px}
+.cta-box p{font-size:.95rem;color:var(--text-secondary);line-height:1.7;margin-bottom:36px}
+.cta-btns{display:flex;flex-direction:column;gap:12px;align-items:center}
+.cta-primary{background:var(--gold);color:var(--black);padding:16px 40px;border-radius:10px;font-weight:700;font-size:.92rem;transition:all .2s;letter-spacing:.02em}
+.cta-primary:hover{background:var(--gold-light);transform:translateY(-2px)}
+.cta-secondary{font-size:.88rem;color:var(--gold);text-decoration:underline;text-underline-offset:3px}
+.footer{text-align:center;padding:48px 24px;border-top:1px solid var(--soft-border)}
+.footer img{height:20px;opacity:.25;margin-bottom:12px;display:block;margin-left:auto;margin-right:auto}
+.footer p{font-size:.78rem;color:var(--text-muted)}
+@media(max-width:768px){
+  .hero h1{font-size:2.6rem}
+  .hero-meta{grid-template-columns:repeat(2,1fr)}
+  .opp-grid{grid-template-columns:1fr}
+  .step-grid{grid-template-columns:1fr 1fr}
+  .step-arrow{display:none}
+  .cta-box{padding:40px 28px}
+  .nav-links{display:none}
+  .section{padding:64px 20px}
+  .letter,.opp,.solution,.preview,.process,.pricing,.cta-section{padding:64px 20px}
+}
+</style>
+</head>
+<body>
+
+<div class="progress" id="progress"></div>
+
+<nav class="nav" id="nav">
+  <div class="nav-inner">
+    <a href="#" class="nav-logo">
+      <img src="https://WhiteHaus.b-cdn.net/WhiteHause%20Logo%20.png" alt="White Haus Media">
+      <span class="nav-logo-text">White Haus <em>Media</em></span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="#opportunity">Opportunity</a></li>
+      <li><a href="#solution">Solution</a></li>
+      <li><a href="#preview">Preview</a></li>
+      <li><a href="#investment">Investment</a></li>
+      <li><a href="#contact" class="nav-pill">Let's Talk</a></li>
+    </ul>
+  </div>
+</nav>
+
+<section class="hero">
+  <div>
+    <div class="hero-pill reveal">Prepared exclusively for Lillypads Child Development Center</div>
+    <h1 class="reveal">Fuquay-Varina families have trusted you since 2009. Your website looks like it <em>stopped in 2009.</em></h1>
+    <p class="hero-body reveal">You hold a Four-Star NC childcare license. You've served hundreds of local families for over 17 years. The gap between what you've built and what your website communicates is costing you real enrollments.</p>
+    <div class="hero-meta reveal">
+      <div class="hero-meta-item">
+        <div class="hero-meta-label">Prepared for</div>
+        <div class="hero-meta-value">Lillypads CDC</div>
+      </div>
+      <div class="hero-meta-item">
+        <div class="hero-meta-label">Prepared by</div>
+        <div class="hero-meta-value">White Haus Media</div>
+      </div>
+      <div class="hero-meta-item">
+        <div class="hero-meta-label">Date</div>
+        <div class="hero-meta-value">April 19, 2026</div>
+      </div>
+      <div class="hero-meta-item">
+        <div class="hero-meta-label">Delivery</div>
+        <div class="hero-meta-value">14 Business Days</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="letter">
+  <div class="letter-card">
+    <div class="eyebrow reveal">A note from White Haus Media</div>
+    <div class="letter-greeting reveal">To Donna, Robert, and the Lillypads team,</div>
+    <div class="letter-rule"></div>
+    <p class="reveal">We spent time reviewing your website at lillypadscdc.com. We want to be direct with you: it's one of the most outdated childcare websites we've seen in the Triangle. Image-based navigation, no mobile optimization, no contact form, an unencrypted webcam link that hasn't worked in years. The design appears unchanged since the early 2000s.</p>
+    <p class="reveal">Here's what makes that remarkable: you hold a Four-Star North Carolina childcare license. You've operated out of 5976 US 401 N in Fuquay-Varina since 2009. You've built 17 years of trust with local families — and that trust clearly runs deep, because parents keep finding you and enrolling their children despite a website that does nothing to help them.</p>
+    <p class="reveal">The question isn't whether your website is hurting you. It is. The question is how many families in Fuquay-Varina and Holly Springs are searching for care, clicking your site, and immediately clicking away to a center with a professional online presence. In a market with KinderCare, Primrose, Goddard School, and Kiddie Academy all actively advertising, your credibility needs to show up before a parent ever calls you.</p>
+    <p class="reveal">We built a working concept of what Lillypads could look like. It's below — along with exactly what we'd build and what it costs.</p>
+    <div class="letter-sig reveal">
+      <img src="https://WhiteHaus.b-cdn.net/WhiteHause%20Logo%20.png" alt="WHM">
+      <div class="letter-sig-text">
+        <strong>White Haus Media</strong>
+        Boutique Web Design &amp; Digital Media · Wake Forest, NC
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="opp section" id="opportunity">
+  <div class="wrap-wide">
+    <div class="eyebrow reveal">Where the opportunity lives</div>
+    <h2 class="reveal">Four reasons your website is turning families away.</h2>
+    <p class="sub reveal">After a thorough review of your current site and digital presence, we found four specific issues actively working against your enrollment growth.</p>
+    <div class="opp-grid">
+      <div class="opp-card reveal">
+        <div class="opp-num">01</div>
+        <h3>A Website Built for 2005, Not 2026</h3>
+        <p>Your site uses image-based navigation — meaning parents on mobile phones (the majority of searchers) can't reliably use your menu. The layout hasn't been updated in approximately 15 years. Before a parent reads a word about your programs or your Four-Star license, the dated design tells them a story about your center that isn't accurate. In a market where parents compare 5–6 centers before calling, design is the first filter.</p>
+      </div>
+      <div class="opp-card reveal">
+        <div class="opp-num">02</div>
+        <h3>No Way for Parents to Take Action</h3>
+        <p>There's no enrollment form, no tour request button, no "Contact Us" mechanism that actually works. Parents who decide they're interested in Lillypads at 9pm while scrolling on their phones have no way to act on that decision. By morning, they've scheduled a tour at a competitor. Your phone number is listed, but parents — especially parents of young children — don't call businesses cold. They fill out forms.</p>
+      </div>
+      <div class="opp-card reveal">
+        <div class="opp-num">03</div>
+        <h3>Your Four-Star License Is Invisible</h3>
+        <p>North Carolina's Four-Star childcare license is a significant achievement that puts you above most of your competition. It should be the first thing parents see when they visit your site. Right now it's mentioned nowhere on your homepage. Parents who don't already know what a Four-Star license means — and most don't — will never find out from your website that you hold one.</p>
+      </div>
+      <div class="opp-card reveal">
+        <div class="opp-num">04</div>
+        <h3>Competing with Fully Funded Chains</h3>
+        <p>Fuquay-Varina now has KinderCare, Primrose School, The Goddard School, and Kiddie Academy — all with professionally maintained websites, Google Ads budgets, and active social media. Parents searching for "daycare Fuquay-Varina" see them first, with polished sites that build trust instantly. Lillypads' 17-year track record is genuinely competitive with any of them — but only if your online presence says so.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="solution section" id="solution">
+  <div class="wrap">
+    <div class="eyebrow reveal">What we would build</div>
+    <h2 class="reveal">A complete, modern website for Lillypads.</h2>
+    <p class="sub reveal">Every site we build is custom — built from scratch around your specific center. Here is exactly what's included, delivered in 14 business days.</p>
+    <div class="del-list">
+      <div class="del-item reveal"><span class="del-star">&#10022;</span><span>Custom mobile-first homepage — designed to load fast and look polished on any phone or device</span></div>
+      <div class="del-item reveal"><span class="del-star">&#10022;</span><span>Programs page with individual descriptions for each age group you serve, clearly laid out</span></div>
+      <div class="del-item reveal"><span class="del-star">&#10022;</span><span>Your Four-Star NC license displayed prominently as a trust signal on the homepage</span></div>
+      <div class="del-item reveal"><span class="del-star">&#10022;</span><span>About page telling the Lillypads story — the Naylor family, your philosophy, your 17 years in Fuquay-Varina</span></div>
+      <div class="del-item reveal"><span class="del-star">&#10022;</span><span>Online enrollment inquiry form — parents can request a tour and submit interest from any device, any time</span></div>
+      <div class="del-item reveal"><span class="del-star">&#10022;</span><span>Google Reviews integration so your reputation is visible on your own site</span></div>
+      <div class="del-item reveal"><span class="del-star">&#10022;</span><span>Facebook integration and social media links built into the design</span></div>
+      <div class="del-item reveal"><span class="del-star">&#10022;</span><span>SSL-secured contact page with phone, address, and working map embed</span></div>
+      <div class="del-item reveal"><span class="del-star">&#10022;</span><span>SEO foundation — LocalBusiness schema, meta structure, Google indexing</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="preview section" id="preview">
+  <div class="wrap-wide">
+    <div class="eyebrow reveal">See it for yourself</div>
+    <h2 class="reveal">We already built you a working concept.</h2>
+    <p class="sub reveal">Rather than mockups, we built a fully interactive preview using real content from Lillypads. Scroll through below or open it full-screen.</p>
+    <div class="browser reveal">
+      <div class="browser-bar">
+        <div class="bd r"></div><div class="bd y"></div><div class="bd g"></div>
+        <div class="browser-url">Lillypads Child Development Center — Concept Preview by White Haus Media</div>
+        <a href="preview.html" target="_blank" class="browser-open">Open full screen &#8599;</a>
+      </div>
+      <iframe src="preview.html" class="preview-iframe" title="Lillypads CDC Website Concept" loading="lazy"></iframe>
+    </div>
+    <p class="preview-caption">Fully working prototype — not a mockup.</p>
+  </div>
+</section>
+
+<section class="process section">
+  <div class="wrap-wide">
+    <div class="eyebrow reveal">How we work together</div>
+    <h2 class="reveal">Four steps. Fourteen business days.</h2>
+    <p class="sub reveal">From kickoff to launch, the process is straightforward and you're involved at every stage.</p>
+    <div class="step-grid">
+      <div class="step reveal">
+        <div class="step-num">01</div>
+        <h4>Discovery Call</h4>
+        <p>We talk through your goals, your programs, and what you want Fuquay-Varina families to feel the moment they land on your new site.</p>
+        <span class="step-arrow">&#8594;</span>
+      </div>
+      <div class="step reveal">
+        <div class="step-num">02</div>
+        <h4>Design &amp; Build</h4>
+        <p>We build your site from scratch — no templates, no page builders. Custom code tailored to Lillypads and what sets you apart.</p>
+        <span class="step-arrow">&#8594;</span>
+      </div>
+      <div class="step reveal">
+        <div class="step-num">03</div>
+        <h4>Review &amp; Refine</h4>
+        <p>You see everything before it goes live. We adjust until every section is accurate, on-brand, and exactly right.</p>
+        <span class="step-arrow">&#8594;</span>
+      </div>
+      <div class="step reveal">
+        <div class="step-num">04</div>
+        <h4>Launch &amp; Support</h4>
+        <p>We handle the full deployment. Your new site is live, indexed, and finally representing Lillypads the way it deserves.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="pricing section" id="investment">
+  <div>
+    <div class="pricing-head">
+      <div class="eyebrow reveal">The investment</div>
+      <h2 class="reveal">One flat price. No surprises.</h2>
+    </div>
+    <div class="pricing-cards">
+      <div class="p-card reveal">
+        <div class="p-badge">&#10003; Recommended for Lillypads CDC</div>
+        <div class="p-eyebrow">Custom Website Build</div>
+        <div class="p-headline">Everything Lillypads needs to compete online and convert visitors into enrolled families.</div>
+        <div class="p-amount"><sup>$</sup>897</div>
+        <div class="p-label">One-time investment · Split 50/50 · Delivered in 14 business days</div>
+        <div class="p-list">
+          <div class="p-item"><span class="p-check">&#10003;</span><span>Fully custom responsive website — designed from scratch, no templates</span></div>
+          <div class="p-item"><span class="p-check">&#10003;</span><span>Mobile-first — optimized for how parents search on their phones</span></div>
+          <div class="p-item"><span class="p-check">&#10003;</span><span>Four-Star NC license displayed as a headline trust signal</span></div>
+          <div class="p-item"><span class="p-check">&#10003;</span><span>Programs page for all age groups you serve</span></div>
+          <div class="p-item"><span class="p-check">&#10003;</span><span>Online enrollment inquiry form and tour scheduling CTA</span></div>
+          <div class="p-item"><span class="p-check">&#10003;</span><span>Google Reviews integration</span></div>
+          <div class="p-item"><span class="p-check">&#10003;</span><span>Facebook integration and secure contact page</span></div>
+          <div class="p-item"><span class="p-check">&#10003;</span><span>SEO foundation — schema markup, meta structure, Google indexing</span></div>
+          <div class="p-item"><span class="p-check">&#10003;</span><span>Delivered in 14 business days</span></div>
+        </div>
+        <a href="mailto:hello@whitehausmedia.com?subject=Let%27s%20Talk%20%E2%80%94%20Lillypads%20Child%20Development%20Center" class="p-cta">Book a Free Consultation</a>
+        <p class="p-note">No obligation. We'll walk through the concept together and answer every question.</p>
+      </div>
+    </div>
+    <div class="care-plans">
+      <div class="care-card">
+        <div class="care-name">Core Care</div>
+        <div class="care-price">$47<span>/mo</span></div>
+        <div class="care-desc">Software updates + 2 content edits per month</div>
+      </div>
+      <div class="care-card rec">
+        <div class="care-name">Full Care ★ Recommended</div>
+        <div class="care-price">$97<span>/mo</span></div>
+        <div class="care-desc">Core + security monitoring, uptime checks, monthly performance report</div>
+      </div>
+    </div>
+    <p class="care-note">Monthly care plan is optional and can be added after launch. No long-term contracts.</p>
+  </div>
+</section>
+
+<section class="cta-section" id="contact">
+  <div class="cta-box">
+    <div class="eyebrow reveal">Ready to move forward?</div>
+    <h2 class="reveal">Let's give Lillypads the website it has earned.</h2>
+    <p class="reveal">No sales pressure. No long pitch. We'll walk through the concept preview together, answer your questions, and you can decide if it's the right fit. Seventeen years of trusted care deserves to show up online.</p>
+    <div class="cta-btns reveal">
+      <a href="mailto:hello@whitehausmedia.com?subject=Let%27s%20Talk%20%E2%80%94%20Lillypads%20Child%20Development%20Center" class="cta-primary">Email Us to Get Started</a>
+      <a href="tel:+19195550100" class="cta-secondary">Or call us directly</a>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <img src="https://WhiteHaus.b-cdn.net/WhiteHause%20Logo%20.png" alt="White Haus Media">
+  <p>Prepared by White Haus Media · Wake Forest, NC · hello@whitehausmedia.com</p>
+  <p style="margin-top:8px">This proposal is confidential and prepared exclusively for Lillypads Child Development Center.</p>
+</footer>
+
+<script>
+const progress = document.getElementById('progress');
+const nav = document.getElementById('nav');
+window.addEventListener('scroll', () => {
+  const scrolled = (window.scrollY / (document.documentElement.scrollHeight - window.innerHeight)) * 100;
+  progress.style.width = scrolled + '%';
+  nav.classList.toggle('scrolled', window.scrollY > 40);
+});
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(e => { if(e.isIntersecting) e.target.classList.add('visible'); });
+}, { threshold: 0.1 });
+document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+</script>
+</body>
+</html>
