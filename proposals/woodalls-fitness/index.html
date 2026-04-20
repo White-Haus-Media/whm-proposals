@@ -4,147 +4,212 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Website Proposal — Woodall's Fitness | White Haus Media</title>
-<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
-  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-  body { font-family: 'Plus Jakarta Sans', sans-serif; background: #F4EFE6; color: #080808; line-height: 1.6; }
-  a { color: inherit; text-decoration: none; }
-  nav { display: flex; justify-content: space-between; align-items: center; padding: 24px 48px; border-bottom: 1px solid rgba(8,8,8,0.1); }
-  .nav-logo { font-size: 15px; font-weight: 700; letter-spacing: 0.12em; color: #C6A44C; text-transform: uppercase; }
-  .nav-email { font-size: 13px; color: #080808; opacity: 0.6; }
-  .hero { padding: 100px 48px 80px; max-width: 860px; }
-  .hero-label { font-size: 12px; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase; color: #C6A44C; margin-bottom: 24px; }
-  .hero h1 { font-size: clamp(36px, 5vw, 58px); font-weight: 800; line-height: 1.1; margin-bottom: 28px; }
-  .hero h1 span { color: #C6A44C; }
-  .hero-hook { font-size: 20px; line-height: 1.6; color: #080808; opacity: 0.75; max-width: 640px; margin-bottom: 16px; }
-  .hero-sub { font-size: 15px; color: #080808; opacity: 0.5; }
-  .divider { width: 48px; height: 2px; background: #C6A44C; margin: 0 48px; }
-  section { padding: 72px 48px; }
-  section.dark { background: #080808; color: #F4EFE6; }
-  .section-label { font-size: 11px; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: #C6A44C; margin-bottom: 16px; }
-  h2 { font-size: clamp(26px, 3.5vw, 38px); font-weight: 700; line-height: 1.2; margin-bottom: 40px; }
-  .issues { display: grid; gap: 24px; max-width: 760px; }
-  .issue { border-left: 3px solid #C6A44C; padding-left: 24px; }
-  .issue h3 { font-size: 17px; font-weight: 600; margin-bottom: 8px; }
-  .issue p { font-size: 15px; line-height: 1.6; opacity: 0.75; }
-  .solution-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 32px; max-width: 900px; }
-  .sol-item { padding: 28px; border: 1px solid rgba(198,164,76,0.25); border-radius: 4px; }
-  .sol-item h3 { font-size: 16px; font-weight: 600; color: #C6A44C; margin-bottom: 10px; }
-  .sol-item p { font-size: 14px; line-height: 1.6; opacity: 0.75; }
-  .pricing-card { max-width: 480px; border: 1px solid #C6A44C; border-radius: 6px; padding: 48px; margin-top: 16px; }
-  .pricing-label { font-size: 12px; letter-spacing: 0.12em; text-transform: uppercase; color: #C6A44C; margin-bottom: 16px; }
-  .price { font-size: 52px; font-weight: 800; line-height: 1; margin-bottom: 8px; }
-  .price-sub { font-size: 14px; opacity: 0.55; margin-bottom: 28px; }
-  .price-features { list-style: none; display: grid; gap: 10px; }
-  .price-features li { font-size: 14px; display: flex; align-items: center; gap: 10px; }
-  .price-features li::before { content: ''; width: 6px; height: 6px; background: #C6A44C; border-radius: 50%; flex-shrink: 0; }
-  .trust-text { font-size: 17px; max-width: 600px; line-height: 1.7; opacity: 0.75; }
-  .cta-section { padding: 80px 48px; text-align: center; }
-  .cta-section h2 { margin-bottom: 16px; }
-  .cta-section p { font-size: 16px; opacity: 0.6; margin-bottom: 40px; }
-  .btn { display: inline-block; background: #C6A44C; color: #080808; font-family: 'Plus Jakarta Sans', sans-serif; font-size: 15px; font-weight: 700; letter-spacing: 0.06em; padding: 18px 44px; border-radius: 3px; text-transform: uppercase; }
-  footer { background: #080808; color: #F4EFE6; padding: 32px 48px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; }
-  footer .footer-logo { font-size: 13px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: #C6A44C; }
-  footer .footer-info { font-size: 12px; opacity: 0.4; }
-  @media (max-width: 640px) {
-    nav, section, .hero, .cta-section { padding-left: 24px; padding-right: 24px; }
-    .divider { margin-left: 24px; }
-    footer { padding: 28px 24px; }
-    .pricing-card { padding: 32px 24px; }
-  }
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+:root {
+  --black: #080808;
+  --cream: #F4EFE6;
+  --gold: #C6A44C;
+  --gold-dim: rgba(198,164,76,0.15);
+  --gold-border: rgba(198,164,76,0.25);
+}
+html { scroll-behavior: smooth; }
+body { font-family: 'Plus Jakarta Sans', sans-serif; background: var(--black); color: var(--cream); line-height: 1.6; }
+
+/* NAV */
+nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; padding: 20px 40px; display: flex; justify-content: space-between; align-items: center; background: rgba(8,8,8,0.85); backdrop-filter: blur(12px); border-bottom: 1px solid var(--gold-border); }
+.nav-logo { font-size: 11px; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: var(--gold); }
+.nav-cta { font-size: 11px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--black); background: var(--gold); padding: 10px 20px; border-radius: 2px; text-decoration: none; }
+
+/* HERO */
+.hero { min-height: 100vh; display: flex; align-items: center; padding: 120px 40px 80px; max-width: 900px; margin: 0 auto; }
+.hero-eyebrow { font-size: 10px; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold); margin-bottom: 20px; }
+.hero h1 { font-size: clamp(36px, 6vw, 64px); font-weight: 800; line-height: 1.1; margin-bottom: 28px; }
+.hero h1 em { font-style: normal; color: var(--gold); }
+.hero-sub { font-size: 17px; line-height: 1.7; opacity: 0.6; max-width: 560px; margin-bottom: 40px; }
+.hero-actions { display: flex; gap: 16px; flex-wrap: wrap; }
+.btn-primary { display: inline-block; background: var(--gold); color: var(--black); font-size: 12px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; padding: 14px 28px; border-radius: 2px; text-decoration: none; }
+.btn-secondary { display: inline-block; border: 1px solid var(--gold-border); color: var(--cream); font-size: 12px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; padding: 14px 28px; border-radius: 2px; text-decoration: none; opacity: 0.7; }
+
+/* SECTION BASE */
+section { padding: 80px 40px; max-width: 900px; margin: 0 auto; }
+.section-label { font-size: 10px; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold); margin-bottom: 16px; }
+.section-title { font-size: clamp(24px, 4vw, 36px); font-weight: 800; line-height: 1.15; margin-bottom: 20px; }
+.section-body { font-size: 15px; line-height: 1.75; opacity: 0.65; max-width: 620px; }
+hr.divider { border: none; border-top: 1px solid var(--gold-border); margin: 0 40px; }
+
+/* ISSUES */
+.issues-grid { display: grid; gap: 2px; margin-top: 40px; }
+.issue-card { background: #0e0e0e; border: 1px solid var(--gold-border); border-left: 3px solid var(--gold); padding: 28px 32px; }
+.issue-title { font-size: 14px; font-weight: 700; margin-bottom: 8px; }
+.issue-body { font-size: 13px; line-height: 1.65; opacity: 0.55; }
+
+/* DELIVERABLES */
+.deliverables-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 2px; margin-top: 40px; }
+.deliverable { background: #0e0e0e; border: 1px solid var(--gold-border); padding: 24px 28px; }
+.deliverable-icon { width: 24px; height: 24px; margin-bottom: 14px; }
+.deliverable-icon path, .deliverable-icon rect, .deliverable-icon circle, .deliverable-icon line, .deliverable-icon polyline { stroke: var(--gold); }
+.deliverable-title { font-size: 13px; font-weight: 700; margin-bottom: 6px; }
+.deliverable-body { font-size: 12px; line-height: 1.6; opacity: 0.5; }
+
+/* PRICING */
+.pricing-card { background: #0e0e0e; border: 1px solid var(--gold-border); padding: 48px; margin-top: 40px; display: grid; grid-template-columns: 1fr auto; gap: 40px; align-items: center; }
+.pricing-name { font-size: 12px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--gold); margin-bottom: 12px; }
+.pricing-price { font-size: 56px; font-weight: 800; color: var(--gold); line-height: 1; }
+.pricing-period { font-size: 12px; opacity: 0.35; margin-top: 4px; }
+.pricing-desc { font-size: 14px; line-height: 1.7; opacity: 0.55; margin-top: 16px; max-width: 480px; }
+.pricing-includes { margin-top: 24px; display: grid; gap: 8px; }
+.pricing-line { font-size: 12px; opacity: 0.5; padding-left: 16px; position: relative; }
+.pricing-line::before { content: '—'; position: absolute; left: 0; color: var(--gold); opacity: 0.6; }
+
+/* FOOTER */
+footer { padding: 40px; border-top: 1px solid var(--gold-border); display: flex; justify-content: space-between; align-items: center; flex-wrap: gap; gap: 16px; }
+.footer-logo { font-size: 11px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--gold); }
+.footer-info { font-size: 11px; opacity: 0.3; }
+
+@media (max-width: 640px) {
+  nav { padding: 16px 20px; }
+  .hero, section { padding-left: 20px; padding-right: 20px; }
+  hr.divider { margin: 0 20px; }
+  .pricing-card { grid-template-columns: 1fr; }
+  footer { padding: 32px 20px; flex-direction: column; align-items: flex-start; }
+}
 </style>
 </head>
 <body>
 
 <nav>
   <div class="nav-logo">White Haus Media</div>
-  <div class="nav-email">hello@whitehausmedia.com</div>
+  <a href="mailto:hello@whitehausmedia.com" class="nav-cta">Get Started</a>
 </nav>
 
+<!-- HERO -->
 <div class="hero">
-  <div class="hero-label">Website Proposal</div>
-  <h1><span>Woodall's Fitness</span></h1>
-  <p class="hero-hook">Nearly 20 years building this community — but woodallsfitness.com isn't telling that story, and it's not showing up when Clayton residents search for a gym.</p>
-  <p class="hero-sub">White Haus Media builds custom websites for Triangle-area fitness businesses ready to grow their membership online.</p>
+  <div>
+    <div class="hero-eyebrow">Website Proposal — Woodall's Fitness</div>
+    <h1>Twenty years of fitness expertise.<br><em>None of it on your website.</em></h1>
+    <p class="hero-sub">Every article, every tip, every piece of content Woodall's produces links readers to Constant Contact — a third-party email platform. Your site gets none of the credit, none of the traffic, and none of the search visibility that content should be building.</p>
+    <div class="hero-actions">
+      <a href="mailto:hello@whitehausmedia.com?subject=Woodall's Fitness Proposal" class="btn-primary">Accept This Proposal</a>
+      <a href="#issues" class="btn-secondary">See the Issues</a>
+    </div>
+  </div>
 </div>
 
-<div class="divider"></div>
+<hr class="divider">
 
-<section>
-  <div class="section-label">The Problem</div>
-  <h2>What's holding back woodallsfitness.com</h2>
-  <div class="issues">
-    <div class="issue">
-      <h3>No online booking or signup</h3>
-      <p>Prospective clients who want to get started have to call or come in — there's no way to book a session, start a membership, or even request a consultation online. Every friction point is a lost client. Woodall's Fitness is leaving money on the table every day.</p>
+<!-- ISSUES -->
+<section id="issues">
+  <div class="section-label">What We Found</div>
+  <h2 class="section-title">Three things holding<br>your site back</h2>
+  <p class="section-body">We reviewed woodallsfitness.com directly. Here's what we found — no assumptions, just what's live on the site today.</p>
+
+  <div class="issues-grid">
+    <div class="issue-card">
+      <div class="issue-title">Your content lives on someone else's platform</div>
+      <div class="issue-body">Every "Strength Report" article on your site links out to conta.cc — Constant Contact's domain. Readers leave your site, Google doesn't credit woodallsfitness.com for any of it, and you're building someone else's traffic instead of your own. Twenty years of expertise should be searchable on your domain.</div>
     </div>
-    <div class="issue">
-      <h3>No Google Business link and weak SEO signals</h3>
-      <p>There's no Google Business integration and minimal local keyword optimization. When someone in Clayton searches "personal trainer near me" or "gym Clayton NC," Woodall's doesn't surface. Two decades of reputation isn't translating to search visibility.</p>
+    <div class="issue-card">
+      <div class="issue-title">No online booking — a contact form is not a signup flow</div>
+      <div class="issue-body">Someone ready to join has to fill out a contact form and wait for a call back. Every hour between that form submission and your response is an hour they might sign up somewhere else. Real-time booking or a direct membership sign-up eliminates that friction completely.</div>
     </div>
-    <div class="issue">
-      <h3>No blog or content — 20 years of expertise invisible online</h3>
-      <p>Woodall's trainers have nearly two decades of nutrition and fitness knowledge that could be building authority and driving organic traffic. There's no blog, no resources section, no newsletter — that expertise is locked inside the gym walls instead of attracting new clients online.</p>
+    <div class="issue-card">
+      <div class="issue-title">Your page title is a tagline, not a search term</div>
+      <div class="issue-body">The browser tab for your homepage reads "Fueling Your Fitness" — which is great branding but tells Google nothing about who you are or where you are. People searching for a gym in Clayton aren't finding woodallsfitness.com because the site isn't optimized for those searches.</div>
     </div>
   </div>
 </section>
 
-<section class="dark">
-  <div class="section-label">The Solution</div>
-  <h2>What White Haus Media builds for you</h2>
-  <div class="solution-grid">
-    <div class="sol-item">
-      <h3>Story-Driven Design</h3>
-      <p>A site that leads with 20 years of community trust — client transformations, trainer credentials, and the Woodall's philosophy front and center.</p>
+<hr class="divider">
+
+<!-- SOLUTION -->
+<section>
+  <div class="section-label">What We Build</div>
+  <h2 class="section-title">A site that works<br>as hard as your clients do</h2>
+  <p class="section-body">We rebuild woodallsfitness.com from scratch — bringing your content on-site, adding real booking capability, and making sure Clayton residents can find you when they search for a gym.</p>
+
+  <div class="deliverables-grid">
+    <div class="deliverable">
+      <svg class="deliverable-icon" viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+        <rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/>
+      </svg>
+      <div class="deliverable-title">Custom Website Design</div>
+      <div class="deliverable-body">Built to match Woodall's brand and community — fast, mobile-first, and built to convert visitors into members.</div>
     </div>
-    <div class="sol-item">
-      <h3>Online Booking</h3>
-      <p>An integrated scheduling or inquiry flow so prospects can take action immediately — no phone tag, no friction.</p>
+    <div class="deliverable">
+      <svg class="deliverable-icon" viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
+      </svg>
+      <div class="deliverable-title">On-Site Blog</div>
+      <div class="deliverable-body">Migrate your Strength Report content onto woodallsfitness.com so every article builds your domain authority, not Constant Contact's.</div>
     </div>
-    <div class="sol-item">
-      <h3>Local SEO + Google Business</h3>
-      <p>Proper integration so Woodall's shows up in Clayton and Johnston County searches — and ranks for terms your future clients are already searching.</p>
+    <div class="deliverable">
+      <svg class="deliverable-icon" viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+        <rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/>
+      </svg>
+      <div class="deliverable-title">Membership Sign-Up Flow</div>
+      <div class="deliverable-body">Replace the contact form with a direct sign-up experience. Prospective members can commit when they're ready — no waiting for a callback.</div>
     </div>
-    <div class="sol-item">
-      <h3>Blog Framework</h3>
-      <p>A simple, easy-to-update blog so your fitness and nutrition expertise can start driving organic traffic and building online authority.</p>
+    <div class="deliverable">
+      <svg class="deliverable-icon" viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+        <circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/>
+      </svg>
+      <div class="deliverable-title">Local SEO Foundation</div>
+      <div class="deliverable-body">Proper page titles, meta descriptions, Google Business integration, and schema markup so Clayton-area searches surface Woodall's first.</div>
+    </div>
+    <div class="deliverable">
+      <svg class="deliverable-icon" viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+      </svg>
+      <div class="deliverable-title">Hosting &amp; SSL</div>
+      <div class="deliverable-body">Secure, fast hosting with SSL included. No more relying on the limitations of a basic website builder.</div>
+    </div>
+    <div class="deliverable">
+      <svg class="deliverable-icon" viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/>
+      </svg>
+      <div class="deliverable-title">Class &amp; Schedule Display</div>
+      <div class="deliverable-body">A clean schedule page that keeps members and prospects informed without requiring constant manual updates.</div>
     </div>
   </div>
 </section>
 
-<section>
+<hr class="divider">
+
+<!-- PRICING -->
+<section id="pricing">
   <div class="section-label">Investment</div>
-  <h2>Your custom website package</h2>
+  <h2 class="section-title">One flat fee.<br>No surprises.</h2>
+
   <div class="pricing-card">
-    <div class="pricing-label">Custom Website</div>
-    <div class="price">$597</div>
-    <div class="price-sub">Final scope confirmed on our discovery call</div>
-    <ul class="price-features">
-      <li>Custom design built around your brand story</li>
-      <li>Mobile-first, fast-loading build</li>
-      <li>Online booking or lead capture integration</li>
-      <li>Local SEO + Google Business setup</li>
-      <li>Blog framework ready to publish</li>
-      <li>30 days post-launch support</li>
-    </ul>
+    <div>
+      <div class="pricing-name">Custom Website Package</div>
+      <div class="pricing-price">$597</div>
+      <div class="pricing-period">one-time project fee</div>
+      <p class="pricing-desc">Everything Woodall's needs to turn woodallsfitness.com into an asset that brings in new members — not just a placeholder while the real work happens elsewhere.</p>
+      <div class="pricing-includes">
+        <div class="pricing-line">Custom design &amp; development</div>
+        <div class="pricing-line">On-site blog with content migration</div>
+        <div class="pricing-line">Membership sign-up flow</div>
+        <div class="pricing-line">Local SEO setup &amp; Google Business integration</div>
+        <div class="pricing-line">Class schedule page</div>
+        <div class="pricing-line">SSL, hosting setup &amp; launch</div>
+        <div class="pricing-line">30 days post-launch support</div>
+      </div>
+    </div>
+    <div style="text-align:right;">
+      <a href="mailto:hello@whitehausmedia.com?subject=Woodall's Fitness Proposal — Accept" class="btn-primary">Accept Proposal</a>
+    </div>
   </div>
 </section>
 
-<section class="dark">
-  <div class="section-label">Why White Haus Media</div>
-  <h2>We know the Triangle</h2>
-  <p class="trust-text">We're a Wake Forest–based agency building websites for small businesses across Clayton, Raleigh, Durham, and the Triangle. We work with gyms, personal trainers, and wellness businesses who have great reputations offline and need a website that builds that same trust online.</p>
-</section>
+<hr class="divider">
 
-<div class="cta-section">
-  <h2>Let's put 20 years of work to work online</h2>
-  <p>A quick, no-obligation conversation about what a new site could do for Woodall's Fitness.</p>
-  <a class="btn" href="mailto:hello@whitehausmedia.com?subject=Website Project — Woodall's Fitness">Let's Talk</a>
-</div>
-
+<!-- FOOTER -->
 <footer>
   <div class="footer-logo">White Haus Media</div>
-  <div class="footer-info">Wake Forest, NC &nbsp;·&nbsp; whitehausmedia.com &nbsp;·&nbsp; hello@whitehausmedia.com</div>
+  <div class="footer-info">Wake Forest, NC · hello@whitehausmedia.com · whitehausmedia.com</div>
 </footer>
 
 </body>
