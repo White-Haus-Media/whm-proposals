@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Website Proposal — Law Offices of John K. Cook, P.A. | White Haus Media</title>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: 'Plus Jakarta Sans', sans-serif; background: #F4EFE6; color: #080808; line-height: 1.6; }
+  a { color: inherit; text-decoration: none; }
+
+  /* NAV */
+  nav { display: flex; justify-content: space-between; align-items: center; padding: 24px 48px; border-bottom: 1px solid rgba(8,8,8,0.1); }
+  .nav-logo { font-size: 15px; font-weight: 700; letter-spacing: 0.12em; color: #C6A44C; text-transform: uppercase; }
+  .nav-email { font-size: 13px; font-weight: 400; color: #080808; opacity: 0.6; }
+
+  /* HERO */
+  .hero { padding: 100px 48px 80px; max-width: 860px; }
+  .hero-label { font-size: 12px; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase; color: #C6A44C; margin-bottom: 24px; }
+  .hero h1 { font-size: clamp(36px, 5vw, 58px); font-weight: 800; line-height: 1.1; margin-bottom: 28px; }
+  .hero h1 span { color: #C6A44C; }
+  .hero-hook { font-size: 20px; font-weight: 400; line-height: 1.6; color: #080808; opacity: 0.75; max-width: 640px; margin-bottom: 16px; }
+  .hero-sub { font-size: 15px; color: #080808; opacity: 0.5; }
+
+  /* DIVIDER */
+  .divider { width: 48px; height: 2px; background: #C6A44C; margin: 0 48px 0; }
+
+  /* SECTIONS */
+  section { padding: 72px 48px; }
+  section.dark { background: #080808; color: #F4EFE6; }
+  .section-label { font-size: 11px; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: #C6A44C; margin-bottom: 16px; }
+  h2 { font-size: clamp(26px, 3.5vw, 38px); font-weight: 700; line-height: 1.2; margin-bottom: 40px; }
+
+  /* PROBLEM */
+  .issues { display: grid; gap: 24px; max-width: 760px; }
+  .issue { border-left: 3px solid #C6A44C; padding-left: 24px; }
+  .issue h3 { font-size: 17px; font-weight: 600; margin-bottom: 8px; }
+  .issue p { font-size: 15px; line-height: 1.6; opacity: 0.75; }
+
+  /* SOLUTION */
+  .solution-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 32px; max-width: 900px; }
+  .sol-item { padding: 28px; border: 1px solid rgba(198,164,76,0.25); border-radius: 4px; }
+  .sol-item h3 { font-size: 16px; font-weight: 600; color: #C6A44C; margin-bottom: 10px; }
+  .sol-item p { font-size: 14px; line-height: 1.6; opacity: 0.75; }
+
+  /* PRICING */
+  .pricing-card { max-width: 480px; border: 1px solid #C6A44C; border-radius: 6px; padding: 48px; margin-top: 16px; }
+  .pricing-label { font-size: 12px; letter-spacing: 0.12em; text-transform: uppercase; color: #C6A44C; margin-bottom: 16px; }
+  .price { font-size: 52px; font-weight: 800; line-height: 1; margin-bottom: 8px; }
+  .price-sub { font-size: 14px; opacity: 0.55; margin-bottom: 28px; }
+  .price-features { list-style: none; display: grid; gap: 10px; }
+  .price-features li { font-size: 14px; display: flex; align-items: center; gap: 10px; }
+  .price-features li::before { content: ''; width: 6px; height: 6px; background: #C6A44C; border-radius: 50%; flex-shrink: 0; }
+
+  /* TRUST */
+  .trust-text { font-size: 17px; max-width: 600px; line-height: 1.7; opacity: 0.75; }
+
+  /* CTA */
+  .cta-section { padding: 80px 48px; text-align: center; }
+  .cta-section h2 { margin-bottom: 16px; }
+  .cta-section p { font-size: 16px; opacity: 0.6; margin-bottom: 40px; }
+  .btn { display: inline-block; background: #C6A44C; color: #080808; font-family: 'Plus Jakarta Sans', sans-serif; font-size: 15px; font-weight: 700; letter-spacing: 0.06em; padding: 18px 44px; border-radius: 3px; text-transform: uppercase; transition: opacity 0.2s; }
+  .btn:hover { opacity: 0.85; }
+
+  /* FOOTER */
+  footer { background: #080808; color: #F4EFE6; padding: 32px 48px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; }
+  footer .footer-logo { font-size: 13px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: #C6A44C; }
+  footer .footer-info { font-size: 12px; opacity: 0.4; }
+
+  @media (max-width: 640px) {
+    nav, section, .hero, .cta-section { padding-left: 24px; padding-right: 24px; }
+    .divider { margin-left: 24px; }
+    footer { padding: 28px 24px; }
+    .pricing-card { padding: 32px 24px; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-logo">White Haus Media</div>
+  <div class="nav-email">hello@whitehausmedia.com</div>
+</nav>
+
+<div class="hero">
+  <div class="hero-label">Website Proposal</div>
+  <h1>Law Offices of<br><span>John K. Cook, P.A.</span></h1>
+  <p class="hero-hook">Your website is telling potential clients you closed in 2003 — and in Wake Forest's growing market, that's costing you cases.</p>
+  <p class="hero-sub">White Haus Media builds custom websites for Triangle-area businesses ready to compete online.</p>
+</div>
+
+<div class="divider"></div>
+
+<section>
+  <div class="section-label">The Problem</div>
+  <h2>What's working against you on lawofjkc.com</h2>
+  <div class="issues">
+    <div class="issue">
+      <h3>An early-2000s design on a Thryv template</h3>
+      <p>Your current site was built on a managed Thryv template and hasn't been updated in years. The design signals outdated — to prospects comparing you against modern competitors in Wake Forest, that hesitation is real.</p>
+    </div>
+    <div class="issue">
+      <h3>No mobile optimization</h3>
+      <p>Over 60% of local searches happen on phones. lawofjkc.com doesn't render well on mobile — text is too small, navigation is difficult, and CTAs are buried. You're losing prospects the moment they land.</p>
+    </div>
+    <div class="issue">
+      <h3>No Google Business link and near-zero SEO</h3>
+      <p>There's no blog, no local SEO signals, and no connection to your Google Business Profile. When someone searches "estate planning attorney Wake Forest," you're invisible — even after 35+ years in practice.</p>
+    </div>
+  </div>
+</section>
+
+<section class="dark">
+  <div class="section-label">The Solution</div>
+  <h2>What White Haus Media builds for you</h2>
+  <div class="solution-grid">
+    <div class="sol-item">
+      <h3>Custom Design</h3>
+      <p>A site built from scratch to reflect 35+ years of trusted legal practice — not a template anyone else is using.</p>
+    </div>
+    <div class="sol-item">
+      <h3>Mobile-First Build</h3>
+      <p>Looks and works perfectly on every phone, tablet, and desktop. Fast-loading from the first visit.</p>
+    </div>
+    <div class="sol-item">
+      <h3>Local SEO Foundation</h3>
+      <p>Google Business integration, proper meta structure, and Wake Forest–specific content that helps you rank when it matters.</p>
+    </div>
+    <div class="sol-item">
+      <h3>Clear Lead Capture</h3>
+      <p>Phone number above the fold, contact form on every page, and a CTA that converts visitors into consultations.</p>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="section-label">Investment</div>
+  <h2>Your custom website package</h2>
+  <div class="pricing-card">
+    <div class="pricing-label">Custom Website</div>
+    <div class="price">$797</div>
+    <div class="price-sub">Final scope confirmed on our discovery call</div>
+    <ul class="price-features">
+      <li>Custom design — no templates</li>
+      <li>Mobile-first, fast-loading build</li>
+      <li>Local SEO setup (Google Business, meta, schema)</li>
+      <li>Contact form + call-to-action optimization</li>
+      <li>30 days of post-launch support</li>
+    </ul>
+  </div>
+</section>
+
+<section class="dark">
+  <div class="section-label">Why White Haus Media</div>
+  <h2>We know the Triangle</h2>
+  <p class="trust-text">We're a Wake Forest–based agency building websites exclusively for small businesses across Raleigh, Durham, Cary, Apex, Holly Springs, and the surrounding Triangle communities. We work with attorneys, healthcare providers, and professional services firms who are serious about their online presence.</p>
+</section>
+
+<div class="cta-section">
+  <h2>Ready to talk?</h2>
+  <p>No pressure, no pitch deck — just a straightforward conversation about your practice and what a new site could do.</p>
+  <a class="btn" href="mailto:hello@whitehausmedia.com?subject=Website Project — Law Offices of John K. Cook, P.A.">Let's Talk</a>
+</div>
+
+<footer>
+  <div class="footer-logo">White Haus Media</div>
+  <div class="footer-info">Wake Forest, NC &nbsp;·&nbsp; whitehausmedia.com &nbsp;·&nbsp; hello@whitehausmedia.com</div>
+</footer>
+
+</body>
+</html>
