@@ -1,0 +1,25 @@
+name: Proposal Sequence Runner
+
+on:
+  schedule:
+    # Runs daily at 12:00 PM ET (16:00 UTC)
+    - cron: '0 16 * * *'
+  workflow_dispatch:  # allow manual trigger from GitHub UI
+
+jobs:
+  run-sequence:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Run proposal sequence runner
+        env:
+          WHM_SUPABASE_KEY: ${{ secrets.WHM_SUPABASE_KEY }}
+          WHM_RESEND_KEY: ${{ secrets.WHM_RESEND_KEY }}
+        run: python automation/proposal_sequence_runner.py
