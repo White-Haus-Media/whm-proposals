@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Fiesta Time Bar &amp; Grill — Authentic Mexican in Fuquay-Varina</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,600;0,700;1,500;1,600&family=Lato:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{--ink:#1c1108;--warm:#f4ede0;--cream:#faf5ea;--accent:#b23a2a;--accent2:#d96e3f;--gold:#d4a843;--text:#3b2a1c;--muted:#7a6a5a;}
+*{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{font-family:'Lato',sans-serif;background:var(--cream);color:var(--text);line-height:1.7;}
+.banner{position:sticky;top:0;z-index:200;background:#102A43;color:#CEC195;padding:10px 20px;text-align:center;font-size:13px;}
+.banner a{color:#CEC195;font-weight:500;text-decoration:underline;margin-left:10px;}
+nav{background:var(--ink);padding:22px 40px;display:flex;justify-content:space-between;align-items:center;}
+.logo{color:var(--warm);font-family:'Fraunces',serif;font-weight:600;font-style:italic;font-size:24px;letter-spacing:-0.01em;}
+.logo .accent{color:var(--gold);}
+nav ul{display:flex;gap:38px;list-style:none;}
+nav ul a{color:var(--warm);text-decoration:none;font-size:14px;font-weight:500;letter-spacing:0.02em;transition:color .2s;}
+nav ul a:hover{color:var(--gold);}
+.nav-cta{background:var(--accent);color:var(--warm);padding:12px 26px;border-radius:999px;text-decoration:none;font-weight:700;font-size:13px;letter-spacing:0.04em;text-transform:uppercase;transition:background .2s;}
+.nav-cta:hover{background:var(--accent2);}
+.hero{position:relative;min-height:640px;background:linear-gradient(135deg,#1c1108 0%,#3d2416 55%,#6b3a1f 100%);color:var(--warm);padding:120px 40px;text-align:center;overflow:hidden;}
+.hero::before{content:"";position:absolute;inset:0;background:radial-gradient(circle at 30% 40%,rgba(212,168,67,.14) 0%,transparent 50%),radial-gradient(circle at 70% 70%,rgba(217,110,63,.12) 0%,transparent 50%);}
+.hero-inner{position:relative;max-width:900px;margin:0 auto;}
+.eyebrow{font-size:12px;font-weight:700;letter-spacing:0.25em;text-transform:uppercase;color:var(--gold);margin-bottom:32px;display:inline-block;}
+h1{font-family:'Fraunces',serif;font-style:italic;font-size:clamp(44px,6.5vw,80px);font-weight:600;line-height:1;letter-spacing:-0.02em;margin-bottom:28px;color:var(--warm);}
+h1 span{color:var(--gold);display:block;font-size:0.7em;font-style:normal;font-weight:500;letter-spacing:0.02em;margin-top:8px;}
+.hero p{font-size:19px;color:rgba(244,237,224,.85);max-width:640px;margin:0 auto 40px;}
+.btns{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;}
+.btn{padding:16px 34px;border-radius:999px;text-decoration:none;font-weight:700;font-size:14px;letter-spacing:0.04em;text-transform:uppercase;transition:all .2s;display:inline-block;}
+.btn-primary{background:var(--accent);color:var(--warm);}
+.btn-primary:hover{background:var(--accent2);transform:translateY(-2px);}
+.btn-ghost{background:transparent;color:var(--warm);border:1px solid rgba(244,237,224,.4);}
+.btn-ghost:hover{background:var(--warm);color:var(--ink);}
+.stats{background:var(--warm);padding:56px 40px;}
+.stats-grid{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:32px;text-align:center;}
+.stat-num{font-family:'Fraunces',serif;font-weight:600;font-size:44px;color:var(--accent);margin-bottom:4px;}
+.stat-label{font-size:12px;letter-spacing:0.15em;text-transform:uppercase;color:var(--muted);font-weight:700;}
+.menu{padding:120px 40px;max-width:1200px;margin:0 auto;}
+.menu-head{text-align:center;max-width:680px;margin:0 auto 72px;}
+h2{font-family:'Fraunces',serif;font-style:italic;font-size:clamp(36px,5vw,56px);font-weight:600;color:var(--ink);line-height:1.1;letter-spacing:-0.015em;margin-bottom:20px;}
+.menu-head p{color:var(--muted);font-size:17px;}
+.menu-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:32px;}
+.dish{background:var(--warm);padding:40px 36px;border-radius:8px;transition:all .4s;opacity:0;transform:translateY(30px);border:1px solid rgba(212,168,67,.25);}
+.dish.revealed{opacity:1;transform:translateY(0);}
+.dish:hover{transform:translateY(-6px);box-shadow:0 20px 40px rgba(28,17,8,.12);}
+.dish-icon{width:56px;height:56px;border-radius:50%;background:var(--accent);color:var(--gold);display:flex;align-items:center;justify-content:center;margin-bottom:24px;}
+.dish h3{font-family:'Fraunces',serif;font-style:italic;font-weight:600;font-size:26px;color:var(--ink);margin-bottom:10px;}
+.dish p{font-size:15px;color:var(--muted);margin-bottom:14px;}
+.dish .price{font-family:'Fraunces',serif;font-weight:600;font-style:italic;color:var(--accent);font-size:18px;}
+.quote{background:var(--ink);color:var(--warm);padding:140px 40px;text-align:center;position:relative;}
+.quote::before{content:"\201C";position:absolute;top:40px;left:50%;transform:translateX(-50%);font-family:'Fraunces',serif;font-size:180px;color:var(--gold);opacity:.25;line-height:1;}
+.quote-inner{max-width:820px;margin:0 auto;position:relative;}
+.quote blockquote{font-family:'Fraunces',serif;font-weight:500;font-style:italic;font-size:clamp(24px,3vw,34px);line-height:1.4;margin-bottom:36px;color:var(--warm);}
+.quote cite{font-style:normal;font-size:13px;color:rgba(244,237,224,.65);letter-spacing:0.15em;text-transform:uppercase;}
+.quote cite strong{color:var(--gold);font-weight:700;display:block;margin-bottom:6px;letter-spacing:0.04em;text-transform:none;font-size:15px;font-family:'Lato';}
+.cta{padding:120px 40px;text-align:center;background:var(--warm);}
+.cta h2{margin-bottom:16px;}
+.cta p{color:var(--muted);font-size:17px;max-width:540px;margin:0 auto 32px;}
+.cta .btn-primary{background:var(--accent);}
+footer{background:var(--ink);color:rgba(244,237,224,.55);padding:60px 40px 30px;}
+.footer-grid{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:2fr 1fr 1fr;gap:48px;margin-bottom:40px;}
+footer .logo{margin-bottom:14px;}
+footer h4{color:var(--gold);font-size:13px;letter-spacing:0.12em;text-transform:uppercase;margin-bottom:14px;font-weight:700;}
+footer ul{list-style:none;}
+footer ul li{margin-bottom:8px;font-size:14px;}
+.footer-bottom{border-top:1px solid rgba(244,237,224,.1);padding-top:24px;text-align:center;font-size:12px;letter-spacing:0.05em;}
+@media(max-width:900px){nav ul{display:none;}.footer-grid{grid-template-columns:1fr;gap:32px;}.hero{padding:80px 24px;}}
+</style>
+</head>
+<body>
+<div class="banner">Sample website designed by White Haus Media for Fiesta Time Bar &amp; Grill <a href="index.html">View Proposal →</a></div>
+
+<nav>
+  <div class="logo">Fiesta <span class="accent">Time</span></div>
+  <ul>
+    <li><a href="#">Menu</a></li>
+    <li><a href="#">Catering</a></li>
+    <li><a href="#">Reservations</a></li>
+    <li><a href="#">About</a></li>
+  </ul>
+  <a href="#" class="nav-cta">Order Online</a>
+</nav>
+
+<section class="hero">
+  <div class="hero-inner">
+    <span class="eyebrow">Fuquay-Varina · Authentic Mexican</span>
+    <h1>Hand-pressed tortillas,<br>slow-cooked barbacoa, <span>— and the kind of margaritas that start a night.</span></h1>
+    <p>Family-run. Scratch kitchen. A menu built on the recipes that came with us, and a room built to share them.</p>
+    <div class="btns">
+      <a href="#" class="btn btn-primary">Order Takeout →</a>
+      <a href="#" class="btn btn-ghost">Reserve a Table</a>
+    </div>
+  </div>
+</section>
+
+<section class="stats">
+  <div class="stats-grid">
+    <div><div class="stat-num">4.7★</div><div class="stat-label">Google Rating</div></div>
+    <div><div class="stat-num">500+</div><div class="stat-label">Five-Star Reviews</div></div>
+    <div><div class="stat-num">Made</div><div class="stat-label">Fresh Daily</div></div>
+    <div><div class="stat-num">Catering</div><div class="stat-label">Available</div></div>
+  </div>
+</section>
+
+<section class="menu">
+  <div class="menu-head">
+    <span class="eyebrow" style="color:var(--accent);">Selected menu</span>
+    <h2>What's coming out of the kitchen.</h2>
+    <p>A short taste of the menu. The full list — from street tacos to mole — runs long on purpose.</p>
+  </div>
+  <div class="menu-grid">
+    <div class="dish">
+      <div class="dish-icon"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#d4a843" stroke-width="1.6"><path d="M3 12c0-5 4-9 9-9s9 4 9 9-4 9-9 9-9-4-9-9z"/><path d="M6 12h12M9 8l3 8 3-8"/></svg></div>
+      <h3>Tacos al Pastor</h3>
+      <p>Marinated pork on the spit, pineapple, white onion, cilantro, hand-pressed corn tortilla. Three per plate.</p>
+      <div class="price">$13.50</div>
+    </div>
+    <div class="dish">
+      <div class="dish-icon"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#d4a843" stroke-width="1.6"><path d="M4 8a8 8 0 0116 0v4a8 8 0 01-16 0V8z"/><path d="M8 12h8"/></svg></div>
+      <h3>Barbacoa Plate</h3>
+      <p>Slow-cooked beef barbacoa, black beans, rice, escabeche, fresh tortillas. House special.</p>
+      <div class="price">$16.00</div>
+    </div>
+    <div class="dish">
+      <div class="dish-icon"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#d4a843" stroke-width="1.6"><circle cx="12" cy="12" r="9"/><path d="M12 3v18M3 12h18"/></svg></div>
+      <h3>Enchiladas Verdes</h3>
+      <p>Three corn tortillas, shredded chicken, salsa verde, queso fresco, crema. Comfort food, done right.</p>
+      <div class="price">$14.50</div>
+    </div>
+    <div class="dish">
+      <div class="dish-icon"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#d4a843" stroke-width="1.6"><path d="M6 8l6-4 6 4v8l-6 4-6-4V8z"/><path d="M6 8l6 4 6-4M12 12v8"/></svg></div>
+      <h3>Chile Relleno</h3>
+      <p>Roasted poblano stuffed with queso Oaxaca, battered and fried, house red sauce, rice and beans.</p>
+      <div class="price">$15.00</div>
+    </div>
+    <div class="dish">
+      <div class="dish-icon"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#d4a843" stroke-width="1.6"><path d="M8 2v8M16 2v8M6 10h12l-1 10H7L6 10z"/></svg></div>
+      <h3>Classic Margarita</h3>
+      <p>Blanco tequila, fresh lime, Cointreau, house agave. On the rocks with salt. The original.</p>
+      <div class="price">$9.00</div>
+    </div>
+    <div class="dish">
+      <div class="dish-icon"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#d4a843" stroke-width="1.6"><circle cx="12" cy="12" r="9"/><path d="M8 10c2 2 6 2 8 0M8 14c2 2 6 2 8 0"/></svg></div>
+      <h3>Catering Trays</h3>
+      <p>Serving 10 to 100. Taco bars, fajita spreads, enchilada pans. Pickup or delivery across the Triangle.</p>
+      <div class="price">From $145</div>
+    </div>
+  </div>
+</section>
+
+<section class="quote">
+  <div class="quote-inner">
+    <blockquote>The food tastes like someone's grandmother is still making it — because the kitchen matters to the family who runs it. This is the kind of place you bring everyone you care about.</blockquote>
+    <cite><strong>Sarah M.</strong>Regular · Fuquay-Varina</cite>
+  </div>
+</section>
+
+<section class="cta">
+  <span class="eyebrow" style="color:var(--accent);">Come in</span>
+  <h2>Reservations welcome. Walk-ins always.</h2>
+  <p>Open Tuesday through Sunday. Weekend reservations recommended. Catering inquiries answered within one business day.</p>
+  <div class="btns" style="justify-content:center;">
+    <a href="#" class="btn btn-primary">Reserve a Table →</a>
+    <a href="#" class="btn btn-ghost" style="color:var(--ink);border-color:rgba(28,17,8,.25);">Catering Inquiry</a>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-grid">
+    <div>
+      <div class="logo">Fiesta <span class="accent">Time</span></div>
+      <p style="margin-bottom:12px;">Authentic Mexican kitchen in Fuquay-Varina. Family-owned, scratch-made, since 2023.</p>
+      <p>Fuquay-Varina, NC · (919) 285-3393</p>
+    </div>
+    <div>
+      <h4>Eat</h4>
+      <ul><li>Full Menu</li><li>Drinks</li><li>Specials</li><li>Catering</li></ul>
+    </div>
+    <div>
+      <h4>Hours</h4>
+      <ul><li>Tue–Thu 11–9</li><li>Fri–Sat 11–10</li><li>Sun 11–8</li><li>Closed Mon</li></ul>
+    </div>
+  </div>
+  <div class="footer-bottom">Sample site by White Haus Media · © 2026</div>
+</footer>
+
+<script>
+const io=new IntersectionObserver((entries)=>{entries.forEach((e,i)=>{if(e.isIntersecting){setTimeout(()=>e.target.classList.add('revealed'),i*85);io.unobserve(e.target);}});},{threshold:0.12});
+document.querySelectorAll('.dish').forEach(el=>io.observe(el));
+</script>
+</body>
+</html>
