@@ -1,6 +1,10 @@
 # WHM Proposals — Project Instructions
 
-This repo houses White Haus Media's client proposal system. Static HTML proposals deployed on Vercel at whm-proposals.vercel.app. Every proposal is generated from a master template — never built from scratch.
+This repo houses White Haus Media's client proposal system. Static HTML proposals deployed on Vercel. Every proposal is generated from a master template — never built from scratch.
+
+## REPO
+
+GitHub: `White-Haus-Media/whm-proposals` (case-sensitive). The legacy lowercase `whitehausmedia/whm-proposals` redirects on reads but throws 307 on API writes — always use the canonical name.
 
 ## STRUCTURE
 ```
@@ -9,69 +13,80 @@ _template/
   generate.js              ← Manual batch script for specific verticals (e.g. daycare)
 proposals/
   company-slug/
-    index.html             ← Generated proposal, filled from master template
-    preview.html           ← Site concept built for each proposal (required)
+    index.html             ← Generated proposal, filled from master template (only file)
 ```
 
-## PROPOSAL URL FORMAT
-`https://whitehausmedia.com/proposals/[company-slug]/index.html`
+## DEPLOYMENT URLS
+
+Vercel project: `whm-proposals` → deploys to `whm-proposals.vercel.app`
+Custom domain: `proposals.whitehausmedia.com`
+
+Working URLs after auto-deploy:
+- `https://whm-proposals.vercel.app/proposals/[slug]/`
+- `https://proposals.whitehausmedia.com/proposals/[slug]/`
+
+The legacy pattern `https://whitehausmedia.com/proposals/[slug]/` requires a rewrite rule on the apex domain that is not currently in place. Always send prospects the `proposals.whitehausmedia.com` URL or the `whm-proposals.vercel.app` URL until the apex rewrite is confirmed.
+
+When writing the `url` field on the Supabase `proposals` record, use `https://proposals.whitehausmedia.com/proposals/[slug]/` as the canonical.
 
 Slug rules: lowercase, hyphens only, match company name closely.
 Example: "Aversboro Road Child Care Center" → `aversboro-road-child-care-center`
 
-## FILE ARCHITECTURE
-Every proposal ships two files:
-- `proposals/[slug]/index.html` — the proposal itself (from master template)
-- `proposals/[slug]/preview.html` — a fully built site concept for the client
+## FILE ARCHITECTURE — ONE FILE ONLY
 
-The preview.html is a real single-page HTML site showing what we'd build — not a mockup image or placeholder. It loads inside the proposal iframe. Build it with the client's actual brand palette, services, testimonials, and content. It should feel like a working site, not a wireframe.
-## LOGO FETCHING — PREVIEW SITES
+Every proposal ships exactly one file: `proposals/[slug]/index.html`. No `preview.html`. No mockup file. No assets folder per client.
 
-Every preview.html must use the client's actual logo, not a placeholder icon.
+The current master template contains an iframe that references `preview.html`, but the iframe gracefully falls back to a "Preview loading after deployment" message when no preview file is present. This is intentional — the one-file architecture is the canonical pattern.
 
-**Workflow:**
+If a future strategy requires a separate preview page, that decision needs an explicit update to this doc and the template before being implemented.
+
+## LOGO FETCHING
+
+When a proposal needs the client's actual logo (for any embedded brand reference, not for a preview file):
 1. While scraping the prospect's site, find the logo `<img>` src (usually in `<header>` or `<nav>`)
 2. Fetch the image via curl: `curl -s -L -A "Mozilla/5.0" [logo-url] -o /tmp/logo.png`
 3. Resize to 2x retina nav height (typically 585px wide max) using Pillow
-4. Base64-encode and embed as a data URI: `<img src="data:image/png;base64,..." style="height:48px;width:auto;">`
-5. **Never hotlink** — the preview must not depend on the client's server
+4. Base64-encode and embed as a data URI: `<img src="data:image/png;base64,...">`
+5. Never hotlink — the proposal must not depend on the client's server
 
-**Filter guidance:**
-- RGBA logos from dark-background sites → use as-is (colors already designed for dark BG)
-- Light/colored logo on white background → apply `filter:brightness(0) invert(1)` for dark nav
-- If uncertain → embed both versions and use the one that reads better on the preview nav color
-
-**If no logo is found:**
+If no logo is found:
 - Check `/images/`, `/assets/`, `/img/`, `/wp-content/uploads/` common paths
 - Fall back to styled text with the company name in the nav brand font
-- Never use a generic SVG cabin/house icon as a logo substitute
+- Never use a generic SVG icon as a logo substitute
 
+## MASTER TEMPLATE PLACEHOLDERS
 
+Always fetch the template at `_template/proposal-template.html` via the GitHub API and fill placeholders. Never generate proposal HTML from scratch.
 
-## MASTER TEMPLATE SYSTEM
-The template at `_template/proposal-template.html` uses `{{PLACEHOLDER}}` variables. **Always fetch this file via GitHub API and fill placeholders — never generate proposal HTML from scratch.**
+The current template uses these placeholders (verified by grep):
 
-### Key Placeholders
 | Placeholder | What it is |
 |---|---|
 | `{{COMPANY_NAME}}` | Client company name |
-| `{{CONTACT_NAME}}` | Primary contact first name |
-| `{{INDUSTRY}}` | Industry label |
-| `{{AUDIENCE}}` | Industry-specific audience term (see below) |
-| `{{CITY}}` | City |
-| `{{HEADLINE}}` | Hero headline |
-| `{{SUBHEAD}}` | Hero subheadline |
-| `{{OPP_INTRO}}` | Opportunity section intro paragraph |
+| `{{SLUG}}` | URL slug (lowercase-hyphenated) |
+| `{{DATE}}` | Proposal date (e.g. "April 24, 2026") |
+| `{{PREPARED_FOR}}` | Full string in hero meta (e.g. "Jenn Bernat, Local Charm") |
+| `{{AUDIENCE}}` | Industry-specific audience term (see table below) |
+| `{{HERO_HEADLINE}}` | Big hero h1 |
+| `{{HERO_BODY}}` | Hero subheadline / supporting copy |
+| `{{LETTER_GREETING}}` | Letter opener (e.g. "Hi Jenn,") |
+| `{{LETTER_P1}}` | Letter paragraph 1 — acknowledge what they've built |
+| `{{LETTER_P2}}` | Letter paragraph 2 — name the opportunity |
+| `{{LETTER_P3}}` | Letter paragraph 3 — frame the path forward and close |
+| `{{OPP_HEADLINE}}` | Opportunity section h2 |
+| `{{OPP_SUB}}` | Opportunity section subhead |
 | `{{OPP_1_TITLE}}` through `{{OPP_4_TITLE}}` | Opportunity card titles |
 | `{{OPP_1_BODY}}` through `{{OPP_4_BODY}}` | Opportunity card body copy |
-| `{{DEL_1}}` through `{{DEL_8}}` | Deliverable names (solution section + pricing list) |
-| `{{DEL_1_DESC}}` through `{{DEL_8_DESC}}` | Deliverable descriptions |
-| `{{PREVIEW_URL}}` | URL used in the preview iframe |
-| `{{BUILD_FEE}}` | One-time build price (e.g. "1,997") |
-| `{{CARE_PLAN}}` | Care plan name (e.g. "Growth Plan") |
-| `{{CARE_MONTHLY}}` | Monthly care plan price (e.g. "197") |
-| `{{BOOKING_URL}}` | Calendly or booking link (defaults to #contact if none) |
-| `{{LETTER_BODY}}` | Personalized letter body copy |
+| `{{DEL_1}}` through `{{DEL_8}}` | Deliverable items — short single-line phrases (used in both deliverables grid and pricing list) |
+| `{{PREVIEW_DOMAIN}}` | URL string shown in the fake browser bar above the preview iframe |
+| `{{PRICE}}` | Build fee number only, no `$` (e.g. "797") |
+| `{{BOOKING_URL}}` | Calendly link, defaults to `https://calendly.com/whitehausmedia` |
+
+Notes:
+- There are NO separate `{{DEL_X_DESC}}` fields. Deliverables are single-line phrases only.
+- There is NO `{{CARE_PLAN}}` or `{{CARE_MONTHLY}}` placeholder in the current template. Pricing is a single `{{PRICE}}` field. If a care plan needs to appear in the proposal, the template needs to be extended first.
+- There are NO standalone `{{CITY}}`, `{{INDUSTRY}}`, or `{{CONTACT_NAME}}` placeholders. Bake those into other fields (e.g. `{{PREPARED_FOR}}`, `{{LETTER_P1}}`) as needed.
+- The `{{LETTER_BODY}}` placeholder referenced in older docs has been split into `{{LETTER_P1}}`, `{{LETTER_P2}}`, `{{LETTER_P3}}`.
 
 ### {{AUDIENCE}} by Industry
 | Industry | Audience Term |
@@ -84,16 +99,61 @@ The template at `_template/proposal-template.html` uses `{{PLACEHOLDER}}` variab
 | legal / law | clients |
 | fitness / gym | members |
 | real estate | buyers and sellers |
-| retail | customers |
+| retail / boutique | shoppers |
 | nonprofit | supporters |
 | education | students and families |
 | default | clients |
+
+## SUPABASE SCHEMA REFERENCE
+
+The Haus runs on Supabase. Foreign-key chain when generating a proposal:
+**companies → contacts** (separate, optional for proposal flow)
+**companies → prospects → deals → proposals**
+
+Insert in this order: companies, contacts, prospects, deals, proposals.
+
+### `companies` table
+Required: `name`. Optional: `domain`, `website`, `phone`, `city`, `state`, `zip`, `industry`, `google_rating`, `google_reviews`, `incumbent_vendor`, `incumbent_tech`, `notes`, `whm_notes`, `hubspot_id`.
+
+`industry` is a strict enum. Allowed values: `Dental`, `Legal`, `Other`, `Real Estate`, `Restaurant`. Anything else is rejected with `22P02 invalid input value for enum industry_type`. For boutique, retail, medspa, fitness, etc., use `Other` and note the real industry in `whm_notes` until the enum is expanded.
+
+### `contacts` table
+Fields: `company_id` (FK), `first_name`, `last_name`, `email`, `phone`, `job_title`, `is_primary`, `referral_source`, `referral_type`, `referral_payout`, `hubspot_id`.
+
+### `prospects` table
+Fields: `company_id` (FK), `opp_score`, `score_label`, `tier`, `status`, `site_score`, `mobile_score`, `seo_score`, `design_score`, `content_score`, `digital_gaps`, `strengths`, `originated_by`, `assigned_to`, `notes`.
+
+Strict enums:
+- `tier`: `Starter`, `Growth`, `Premium`
+- `status`: `New`, `In Pipeline`, `Outreached` (no `Proposal Generated` value exists — use `In Pipeline` after pushing the proposal)
+- `score_label`: `Cold`, `Warm`, `Hot`
+
+`digital_gaps` and `strengths` are stored as comma-separated strings, not arrays.
+
+### `deals` table
+Fields: `company_id` (FK), `prospect_id` (FK), `deal_name`, `stage`, `build_fee` (numeric), `care_plan`, `care_plan_monthly` (numeric), `proposal_url`, `est_revenue`, `payment_split`, `close_date`, `owner`, `notes`.
+
+Strict enums:
+- `stage`: `Ready for Review` (others may exist but this is the verified working value for newly generated proposals — no `Proposal Sent` value)
+- `care_plan`: `None` (others may exist for active care plans, but `None` is the verified default when no plan is locked in)
+
+### `proposals` table
+Fields: `company_id` (FK), `deal_id` (FK), `title`, `status`, `url`, `version`, `sent_date`, `notes`.
+
+`status` for newly created proposals: `Draft`. Set `sent_date` only when actually sent.
+
+`build_fee` and care plan info live on the `deals` table, not on the proposals table. Reference them in the proposals `notes` field for human readability.
 
 ## PROPOSAL COPY TONE — NON-NEGOTIABLE
 
 **The cardinal rule: We are a partner excited about the client's potential, never a critic who found their flaws.**
 
 Every word of copy should pass this test: *would a prospect feel seen and understood, or would they feel judged?*
+
+Additional Rico-voice rules:
+- No em dashes anywhere in client-facing copy. Use periods, commas, or restructure the sentence.
+- Direct, fast-moving, psychologically aware. No filler.
+- Native vocabulary: "Find/Win/Keep," "speed-to-lead," "anchor pricing," "economic value transfer."
 
 ### What to NEVER write
 - "Your site is outdated / dated / old"
@@ -109,7 +169,7 @@ Always lead with what's *possible*, not what's *broken*. Translate every weaknes
 
 | Instead of... | Write... |
 |---|---|
-| "No lead capture form" | "Capturing homeowner inquiries around the clock" |
+| "No lead capture form" | "Capturing inquiries around the clock" |
 | "Outdated design" | "A first impression worth the craft behind it" |
 | "Bad SEO" | "A modern foundation built to get found" |
 | "Reviews buried" | "Turning your reviews into your best sales tool" |
@@ -122,7 +182,7 @@ Always lead with what's *possible*, not what's *broken*. Translate every weaknes
 - Never include phrases like "hasn't kept pace," "makes it harder," or "working against you"
 
 ### Opportunity section
-- Section headline: aspiration-forward ("Four opportunities worth capturing" not "Four things you're leaving on the table")
+- Section headline: aspiration-forward
 - Section sub: acknowledge their strength first, then name the opportunity
 - OPP card titles: always aspirational, never accusatory
 - OPP card body: explain the benefit of fixing something, not how broken it currently is
@@ -146,54 +206,12 @@ Edit `DAYCARE_DEFAULTS` and the company array at the top of the file to match th
 
 ## AUTO-GENERATOR (Scheduled Task)
 The `auto-proposal-generator` Cowork task runs 3x/day and handles proposals automatically for prospects with opp_score ≥ 60. It:
-1. Fetches the master template via GitHub API
-2. Fills placeholders using prospect/company data
-3. Pushes `proposals/[slug]/index.html` to this repo
-4. Builds and pushes `proposals/[slug]/preview.html` as a real site concept
-5. Creates a Supabase proposal record
-6. Updates prospect status to 'Proposal Generated'
-7. Auto-sends if build_fee < $800, otherwise queues 'Ready for Review' in The Haus
-
-
-## PREVIEW SITE — MOBILE REQUIREMENTS
-
-Every preview.html must be fully mobile-responsive before pushing. These are non-negotiable:
-
-**Viewport**
-- Always include `<meta name="viewport" content="width=device-width, initial-scale=1.0">`
-- Add `img{max-width:100%;height:auto}` as a global reset
-
-**Breakpoints — minimum two**
-- `@media(max-width:960px)` — collapse all multi-column grids to 1-col, reduce section padding to `64px 20px`, reduce nav padding to `12px 20px`
-- `@media(max-width:600px)` — further reductions, hide desktop nav links, show mobile CTA
-
-**Nav on mobile**
-- Desktop nav links (`<ul class="nav-links">`) must be `display:none` at 600px
-- A standalone mobile CTA button must be visible in the nav at 600px — never leave the nav empty on mobile
-- Pattern: `<a class="nav-mobile-cta" href="#contact">Free Quote</a>` shown via CSS at ≤600px
-
-**Touch interactions**
-- Never rely on `:hover` alone for interactive elements — always pair with a `.tapped` class toggled via JS click listener
-- Before/after gallery: tap toggles the reveal state; include `touchstart` passive listener to prevent delay
-- Pattern:
-  ```js
-  el.addEventListener('click', () => el.classList.toggle('tapped'));
-  el.addEventListener('touchstart', () => {}, {passive: true});
-  ```
-
-**Typography**
-- Use `clamp()` for all display headings: `font-size:clamp(1.8rem, 4vw, 3rem)`
-- Body text should never be below `.82rem` on any screen size
-
-**Spacing**
-- Section padding desktop: `88px 40px`
-- Section padding tablet (960px): `64px 20px`  
-- Section padding mobile (600px): `56px 16px`
-- Never use fixed `px` horizontal padding without a mobile override
-
-**Logo sizing**
-- Logo in nav: `height:44px;width:auto` — scales naturally, no fixed width
-- Always use the standalone logo file, not a banner composite (check image dimensions — anything wider than ~600px at source is likely a banner, not a logo)
+1. Fetches the master template via GitHub API from `White-Haus-Media/whm-proposals`
+2. Fills placeholders using prospect/company data (per the placeholder table above)
+3. Pushes `proposals/[slug]/index.html` to this repo (one file only)
+4. Inserts records in order: companies (if new) → contacts → prospects → deals → proposals
+5. Updates prospect status to `In Pipeline` (the `Proposal Generated` value referenced in older docs does not exist in the enum)
+6. Auto-sends if build_fee < $800, otherwise sets deal stage to `Ready for Review` in The Haus
 
 ## DESIGN REFERENCE
 - Background: #080808 (near-black)
