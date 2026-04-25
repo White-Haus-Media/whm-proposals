@@ -1,0 +1,562 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Marble & Mint | Premium THCA Delivery — Wake Forest & Rolesville, NC</title>
+  <meta name="description" content="Marble & Mint delivers premium THCA flower and pre-rolls to your door in Wake Forest and Rolesville, NC. Same-day delivery, order by 4:20pm." />
+  <meta name="keywords" content="THCA delivery Wake Forest NC, THCA delivery Rolesville NC, hemp delivery Wake Forest, THCA flower near me, Triangle THCA delivery" />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://www.marbleandmint.com/" />
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"LocalBusiness","name":"Marble & Mint","description":"Premium THCA delivery in Wake Forest and Rolesville, NC.","url":"https://www.marbleandmint.com","areaServed":[{"@type":"City","name":"Wake Forest","addressRegion":"NC"},{"@type":"City","name":"Rolesville","addressRegion":"NC"}],"openingHours":"Th-Su 12:00-22:00","priceRange":"$$"}</script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --mint:      #A8D5BA;
+      --mint-deep: #6FA884;
+      --marble:    #8B8178;
+      --cream:     #FDFCFA;
+      --off:       #F4F0EB;
+      --stone:     #C9C3BB;
+      --ink:       #2E2A26;
+      --mid:       #6B6460;
+      --faint:     #9E9890;
+    }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Jost', sans-serif; background: #fff; color: var(--ink); overflow-x: hidden; }
+
+    /* AGE GATE */
+    #age-gate { position: fixed; inset: 0; background: #fff; z-index: 9999; display: flex; align-items: center; justify-content: center; flex-direction: column; text-align: center; padding: 2rem; transition: opacity 0.5s ease; }
+    #age-gate.gone { opacity: 0; pointer-events: none; }
+    .gate-mark { font-family: 'Cormorant Garamond', serif; font-size: clamp(2.4rem,6vw,3.8rem); font-weight: 300; letter-spacing: 0.18em; color: var(--marble); }
+    .gate-mark em { color: var(--mint-deep); font-style: normal; }
+    .gate-rule { width: 32px; height: 1px; background: var(--stone); margin: 1.8rem auto; }
+    .gate-h { font-family: 'Cormorant Garamond', serif; font-size: clamp(1.2rem,3vw,1.55rem); font-weight: 300; margin-bottom: 0.6rem; }
+    .gate-p { font-size: 0.83rem; font-weight: 300; color: var(--faint); max-width: 290px; line-height: 1.7; margin-bottom: 2.2rem; }
+    .gate-btn { background: var(--ink); color: #fff; border: none; padding: 0.9rem 2.8rem; font-family: 'Jost', sans-serif; font-size: 0.74rem; font-weight: 500; letter-spacing: 0.16em; text-transform: uppercase; cursor: pointer; transition: background 0.2s; margin-bottom: 0.9rem; display: block; }
+    .gate-btn:hover { background: var(--mint-deep); }
+    .gate-no { background: none; border: none; font-size: 0.77rem; color: var(--stone); cursor: pointer; text-decoration: underline; font-family: 'Jost', sans-serif; }
+    .gate-fine { margin-top: 1.8rem; font-size: 0.7rem; color: var(--stone); max-width: 270px; line-height: 1.6; }
+
+    /* NAV */
+    nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; padding: 1.3rem 3rem; display: flex; align-items: center; justify-content: space-between; background: rgba(255,255,255,0.4); backdrop-filter: blur(20px); border-bottom: 1px solid rgba(255,255,255,0.2); transition: background 0.3s; }
+    nav.scrolled { background: rgba(255,255,255,0.92); border-bottom: 1px solid rgba(201,195,187,0.2); }
+    .nav-mark { font-family: 'Cormorant Garamond', serif; font-size: 1.35rem; font-weight: 300; letter-spacing: 0.14em; color: #fff; text-decoration: none; transition: color 0.3s; text-shadow: 0 1px 8px rgba(0,0,0,0.3); }
+    nav.scrolled .nav-mark { color: var(--marble); text-shadow: none; }
+    .nav-mark em { color: var(--mint); font-style: normal; }
+    nav.scrolled .nav-mark em { color: var(--mint-deep); }
+    .nav-links { display: flex; gap: 2.2rem; list-style: none; }
+    .nav-links a { font-size: 0.74rem; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(255,255,255,0.95); text-decoration: none; transition: color 0.2s; text-shadow: 0 1px 4px rgba(0,0,0,0.2); }
+    nav.scrolled .nav-links a { color: var(--mid); text-shadow: none; }
+    .nav-links a:hover { color: var(--mint); }
+    nav.scrolled .nav-links a:hover { color: var(--mint-deep); }
+    .nav-cta { background: rgba(255,255,255,0.15); color: #fff; padding: 0.55rem 1.4rem; font-size: 0.73rem; letter-spacing: 0.1em; text-transform: uppercase; text-decoration: none; transition: all 0.2s; backdrop-filter: blur(10px); border: 1px solid rgba(255,255,255,0.3); }
+    .nav-cta:hover { background: var(--mint-deep); border-color: var(--mint-deep); }
+    nav.scrolled .nav-cta { background: var(--ink); border-color: var(--ink); }
+    nav.scrolled .nav-cta:hover { background: var(--mint-deep); border-color: var(--mint-deep); }
+    @media(max-width:720px){ .nav-links { display: none; } nav { padding: 1rem 1.4rem; } }
+
+    /* HERO with VIDEO */
+    #hero {
+      position: relative;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 6rem 2rem 4rem;
+      overflow: hidden;
+    }
+    .hero-video {
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      object-fit: cover;
+      z-index: 1;
+    }
+    .hero-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        180deg,
+        rgba(0,0,0,0.15) 0%,
+        rgba(0,0,0,0.05) 40%,
+        rgba(0,0,0,0.45) 100%
+      );
+      z-index: 2;
+    }
+    .hero-content {
+      position: relative;
+      z-index: 3;
+      text-align: center;
+      max-width: 800px;
+      width: 100%;
+    }
+    .hero-eyebrow { font-size: 0.72rem; letter-spacing: 0.26em; text-transform: uppercase; color: #fff; margin-bottom: 2rem; text-shadow: 0 1px 12px rgba(0,0,0,0.5); }
+    .hero-brand { font-family: 'Cormorant Garamond', serif; font-size: clamp(3.5rem,11vw,8rem); font-weight: 300; letter-spacing: 0.12em; color: #fff; line-height: 1; text-shadow: 0 2px 24px rgba(0,0,0,0.4); margin-bottom: 0.1em; }
+    .hero-amp { font-family: 'Cormorant Garamond', serif; font-size: clamp(2rem,6vw,4.2rem); font-weight: 300; letter-spacing: 0.22em; color: var(--mint); line-height: 1; text-shadow: 0 2px 18px rgba(0,0,0,0.5); margin-bottom: 2.5rem; font-style: italic; }
+    .hero-rule { width: 44px; height: 1px; background: rgba(255,255,255,0.6); margin: 0 auto 2rem; }
+    .hero-tagline { font-family: 'Cormorant Garamond', serif; font-size: clamp(1.1rem,2.6vw,1.55rem); font-style: italic; font-weight: 300; color: rgba(255,255,255,0.95); margin-bottom: 0.6rem; text-shadow: 0 1px 12px rgba(0,0,0,0.4); }
+    .hero-sub { font-size: 0.82rem; font-weight: 400; color: rgba(255,255,255,0.85); margin-bottom: 3rem; letter-spacing: 0.08em; text-shadow: 0 1px 8px rgba(0,0,0,0.4); }
+    .hero-btns { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
+    .btn-mint { background: var(--mint-deep); color: #fff; padding: 1rem 2.4rem; font-size: 0.78rem; letter-spacing: 0.14em; text-transform: uppercase; text-decoration: none; transition: all 0.22s; border: 1px solid var(--mint-deep); box-shadow: 0 4px 24px rgba(111,168,132,0.4); }
+    .btn-mint:hover { background: #fff; color: var(--ink); border-color: #fff; }
+    .btn-glass { background: rgba(255,255,255,0.1); color: #fff; padding: 1rem 2.4rem; font-size: 0.78rem; letter-spacing: 0.14em; text-transform: uppercase; text-decoration: none; border: 1px solid rgba(255,255,255,0.5); transition: all 0.22s; backdrop-filter: blur(10px); }
+    .btn-glass:hover { background: rgba(255,255,255,0.95); color: var(--ink); border-color: #fff; }
+
+    /* SHARED */
+    section { padding: 6rem 2rem; }
+    .wrap { max-width: 1080px; margin: 0 auto; }
+    .label { font-size: 0.68rem; letter-spacing: 0.22em; text-transform: uppercase; color: var(--mint-deep); margin-bottom: 1.1rem; }
+    .section-title { font-family: 'Cormorant Garamond', serif; font-size: clamp(2rem,4.5vw,3rem); font-weight: 300; line-height: 1.15; margin-bottom: 1.2rem; }
+    .section-body { font-size: 0.88rem; font-weight: 300; color: var(--mid); line-height: 1.85; max-width: 500px; }
+
+    /* HOW */
+    #how { background: var(--off); }
+    .how-head { margin-bottom: 3.5rem; }
+    .how-table { border-top: 1px solid var(--stone); }
+    .how-row { display: grid; grid-template-columns: 160px 1fr; gap: 2.5rem; padding: 2.2rem 0; border-bottom: 1px solid rgba(201,195,187,0.4); align-items: start; }
+    .how-tag { font-family: 'Cormorant Garamond', serif; font-size: 1rem; font-style: italic; color: var(--marble); padding-top: 0.3rem; }
+    .how-body h3 { font-family: 'Cormorant Garamond', serif; font-size: 1.4rem; font-weight: 400; color: var(--ink); margin-bottom: 0.4rem; }
+    .how-body p { font-size: 0.85rem; font-weight: 300; color: var(--mid); line-height: 1.78; }
+    @media(max-width:600px){ .how-row { grid-template-columns: 1fr; gap: 0.4rem; } }
+
+    /* CUTOFF */
+    .cutoff-band { background: #fff; border-top: 1px solid var(--stone); border-bottom: 1px solid var(--stone); padding: 2.2rem 2rem; }
+    .cutoff-inner { max-width: 1080px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1.5rem; }
+    .cutoff-label { font-size: 0.66rem; letter-spacing: 0.22em; text-transform: uppercase; color: var(--mint-deep); margin-bottom: 0.4rem; }
+    .cutoff-text { font-family: 'Cormorant Garamond', serif; font-size: clamp(1.3rem,2.6vw,1.7rem); font-weight: 300; color: var(--ink); line-height: 1.4; }
+    .cutoff-text em { font-style: italic; color: var(--mint-deep); }
+    .cutoff-time { font-family: 'Cormorant Garamond', serif; font-size: clamp(2.4rem,4vw,3.2rem); font-weight: 300; color: var(--marble); letter-spacing: 0.04em; }
+
+    /* MENU */
+    #menu { background: #fff; }
+    .menu-top { display: flex; justify-content: space-between; align-items: flex-end; flex-wrap: wrap; gap: 1rem; margin-bottom: 3.5rem; }
+    .menu-note { font-size: 0.73rem; font-weight: 300; color: var(--faint); }
+    .cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; margin-bottom: 1.5rem; }
+    @media(max-width:900px){ .cards { grid-template-columns: 1fr; } }
+    .card { background: var(--cream); border: 1px solid var(--stone); padding: 2.2rem; transition: border-color 0.22s, transform 0.22s; display: flex; flex-direction: column; }
+    .card:hover { border-color: var(--mint-deep); transform: translateY(-2px); }
+    .card-type { font-size: 0.64rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--mint-deep); margin-bottom: 1rem; }
+    .card-name { font-family: 'Cormorant Garamond', serif; font-size: 1.7rem; font-weight: 400; color: var(--ink); margin-bottom: 0.3rem; }
+    .card-strain { font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 0.92rem; color: var(--faint); margin-bottom: 1.3rem; }
+    .card-desc { font-size: 0.83rem; font-weight: 300; color: var(--mid); line-height: 1.78; margin-bottom: 1.8rem; flex-grow: 1; }
+    .card-meta { display: flex; gap: 1.4rem; padding-top: 1.4rem; border-top: 1px solid rgba(201,195,187,0.4); margin-bottom: 1.8rem; }
+    .meta-item { display: flex; flex-direction: column; gap: 0.2rem; }
+    .meta-label { font-size: 0.6rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--stone); }
+    .meta-val { font-family: 'Cormorant Garamond', serif; font-size: 1rem; color: var(--ink); }
+    .card-price { font-family: 'Cormorant Garamond', serif; font-size: 1.7rem; color: var(--ink); }
+    .card-price small { font-family: 'Jost', sans-serif; font-size: 0.76rem; font-weight: 300; color: var(--faint); display: block; margin-top: 0.2rem; }
+    .preroll-strip { background: var(--off); border: 1px solid var(--stone); padding: 2.4rem 2.8rem; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1.5rem; }
+    .preroll-strip h3 { font-family: 'Cormorant Garamond', serif; font-size: 1.65rem; font-weight: 300; color: var(--ink); margin-bottom: 0.4rem; }
+    .preroll-strip p { font-size: 0.82rem; font-weight: 300; color: var(--mid); line-height: 1.65; max-width: 380px; }
+    .preroll-price { font-family: 'Cormorant Garamond', serif; font-size: 2rem; color: var(--mint-deep); white-space: nowrap; }
+    .preroll-price small { display: block; font-family: 'Jost', sans-serif; font-size: 0.73rem; color: var(--faint); margin-top: 0.2rem; }
+
+    /* ZONE */
+    #zone { background: var(--off); }
+    .zone-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: center; }
+    .zone-visual { aspect-ratio: 1; background: #fff; border: 1px solid var(--stone); display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 1rem; position: relative; overflow: hidden; }
+    .zone-visual::before { content: ''; position: absolute; inset: 0; background: radial-gradient(circle at 50% 50%, rgba(168,213,186,0.1) 0%, transparent 65%); }
+    .zone-icon { font-size: 2.5rem; position: relative; }
+    .zone-caption { font-family: 'Cormorant Garamond', serif; font-size: 1.1rem; color: var(--mid); text-align: center; position: relative; }
+    .zone-caption strong { display: block; font-family: 'Jost', sans-serif; font-size: 0.65rem; font-weight: 500; letter-spacing: 0.16em; text-transform: uppercase; color: var(--mint-deep); margin-bottom: 0.4rem; }
+    .zone-stats { display: flex; gap: 2rem; margin-top: 2rem; flex-wrap: wrap; }
+    .stat { display: flex; flex-direction: column; gap: 0.25rem; }
+    .stat-label { font-size: 0.63rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--stone); }
+    .stat-val { font-family: 'Cormorant Garamond', serif; font-size: 1.55rem; color: var(--ink); }
+    .hours-block { margin-top: 2.5rem; padding-top: 2rem; border-top: 1px solid var(--stone); }
+    .hours-label { font-size: 0.65rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--mint-deep); margin-bottom: 1rem; }
+    .hours-row { display: flex; justify-content: space-between; font-size: 0.84rem; font-weight: 300; color: var(--mid); padding: 0.4rem 0; border-bottom: 1px solid rgba(201,195,187,0.22); }
+    .hours-row:last-child { border-bottom: none; }
+    .hours-row span:first-child { color: var(--ink); font-weight: 400; }
+    .zone-callout { margin-top: 2.5rem; padding: 1.6rem 1.8rem; background: #fff; border-left: 3px solid var(--mint-deep); }
+    .zone-callout-label { font-size: 0.65rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--mint-deep); margin-bottom: 0.6rem; }
+    .zone-callout-body { font-size: 0.86rem; font-weight: 300; color: var(--mid); line-height: 1.75; }
+    .zone-callout-body strong { color: var(--ink); font-weight: 500; }
+    @media(max-width:720px){ .zone-grid { grid-template-columns: 1fr; gap: 2.5rem; } }
+
+    /* ORDER */
+    #order { background: #fff; }
+    .order-wrap { max-width: 640px; margin: 0 auto; }
+    .order-head { text-align: center; margin-bottom: 3.5rem; }
+    .order-head .section-body { margin: 0 auto; text-align: center; }
+    .form-box { background: var(--cream); border: 1px solid var(--stone); padding: 2.8rem; }
+    .f-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1.2rem; margin-bottom: 1.2rem; }
+    .f-group { display: flex; flex-direction: column; gap: 0.42rem; margin-bottom: 1.2rem; }
+    .f-label { font-size: 0.65rem; letter-spacing: 0.13em; text-transform: uppercase; color: var(--mid); }
+    input, select, textarea { width: 100%; padding: 0.8rem 0.95rem; border: 1px solid var(--stone); background: #fff; font-family: 'Jost', sans-serif; font-size: 0.86rem; font-weight: 300; color: var(--ink); outline: none; transition: border-color 0.18s; appearance: none; }
+    input:focus, select:focus, textarea:focus { border-color: var(--mint-deep); }
+    textarea { resize: vertical; min-height: 78px; }
+    .f-rule { width: 100%; height: 1px; background: rgba(201,195,187,0.4); margin: 1.6rem 0; }
+    .qty-row { display: flex; align-items: center; gap: 1rem; padding: 0.88rem 1rem; border: 1px solid var(--stone); background: #fff; margin-bottom: 0.6rem; transition: border-color 0.18s; }
+    .qty-row:focus-within { border-color: var(--mint-deep); }
+    .qty-name { flex: 1; font-size: 0.83rem; font-weight: 300; color: var(--ink); }
+    .qty-p { font-family: 'Cormorant Garamond', serif; font-size: 1rem; color: var(--mid); min-width: 46px; text-align: right; }
+    .qty-input { width: 52px; text-align: center; padding: 0.35rem; border: 1px solid var(--stone); background: var(--cream); font-size: 0.86rem; }
+    .strain-select { width: auto; padding: 0.5rem 1.8rem 0.5rem 0.7rem; border: 1px solid var(--stone); background: var(--cream); font-family: 'Jost', sans-serif; font-size: 0.78rem; font-weight: 300; color: var(--mid); cursor: pointer; background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='10' height='6' viewBox='0 0 10 6'><path d='M1 1l4 4 4-4' stroke='%236FA884' stroke-width='1.2' fill='none'/></svg>"); background-repeat: no-repeat; background-position: right 0.6rem center; }
+    .strain-select:focus { border-color: var(--mint-deep); outline: none; }
+    .preroll-row { gap: 0.6rem; }
+    @media(max-width:520px){
+      .preroll-row { flex-wrap: wrap; }
+      .strain-select { flex: 1; }
+    }
+    .total-bar { display: flex; justify-content: space-between; align-items: center; padding: 1.2rem 0; border-top: 1px solid var(--stone); border-bottom: 1px solid var(--stone); margin: 1.4rem 0; }
+    .total-label { font-size: 0.67rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--mid); }
+    .total-amt { font-family: 'Cormorant Garamond', serif; font-size: 1.85rem; color: var(--ink); }
+    .pay-note { padding: 1rem 1.1rem; background: #fff; border-left: 3px solid var(--mint-deep); margin-bottom: 1.4rem; }
+    .pay-note p { font-size: 0.79rem; font-weight: 300; color: var(--mid); line-height: 1.55; }
+    .pay-note p strong { color: var(--ink); font-weight: 500; }
+    .age-row { display: flex; align-items: flex-start; gap: 0.7rem; padding: 1.1rem; background: var(--off); border: 1px solid var(--stone); margin-bottom: 1.4rem; }
+    .age-row input[type=checkbox] { width: 16px; min-width: 16px; height: 16px; margin-top: 2px; accent-color: var(--mint-deep); }
+    .age-row label { font-size: 0.79rem; font-weight: 300; color: var(--mid); line-height: 1.55; cursor: pointer; }
+    .submit { width: 100%; background: var(--ink); color: #fff; border: none; padding: 1.2rem; font-family: 'Jost', sans-serif; font-size: 0.77rem; letter-spacing: 0.15em; text-transform: uppercase; cursor: pointer; transition: background 0.22s; }
+    .submit:hover { background: var(--mint-deep); }
+    .form-fine { text-align: center; font-size: 0.71rem; font-weight: 300; color: var(--stone); margin-top: 1.1rem; line-height: 1.6; }
+    #confirm { display: none; background: var(--cream); border: 1px solid var(--mint-deep); padding: 3rem; text-align: center; margin-top: 2rem; }
+    #confirm h3 { font-family: 'Cormorant Garamond', serif; font-size: 1.85rem; color: var(--ink); margin-bottom: 1rem; }
+    #confirm p { font-size: 0.86rem; font-weight: 300; color: var(--mid); line-height: 1.78; }
+    @media(max-width:600px){ .f-row { grid-template-columns: 1fr; } .form-box { padding: 1.8rem 1.2rem; } }
+
+    /* FOOTER */
+    footer { background: var(--off); border-top: 1px solid var(--stone); padding: 4.5rem 2rem 2.5rem; }
+    .footer-grid { max-width: 1080px; margin: 0 auto; display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 4rem; }
+    .footer-mark { font-family: 'Cormorant Garamond', serif; font-size: 1.85rem; font-weight: 300; letter-spacing: 0.12em; color: var(--marble); margin-bottom: 0.9rem; }
+    .footer-mark em { color: var(--mint-deep); font-style: normal; }
+    .footer-desc { font-size: 0.82rem; font-weight: 300; color: var(--mid); line-height: 1.75; max-width: 270px; margin-bottom: 1.2rem; }
+    .footer-seo { font-size: 0.72rem; font-weight: 300; color: rgba(158,152,144,0.5); line-height: 1.7; }
+    .footer-col h4 { font-size: 0.65rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--ink); margin-bottom: 1.2rem; }
+    .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 0.7rem; }
+    .footer-col a { font-size: 0.82rem; font-weight: 300; color: var(--mid); text-decoration: none; transition: color 0.18s; }
+    .footer-col a:hover { color: var(--mint-deep); }
+    .footer-bottom { max-width: 1080px; margin: 3rem auto 0; padding-top: 1.8rem; border-top: 1px solid rgba(201,195,187,0.5); display: flex; justify-content: space-between; flex-wrap: wrap; gap: 1rem; }
+    .footer-bottom p { font-size: 0.7rem; font-weight: 300; color: var(--stone); }
+    @media(max-width:720px){ .footer-grid { grid-template-columns: 1fr; gap: 2.5rem; } }
+  </style>
+</head>
+<body>
+
+<!-- AGE GATE -->
+<div id="age-gate">
+  <div class="gate-mark">MARBLE <em>&amp; MINT</em></div>
+  <div class="gate-rule"></div>
+  <h2 class="gate-h">Are you 21 or older?</h2>
+  <p class="gate-p">Marble &amp; Mint delivers hemp-derived THCA products. You must be 21 or older to enter. Valid ID required at delivery.</p>
+  <button class="gate-btn" onclick="enterSite()">Yes, I am 21 or older</button>
+  <button class="gate-no" onclick="window.location.href='https://google.com'">No, take me back</button>
+  <p class="gate-fine">By entering you confirm you are of legal age and agree to our terms.</p>
+</div>
+
+<!-- NAV -->
+<nav id="nav">
+  <a href="#hero" class="nav-mark">MARBLE <em>&amp; MINT</em></a>
+  <ul class="nav-links">
+    <li><a href="#how">How It Works</a></li>
+    <li><a href="#menu">Menu</a></li>
+    <li><a href="#zone">Delivery Zone</a></li>
+  </ul>
+  <a href="#order" class="nav-cta">Order Now</a>
+</nav>
+
+<!-- HERO with VIDEO BACKGROUND -->
+<section id="hero">
+  <video class="hero-video" autoplay muted loop playsinline preload="auto">
+    <source src="marble-mint-hero.mp4" type="video/mp4" />
+  </video>
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <p class="hero-eyebrow">Wake Forest &amp; Rolesville, NC</p>
+    <div class="hero-brand">MARBLE</div>
+    <div class="hero-amp">&amp; Mint</div>
+    <div class="hero-rule"></div>
+    <p class="hero-tagline">Premium THCA, delivered to your door.</p>
+    <p class="hero-sub">Order by 4:20 PM &nbsp;·&nbsp; Delivery begins at 4:20 PM</p>
+    <div class="hero-btns">
+      <a href="#order" class="btn-mint">Place an Order</a>
+      <a href="#menu" class="btn-glass">View Menu</a>
+    </div>
+  </div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section id="how">
+  <div class="wrap">
+    <div class="how-head">
+      <p class="label">The Experience</p>
+      <h2 class="section-title">Simple, discreet,<br>at your door.</h2>
+      <p class="section-body">No dispensary lines. No smoke shop small talk. Just premium THCA delivered to our clients across Wake Forest and Rolesville every day after 4:20 PM.</p>
+    </div>
+    <div class="how-table">
+      <div class="how-row">
+        <div class="how-tag">Verify &amp; Order</div>
+        <div class="how-body">
+          <h3>Browse and place your order online.</h3>
+          <p>Confirm you are 21+ and select from our curated menu of premium THCA flower and pre-rolls. The whole process takes under two minutes. Order by 4:20 PM to lock in your same-day delivery.</p>
+        </div>
+      </div>
+      <div class="how-row">
+        <div class="how-tag">Pay via CashApp</div>
+        <div class="how-body">
+          <h3>We text you our CashApp details.</h3>
+          <p>After your order is submitted you will receive our CashApp tag. Payment confirms your order and reserves your spot in the day's delivery route.</p>
+        </div>
+      </div>
+      <div class="how-row">
+        <div class="how-tag">Delivery After 4:20</div>
+        <div class="how-body">
+          <h3>Deliveries begin at 4:20 PM daily.</h3>
+          <p>All same-day orders go out together starting at 4:20 PM. Your order arrives discreetly packaged. Our driver verifies your ID at the door. No labels, no drama.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CUTOFF BAND -->
+<div class="cutoff-band">
+  <div class="cutoff-inner">
+    <div>
+      <p class="cutoff-label">Same-Day Delivery</p>
+      <p class="cutoff-text">Order by <em>4:20 PM</em> — deliveries begin at <em>4:20 PM</em>.</p>
+    </div>
+    <div class="cutoff-time">4:20<span style="font-size:0.5em;color:var(--faint);"> PM</span></div>
+  </div>
+</div>
+
+<!-- MENU -->
+<section id="menu">
+  <div class="wrap">
+    <div class="menu-top">
+      <div>
+        <p class="label">The Menu</p>
+        <h2 class="section-title">Three strains. One standard.</h2>
+        <p class="section-body">Every batch is third-party lab tested with a current COA on file. We keep it simple so we keep it excellent.</p>
+      </div>
+      <p class="menu-note">Strains rotate seasonally.</p>
+    </div>
+    <div class="cards">
+      <div class="card">
+        <p class="card-type">Sativa Dominant &bull; Flower</p>
+        <h3 class="card-name">The Morning</h3>
+        <p class="card-strain">Premium Indoor THCA Flower</p>
+        <p class="card-desc">Light, focused, and clear. Uplifting without the edge. The one you reach for before the weekend starts or when you want to be present.</p>
+        <div class="card-meta">
+          <div class="meta-item"><span class="meta-label">THCA</span><span class="meta-val">~22%</span></div>
+          <div class="meta-item"><span class="meta-label">Format</span><span class="meta-val">3.5g / 7g</span></div>
+          <div class="meta-item"><span class="meta-label">Tested</span><span class="meta-val">Yes ✓</span></div>
+        </div>
+        <div class="card-price">$45<small>3.5g &nbsp;·&nbsp; $80 / 7g</small></div>
+      </div>
+      <div class="card">
+        <p class="card-type">Hybrid &bull; Flower</p>
+        <h3 class="card-name">The Afternoon</h3>
+        <p class="card-strain">Premium Indoor THCA Flower</p>
+        <p class="card-desc">Balanced and easy. A versatile hybrid that lifts without the edge and softens without the fade. The middle gear — built for any moment.</p>
+        <div class="card-meta">
+          <div class="meta-item"><span class="meta-label">THCA</span><span class="meta-val">~23%</span></div>
+          <div class="meta-item"><span class="meta-label">Format</span><span class="meta-val">3.5g / 7g</span></div>
+          <div class="meta-item"><span class="meta-label">Tested</span><span class="meta-val">Yes ✓</span></div>
+        </div>
+        <div class="card-price">$45<small>3.5g &nbsp;·&nbsp; $80 / 7g</small></div>
+      </div>
+      <div class="card">
+        <p class="card-type">Indica Dominant &bull; Flower</p>
+        <h3 class="card-name">The Evening</h3>
+        <p class="card-strain">Premium Indoor THCA Flower</p>
+        <p class="card-desc">Dense, resinous, built for winding down. Deep relaxation without the fog. Made for quiet evenings, real rest, and nights you actually enjoy.</p>
+        <div class="card-meta">
+          <div class="meta-item"><span class="meta-label">THCA</span><span class="meta-val">~24%</span></div>
+          <div class="meta-item"><span class="meta-label">Format</span><span class="meta-val">3.5g / 7g</span></div>
+          <div class="meta-item"><span class="meta-label">Tested</span><span class="meta-val">Yes ✓</span></div>
+        </div>
+        <div class="card-price">$45<small>3.5g &nbsp;·&nbsp; $80 / 7g</small></div>
+      </div>
+    </div>
+    <div class="preroll-strip">
+      <div class="preroll-strip-left">
+        <h3>House Pre-Rolls</h3>
+        <p>Hand-rolled from any of our three strains. No shake, no trim — same premium flower, ready to go. Choose your strain at checkout.</p>
+      </div>
+      <div class="preroll-price">$14 / $35<small>Single &nbsp;|&nbsp; 3-Pack</small></div>
+    </div>
+  </div>
+</section>
+
+<!-- ZONE -->
+<section id="zone">
+  <div class="wrap">
+    <div class="zone-grid">
+      <div class="zone-visual">
+        <div class="zone-icon">📍</div>
+        <div class="zone-caption">
+          <strong>Current Delivery Zone</strong>
+          Wake Forest &amp; Rolesville, NC<br>
+          <span style="font-size:0.78rem;color:var(--stone);">~10 mile radius</span>
+        </div>
+      </div>
+      <div>
+        <p class="label">Delivery Zone</p>
+        <h2 class="section-title">Wake Forest<br>&amp; Rolesville.</h2>
+        <p class="section-body">We run a tight radius so we can guarantee fast, consistent service to our clients. Currently serving Wake Forest, Rolesville, and surrounding neighborhoods within 10 miles.</p>
+        <div class="zone-stats">
+          <div class="stat"><span class="stat-label">Order Cutoff</span><span class="stat-val">4:20 PM</span></div>
+          <div class="stat"><span class="stat-label">Delivery Begins</span><span class="stat-val">4:20 PM</span></div>
+          <div class="stat"><span class="stat-label">Order Min</span><span class="stat-val">$35</span></div>
+          <div class="stat"><span class="stat-label">Delivery</span><span class="stat-val">$5</span></div>
+        </div>
+        <div class="zone-callout">
+          <p class="zone-callout-label">How It Runs</p>
+          <p class="zone-callout-body">Place your order any time before <strong>4:20 PM</strong>. All same-day orders are delivered together starting at <strong>4:20 PM</strong>. No appointments, no windows, no waiting at home all day.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ORDER -->
+<section id="order">
+  <div class="order-wrap">
+    <div class="order-head">
+      <p class="label">Place Your Order</p>
+      <h2 class="section-title">Ready when you are.</h2>
+      <p class="section-body">Order by 4:20 PM for same-day delivery. Deliveries begin at 4:20 PM and run through the evening.</p>
+    </div>
+    <div class="form-box">
+      <div class="f-row">
+        <div class="f-group"><label class="f-label">First Name</label><input type="text" id="fname" placeholder="Your first name" /></div>
+        <div class="f-group"><label class="f-label">Last Name</label><input type="text" id="lname" placeholder="Your last name" /></div>
+      </div>
+      <div class="f-row">
+        <div class="f-group"><label class="f-label">Phone Number</label><input type="tel" id="phone" placeholder="(919) 555-0000" /></div>
+        <div class="f-group"><label class="f-label">Email (optional)</label><input type="email" id="email" placeholder="you@email.com" /></div>
+      </div>
+      <div class="f-group"><label class="f-label">Delivery Address</label><input type="text" id="address" placeholder="Street address, Wake Forest or Rolesville, NC" /></div>
+      <div class="f-rule"></div>
+      <p class="label" style="margin-bottom:1rem;">Select Your Items</p>
+      <div class="qty-row"><div class="qty-name">The Morning — Sativa, 3.5g</div><div class="qty-p">$45</div><input type="number" class="qty-input" min="0" max="10" value="0" onchange="calcTotal()" /></div>
+      <div class="qty-row"><div class="qty-name">The Morning — Sativa, 7g</div><div class="qty-p">$80</div><input type="number" class="qty-input" min="0" max="10" value="0" onchange="calcTotal()" /></div>
+      <div class="qty-row"><div class="qty-name">The Afternoon — Hybrid, 3.5g</div><div class="qty-p">$45</div><input type="number" class="qty-input" min="0" max="10" value="0" onchange="calcTotal()" /></div>
+      <div class="qty-row"><div class="qty-name">The Afternoon — Hybrid, 7g</div><div class="qty-p">$80</div><input type="number" class="qty-input" min="0" max="10" value="0" onchange="calcTotal()" /></div>
+      <div class="qty-row"><div class="qty-name">The Evening — Indica, 3.5g</div><div class="qty-p">$45</div><input type="number" class="qty-input" min="0" max="10" value="0" onchange="calcTotal()" /></div>
+      <div class="qty-row"><div class="qty-name">The Evening — Indica, 7g</div><div class="qty-p">$80</div><input type="number" class="qty-input" min="0" max="10" value="0" onchange="calcTotal()" /></div>
+
+      <div class="qty-row preroll-row">
+        <div class="qty-name">House Pre-Roll — Single</div>
+        <select class="strain-select"><option value="Morning">The Morning</option><option value="Afternoon">The Afternoon</option><option value="Evening">The Evening</option></select>
+        <div class="qty-p">$14</div>
+        <input type="number" class="qty-input" min="0" max="10" value="0" onchange="calcTotal()" />
+      </div>
+      <div class="qty-row preroll-row">
+        <div class="qty-name">House Pre-Roll — 3-Pack</div>
+        <select class="strain-select"><option value="Morning">The Morning</option><option value="Afternoon">The Afternoon</option><option value="Evening">The Evening</option><option value="Mixed">Mixed (one of each)</option></select>
+        <div class="qty-p">$35</div>
+        <input type="number" class="qty-input" min="0" max="10" value="0" onchange="calcTotal()" />
+      </div>
+
+      <div class="f-group" style="margin-top:1.2rem;"><label class="f-label">Delivery Notes (optional)</label><textarea id="notes" placeholder="Gate codes, specific instructions..."></textarea></div>
+      <div class="f-rule"></div>
+      <div class="total-bar"><span class="total-label">Order Total</span><span class="total-amt" id="total-display">$0</span></div>
+      <div class="pay-note"><p><strong>Payment via CashApp.</strong> After submitting we will text you our CashApp $tag. Payment confirms your order and locks in your spot in today's delivery route. Order by 4:20 PM — deliveries begin at 4:20 PM.</p></div>
+      <div class="age-row">
+        <input type="checkbox" id="age-check" />
+        <label for="age-check">I confirm I am 21 years of age or older and understand that valid government-issued photo ID is required at delivery.</label>
+      </div>
+      <button class="submit" onclick="submitOrder()">Submit Order</button>
+      <p class="form-fine">Hemp-derived THCA products. NC compliant. Adults 21+ only. Wake Forest &amp; Rolesville delivery only. Order by 4:20 PM for same-day delivery.</p>
+    </div>
+    <div id="confirm">
+      <h3>Order Received</h3>
+      <p>You will receive a text within 5 minutes with our CashApp $tag. Once payment is confirmed, your order is locked in for today's 4:20 PM delivery route. Welcome to the client list.</p>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-grid">
+    <div>
+      <div class="footer-mark">MARBLE <em>&amp; MINT</em></div>
+      <p class="footer-desc">Premium THCA delivery for clients in Wake Forest and Rolesville, NC. Order by 4:20 PM — deliveries begin at 4:20 PM.</p>
+      <p class="footer-seo">Marble &amp; Mint is Wake Forest's premier THCA flower delivery service. We deliver hemp-derived THCA products to clients throughout Wake Forest NC, Rolesville NC, and the surrounding Triangle area. All products are third-party lab tested, compliant with North Carolina hemp law, and available to adults 21 and older.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Navigate</h4>
+      <ul>
+        <li><a href="#how">How It Works</a></li>
+        <li><a href="#menu">Menu</a></li>
+        <li><a href="#zone">Delivery Zone</a></li>
+        <li><a href="#order">Order Now</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Info</h4>
+      <ul>
+        <li><a href="#order">Wake Forest Delivery</a></li>
+        <li><a href="#order">Rolesville Delivery</a></li>
+        <li><a href="#zone">Delivery Info</a></li>
+        <li><a href="mailto:hello@marbleandmint.com">Contact</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>&copy; 2025 Marble &amp; Mint LLC. All rights reserved. Wake Forest, NC.</p>
+    <p>Hemp-derived THCA. Adults 21+ only. NC compliant.</p>
+  </div>
+</footer>
+
+<script>
+function enterSite() {
+  const g = document.getElementById('age-gate');
+  g.classList.add('gone');
+  setTimeout(() => g.style.display = 'none', 520);
+  sessionStorage.setItem('mmv','1');
+}
+if (sessionStorage.getItem('mmv')) document.getElementById('age-gate').style.display = 'none';
+
+// Nav scroll behavior
+const nav = document.getElementById('nav');
+window.addEventListener('scroll', () => {
+  if (window.scrollY > 80) nav.classList.add('scrolled');
+  else nav.classList.remove('scrolled');
+});
+
+// Order
+const prices = [45,80,45,80,45,80,14,35];
+function calcTotal() {
+  const inputs = document.querySelectorAll('.qty-input');
+  let sub=0;
+  inputs.forEach((el,i) => sub+=parseInt(el.value||0)*prices[i]);
+  const delivery = sub>=60?0:sub>0?5:0;
+  const total = sub+delivery;
+  document.getElementById('total-display').textContent =
+    total>0 ? `$${total}${delivery>0?' (+ $5 delivery)':' (free delivery)'}` : '$0';
+}
+
+function submitOrder() {
+  const fname=document.getElementById('fname').value.trim();
+  const phone=document.getElementById('phone').value.trim();
+  const address=document.getElementById('address').value.trim();
+  const checked=document.getElementById('age-check').checked;
+  const inputs=document.querySelectorAll('.qty-input');
+  let sub=0; inputs.forEach((el,i)=>sub+=parseInt(el.value||0)*prices[i]);
+  if(!fname||!phone||!address){alert('Please fill in your name, phone, and delivery address.');return;}
+  if(!checked){alert('Please confirm you are 21 or older.');return;}
+  if(sub<35){alert(`Minimum order is $35. Your current subtotal is $${sub}.`);return;}
+  document.querySelector('.form-box').style.display='none';
+  const c=document.getElementById('confirm');
+  c.style.display='block'; c.scrollIntoView({behavior:'smooth'});
+}
+
+document.querySelectorAll('a[href^="#"]').forEach(a=>{
+  a.addEventListener('click',e=>{
+    e.preventDefault();
+    const t=document.querySelector(a.getAttribute('href'));
+    if(t) t.scrollIntoView({behavior:'smooth'});
+  });
+});
+</script>
+</body>
+</html>
